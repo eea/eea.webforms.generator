@@ -4,12 +4,12 @@ import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
 
 
-class EEAWebForms {
+class XSDWebForm {
 
-    constructor() {
+    constructor(xsdFile) {
 
         new Promise((resolve, reject) => {
-            fs.readFile('test.xsd', 'utf8', function(err, data) {
+            fs.readFile(xsdFile, 'utf8', function(err, data) {
                 if (err) {
                     console.log(err);
                 }
@@ -40,4 +40,4 @@ class EEAWebForms {
 
 }
 
-new EEAWebForms();
+new XSDWebForm('test.xsd');
