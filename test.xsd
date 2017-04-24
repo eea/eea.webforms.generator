@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+  <xs:element name="ConcludedTransfersQuestionnaire">
+    <xs:annotation>
+            <xs:documentation>
+
+                XML Schema for Reporting on summary information on concluded transfers
+
+                Reporting obligation: http://cdr.eionet.europa.eu/??
+                Obligation title:
+
+                Reporting year 2014.
+
+                The reporting is done through online questionnaire in CDR envelope. The online questionnaire saves the data
+                automatically in XML format.
+
+                The reported XML files have to conform XML Schema definition below.
+                The official schema location is: 
+
+                An empty XML file can be downloaded here:
+                
+
+                Version History:
+                v1.0 () - the first released version.
+
+                Version: v1.0.
+
+          </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Transfer" type="ConcludedTransferRecord" minOccurs="1" maxOccurs="1000000" />
+            <xs:element name="TransfersNumber" type="xs:integer" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="TransactionYear">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="2013" />
+            <xs:maxInclusive value="2022" />
+        </xs:restriction>
+  </xs:simpleType>
+
+    <xs:simpleType name="EUCountryName">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Austria"/>
+            <xs:enumeration value="Belgium"/>
+            <xs:enumeration value="Bulgaria"/>
+            <xs:enumeration value="Cyprus"/>
+            <xs:enumeration value="Czech Republic"/>
+            <xs:enumeration value="Germany"/>
+            <xs:enumeration value="Denmark"/>
+            <xs:enumeration value="Estonia"/>
+            <xs:enumeration value="Spain"/>
+            <xs:enumeration value="Finland"/>
+            <xs:enumeration value="France"/>
+            <xs:enumeration value="Greece"/>
+            <xs:enumeration value="Croatia"/>
+            <xs:enumeration value="Hungary"/>
+            <xs:enumeration value="Ireland"/>
+            <xs:enumeration value="Italy"/>
+            <xs:enumeration value="Lithuania"/>
+            <xs:enumeration value="Luxembourg"/>
+            <xs:enumeration value="Latvia"/>
+            <xs:enumeration value="Malta"/>
+            <xs:enumeration value="Netherlands"/>
+            <xs:enumeration value="Poland"/>
+            <xs:enumeration value="Portugal"/>
+            <xs:enumeration value="Romania"/>
+            <xs:enumeration value="Sweden"/>
+            <xs:enumeration value="Slovenia"/>
+            <xs:enumeration value="Slovakia"/>
+            <xs:enumeration value="United Kingdom"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+  <xs:complexType name="ConcludedTransferRecord">
+        <xs:annotation>
+            <xs:documentation>Record of Concluded Transfer</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="AEA" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="TransferringMemberState" type="EUCountryName" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="AcquiringMemberState" type="EUCountryName" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="AEA-Price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="TransferAgreementDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="ExpectedTransactionYear" type="TransactionYear" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="Other" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

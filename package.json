@@ -1,0 +1,23 @@
+{
+  "name": "eea-webforms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "eeawf.js",
+  "dependencies": {
+    "babel-register": "^6.24.1",
+    "npm": "^4.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js --exec babel-node --presets es2015,stage-2",
+    "build": "babel lib -d dist --presets es2015,stage-2"
+  },
+  "author": "George Bouris",
+  "license": "ISC"
+}

@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+  <xs:element name="MMR_PAMs">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation>XML Schema for MMR PAMs Reporting obligation: http://rod.eionet.europa.eu/obligations/696 Obligation title: Policies and measures. Reporting year 2014. The reporting is done through online questionnaire in CDR envelope. The online questionnaire saves the data automatically in XML format. The reported XML files have to conform XML Schema definition below. The official schema location is: https://svn.eionet.europa.eu/repositories/Reportnet/Dataflows/MMR-PAMs/schema/mmr.xsd An empty XML file can be downloaded here: https://svn.eionet.europa.eu/repositories/Reportnet/Dataflows/MMR-PAMs/instance/empty_instance.xml Version History: v1.0 () - the first released version. Version: v1.0.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="MMR_PAM" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:unsignedShort"></xs:element>
+              <xs:element name="Title" type="xs:string"></xs:element>
+              <xs:element name="Table1">
+                <xs:complexType>
+                  <xs:sequence>                                        
+                    <xs:element name="isGroup" type="Table1PamType"></xs:element>
+                    <xs:element name="PolicyGroup" type="PamShort" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="Sectors" type="Table1SectorType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="GreenhouseGases" type="Table1GasType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="Objective" type="Table1ObjectiveType" maxOccurs="unbounded"></xs:element>                    
+                    <xs:element name="ObjectiveOther" type="Table1ObjectiveOtherType"></xs:element>
+                    <xs:element name="ObjectiveQuantified" type="PamString" ></xs:element>
+                    <xs:element name="Description" type="PamString"></xs:element>
+                    <xs:element name="isEnvisaged" type="Table1isEnvisagedType"></xs:element>                    
+                    <xs:element name="PolicyInstrument" type="Table1PolicyInstrumentType" maxOccurs="unbounded"></xs:element>                    
+                    <xs:element name="UnionPolicy" type="Table1UnionPolicyType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="UnionPolicyRelated" type="Table1UnionPolicyRelatedType"></xs:element>
+                    <xs:element name="UnionPolicyOther" type="Table1UnionPolicyOtherType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="Implementation" type="Table1ImplementationType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="ProjectionsScenario" type="Table1ProjectsScenarioType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="Entities" type="Table1EntityType" maxOccurs="unbounded"></xs:element>                                                            
+                    <xs:element name="Indicators" type="Table1IndicatorType" maxOccurs="unbounded"></xs:element>
+                    <xs:element name="Reference" type="Table1ReferenceType"></xs:element>
+                    <xs:element name="Comments" type="PamString"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Table2">
+                <xs:complexType>
+                  <xs:sequence>                    
+                    <xs:element name="PolicyImpact" type="Table2PolicyImpactType" maxOccurs="3"></xs:element>
+                    <xs:element name="ExanteEmissions1" type="Table2ExanteEmissionsType"></xs:element>
+                    <xs:element name="ExanteEmissions2" type="Table2ExanteEmissionsType"></xs:element>
+                    <xs:element name="ExanteEmissions3" type="Table2ExanteEmissionsType"></xs:element>
+                    <xs:element name="ExanteEmissions4" type="Table2ExanteEmissionsType"></xs:element>
+                    <xs:element name="ExanteDocumentation" maxOccurs="unbounded" type="DocumentationType"></xs:element>
+                    <xs:element name="Expost" type="Table2ExpostEmissionsType"  maxOccurs="unbounded"></xs:element>
+                    <xs:element name="BasisExplanation" type="PamString"></xs:element>
+                    <xs:element name="AffectedFactors" type="PamString"></xs:element>
+                    <xs:element name="ExpostDocumentation" maxOccurs="unbounded" type="DocumentationType"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Table3">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Projected" type="CostsBenefitsType"></xs:element>
+                    <xs:element name="Realised" type="CostsBenefitsType"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute ref="xml:lang" use="required"/>
+      <xs:attribute name="labelLanguage" type="xs:string" default="en" />
+    </xs:complexType>
+    <xs:key name="testNumber">
+      <xs:selector xpath="MMR_PAMs/MMR_PAM"></xs:selector>
+      <xs:field xpath="id"></xs:field>
+    </xs:key>
+  </xs:element>
+  <xs:simpleType name="Table1PamType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="single"></xs:enumeration>
+      <xs:enumeration value="group"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Table1SectorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Energy_Supply">
+        <xs:annotation>
+          <xs:documentation>Energy Supply</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Energy_Consumption">
+        <xs:annotation>
+          <xs:documentation>Energy Consumption</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transport">
+        <xs:annotation>
+          <xs:documentation>Transport</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Industrial_Processes">
+        <xs:annotation>
+          <xs:documentation>Industrial Processes</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Agriculture">
+        <xs:annotation>
+          <xs:documentation>Agriculture</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LULUCF">
+        <xs:annotation>
+          <xs:documentation>LULUCF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Waste">
+        <xs:annotation>
+          <xs:documentation>Waste</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cross-cutting">
+        <xs:annotation>
+          <xs:documentation>Cross Cutting</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other Sectors</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Table1GasType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CO2">
+        <xs:annotation>
+          <xs:documentation>Carbon dioxide</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CH4">
+        <xs:annotation>
+          <xs:documentation>Methane</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="N2O">
+        <xs:annotation>
+          <xs:documentation>Nitrous oxide</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HFC">
+        <xs:annotation>
+          <xs:documentation>Hydrofluorocarbons</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PFC">
+        <xs:annotation>
+          <xs:documentation>Perfluorocarbons</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SF6">
+        <xs:annotation>
+          <xs:documentation>Sulphur hexafluoride</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NF3">
+        <xs:annotation>
+          <xs:documentation>Nitrogen trifluoride</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Table1ObjectiveType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(ES|EC|TR|IP|WA|AG|LULUCF|CC)\_.*"></xs:pattern>
+      <xs:whiteSpace value="preserve"/>
+      <xs:maxLength value="400"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table1ObjectiveOtherType">
+    <xs:sequence>
+      <xs:element name="ES" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="EC" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="TR" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="IP" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="AG" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="LULUCF" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="WA" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+      <xs:element name="CC" type="Table1ObjectiveOtherNameType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Table1ObjectiveOtherNameType">
+    <xs:sequence>      
+      <xs:element name="Name" type="PamString"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Table1isEnvisagedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes"></xs:enumeration>
+      <xs:enumeration value="no"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Table1PolicyInstrumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Economic">
+        <xs:annotation>
+          <xs:documentation>Economic</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fiscal">
+        <xs:annotation>
+          <xs:documentation>Fiscal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Voluntary">
+        <xs:annotation>
+          <xs:documentation>Voluntary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Regulatory">
+        <xs:annotation>
+          <xs:documentation>Regulatory</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Information">
+        <xs:annotation>
+          <xs:documentation>Information</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Education">
+        <xs:annotation>
+          <xs:documentation>Education</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Research">
+        <xs:annotation>
+          <xs:documentation>Research</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Planning">
+        <xs:annotation>
+          <xs:documentation>Planning</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Table1UnionPolicyType">    
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ETS_directive">
+            <xs:annotation>
+              <xs:documentation>ETS_directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Effort_Sharing_Decision">
+            <xs:annotation>
+              <xs:documentation>Effort_Sharing_Decision</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ESD_ANNUAL_EMISSION_ALLOCATION">
+            <xs:annotation>
+              <xs:documentation>ESD Annual Emission Allocation (AEA) Decision 2013/634/EU</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="RES_directive">
+            <xs:annotation>
+              <xs:documentation>RES_directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>          
+          <xs:enumeration value="CO2_and_cars_and_vans_regulations">
+            <xs:annotation>
+              <xs:documentation>CO2_and_cars_and_vans_regulations</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Cap_reform">
+            <xs:annotation>
+              <xs:documentation>Cap_reform</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Fgas_regulation">
+            <xs:annotation>
+              <xs:documentation>Fgas_regulation</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LULUCF_Decision">
+            <xs:annotation>
+              <xs:documentation>LULUCF_Decision</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Recast_of_EPBD">
+            <xs:annotation>
+              <xs:documentation>Recast_of_EPBD</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Eco-design_Labelling_directives">
+            <xs:annotation>
+              <xs:documentation>Eco-design_Labelling_directives</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="F-gas_Regulation">
+            <xs:annotation>
+              <xs:documentation>F-gas_Regulation</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Motor_Vehicles_Directive">
+            <xs:annotation>
+              <xs:documentation>Motor_Vehicles_Directive (Deprecated by MACs Directive)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MACs_Directive">
+            <xs:annotation>
+              <xs:documentation>Mobile Air-conditioning system (MACs) Directive 2006/40/EC</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Geological_storage">
+            <xs:annotation>
+              <xs:documentation>Geological_storage</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Cogeneration_Directive">
+            <xs:annotation>
+              <xs:documentation>Cogeneration_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="End-use_and_energy_services">
+            <xs:annotation>
+              <xs:documentation>End-use_and_energy_services</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Energy_Star_Program">
+            <xs:annotation>
+              <xs:documentation>Energy_Star_Program</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Energy_Efficiency_Directive">
+            <xs:annotation>
+              <xs:documentation>Energy_Efficiency_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Internal_energy_market">
+            <xs:annotation>
+              <xs:documentation>Internal_energy_market</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Energy_Taxation_Directive">
+            <xs:annotation>
+              <xs:documentation>Energy_Taxation_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="IED">
+            <xs:annotation>
+              <xs:documentation>IED</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NEC">
+            <xs:annotation>
+              <xs:documentation>NEC</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Water_Framework">
+            <xs:annotation>
+              <xs:documentation>Water_Framework</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EURO_5_and_6">
+            <xs:annotation>
+              <xs:documentation>EURO_5_and_6</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Euro_6_for_HDV">
+            <xs:annotation>
+              <xs:documentation>Euro_6_for_HDV</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="FQD">
+            <xs:annotation>
+              <xs:documentation>FQD</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Biofuels_directive">
+            <xs:annotation>
+              <xs:documentation>Biofuels_directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Landfill_Directive">
+            <xs:annotation>
+              <xs:documentation>Landfill_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Waste_Directive">
+            <xs:annotation>
+              <xs:documentation>Waste_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Waste_Management_Framework_Directive">
+            <xs:annotation>
+              <xs:documentation>Waste_Management_Framework_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Waste_incineration_Directive">
+            <xs:annotation>
+              <xs:documentation>Waste incineration Directive 2000/76/EC 2000/76/EC</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Nitrate_Directive">
+            <xs:annotation>
+              <xs:documentation>Nitrate_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CAP_Reform">
+            <xs:annotation>
+              <xs:documentation>CAP_Reform</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CAP_Health_Check_and_Set_aside">
+            <xs:annotation>
+              <xs:documentation>CAP_Health_Check_and_Set_aside</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Eurovignette_Directive">
+            <xs:annotation>
+              <xs:documentation>Eurovignette_Directive</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Clean_and_Energy_Efficient_Vehicles">
+            <xs:annotation>
+              <xs:documentation>Clean_and_Energy_Efficient_Vehicles</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Other_EU">
+            <xs:annotation>
+              <xs:documentation>Other_EU</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Non_EU-related_PaM">
+            <xs:annotation>
+              <xs:documentation>PaM not related to Union policies</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>    
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Table1UnionPolicyRelatedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes">
+        <xs:annotation>
+          <xs:documentation>
+            Yes
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="no">
+        <xs:annotation>
+          <xs:documentation>
+            No
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table1UnionPolicyOtherType">
+    <xs:sequence>
+      <xs:element name="Name" type="PamString"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Table1StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Planned">
+        <xs:annotation>
+          <xs:documentation>Planned</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Adopted">
+        <xs:annotation>
+          <xs:documentation>Adopted</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Implemented">
+        <xs:annotation>
+          <xs:documentation>Implemented</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Expired">
+        <xs:annotation>
+          <xs:documentation>Expired</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table1ImplementationType">
+    <xs:sequence>
+      <xs:element name="Status" type="Table1StatusType"></xs:element>
+      <xs:element name="Start" type="xs:gYear"></xs:element>
+      <xs:element name="Finish" type="PamYear"></xs:element>
+      <xs:element name="id" type="xs:unsignedShort" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Table1ProjectsScenarioType">
+    <xs:sequence>
+      <xs:element name="Type" type="ScenarioType"></xs:element>
+      <xs:element name="id" type="xs:unsignedShort" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ScenarioType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WEM"></xs:enumeration>
+      <xs:enumeration value="WAM"></xs:enumeration>
+      <xs:enumeration value="WOM"></xs:enumeration>
+      <xs:enumeration value="NIP"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table1EntityType">
+    <xs:sequence>
+      <xs:element name="Type" type="Table1EntityTypeEnum"></xs:element>
+      <xs:element name="Name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Table1EntityTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Government">
+        <xs:annotation>
+          <xs:documentation>Government</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Regional">
+        <xs:annotation>
+          <xs:documentation>Regional</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Local">
+        <xs:annotation>
+          <xs:documentation>Local</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Companies">
+        <xs:annotation>
+          <xs:documentation>Companies</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Research">
+        <xs:annotation>
+          <xs:documentation>Research</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table1IndicatorType">
+    <xs:sequence>
+      <xs:element name="Description" type="PamString"></xs:element>
+      <xs:element name="Unit" type="PamString"></xs:element>
+      <xs:element name="Year1" type="PamYear"></xs:element>
+      <xs:element name="Value1" type="PamDecimal"></xs:element>
+      <xs:element name="Year2" type="PamYear"></xs:element>
+      <xs:element name="Value2" type="PamDecimal"></xs:element>
+      <xs:element name="Year3" type="PamYear"></xs:element>
+      <xs:element name="Value3" type="PamDecimal"></xs:element>
+      <xs:element name="Year4" type="PamYear"></xs:element>
+      <xs:element name="Value4" type="PamDecimal"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Table1ReferenceType">
+    <xs:sequence>
+      <xs:element name="Text" type="xs:string"></xs:element>
+      <xs:element name="Url" type="xs:anyURI"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Table2PolicyImpactType">
+    <xs:restriction base="PamString">
+      <xs:enumeration value=""></xs:enumeration>
+      <xs:enumeration value="EU_ETS">
+        <xs:annotation>
+          <xs:documentation>EU ETS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ESD">
+        <xs:annotation>
+          <xs:documentation>ESD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LULUCF">
+        <xs:annotation>
+          <xs:documentation>LULUCF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Table2ExanteEmissionsType">
+    <xs:sequence>
+      <xs:element name="EU_ETS" type="PamDecimal"></xs:element>
+      <xs:element name="ESD" type="PamDecimal"></xs:element>
+      <xs:element name="Total" type="PamDecimal"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Table2ExpostEmissionsType">
+    <xs:sequence>
+      <xs:element name="Year" type="PamYear">
+        <xs:annotation>
+          <xs:documentation>Year for which reduction applies</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Average" type="PamDecimal">
+        <xs:annotation>
+          <xs:documentation>Average emission reduction</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentationType">
+    <xs:sequence>
+      <xs:element name="Reference" type="xs:string"></xs:element>
+      <xs:element name="Weblink" type="xs:anyURI"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CostsBenefitsType">
+    <xs:sequence>      
+      <xs:element name="CostReduced" type="PamDecimal"></xs:element>
+      <xs:element name="CostPerYear" type="PamDecimal"></xs:element>
+      <xs:element name="CostCalculatedYear" type="PamYears"></xs:element>
+      <xs:element name="CostReferenceYear" type="PamYear"></xs:element>      
+      <xs:element name="CostDescription" type="PamString"></xs:element>
+      <xs:element name="CostDocumentation" maxOccurs="unbounded" type="DocumentationType"></xs:element>
+      <xs:element name="BenefitReduced" type="PamDecimal"></xs:element>
+      <xs:element name="BenefitPerYear" type="PamDecimal"></xs:element>
+      <xs:element name="NetCostReduced" type="PamDecimal"></xs:element>
+      <xs:element name="NetCostPerYear" type="PamDecimal"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"></xs:minLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PamString">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string"></xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="PamYear">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:gYear"></xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>        
+  
+  <xs:simpleType name="PamYears">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">          
+          <xs:pattern value="[0-9]{4}(\s*-\s*[0-9]{4})?"></xs:pattern>
+          <xs:whiteSpace value="preserve"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>    
+
+  <xs:simpleType name="PamDecimal">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal"></xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="PamShort">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedShort"></xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="EmptySimpleType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="EmptySimpleType">
+    <xs:annotation>
+      <xs:documentation>Type to enter empty string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
