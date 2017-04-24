@@ -2,7 +2,7 @@
   "name": "eea-webforms",
   "version": "1.0.0",
   "description": "",
-  "main": "eeawf.js",
+  "main": "index.js",
   "dependencies": {
     "babel-register": "^6.24.1",
     "npm": "^4.5.0"
