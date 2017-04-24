@@ -1,6 +1,5 @@
 'use strict';
 
-// import parser from 'libxml-to-js';
 import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
 
