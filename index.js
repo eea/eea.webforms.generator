@@ -9,7 +9,7 @@
 
 import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
-import XSDWebFormParser from './lib/parser.js'
+import XSDWebFormParser from './lib/xsdwebformparser.js'
 /**
  * Class XSDWebForm
  * XSD Schema to HTML5
