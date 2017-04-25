@@ -7,7 +7,6 @@
 
 'use strict';
 
-import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
 import XSDWebFormParser from './lib/xsdwebformparser.js'
 /**
@@ -19,10 +18,39 @@ class XSDWebForm
 
     /**
      * Class constructor
+     * Check for -f file in arguments
+     */
+    constructor(args) 
+    {
+    	 // Input file variable
+	    var xsdFile = null;
+
+	    // Check for [-f file] input
+	    args.forEach(
+	        (item, index) => {
+	            if (item == '-f') {
+	                xsdFile = args[index + 1];
+	                return;
+	            }
+	        }
+	    );
+
+	    // If not file input
+	    if (!xsdFile) {
+	        xsdFile = "test.xsd";
+	    }
+
+	    this.parseXSD(xsdFile);
+    } 
+
+    /**
+     * parseXSD - Parse XSD file
      * Open .xsd file and read the contents
      */
-    constructor(xsdFile) 
+    parseXSD(xsdFile) 
     {
+    	var parser = new XSDWebFormParser();
+
     	new Promise((resolve, reject) => {
             fs.readFile(xsdFile, 'utf8', (err, data) => {
                 if (err) {
@@ -32,29 +60,7 @@ class XSDWebForm
                 resolve(data);
             });
         }).then((res) => {
-            this.xsdParse(res);
-        });
-
-    }
-
-    /**
-     * xsdParse - Parse XML Document
-     * @param xml
-     */
-    xsdParse(xml) 
-    {
-    	// Create Parser
-    	var parser = new XSDWebFormParser();
-
-    	// Create XML Document
-        var xmlt = new XmlDocument(xml);
-        xmlt.eachChild((item, index) => {
-            console.log(`\n\n============================================================================\n\n |||||||||||| ${item.name} :: ${item.attr.name} ||||||||||||`);
-            /*console.log("\n==> The item tag started at pos %s and the Tag ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
-            			item.startTagPosition, item.line, item.column, item.position);*/
-            // Parse Tag Tag
-	    	parser.parseFunc(item.name);
-			parser.xsdInnerParse(item);
+            parser.xsdParse(res);
         });
 
     }
@@ -62,33 +68,4 @@ class XSDWebForm
 }
 
 
-/**
- * main - Init
- * @param args
- */
-function main(args) 
-{
-
-    // Input file variable
-    var xsdFile = null;
-
-    // Check for [-f file] input
-    args.forEach(
-        (item, index) => {
-            if (item == '-f') {
-                xsdFile = args[index + 1];
-                return;
-            }
-        }
-    );
-
-    // If not file input
-    if (!xsdFile) {
-        xsdFile = "test.xsd";
-    }
-
-    // Call XSDWebForm Class
-    const xsdwf = new XSDWebForm(xsdFile);
-}
-
-main(process.argv);
+new XSDWebForm(process.argv);
