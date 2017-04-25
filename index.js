@@ -16,7 +16,7 @@ import fs from 'fs';
  * XSD Schema to HTML5
  */
 class XSDWebForm {
- 
+
     /**
      * Class constructor
      * Open .xsd file and read the contents
@@ -24,8 +24,11 @@ class XSDWebForm {
     constructor(xsdFile) {
 
         this.ELEMENT_TYPES = {
-            "xs:simpleType": this.parseSimpleType,
-            "xs:complexType": this.parseComplexType
+        	"xs:import" : this.parseImport,
+            "xs:simpleType" : this.parseSimpleType,
+            "xs:complexType" : this.parseComplexType,
+            "xs:sequence" : this.parseSequence,
+            "xs:restriction" : this.parseRestriction
         };
 
         new Promise((resolve, reject) => {
@@ -50,15 +53,16 @@ class XSDWebForm {
         var xmlt = new XmlDocument(xml);
         let parent = this;
         xmlt.eachChild(function(item, index) {
-            parent.parseFunc(item.name);
-            //console.log(`\n============================================================================\n\n${item.name} :: ${item.attr.name}`);
+            console.log(`\n============================================================================\n\n${item.name} :: ${item.attr.name}`);
             // console.log("\n==> The item tag started at pos %s and the element ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
             // 			item.startTagPosition, item.line, item.column, item.position);
+            parent.parseFunc(item.name);
 
             item.eachChild(function(sitem, index) {
-                // console.log(`\n--------------------------------------------\n sitem`);
+                // console.log(`\n--------------------------------------------\n ${sitem}`);
                 // console.log("\n==> The sitem tag started at pos %s and the element ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
                 // 			item.startTagPosition, sitem.line, sitem.column, sitem.position);
+                parent.parseFunc(sitem.name);
             });
         });
 
@@ -73,6 +77,16 @@ class XSDWebForm {
         if (!(item in this.ELEMENT_TYPES)) return;
         (this.ELEMENT_TYPES[item])(item);
     
+    }
+
+    /**
+     * parseImport- Parse Import Element
+     * @param item
+     */
+    parseImport(item) {
+
+        console.log("IM:=====>" + item);
+
     }
 
     /**
@@ -92,6 +106,26 @@ class XSDWebForm {
     parseComplexType(item) {
 
         console.log("CT:=====>" + item);
+
+    }
+
+    /**
+     * parseSequence - Parse Sequence Element
+     * @param item
+     */
+    parseSequence(item) {
+
+        console.log("SQ:=====>" + item);
+
+    }
+
+    /**
+     * parseRestriction - ParseRestriction Element
+     * @param item
+     */
+    parseRestriction(item) {
+
+        console.log("RS:=====>" + item);
 
     }
 
