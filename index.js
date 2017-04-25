@@ -61,8 +61,8 @@ class XSDWebForm
             console.log(`\n\n============================================================================\n\n |||||||||||| ${item.name} :: ${item.attr.name} ||||||||||||`);
             // console.log("\n==> The item tag started at pos %s and the element ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
             // 			item.startTagPosition, item.line, item.column, item.position);
-            // parent.parseFunc(item.name);
-			this.xsdInnerParse(item, "(T)");
+            parent.parseFunc(item.name);
+			this.xsdInnerParse(item);
         });
 
     }
@@ -78,16 +78,18 @@ class XSDWebForm
     		console.log(`\n[ =====================>---------------- ${xmltItem.name} | ${xmltItem.type} | ${xmltItem.children.length} | ${sender} ]`);
 
     	let parent = this;
-
+    	// Loop through Element's childNodes
     	if (xmltItem.children) {
 	    	 for (var i = 0, l = xmltItem.children.length; i < l; i++) {
 	    	 	 if (xmltItem.children[i].type === "element") {
-	    				console.log(`\n[ Looking for ${xmltItem.children[i]} ]`);
-	    				this.xsdInnerParse(xmltItem.children[i], "(S)");
+	    				console.log(`\n[ Looking for ${xmltItem.children[i].name} ]`);
+	    				parent.parseFunc(xmltItem.children[i].name);
+	    				// Recursive call
+	    				this.xsdInnerParse(xmltItem.children[i]);
 	    			}
 	    	};
     	}
-    	
+
     }
 
     /**
