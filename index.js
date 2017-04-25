@@ -86,7 +86,23 @@ class XSDWebForm {
 
 }
 
-const xsdwf = new XSDWebForm('test.xsd');
+var xsdFile = null;
+
+
+process.argv.forEach(
+		(item, index) => {
+			if (item == '-f') {
+				xsdFile = process.argv[index + 1];
+				return;
+			}
+		}
+	);
+
+if (!xsdFile) {
+	xsdFile = "test.xsd";
+}
+
+const xsdwf = new XSDWebForm(xsdFile);
 
 //test element types
 // console.log(xsdwf.ELEMENT_TYPES['xs:simpleType']);
