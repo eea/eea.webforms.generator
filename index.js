@@ -16,7 +16,7 @@ import fs from 'fs';
  * XSD Schema to HTML5
  */
 class XSDWebForm {
-
+ 
     /**
      * Class constructor
      * Open .xsd file and read the contents
