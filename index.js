@@ -11,8 +11,11 @@ import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
 
 
+/**
+ * Class XSDWebForm
+ * XSD Schema to HTML5
+ */
 class XSDWebForm {
-
 
     /**
      * Class constructor
@@ -38,7 +41,6 @@ class XSDWebForm {
 
     }
 
-
     /**
      * xsdParse - Parse XML Document
      * @param xml
@@ -62,22 +64,31 @@ class XSDWebForm {
 
     }
 
- 	/**
+    /**
      * parseFunc - Parse XML Element
      * @param item
      */
     parseFunc(item) {
-    	
-    	if (!(item in this.ELEMENT_TYPES)) return;
+
+        if (!(item in this.ELEMENT_TYPES)) return;
         (this.ELEMENT_TYPES[item])(item);
+    
     }
 
+    /**
+     * parseSimpleType - Parse SimpleType Element
+     * @param item
+     */
     parseSimpleType(item) {
 
         console.log("ST:=====>" + item);
 
     }
 
+ 	/**
+     * parseComplexType - Parse ComplexType Element
+     * @param item
+     */
     parseComplexType(item) {
 
         console.log("CT:=====>" + item);
@@ -86,23 +97,25 @@ class XSDWebForm {
 
 }
 
+
+// Input file variable
 var xsdFile = null;
 
-
+// Check for [-f file] input
 process.argv.forEach(
-		(item, index) => {
-			if (item == '-f') {
-				xsdFile = process.argv[index + 1];
-				return;
-			}
-		}
-	);
+    (item, index) => {
+        if (item == '-f') {
+            xsdFile = process.argv[index + 1];
+            return;
+        }
+    }
+);
 
+// If not file input
 if (!xsdFile) {
-	xsdFile = "test.xsd";
+    xsdFile = "test.xsd";
 }
 
+// Call XSDWebForm Class
 const xsdwf = new XSDWebForm(xsdFile);
 
-//test element types
-// console.log(xsdwf.ELEMENT_TYPES['xs:simpleType']);
