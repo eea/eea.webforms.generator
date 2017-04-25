@@ -9,6 +9,7 @@
 
 import fs from 'fs';
 import XSDWebFormParser from './lib/xsdwebformparser.js'
+// import heapdump from 'heapdump'; 
 /**
  * Class XSDWebForm
  * XSD Schema to HTML5
@@ -69,3 +70,5 @@ class XSDWebForm
 
 
 new XSDWebForm(process.argv);
+
+// heapdump.writeSnapshot('./' + Date.now() + '.heapsnapshot');
