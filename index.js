@@ -9,7 +9,7 @@
 
 import { XmlDocument } from 'xmldoc';
 import fs from 'fs';
-
+import { XSDWebFormParser } from './parser.js'
 /**
  * Class XSDWebForm
  * XSD Schema to HTML5
@@ -23,18 +23,8 @@ class XSDWebForm
      */
     constructor(xsdFile) 
     {
-
-        this.ELEMENT_TYPES = {
-        	"xs:element" 		: 	this.parseElement,
-            "xs:import"			: 	this.parseImport,
-            "xs:simpleType"		: 	this.parseSimpleType,
-            "xs:complexType"	: 	this.parseComplexType,
-            "xs:sequence"		: 	this.parseSequence,
-            "xs:restriction"	: 	this.parseRestriction,
-            "xs:annotation"		: 	this.parseAnnotation,
-            "xs:documentation"	: 	this.parseDocumentation,
-            "xs:enumeration"	: 	this.parseEnumeration,
-        };
+    	// Create Parser
+    	this.parser = new XSDWebFormParser();
 
         new Promise((resolve, reject) => {
             fs.readFile(xsdFile, 'utf8', (err, data) => {
@@ -56,15 +46,14 @@ class XSDWebForm
      */
     xsdParse(xml) 
     {
-
+    	let parent = this;
         var xmlt = new XmlDocument(xml);
-        let parent = this;
         xmlt.eachChild((item, index) => {
             console.log(`\n\n============================================================================\n\n |||||||||||| ${item.name} :: ${item.attr.name} ||||||||||||`);
             /*console.log("\n==> The item tag started at pos %s and the Tag ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
             			item.startTagPosition, item.line, item.column, item.position);*/
             // Parse Tag Tag
-	    	parent.parseFunc(item.name);
+	    	parent.parser.parseFunc(item.name);
 			this.xsdInnerParse(item);
         });
 
@@ -87,124 +76,12 @@ class XSDWebForm
 	    	 	 if (xmltItem.children[i].type === "element") {
 	    				// console.log(`\n[ Looking for ${xmltItem.children[i].name} ]`);
 	    				// Parse Tag Tag
-	    				parent.parseFunc(xmltItem.children[i].name);
+	    				parent.parser.parseFunc(xmltItem.children[i].name);
 	    				// Recursive call
 	    				this.xsdInnerParse(xmltItem.children[i]);
 	    			}
 	    	};
     	}
-
-    }
-
-    /**
-     * parseFunc - Parse XML Tag
-     * @param item
-     */
-    parseFunc(item) 
-    {
-
-        if ((item in this.ELEMENT_TYPES)) {
-            (this.ELEMENT_TYPES[item])(item);
-        }
-
-    }
-
-    /**
-     * parseElement- Parse Element Tag
-     * @param item
-     */
-    parseElement(item) 
-    {
-
-        console.log("\n\tFound Tag {EL}} : =====> " + item);
-
-    } 
-
-    /**
-     * parseImport- Parse Import Tag
-     * @param item
-     */
-    parseImport(item) 
-    {
-
-        console.log("\n\tFound Tag {IM}} : =====> " + item);
-
-    }
-
-    /**
-     * parseSimpleType - Parse SimpleType Tag
-     * @param item
-     */
-    parseSimpleType(item) 
-    {
-
-        console.log("\n\tFound Tag {ST}} : =====> " + item);
-
-    }
-
-    /**
-     * parseComplexType - Parse ComplexType Tag
-     * @param item
-     */
-    parseComplexType(item)
-    {
-
-        console.log("\n\tFound Tag {CT}} : =====> " + item);
-
-    }
-
-    /**
-     * parseSequence - Parse Sequence Tag
-     * @param item
-     */
-    parseSequence(item) 
-    {
-
-        console.log("\n\tFound Tag {SQ}} : =====> " + item);
-
-    }
-
-    /**
-     * parseRestriction - Parse Restriction Tag
-     * @param item
-     */
-    parseRestriction(item) 
-    {
-
-        console.log("\n\tFound Tag {RS}} : =====> " + item);
-
-    }
-
-    /**
-     * parseAnnotation - Parse Annotation Tag
-     * @param item
-     */
-    parseAnnotation(item) 
-    {
-
-        console.log("\n\tFound Tag {AN}} : =====> " + item);
-
-    }
-
-    /**
-     * parseDocumentation - Parse Documentation Tag
-     * @param item
-     */
-    parseDocumentation(item) 
-    {
-
-        console.log("\n\tFound Tag {DC}} : =====> " + item);
-
-    } 
-
-    /**
-     * parseEnumeration - Parse Enumeration Tag
-     * @param item
-     */
-    parseEnumeration(item) 
-    {
-
-        console.log("\n\tFound Tag {EN}} : =====> " + item);
 
     }
 
