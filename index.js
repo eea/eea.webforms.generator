@@ -1,3 +1,10 @@
+/**
+ * @file index.js
+ * XSD Schema to HTML5
+ * @author George Bouris <gb@eworx.gr>
+ * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
+ */
+
 'use strict';
 
 import { XmlDocument } from 'xmldoc';
@@ -6,6 +13,11 @@ import fs from 'fs';
 
 class XSDWebForm {
 
+
+    /**
+     * Class constructor
+     * Open .xsd file and read the contents
+     */
     constructor(xsdFile) {
 
         this.ELEMENT_TYPES = {
@@ -26,6 +38,11 @@ class XSDWebForm {
 
     }
 
+
+    /**
+     * xsdParse - Parse XML Document
+     * @param xml
+     */
     xsdParse(xml) {
 
         var xmlt = new XmlDocument(xml);
@@ -45,6 +62,10 @@ class XSDWebForm {
 
     }
 
+ 	/**
+     * parseFunc - Parse XML Element
+     * @param item
+     */
     parseFunc(item) {
     	
     	if (!(item in this.ELEMENT_TYPES)) return;
