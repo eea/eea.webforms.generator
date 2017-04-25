@@ -59,9 +59,10 @@ class XSDWebForm
         let parent = this;
         xmlt.eachChild((item, index) => {
             console.log(`\n\n============================================================================\n\n |||||||||||| ${item.name} :: ${item.attr.name} ||||||||||||`);
-            // console.log("\n==> The item tag started at pos %s and the element ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
-            // 			item.startTagPosition, item.line, item.column, item.position);
-            parent.parseFunc(item.name);
+            /*console.log("\n==> The item tag started at pos %s and the element ended at line %s, col %s, pos %s.\n-------------------------------------------------------------------------------\n", 
+            			item.startTagPosition, item.line, item.column, item.position);*/
+            // Parse Element Tag
+	    	parent.parseFunc(item.name);
 			this.xsdInnerParse(item);
         });
 
@@ -71,11 +72,11 @@ class XSDWebForm
      * xsdInnerParse - Parse inner XML Document
      * @param xml
      */
-    xsdInnerParse(xmltItem, sender) 
+    xsdInnerParse(xmltItem) 
     {
     	
     	if (xmltItem.children)
-    		console.log(`\n[ =====================>---------------- ${xmltItem.name} | ${xmltItem.type} | ${xmltItem.children.length} | ${sender} ]`);
+    		console.log(`\n[ =====================>---------------- ${xmltItem.name} | ${xmltItem.type} | ${xmltItem.children.length} ]`);
 
     	let parent = this;
     	// Loop through Element's childNodes
@@ -83,6 +84,7 @@ class XSDWebForm
 	    	 for (var i = 0, l = xmltItem.children.length; i < l; i++) {
 	    	 	 if (xmltItem.children[i].type === "element") {
 	    				console.log(`\n[ Looking for ${xmltItem.children[i].name} ]`);
+	    				// Parse Element Tag
 	    				parent.parseFunc(xmltItem.children[i].name);
 	    				// Recursive call
 	    				this.xsdInnerParse(xmltItem.children[i]);
