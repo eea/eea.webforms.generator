@@ -4,7 +4,7 @@
 
   <xs:element name="ConcludedTransfersQuestionnaire">
     <xs:annotation>
-            <xs:documentation>
+      <xs:documentation>
 
                 XML Schema for Reporting on summary information on concluded transfers
 
@@ -27,7 +27,7 @@
 
                 Version: v1.0.
 
-          </xs:documentation>
+        </xs:documentation>
       </xs:annotation>
       <xs:complexType>
         <xs:sequence>
