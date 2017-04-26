@@ -61,7 +61,12 @@ class XSDWebForm
                 resolve(data);
             });
         }).then((res) => {
-            parser.xsdParse(res);
+        	let xmlFile = {
+	    		file : xsdFile,
+	    		data : res
+    		};
+
+        	parser.xsdParse(xmlFile);
         });
 
     }
