@@ -86,7 +86,7 @@ class XSDWebForm
 	        }).then((res) => {
 	        	
 	        	xmlFile.hdata = res;
-	        	parser.xsdParse(xmlFile);
+	        	parser.parse(xmlFile);
 
 	        });
 
