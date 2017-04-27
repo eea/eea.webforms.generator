@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form label="Information on concluded transfers for the year">
-	<!-- Multiple: Add Dynamic Rows on Click -->	
-	<multiple> 	
-		<number element="AEA" label="Quantity of Annual Emission Allocation units (AEAs)" />	
-		<select element="TransferringMemberState" label="Transferring Member State"/>
-		<select element="AcquiringMemberState" label="Acquiring Member State"/>
-		<number element="AEA-Price" label="Price per AEA (€)"/>
-		<date element="TransferAgreementDate" label="Date of the transfer agreement"/>
-		<select element="ExpectedTransactionYear" label="Year of the expected transaction in the registry"/>
-		<text element="Other" label="Other information (such as greening schemes)"/>
-	</multiple>
-</form>
+<root>
+	<form label="Information on concluded transfers for the year">
+		<multiple> 	
+			<number element="AEA"/>	
+			<select element="TransferringMemberState"/>
+			<select element="AcquiringMemberState"/>
+			<number element="AEA-Price"/>
+			<date element="TransferAgreementDate"/>
+			<select element="ExpectedTransactionYear"/>
+			<text element="Other"/>
+		</multiple>
+	</form>
+</root>
