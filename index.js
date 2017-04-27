@@ -45,14 +45,14 @@ class XSDWebForm
 	    }
 
 	    hxsdFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
-	    this.parseXSD(xsdFile, hxsdFile);
+	    this.parseFiles(xsdFile, hxsdFile);
     } 
 
     /**
-     * parseXSD - Parse XSD file
-     * Open .xsd file and read the contents
+     * parseFiles - Parse XSD and XML files
+     * Open .xsd and .form.xml files and read the contents
      */
-    parseXSD(xsdFile, hxsdFile) 
+    parseFiles(xsdFile, hxsdFile) 
     {
 
     	var xmlFile = {
