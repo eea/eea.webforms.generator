@@ -32,7 +32,7 @@
       <xs:complexType>
         <xs:sequence>
           <xs:element name="Transfer" type="ConcludedTransferRecord" minOccurs="1" maxOccurs="1000000" />
-            <xs:element name="TransfersNumber" type="xs:integer" minOccurs="1" maxOccurs="1" />
+          <xs:element name="TransfersNumber" type="xs:integer" minOccurs="1" maxOccurs="1" />
         </xs:sequence>
     </xs:complexType>
   </xs:element>

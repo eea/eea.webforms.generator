@@ -26,6 +26,8 @@ class XSDWebForm
     {
     	 // Input file variable
 	    var xsdFile = null;
+	    // HTML Input file variable
+	    var hxsdFile = null;
 
 	    // Check for [-f file] input
 	    args.forEach(
@@ -42,15 +44,23 @@ class XSDWebForm
 	        xsdFile = "test.xsd";
 	    }
 
-	    this.parseXSD(xsdFile);
+	    hxsdFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
+	    this.parseXSD(xsdFile, hxsdFile);
     } 
 
     /**
      * parseXSD - Parse XSD file
      * Open .xsd file and read the contents
      */
-    parseXSD(xsdFile) 
+    parseXSD(xsdFile, hxsdFile) 
     {
+
+    	var xmlFile = {
+	    		xfile : xsdFile,
+	    		xdata : '',
+	    		hfile : xmlFile,
+	    		hdata : ''
+    		};
     	var parser = new XSDWebFormParser();
 
     	new Promise((resolve, reject) => {
@@ -62,12 +72,24 @@ class XSDWebForm
                 resolve(data);
             });
         }).then((res) => {
-        	let xmlFile = {
-	    		file : xsdFile,
-	    		data : res
-    		};
+        	
+        	xmlFile.xdata = res;
 
-        	parser.xsdParse(xmlFile);
+        	new Promise((resolve, reject) => {
+	            fs.readFile(hxsdFile, 'utf8', (err, data) => {
+	                if (err) {
+	                    console.log(err);
+	                    reject(err);
+	                }
+	                resolve(data);
+	            });
+	        }).then((res) => {
+	        	
+	        	xmlFile.hdata = res;
+	        	parser.xsdParse(xmlFile);
+
+	        });
+
         });
 
     }
