@@ -9,7 +9,7 @@
 			<date element="TransferAgreementDate"/>
 			<select element="ExpectedTransactionYear"/>
 			<text element="Other"/>
-			<text name="Test"/>
+			<input name="Test"/>
 		</group>
 	</form>
 </root>
