@@ -26,7 +26,7 @@ class XSDWebForm
     {
 
 		// XSDWebFormParser    		
-    	this.parser = new XSDWebFormParser();
+    	this.parser = new XSDWebFormParser(true, true);
 
     	// Input file variable
 	    var xsdFile = null;
@@ -48,13 +48,21 @@ class XSDWebForm
 	        xsdFile = "test.xsd";
 	    }
 
-	    xmlHtmlFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
-	    this.parseFiles(xsdFile, xmlHtmlFile);
+	    new Promise((resolve, reject) => {
+	    	xmlHtmlFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
+			this.parseFiles(xsdFile, xmlHtmlFile);
+			resolve();
+		}).then((res) => {
+			this.createHTMLFile("test.html", this.parser.getHTML());
+		});
+
     } 
 
     /**
      * parseFiles - Parse XSD and XML files
      * Open .xsd and .form.xml files and read the contents
+     * @param xsdFile
+     * @param xmlHtmlFile
      */
     parseFiles(xsdFile, xmlHtmlFile) 
     {
@@ -87,15 +95,28 @@ class XSDWebForm
 	                resolve(data);
 	            });
 	        }).then((res) => {
-	        	
 	        	xObject.hdata = res;
 	        	this.parser.parse(xObject);
-
 	        });
 
         });
 
     }
+
+    /**
+     * createHTMLFile - Save output file
+     * @param filename
+     * @param content
+     */
+    createHTMLFile(filename, content) 
+    {
+    	
+    	fs.writeFile(filename, content, function(err) {
+        	if(err)
+	        	console.log(err);
+	    	console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
+		}); 
+	}
 
 }
 
