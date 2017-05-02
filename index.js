@@ -8,7 +8,7 @@
 'use strict';
 
 import fs from 'fs';
-import XSDWebFormParser from './lib/xsdwebformparser.js'
+import XSDWebFormParser from './lib/xsdwebform.parser.js'
 // import heapdump from 'heapdump'; 
 
 /**
