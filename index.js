@@ -96,7 +96,7 @@ class XSDWebForm
 	        	// Parse file content
 	        	this.parser.parse(xObject);
 	        	// Create HTML file
-	        	this.createHTMLFile("test.html", this.parser.getHTML());
+	        	this.createHTMLFile("test.html", this.parser.getHTMLOutput());
 	        });
 
         });
