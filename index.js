@@ -24,7 +24,11 @@ class XSDWebForm
      */
     constructor(args) 
     {
-    	 // Input file variable
+
+		// XSDWebFormParser    		
+    	this.parser = new XSDWebFormParser();
+
+    	// Input file variable
 	    var xsdFile = null;
 	    // HTML Input file variable
 	    var xmlHtmlFile = null;
@@ -61,7 +65,6 @@ class XSDWebForm
 	    		hfile : xmlHtmlFile,
 	    		hdata : ''
     		};
-    	var parser = new XSDWebFormParser();
 
     	new Promise((resolve, reject) => {
             fs.readFile(xsdFile, 'utf8', (err, data) => {
@@ -86,7 +89,7 @@ class XSDWebForm
 	        }).then((res) => {
 	        	
 	        	xObject.hdata = res;
-	        	parser.parse(xObject);
+	        	this.parser.parse(xObject);
 
 	        });
 
