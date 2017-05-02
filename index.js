@@ -47,14 +47,10 @@ class XSDWebForm
 	    if (!xsdFile) {
 	        xsdFile = "test.xsd";
 	    }
-
-	    new Promise((resolve, reject) => {
-	    	xmlHtmlFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
-			this.parseFiles(xsdFile, xmlHtmlFile);
-			resolve();
-		}).then((res) => {
-			this.createHTMLFile("test.html", this.parser.getHTML());
-		});
+	    
+	    xmlHtmlFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
+	    
+	    this.parseFiles(xsdFile, xmlHtmlFile);
 
     } 
 
@@ -96,7 +92,11 @@ class XSDWebForm
 	            });
 	        }).then((res) => {
 	        	xObject.hdata = res;
+
+	        	// Parse file content
 	        	this.parser.parse(xObject);
+	        	// Create HTML file
+	        	this.createHTMLFile("test.html", this.parser.getHTML());
 	        });
 
         });
