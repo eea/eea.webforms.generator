@@ -8,7 +8,9 @@
 'use strict';
 
 import fs from 'fs';
+import ncp from 'ncp';
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
+
 // import heapdump from 'heapdump'; 
 
 /**
@@ -98,7 +100,7 @@ class XSDWebForm
 	        	this.parser.parse(xObject);
 	        	// Create HTML file
 	        	this.createHTMLFile("./build/" + this.baseFileName + "html", this.parser.getHTMLOutput());
-
+	        	this.prepareJSFiles();
 	        });
 
         });
@@ -118,6 +120,20 @@ class XSDWebForm
 	        	console.log(err);
 	    	console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 		}); 
+	}
+
+    /**
+     * prepareJSFiles - Copy JS folder to build
+     */
+    prepareJSFiles() 
+    {
+
+		ncp("./src/js", "./build/js", function (err) {
+			if (err) { 
+				return console.error(err);
+			}
+		});
+
 	}
 
 }
