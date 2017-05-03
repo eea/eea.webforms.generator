@@ -2,7 +2,7 @@
   "name": "eea-webforms",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/xsdwebform.js",
   "dependencies": {
     "babel-register": "^6.24.1",
     "heapdump": "^0.3.9",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js --exec babel-node --presets es2015,stage-2",
+    "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "build": "babel ./ -d dist --presets es2015,stage-2"
   },
   "author": "George Bouris",
