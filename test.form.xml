@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<form action="/api/test" name="form1">
-		<group multiple="1" element="ConcludedTransferRecord"> 	
-			<number element="AEA"/>	
-			<select element="TransferringMemberState"/>
-			<select element="AcquiringMemberState"/>
-			<number element="AEA-Price"/>
-			<date element="TransferAgreementDate"/>
-			<select element="ExpectedTransactionYear"/>
-			<text element="Other"/>
-			<input name="Test"/>
-		</group>
-	</form>
+	<page title="This is the Title">
+		
+		<form action="/api/test" name="form1">
+			
+			<group multiple="1" element="ConcludedTransferRecord"> 	
+				<number element="AEA"/>	
+				<select element="TransferringMemberState"/>
+				<select element="AcquiringMemberState"/>
+				<number element="AEA-Price"/>
+				<date element="TransferAgreementDate"/>
+				<select element="ExpectedTransactionYear"/>
+				<text element="Other"/>
+				<input name="Test"/>
+			</group>
+
+		</form>
+
+	</page>
 </root>
