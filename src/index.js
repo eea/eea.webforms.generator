@@ -9,6 +9,7 @@
 
 import fs from 'fs';
 import ncp from 'ncp';
+import rimraf from 'rimraf';
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 
 // import heapdump from 'heapdump'; 
@@ -53,6 +54,9 @@ class XSDWebForm
 	    this.baseFileName = xsdFile.substring(0, xsdFile.length - 3);
 	    xmlHtmlFile = this.baseFileName + "form.xml";
 	    
+	    // Copy assets folde to build
+	    this.prepareJSFiles();
+
 	    this.parseFiles(xsdFile, xmlHtmlFile);
 
     } 
@@ -98,9 +102,10 @@ class XSDWebForm
 
 	        	// Parse file content
 	        	this.parser.parse(xObject);
+
 	        	// Create HTML file
 	        	this.createHTMLFile("./build/" + this.baseFileName + "html", this.parser.getHTMLOutput());
-	        	this.prepareJSFiles();
+	        	
 	        });
 
         });
@@ -120,6 +125,7 @@ class XSDWebForm
 	        	console.log(err);
 	    	console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 		}); 
+
 	}
 
     /**
@@ -128,10 +134,12 @@ class XSDWebForm
     prepareJSFiles() 
     {
 
-		ncp("./src/assets", "./build/assets", function (err) {
-			if (err) { 
-				return console.error(err);
-			}
+		rimraf('./build/*', fs, function() {
+			ncp("./src/assets", "./build/assets", function (err) {
+				if (err) { 
+					return console.error(err);
+				}
+			});
 		});
 
 	}
