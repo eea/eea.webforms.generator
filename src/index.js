@@ -128,7 +128,7 @@ class XSDWebForm
     prepareJSFiles() 
     {
 
-		ncp("./src/js", "./build/js", function (err) {
+		ncp("./src/assets", "./build/assets", function (err) {
 			if (err) { 
 				return console.error(err);
 			}
