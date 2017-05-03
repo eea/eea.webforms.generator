@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page title="This is the Title dasdasd">
+	<page title="This is the Title">
 		
 		<form action="/api/testasdasd" name="form1">
 
@@ -14,7 +14,7 @@
 				<text element="Other"/>
 				<input name="Test"/>
 			</group>
-			
+
 		</form>
 
 	</page>
