@@ -97,6 +97,7 @@ class XSDWebForm
 	        	this.parser.parse(xObject);
 	        	// Create HTML file
 	        	this.createHTMLFile("test.html", this.parser.getHTMLOutput());
+
 	        });
 
         });
