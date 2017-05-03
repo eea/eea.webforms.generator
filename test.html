@@ -23,13 +23,13 @@
 
 	<form name="form1" action="/api/testasdasd">
 		<fieldset name="ConcludedTransferRecord" ew-map="ConcludedTransferRecord">
-			<input name="AEA" ng-model="form1.AEA" ew-map="xs:element::AEA" type="number"/>
-			<select name="TransferringMemberState" ng-model="form1.TransferringMemberState" ew-map="xs:element::TransferringMemberState"></select>
-			<select name="AcquiringMemberState" ng-model="form1.AcquiringMemberState" ew-map="xs:element::AcquiringMemberState"></select>
-			<input name="AEA-Price" ng-model="form1.AEA-Price" ew-map="xs:element::AEA-Price" type="number"/>
-			<input name="TransferAgreementDate" ng-model="form1.TransferAgreementDate" ew-map="xs:element::TransferAgreementDate" type="date"/>
-			<select name="ExpectedTransactionYear" ng-model="form1.ExpectedTransactionYear" ew-map="xs:element::ExpectedTransactionYear"></select>
-			<textarea name="Other" ng-model="form1.Other" ew-map="xs:element::Other"></textarea>
+			<input name="AEA" ng-model="form1.AEA" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AEA" type="number"/>
+			<select name="TransferringMemberState" ng-model="form1.TransferringMemberState" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/TransferringMemberState"></select>
+			<select name="AcquiringMemberState" ng-model="form1.AcquiringMemberState" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AcquiringMemberState"></select>
+			<input name="AEA-Price" ng-model="form1.AEA-Price" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AEA-Price" type="number"/>
+			<input name="TransferAgreementDate" ng-model="form1.TransferAgreementDate" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/TransferAgreementDate" type="date"/>
+			<select name="ExpectedTransactionYear" ng-model="form1.ExpectedTransactionYear" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/ExpectedTransactionYear"></select>
+			<textarea name="Other" ng-model="form1.Other" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/Other"></textarea>
 		</fieldset>
 		<button ng-click="addRow('ConcludedTransferRecord')"  ng-model="form1.addConcludedTransferRecord" group="ConcludedTransferRecord">Add Row</button>
 	</form>
