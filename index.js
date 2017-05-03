@@ -48,7 +48,8 @@ class XSDWebForm
 	        xsdFile = "test.xsd";
 	    }
 	    
-	    xmlHtmlFile = xsdFile.substring(0, xsdFile.length - 3) + "form.xml";
+	    this.baseFileName = xsdFile.substring(0, xsdFile.length - 3);
+	    xmlHtmlFile = this.baseFileName + "form.xml";
 	    
 	    this.parseFiles(xsdFile, xmlHtmlFile);
 
@@ -96,7 +97,7 @@ class XSDWebForm
 	        	// Parse file content
 	        	this.parser.parse(xObject);
 	        	// Create HTML file
-	        	this.createHTMLFile("test.html", this.parser.getHTMLOutput());
+	        	this.createHTMLFile(this.baseFileName + "html", this.parser.getHTMLOutput());
 
 	        });
 
@@ -122,6 +123,6 @@ class XSDWebForm
 }
 
 
-new XSDWebForm(process.argv);
+const xsdWebForm = new XSDWebForm(process.argv);
 
 // heapdump.writeSnapshot('./' + Date.now() + '.heapsnapshot');
