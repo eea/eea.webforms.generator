@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<form>
+	<form action="/api/test">
 		<group multiple="1" element="ConcludedTransferRecord"> 	
 			<number element="AEA"/>	
 			<select element="TransferringMemberState"/>
