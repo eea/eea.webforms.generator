@@ -2,22 +2,12 @@ TEST HTML
 
 <form action="/api/test">
 	<fieldset xsdmap="ConcludedTransferRecord">
-		
-		<number element="AEA"/>
-		
-		<select element="TransferringMemberState"/>
-		
-		<select element="AcquiringMemberState"/>
-		
-		<number element="AEA-Price"/>
-		
-		<date element="TransferAgreementDate"/>
-		
-		<select element="ExpectedTransactionYear"/>
-		
-		<text element="Other"/>
-		
-		<input name="Test"/>
-		
+		<input name="AEA" ng-model="form1.AEA" xsdmap="AEA" type="number">
+		<select name="TransferringMemberState" ng-model="form1.TransferringMemberState" xsdmap="TransferringMemberState"></select>
+		<select name="AcquiringMemberState" ng-model="form1.AcquiringMemberState" xsdmap="AcquiringMemberState"></select>
+		<input name="AEA-Price" ng-model="form1.AEA-Price" xsdmap="AEA-Price" type="number">
+		<input name="TransferAgreementDate" ng-model="form1.TransferAgreementDate" xsdmap="TransferAgreementDate" type="date">
+		<select name="ExpectedTransactionYear" ng-model="form1.ExpectedTransactionYear" xsdmap="ExpectedTransactionYear"></select>
+		<textarea name="Other" ng-model="form1.Other" xsdmap="Other"></textarea>
 	</fieldset>
 </form>
