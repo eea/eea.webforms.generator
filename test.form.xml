@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page title="This is the Title">
+	<page title="This is the Title dasdasd">
 		
-		<form action="/api/test" name="form1">
-			
+		<form action="/api/testasdasd" name="form1">
+
 			<group multiple="1" element="ConcludedTransferRecord"> 	
 				<number element="AEA"/>	
 				<select element="TransferringMemberState"/>
@@ -14,7 +14,7 @@
 				<text element="Other"/>
 				<input name="Test"/>
 			</group>
-
+			
 		</form>
 
 	</page>
