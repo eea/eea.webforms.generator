@@ -204,6 +204,7 @@ class XSDWebFormParserHTMLTags
                             tag         : 'input',
                             tagclose    : false,
                             autoclose   : false,
+                            hasLabel    : true,
                             attrs       : {
                                             name        : item.attr.name,
                                             type        : 'text',
@@ -236,6 +237,7 @@ class XSDWebFormParserHTMLTags
                                 tag         : 'textarea',
                                 tagclose    : false,
                                 autoclose   : true,
+                                hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
@@ -270,6 +272,7 @@ class XSDWebFormParserHTMLTags
                                 tag         : 'input',
                                 tagclose    : false,
                                 autoclose   : false,
+                                hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 type        : "number",
@@ -305,6 +308,7 @@ class XSDWebFormParserHTMLTags
                                 tag         : 'input',
                                 tagclose    : false,
                                 autoclose   : false,
+                                hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 type        : "date",
@@ -341,6 +345,7 @@ class XSDWebFormParserHTMLTags
                                 tag         : 'select',
                                 tagclose    : false,
                                 autoclose   : true,
+                                hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
@@ -413,7 +418,12 @@ class XSDWebFormParserHTMLTags
     */
     static tagToHtml() 
     {
-        let outPut = "<" + this.tag;
+        let outPut = '';
+
+        if (this.hasLabel) 
+            outPut = `<div class="field-caption ng-binding" ng-bind="Labels.labels.${this.name.replace("-", "")}"></div>`;
+
+        outPut += "<" + this.tag;
 
         for (let key in this.attrs) {
             outPut += " " + key + "=\"" + this.attrs[key] +"\""; 
@@ -465,6 +475,11 @@ class XSDWebFormParserHTMLTags
     function WebFormAppCtrl($scope, $http, $timeout) {
     
         $scope.field = {};  
+        $scope.Labels = {
+            labels : {}
+        };  
+
+        $scope.Labels.labels.AEA = "Test Label";
 
         $scope.submit = function(frm) {
             $scope.field[frm.$name].AEAPrice = 11;
@@ -509,7 +524,7 @@ class XSDWebFormParserHTMLTags
             <h2>Test</h2>
         </div>
     </div>
-    
+     
     <div id="workarea" class="row collapse">
        
 `;       

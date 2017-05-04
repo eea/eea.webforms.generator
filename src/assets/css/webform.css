@@ -25,7 +25,7 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: #0a0a0a;
-    background: none;
+    background-color: none;
     padding-bottom: 6.25rem;
   	height: auto;
 }
@@ -45,8 +45,9 @@ ul, li {
   user-select: none;
 }
 
-[type=color], [type=date], [type=datetime-local], [type=datetime], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], [type=url], [type=week], textarea, select { 
-	border-radius: 9px;
+input,
+textarea, select { 
+	border-radius: 5px;
 }
 
 :focus,
@@ -59,6 +60,36 @@ ul, li {
     outline: none;
 }
 
+input, select, textarea {
+    background-color: #fff !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.07) inset !important;
+}
+
+input:focus {
+    border-color: rgba(0, 102, 153, 0.8) !important;
+    box-shadow: 0 1px 1px rgba(0, 102, 153, 0.075) inset,0 0 8px rgba(0, 102, 153,0.6) !important; 
+    outline: 0 none !important;
+}
+
+.field-caption {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.field-caption::after {
+	content: ':';
+}
+
+.top-bar, .top-bar ul {
+    background-color: #A6CFD2;
+}
+
+.top-bar, .top-bar a {
+    color: #FFFFFF;
+}
+
 .callout.primary {
     background-color: #006699;
     color: #fff;
@@ -66,4 +97,8 @@ ul, li {
 
 .callout.primary h2 {
     color: #ccc;
+}
+
+#container {
+	background-color: #F7F8F8;
 }
