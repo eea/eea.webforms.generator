@@ -22,39 +22,14 @@ class XSDWebFormParserHTMLTags
     constructor(){
         
         this.HTML_TYPES = {
-            "page": {
-                        fn              : this.parsePage
-                    },
-            "form":  {
-                        fn              : this.parseForm,
-                        htmlTemplate    : "<form name=\"${name}\" action=\"${action}\">",
-                        htmlTemplateE    : "</form>"
-                    },
-            "group": {
-                        fn              : this.parseGroup,
-                        htmlTemplate    : "<fieldset name=\"${name}\" ew-map=\"${ew-map}\">",
-                        htmlTemplateE    : "</fieldset>"
-                    },
-            "input": {
-                        fn              : this.parseInput,
-                        htmlTemplate    : "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"text\"/>"
-                    },
-            "text": {
-                        fn              : this.parseText,
-                        htmlTemplate    : "<textarea name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\"></textarea>"
-                    },
-            "number": {
-                        fn              : this.parseNumber,
-                        htmlTemplate    : "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"number\"/>"
-                    },
-            "date": {
-                        fn              : this.parseDate,
-                        htmlTemplate    : "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"date\"/>"
-                    },
-            "select": {
-                        fn              : this.parseSelect,
-                        htmlTemplate    : "<select name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\"></select>"
-                    }
+            "page"          : this.parsePage,
+            "form"          : this.parseForm,
+            "group"         : this.parseGroup,
+            "input"         : this.parseInput,
+            "text"          : this.parseText,
+            "number"        : this.parseNumber,
+            "date"          : this.parseDate,
+            "select"        : this.parseSelect
         };
 
         this.HTML_HEADER = '';
@@ -112,7 +87,7 @@ class XSDWebFormParserHTMLTags
     {
 
         if ((item.name in this.HTML_TYPES)) {
-            (this.HTML_TYPES[item.name].fn)(item, xsdItem, this);
+            (this.HTML_TYPES[item.name])(item, xsdItem, this);
         } else {
             console.log(`\n************* Unknown HTML Tag {${item.name}} *************\n`);
             process.stdout.write('\x07');
@@ -139,7 +114,25 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-     * parseForm- Parse Form Tag
+    * tagToHtml
+    */
+    static tagToHtml() 
+    {
+        let outPut = "<" + this.tag;
+
+        for (let key in this.attrs) {
+            outPut += " " + key + "=\"" + this.attrs[key] +"\""; 
+        }
+        outPut += ">";
+
+        if (this.append)
+            outPut += this.append;
+        
+        return outPut;
+    }
+
+    /**
+     * parseForm - Parse Form Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -149,21 +142,21 @@ class XSDWebFormParserHTMLTags
 
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
-        let formStart = sender.HTML_TYPES[item.name].htmlTemplate;
-        let formEnd = sender.HTML_TYPES[item.name].htmlTemplateE;
-
-        formStart = formStart.replace("${action}", item.attr.action);
-        formStart = formStart.replace("${name}", item.attr.name);
-
         var formObject = {
-                    name : item.attr.name,
-                    action : item.attr.action,
-                    tagstart : formStart,
-                    tagend : formEnd,
-                    groups: []
+                    name        : item.attr.name,
+                    action      : item.attr.action,
+                    tag         : 'form',
+                    tagclose    : true,
+                    attrs       : {
+                                    name    : item.attr.name,
+                                    action  : item.attr.action
+                                },
+                    groups      : [],
+                    tagToHtml   :  XSDWebFormParserHTMLTags.tagToHtml
                 }
-        sender.HTMLObjects.push({ type : "form", itemObject : formObject });
 
+        sender.HTMLObjects.push({ type : "form", itemObject : formObject });
+       
     }
 
     /**
@@ -185,27 +178,32 @@ class XSDWebFormParserHTMLTags
             XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
         }
 
-        let groupStart = sender.HTML_TYPES[item.name].htmlTemplate;
-        let groupEnd = sender.HTML_TYPES[item.name].htmlTemplateE;
+        // let groupStart = "<fieldset name=\"${name}\" ew-map=\"${ew-map}\">";
+        // let groupEnd = "</fieldset>";
 
-        groupStart = groupStart.replace("${ew-map}", item.attr.element);
-        groupStart = groupStart.replace("${name}", item.attr.element);
+        // groupStart = groupStart.replace("${ew-map}", item.attr.element);
+        // groupStart = groupStart.replace("${name}", item.attr.element);
         
+        let groupEnd = ''; 
         if (item.attr.multiple === "1") {
             // groupStart = [groupStart.slice(0, groupStart.length - 1), " ng-click=\"addRow()\"", groupStart.slice(groupStart.length - 1)].join('');
             groupEnd += `\n\t\t<button ng-click=\"addRow('${item.attr.element}')\"  ng-model=\"${sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".add" + item.attr.element}\" group=\"${item.attr.element}\">Add Row</button>`;
         }
         
         var groupObject = {
-                    name : item.attr.element,
-                    xsdName: xsdGroupTag.name,
-                    tagstart : groupStart,
-                    tagend : groupEnd,
-                    htmlXML : item,
-                    xsdXML :  xsdGroupTag,
-                    items: []
+                    name        : item.attr.element,
+                    xsdName     : xsdGroupTag.name,
+                    tag         : 'fieldset',
+                    tagclose    : true,
+                    attrs       : {
+                                    'ew-map'  : xsdGroupTag.name + "/" + item.attr.element
+                                },
+                    append      : groupEnd,
+                    xsdXML      : xsdGroupTag,
+                    items       : [],
+                    tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                 }
-        
+         
         sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.groups.push({ type : "group", itemObject : groupObject });
 
     } 
@@ -218,6 +216,8 @@ class XSDWebFormParserHTMLTags
      */
     parseInput(item, xsdItem, sender)
     {
+
+        var itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"text\"/>"
 
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
@@ -235,12 +235,25 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
         if (item.attr.element) {
+            
             let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
+            let groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
+            let parentXsdName = groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name;
 
-            let itemStart = sender.HTML_TYPES[item.name].htmlTemplate;
-            itemStart = sender.parseAttrs(itemStart, item, sender);
+            var htmlItem = {
+                                name        : item.attr.element,
+                                tag         : 'textarea',
+                                tagclose    : false,
+                                attrs       : {
+                                                name        : item.attr.element,
+                                                'ew-map'    : groupBase.itemObject.xsdName + "/" + groupBase.itemObject.name + "/" + parentXsdName + "/" + item.attr.element,
+                                                'ng-model'    : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                            },
+                                append      : '</textarea>',
+                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                            }
 
-            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
+            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
             
         }
 
@@ -260,7 +273,7 @@ class XSDWebFormParserHTMLTags
         if (item.attr.element) {
             let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 
-            let itemStart = sender.HTML_TYPES[item.name].htmlTemplate;
+            let itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"number\"/>";
             itemStart = sender.parseAttrs(itemStart, item, sender);
             
             htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
@@ -282,7 +295,7 @@ class XSDWebFormParserHTMLTags
         if (item.attr.element) {
             let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 
-            let itemStart = sender.HTML_TYPES[item.name].htmlTemplate;
+            let itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"date\"/>";
             itemStart = sender.parseAttrs(itemStart, item, sender);
             
             htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
@@ -304,7 +317,7 @@ class XSDWebFormParserHTMLTags
         if (item.attr.element) {
             let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 
-            let itemStart = sender.HTML_TYPES[item.name].htmlTemplate;
+            let itemStart = "<select name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\"></select>";
             itemStart = sender.parseAttrs(itemStart, item, sender);
             
             htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);

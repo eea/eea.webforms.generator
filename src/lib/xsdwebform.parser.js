@@ -92,21 +92,25 @@ class XSDWebFormParser
             let form = this.htmlOutput.HTMLObjects[f];
             let formHtml = [];
 
-            html.splice(html.length + 1, 0, "\t"+ form.itemObject.tagstart);
+            html.splice(html.length + 1, 0, "\t"+ form.itemObject.tagToHtml());
             let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
-            html.splice(groups.length + html.length + 1, 0, "\t"+ form.itemObject.tagend);
+
+            if (form.itemObject.tagclose)
+                html.splice(groups.length + html.length + 1, 0, "\t</"+ form.itemObject.tag + ">");
 
             for (let i = 0, l = groups.length; i < l; i++) {
                 
                 let group = groups[i];
                 
-                formHtml.push("\t\t" + groups[i].itemObject.tagstart);
+                formHtml.push("\t\t" + group.itemObject.tagToHtml());
 
                 for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
                     formHtml.push("\t\t\t" + groups[i].itemObject.items[i2]);
                 }
+                
+                if (group.itemObject.tagclose)
+                    formHtml.push("\t\t</"+ group.itemObject.tag + ">");
 
-                formHtml.push("\t\t" + groups[i].itemObject.tagend);
             }
             
             html.splice(html.length - 1, 0, formHtml.join('\n'));

@@ -142,7 +142,7 @@ class XSDWebFormParserLog
     {
         if (sender.verbose) {
             console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item}\x1b[0m`);
-            console.log("\x1b[2m" + sender.HTML_TYPES[item].htmlTemplate + "\x1b[0m\n");
+            // console.log("\x1b[2m" + sender.HTML_TYPES[item].htmlTemplate + "\x1b[0m\n");
         }
     }
 
