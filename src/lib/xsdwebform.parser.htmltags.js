@@ -444,16 +444,14 @@ class XSDWebFormParserHTMLTags
     
     <title>${pageTitle}</title>
 
-    <script src="angular.min.js" ></script>
-    <script src="angular-datepicker.js"></script>
-    <script src="jquery.js"></script>
-    <script src="elastic.js"></script>
-    <script src="spin.min.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/a/angular.min.js" ></script>
+    <script src="./assets/js/a/angular-datepicker.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="angular-datepicker.css"/>
-    <link rel="stylesheet" type="text/css" href="normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="foundation.css"/>
-    <link rel="stylesheet" type="text/css" href="webform.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
 </head>
 <body>
 
