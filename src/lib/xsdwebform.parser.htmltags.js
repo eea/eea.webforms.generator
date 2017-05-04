@@ -126,14 +126,21 @@ class XSDWebFormParserHTMLTags
 
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
+
+        let formEnd = "<button type=\"submit\">Submit Form</button>";
+        
+
         var formObject = {
                     name        : item.attr.name,
                     action      : item.attr.action,
                     tag         : 'form',
-                    tagclose    : true,
+                    // tagclose    : true,
+                    append      : formEnd,
                     attrs       : {
                                     name    : item.attr.name,
-                                    action  : item.attr.action
+                                    'ew-action'  : item.attr.action,
+                                    method  : 'post',
+                                    'ng-submit' : `submit(${item.attr.name})`
                                 },
                     groups      : [],
                     tagToHtml   :  XSDWebFormParserHTMLTags.tagToHtml
@@ -164,14 +171,14 @@ class XSDWebFormParserHTMLTags
         
         let groupEnd = ''; 
         if (item.attr.multiple === "1") {
-            groupEnd += `<button ng-click=\"addRow('${item.attr.element}')\" ng-model=\"${sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".add" + item.attr.element}\" group=\"${item.attr.element}\">Add Row</button>`;
+            groupEnd += `<button type=\"button\" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"${sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".add" + item.attr.element}\" group=\"${item.attr.element}\">Add Row</button>`;
         }
         
         var groupObject = {
                     name        : item.attr.element,
                     xsdName     : xsdGroupTag.name,
                     tag         : 'fieldset',
-                    tagclose    : true,
+                    // tagclose    : true,
                     attrs       : {
                                     'ew-map'  : xsdGroupTag.name + "/" + item.attr.element
                                 },
@@ -196,26 +203,23 @@ class XSDWebFormParserHTMLTags
 
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
-        // if (item.attr.name) {
-            
-            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-            
-            var htmlItem = {
-                                name        : item.attr.name,
-                                tag         : 'input',
-                                tagclose    : false,
-                                autoclose   : false,
-                                attrs       : {
-                                                name        : item.attr.name,
-                                                type        : 'text',
-                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.name
-                                            },
-                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
-                            }
+        let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+        
+        var htmlItem = {
+                            name        : item.attr.name,
+                            tag         : 'input',
+                            tagclose    : false,
+                            autoclose   : false,
+                            attrs       : {
+                                            name        : item.attr.name,
+                                            type        : 'text',
+                                            'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.name
+                                        },
+                            tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                        }
 
-            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
-        // }
-
+        itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+        
     } 
 
     /**
@@ -446,8 +450,15 @@ class XSDWebFormParserHTMLTags
      */
     function WebFormAppCtrl($scope, $http, $timeout) {
 
-        $scope.submit = function() {
-          
+        $scope.submit = function(frm) {
+            console.log(frm);
+            //console.log(frm['AEA-Price'].$$attr.ewMap);
+            return false;
+        };
+ 
+
+        $scope.addRow = function() {
+            alert('Row');
         };
         
     }
@@ -463,8 +474,6 @@ class XSDWebFormParserHTMLTags
             <h2>This is Foundation</h2>
         </div>
     </div>
-
-
 
 `;       
     }
