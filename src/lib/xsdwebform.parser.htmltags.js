@@ -34,6 +34,8 @@ class XSDWebFormParserHTMLTags
 
         this.HTML_HEADER = '';
         this.HTML_FOOTER = `
+    
+</div>
 
 </body>
 </html>
@@ -239,7 +241,7 @@ class XSDWebFormParserHTMLTags
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
-                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".item['" + item.attr.element + "']"
                                             },
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
@@ -274,7 +276,7 @@ class XSDWebFormParserHTMLTags
                                                 name        : item.attr.element,
                                                 type        : "number",
                                                 'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
-                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".item['" + item.attr.element + "']"
                                             },
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
@@ -309,7 +311,7 @@ class XSDWebFormParserHTMLTags
                                                 name        : item.attr.element,
                                                 type        : "date",
                                                 'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
-                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".item['" + item.attr.element + "']"
                                             },
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
@@ -344,7 +346,7 @@ class XSDWebFormParserHTMLTags
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
-                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".item['" + item.attr.element + "']"
                                             },
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
@@ -389,26 +391,6 @@ class XSDWebFormParserHTMLTags
     }
 
     /**
-     * parseAttrs
-     * @param itemStr
-     * @param item
-     * @param sender
-     */
-    
-    parseAttrs(itemStr, item, sender) {
-
-        let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length -1];
-        let groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
-        let parentXsdName = groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name;
-
-        itemStr = itemStr.replace("${ew-map}", groupBase.itemObject.xsdName + "/" + groupBase.itemObject.name + "/" + parentXsdName + "/" + item.attr.element);
-        itemStr = itemStr.replace("${name}", item.attr.element);
-        itemStr = itemStr.replace("${model}", sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element);
-
-        return itemStr;
-    }
-
-    /**
     * tagToHtml
     */
     static tagToHtml() 
@@ -444,6 +426,7 @@ class XSDWebFormParserHTMLTags
     
     <title>${pageTitle}</title>
 
+    <script src="./assets/js/modernizr.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/a/angular.min.js" ></script>
     <script src="./assets/js/a/angular-datepicker.min.js"></script>
@@ -452,8 +435,36 @@ class XSDWebFormParserHTMLTags
     <link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
+
+    <script type="text/javascript">
+
+    const app = angular.module('WebFormApp', []);
+    app.controller('WebFormAppCtrl', WebFormAppCtrl);
+
+    /**
+     * WebFormAppCtrl: Main angular controller
+     */
+    function WebFormAppCtrl($scope, $http, $timeout) {
+
+        $scope.submit = function() {
+          
+        };
+        
+    }
+    </script>
+
 </head>
-<body>
+<body ng-app="WebFormApp">
+
+<div id="container" ng-controller="WebFormAppCtrl">
+    
+    <div class="row">
+        <div class="text-center medium-offset-3 medium-6">
+            <h2>This is Foundation</h2>
+        </div>
+    </div>
+
+
 
 `;       
     }
