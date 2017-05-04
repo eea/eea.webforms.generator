@@ -109,7 +109,10 @@ class XSDWebFormParser
                 }
                 
                 if (group.itemObject.tagclose)
-                    formHtml.push("\t\t</"+ group.itemObject.tag + ">");
+                    formHtml.push("\t\t</" + group.itemObject.tag + ">");
+
+                if (group.itemObject.append)
+                    formHtml.push("\t\t" + group.itemObject.append);
 
             }
             

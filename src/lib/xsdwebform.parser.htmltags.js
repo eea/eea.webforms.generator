@@ -125,8 +125,8 @@ class XSDWebFormParserHTMLTags
         }
         outPut += ">";
 
-        if (this.append)
-            outPut += this.append;
+        if (this.autoclose)
+            outPut += "</" + this.tag + ">"
         
         return outPut;
     }
@@ -177,17 +177,10 @@ class XSDWebFormParserHTMLTags
         } catch (ex) {
             XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
         }
-
-        // let groupStart = "<fieldset name=\"${name}\" ew-map=\"${ew-map}\">";
-        // let groupEnd = "</fieldset>";
-
-        // groupStart = groupStart.replace("${ew-map}", item.attr.element);
-        // groupStart = groupStart.replace("${name}", item.attr.element);
         
         let groupEnd = ''; 
         if (item.attr.multiple === "1") {
-            // groupStart = [groupStart.slice(0, groupStart.length - 1), " ng-click=\"addRow()\"", groupStart.slice(groupStart.length - 1)].join('');
-            groupEnd += `\n\t\t<button ng-click=\"addRow('${item.attr.element}')\"  ng-model=\"${sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".add" + item.attr.element}\" group=\"${item.attr.element}\">Add Row</button>`;
+            groupEnd += `<button ng-click=\"addRow('${item.attr.element}')\" ng-model=\"${sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + ".add" + item.attr.element}\" group=\"${item.attr.element}\">Add Row</button>`;
         }
         
         var groupObject = {
@@ -224,7 +217,25 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-     * parseText- Parse Text Tag
+     * getItemInfo
+     * @param item
+     * @param xsdItem
+     * @param sender
+     */
+    getItemInfo(item, xsdItem, sender) 
+    {
+        var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
+        var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
+
+        return {
+                htmlBase        : htmlBase,
+                groupBase       : groupBase,
+                parentXsdName   : groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name
+            };
+    }
+
+    /**
+     * parseText - Parse Text Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -235,25 +246,24 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
         if (item.attr.element) {
-            
-            let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
-            let groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
-            let parentXsdName = groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name;
 
+            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+            
             var htmlItem = {
                                 name        : item.attr.element,
                                 tag         : 'textarea',
                                 tagclose    : false,
+                                autoclose   : true,
                                 attrs       : {
                                                 name        : item.attr.element,
-                                                'ew-map'    : groupBase.itemObject.xsdName + "/" + groupBase.itemObject.name + "/" + parentXsdName + "/" + item.attr.element,
-                                                'ng-model'    : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                                'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
                                             },
-                                append      : '</textarea>',
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
 
-            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            
             
         }
 
