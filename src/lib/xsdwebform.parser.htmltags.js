@@ -460,7 +460,7 @@ class XSDWebFormParserHTMLTags
     app.controller('WebFormAppCtrl', WebFormAppCtrl);
 
     /**
-     * WebFormAppCtrl: Main angular controller
+     * WebFormAppCtrl: Main controller
      */
     function WebFormAppCtrl($scope, $http, $timeout) {
     
