@@ -114,24 +114,6 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-    * tagToHtml
-    */
-    static tagToHtml() 
-    {
-        let outPut = "<" + this.tag;
-
-        for (let key in this.attrs) {
-            outPut += " " + key + "=\"" + this.attrs[key] +"\""; 
-        }
-        outPut += ">";
-
-        if (this.autoclose)
-            outPut += "</" + this.tag + ">"
-        
-        return outPut;
-    }
-
-    /**
      * parseForm - Parse Form Tag
      * @param item
      * @param xsdItem
@@ -210,29 +192,29 @@ class XSDWebFormParserHTMLTags
     parseInput(item, xsdItem, sender)
     {
 
-        var itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"text\"/>"
-
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
+        // if (item.attr.name) {
+            
+            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+            
+            var htmlItem = {
+                                name        : item.attr.name,
+                                tag         : 'input',
+                                tagclose    : false,
+                                autoclose   : false,
+                                attrs       : {
+                                                name        : item.attr.name,
+                                                type        : 'text',
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.name
+                                            },
+                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                            }
+
+            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+        // }
+
     } 
-
-    /**
-     * getItemInfo
-     * @param item
-     * @param xsdItem
-     * @param sender
-     */
-    getItemInfo(item, xsdItem, sender) 
-    {
-        var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
-        var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
-
-        return {
-                htmlBase        : htmlBase,
-                groupBase       : groupBase,
-                parentXsdName   : groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name
-            };
-    }
 
     /**
      * parseText - Parse Text Tag
@@ -264,7 +246,6 @@ class XSDWebFormParserHTMLTags
 
             itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
             
-            
         }
 
     } 
@@ -281,12 +262,25 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);   
 
         if (item.attr.element) {
-            let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 
-            let itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"number\"/>";
-            itemStart = sender.parseAttrs(itemStart, item, sender);
+            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
             
-            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
+            var htmlItem = {
+                                name        : item.attr.element,
+                                tag         : 'input',
+                                tagclose    : false,
+                                autoclose   : false,
+                                attrs       : {
+                                                name        : item.attr.element,
+                                                type        : "number",
+                                                'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                            },
+                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                            }
+
+            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+
         }
  
     } 
@@ -303,12 +297,25 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);    
 
         if (item.attr.element) {
-            let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
-
-            let itemStart = "<input name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\" type=\"date\"/>";
-            itemStart = sender.parseAttrs(itemStart, item, sender);
+           
+            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
             
-            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
+            var htmlItem = {
+                                name        : item.attr.element,
+                                tag         : 'input',
+                                tagclose    : false,
+                                autoclose   : false,
+                                attrs       : {
+                                                name        : item.attr.element,
+                                                type        : "date",
+                                                'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                            },
+                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                            }
+
+            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+
         }
 
     } 
@@ -325,15 +332,46 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
         if (item.attr.element) {
-            let htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 
-            let itemStart = "<select name=\"${name}\" ng-model=\"${model}\" ew-map=\"${ew-map}\"></select>";
-            itemStart = sender.parseAttrs(itemStart, item, sender);
+
+            let itemInfo = sender.getItemInfo(item, xsdItem, sender);
             
-            htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1].itemObject.items.push(itemStart);
+            var htmlItem = {
+                                name        : item.attr.element,
+                                tag         : 'select',
+                                tagclose    : false,
+                                autoclose   : true,
+                                attrs       : {
+                                                name        : item.attr.element,
+                                                'ew-map'    : itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element,
+                                                'ng-model'  : sender.HTMLObjects[sender.HTMLObjects.length -1].itemObject.name + "." + item.attr.element
+                                            },
+                                tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
+                            }
+
+            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+
         }
 
     } 
+
+    /**
+     * getItemInfo
+     * @param item
+     * @param xsdItem
+     * @param sender
+     */
+    getItemInfo(item, xsdItem, sender) 
+    {
+        var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
+        var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length -1];
+
+        return {
+                htmlBase        : htmlBase,
+                groupBase       : groupBase,
+                parentXsdName   : groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name
+            };
+    }
 
     /**
      * getXSDComplexByGroupTag - Find and get XSD complexType Type filtered by Group Tag name
@@ -369,6 +407,25 @@ class XSDWebFormParserHTMLTags
 
         return itemStr;
     }
+
+    /**
+    * tagToHtml
+    */
+    static tagToHtml() 
+    {
+        let outPut = "<" + this.tag;
+
+        for (let key in this.attrs) {
+            outPut += " " + key + "=\"" + this.attrs[key] +"\""; 
+        }
+        outPut += ">";
+
+        if (this.autoclose)
+            outPut += "</" + this.tag + ">"
+        
+        return outPut;
+    }
+
 
     /**
      * setHeaer
