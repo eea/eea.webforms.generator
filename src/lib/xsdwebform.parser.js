@@ -92,32 +92,32 @@ class XSDWebFormParser
             let form = this.htmlOutput.HTMLObjects[f];
             let formHtml = [];
 
-            html.splice(html.length + 1, 0, "\t"+ form.itemObject.tagToHtml());
+            html.splice(html.length + 1, 0, "\t\t"+ form.itemObject.tagToHtml());
             let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
 
             // if (form.itemObject.tagclose)
-                html.splice(groups.length + html.length + 1, 0, "\t</"+ form.itemObject.tag + ">");
+                html.splice(groups.length + html.length + 1, 0, "\t\t</"+ form.itemObject.tag + ">");
 
             for (let i = 0, l = groups.length; i < l; i++) {
                 
                 let group = groups[i];
                 
-                formHtml.push("\t\t" + group.itemObject.tagToHtml());
+                formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 
                 for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
-                    formHtml.push("\t\t\t" + groups[i].itemObject.items[i2]);
+                    formHtml.push("\t\t\t\t" + groups[i].itemObject.items[i2]);
                 }
                 
                 // if (group.itemObject.tagclose)
-                    formHtml.push("\t\t</" + group.itemObject.tag + ">");
+                    formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
 
                 if (group.itemObject.append)
-                    formHtml.push("\t\t" + group.itemObject.append);
+                    formHtml.push("\t\t\t" + group.itemObject.append);
 
             }
             
             if (form.itemObject.append)
-                formHtml.push("\t\t" + form.itemObject.append);
+                formHtml.push("\t\t\t" + form.itemObject.append);
 
             html.splice(html.length - 1, 0, formHtml.join('\n'));
         }

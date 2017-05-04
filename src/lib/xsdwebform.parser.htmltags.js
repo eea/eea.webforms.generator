@@ -444,15 +444,15 @@ class XSDWebFormParserHTMLTags
     
     <title>${pageTitle}</title>
 
-    <script src="./assets/js/modernizr.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/a/angular.min.js" ></script>
     <script src="./assets/js/a/angular-datepicker.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
-    <link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 
     <script type="text/javascript">
 
@@ -486,12 +486,32 @@ class XSDWebFormParserHTMLTags
 
 <div id="container" ng-controller="WebFormAppCtrl">
     
-    <div class="row">
-        <div class="text-center medium-offset-3 medium-6">
-            <h2>This is Foundation</h2>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">EEA</li>
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+            </ul>
+        </div>
+    </div>
+     
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>EEA</h1>
+            <h2 class="subheader">Web Form</h2>
         </div>
     </div>
 
+    <div class="row">
+        <div class="text-center medium-offset-3 medium-6">
+            <h2>Test</h2>
+        </div>
+    </div>
+    
+    <div id="workarea" class="row collapse">
+       
 `;       
     }
 
@@ -503,7 +523,9 @@ class XSDWebFormParserHTMLTags
     setFooter() {
 
         this.HTML_FOOTER = `
-    
+      
+    </div> 
+
 </div>
 
 </body>
