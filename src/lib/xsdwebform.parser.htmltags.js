@@ -33,14 +33,7 @@ class XSDWebFormParserHTMLTags
         };
 
         this.HTML_HEADER = '';
-        this.HTML_FOOTER = `
-    
-</div>
-
-</body>
-</html>
-`;
-
+        this.HTML_FOOTER = '';
         this.HTMLObjects = [];
         this.showLog = false;
         this.verbose = false;
@@ -112,6 +105,7 @@ class XSDWebFormParserHTMLTags
         }
 
         sender.setHeader(item.attr.title);
+        sender.setFooter();
 
     } 
 
@@ -499,6 +493,22 @@ class XSDWebFormParserHTMLTags
     </div>
 
 `;       
+    }
+
+
+    /**
+     * setFooter
+     */
+    
+    setFooter() {
+
+        this.HTML_FOOTER = `
+    
+</div>
+
+</body>
+</html>
+`;
     }
 
     /**
