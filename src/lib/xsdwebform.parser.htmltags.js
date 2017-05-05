@@ -135,11 +135,11 @@ class XSDWebFormParserHTMLTags
                     // tagclose    : true,
                     append      : formEnd,
                     attrs       : {
-                                    name    : item.attr.name,
-                                    id        : item.attr.name.replace("-", ""),
-                                    'ew-action'  : item.attr.action,
-                                    method  : 'post',
-                                    'ng-submit' : `submit(${item.attr.name})`
+                                    name            : item.attr.name,
+                                    id              : item.attr.name.replace("-", ""),
+                                    'ew-action'     : item.attr.action,
+                                    method          : 'post',
+                                    'ng-submit'     : `submit(${item.attr.name})`
                                 },
                     groups      : [],
                     tagToHtml   :  XSDWebFormParserHTMLTags.tagToHtml

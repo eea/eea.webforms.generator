@@ -37,11 +37,17 @@ class XSDWebForm
 	    // HTML Input file variable
 	    var xmlHtmlFile = null;
 
+	    this.autoOpenOutput = false;
+
 	    // Check for [-f file] input
 	    args.forEach(
 	        (item, index) => {
 	            if (item == '-f') {
 	                xsdFile = args[index + 1];
+	                return;
+	            }
+	            if (item == '-a') {
+	                this.autoOpenOutput = true;
 	                return;
 	            }
 	        }
@@ -59,8 +65,12 @@ class XSDWebForm
 	    this.prepareJSFiles();
 
 	    try {
+	    	
 	    	this.parseFiles(xsdFile, xmlHtmlFile);
-	    	openurl.open(`./build/${this.baseFileName}html`);
+	    	
+	    	if (this.autoOpenOutput)
+	    		openurl.open(`./build/${this.baseFileName}html`);
+
 	    } catch(err){
 	    	XSDWebFormParserError.reportError(err);
 	    }
