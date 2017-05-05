@@ -32,13 +32,14 @@ class XSDWebFormParserHTMLTags
             "select"        : this.parseSelect
         };
 
-        this.HTML_HEADER    = '';
-        this.HTML_FOOTER    = '';
-        this.HTML_TITLE     = '';
-        this.HTMLObjects    = [];
-        this.LabelObjects   = [];
-        this.showLog        = false;
-        this.verbose        = false;
+        this.HTML_HEADER        = '';
+        this.HTML_FOOTER        = '';
+        this.HTML_TITLE         = '';
+        this.HTML_FORM_TITLE    = '';
+        this.HTMLObjects        = [];
+        this.LabelObjects       = [];
+        this.showLog            = false;
+        this.verbose            = false;
     }
 
     /**
@@ -73,6 +74,7 @@ class XSDWebFormParserHTMLTags
 
                     this.setHeader(
                             this.HTML_TITLE, 
+                            this.HTML_FORM_TITLE,
                             this.LabelObjects.map((label) => {
                                     return `$scope.Labels.labels.${label.label} = '${label.text}';`;
                                 }).join("\n\t\t")
@@ -147,12 +149,15 @@ class XSDWebFormParserHTMLTags
                                     name            : item.attr.name,
                                     id              : item.attr.name.replace("-", ""),
                                     'ew-action'     : item.attr.action,
+                                    title           : item.attr.title,
                                     method          : 'post',
                                     'ng-submit'     : `submit(${item.attr.name})`
                                 },
                     groups      : [],
                     tagToHtml   :  XSDWebFormParserHTMLTags.tagToHtml
                 }
+
+        sender.HTML_FORM_TITLE = item.attr.title;
 
         sender.HTMLObjects.push({ type : "form", itemObject : formObject });
        
@@ -530,7 +535,7 @@ class XSDWebFormParserHTMLTags
      * @param pageTitle
      */
     
-    setHeader(pageTitle , labels) {
+    setHeader(pageTitle, formTitle, labels) {
 
         this.HTML_HEADER = `
 <!DOCTYPE html>
@@ -609,7 +614,7 @@ class XSDWebFormParserHTMLTags
 
     <div class="row">
         <div class="text-center medium-offset-3 medium-6">
-            <h2>Test</h2>
+            <h2>${formTitle}</h2>
         </div>
     </div>
      

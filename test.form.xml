@@ -2,7 +2,7 @@
 <root>
 	<page title="This is the Title">
 		
-		<form action="/api/testasdasd" name="form1">
+		<form action="/api/testasdasd" name="form1" title="My Title">
 
 			<group multiple="1" element="ConcludedTransferRecord"> 	
 				<number element="AEA"/>	
