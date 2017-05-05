@@ -367,7 +367,7 @@ class XSDWebFormParserHTMLTags
             try {
                 XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
             } catch (ex) {
-                XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
+                XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
             }
             
             try {
@@ -381,7 +381,7 @@ class XSDWebFormParserHTMLTags
             
             let enums = XSDWFormItemTypeData.childNamed("xs:restriction");
             if (!enums)
-                XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`);   
+                XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`, XSDWFormItemTypeData);   
 
             let enumItems = [];
             enums.eachChild((enm, index) => {
@@ -393,7 +393,7 @@ class XSDWebFormParserHTMLTags
                 if (enm.name === "xs:minInclusive") {
                     let maxInclusive = enums.childNamed("xs:maxInclusive");     
                     if (!maxInclusive)
-                        XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`);   
+                        XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);   
 
                     let min = enm.attr.value;
 
