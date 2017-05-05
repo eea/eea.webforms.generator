@@ -95,7 +95,7 @@ class XSDWebFormParserHTMLTags
     }
 
     /**
-     * parsePage- Parse Page Info
+     * parsePage - Parse Page Info
      * @param item
      * @param xsdItem
      * @param sender
@@ -136,6 +136,7 @@ class XSDWebFormParserHTMLTags
                     append      : formEnd,
                     attrs       : {
                                     name    : item.attr.name,
+                                    id        : item.attr.name.replace("-", ""),
                                     'ew-action'  : item.attr.action,
                                     method  : 'post',
                                     'ng-submit' : `submit(${item.attr.name})`
@@ -149,7 +150,7 @@ class XSDWebFormParserHTMLTags
     }
 
     /**
-     * parseGroup- Parse Group Tag
+     * parseGroup - Parse Group Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -178,7 +179,8 @@ class XSDWebFormParserHTMLTags
                     tag         : 'fieldset',
                     // tagclose    : true,
                     attrs       : {
-                                    'ew-map'  : xsdGroupTag.name + "/" + item.attr.element
+                                    'ew-map'  : xsdGroupTag.name + "/" + item.attr.element,
+                                    id        : item.attr.element.replace("-", "")
                                 },
                     append      : groupEnd,
                     xsdXML      : xsdGroupTag,
@@ -191,7 +193,7 @@ class XSDWebFormParserHTMLTags
     }
 
     /**
-     * parseInput- Parse Input Tag
+     * parseInput - Parse Input Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -211,6 +213,7 @@ class XSDWebFormParserHTMLTags
                             hasLabel    : true,
                             attrs       : {
                                             name        : item.attr.name,
+                                            id          : item.attr.name.replace("-", ""),
                                             type        : 'text',
                                             'ng-model'  : sender.getNgModel(item.attr.name, sender)
                                         },
@@ -244,6 +247,7 @@ class XSDWebFormParserHTMLTags
                                 hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
+                                                id          : item.attr.element.replace("-", ""),
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
                                             },
@@ -257,7 +261,7 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-     * parseNumber- Parse Number Tag
+     * parseNumber - Parse Number Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -279,6 +283,7 @@ class XSDWebFormParserHTMLTags
                                 hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
+                                                id          : item.attr.element.replace("-", ""),
                                                 type        : "number",
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
@@ -293,7 +298,7 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-     * parseDate- Parse Date Tag
+     * parseDate - Parse Date Tag
      * @param item
      * @param xsdItem
      * @param sender
@@ -315,6 +320,7 @@ class XSDWebFormParserHTMLTags
                                 hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
+                                                id          : item.attr.element.replace("-", ""),
                                                 type        : "date",
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
@@ -352,6 +358,7 @@ class XSDWebFormParserHTMLTags
                                 hasLabel    : true,
                                 attrs       : {
                                                 name        : item.attr.element,
+                                                id          : item.attr.element.replace("-", ""),
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
                                             },
@@ -418,7 +425,7 @@ class XSDWebFormParserHTMLTags
     } 
 
     /**
-     * addItemToGroup- Parse Input Tag
+     * addItemToGroup
      * @param htmlItem
      * @param itemInfo
      * @param sender

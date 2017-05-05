@@ -10,6 +10,7 @@
 import fs from 'fs';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
+import openurl from 'openurl';
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 
 // import heapdump from 'heapdump'; 
@@ -59,6 +60,7 @@ class XSDWebForm
 
 	    try {
 	    	this.parseFiles(xsdFile, xmlHtmlFile);
+	    	openurl.open(`./build/${this.baseFileName}html`);
 	    } catch(err){
 	    	XSDWebFormParserError.reportError(err);
 	    }

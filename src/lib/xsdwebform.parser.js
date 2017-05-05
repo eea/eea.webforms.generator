@@ -119,10 +119,10 @@ class XSDWebFormParser
             if (form.itemObject.append)
                 formHtml.push("\t\t\t" + form.itemObject.append);
 
-            html.splice(html.length - 1, 0, formHtml.join('\n'));
+            html.splice(html.length - 1, 0, formHtml.join('\n\n'));
         }
 
-        this.htmlOutput.content = html.join("\n");
+        this.htmlOutput.content = html.join("\n\n");
 
     }
 
