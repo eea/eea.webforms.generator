@@ -223,6 +223,7 @@ class XSDWebFormParserHTMLTags
                             attrs       : {
                                             name        : item.attr.name,
                                             id          : item.attr.name.replace("-", ""),
+                                            required    : 1,
                                             type        : 'text',
                                             'ng-model'  : sender.getNgModel(item.attr.name, sender)
                                         },
@@ -257,6 +258,7 @@ class XSDWebFormParserHTMLTags
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 id          : item.attr.element.replace("-", ""),
+                                                required    : 1,
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
                                             },
@@ -293,6 +295,7 @@ class XSDWebFormParserHTMLTags
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 id          : item.attr.element.replace("-", ""),
+                                                required    : 1,
                                                 type        : "number",
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
@@ -330,6 +333,7 @@ class XSDWebFormParserHTMLTags
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 id          : item.attr.element.replace("-", ""),
+                                                required    : 1,
                                                 type        : "date",
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
@@ -412,7 +416,8 @@ class XSDWebFormParserHTMLTags
                                 options     : enumItems,
                                 attrs       : {
                                                 name        : item.attr.element,
-                                                id          : item.attr.element.replace("-", ""),
+                                                id          : item.attr.element.replace("-", ""), 
+                                                required    : 1,
                                                 'ew-map'    : sender.getEwMap(item, itemInfo),
                                                 'ng-model'  : sender.getNgModel(item.attr.element, sender)
                                             },
