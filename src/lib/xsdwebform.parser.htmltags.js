@@ -400,8 +400,7 @@ class XSDWebFormParserHTMLTags
                     enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map((item, index) => {
                         return { value : min, option : min++ };
                     });
-                         
-                   console.log(enumItems);
+
                    return;
                 } 
 
