@@ -32,11 +32,13 @@ class XSDWebFormParserHTMLTags
             "select"        : this.parseSelect
         };
 
-        this.HTML_HEADER = '';
-        this.HTML_FOOTER = '';
-        this.HTMLObjects = [];
-        this.showLog = false;
-        this.verbose = false;
+        this.HTML_HEADER    = '';
+        this.HTML_FOOTER    = '';
+        this.HTML_TITLE     = '';
+        this.HTMLObjects    = [];
+        this.LabelObjects   = [];
+        this.showLog        = false;
+        this.verbose        = false;
     }
 
     /**
@@ -68,6 +70,14 @@ class XSDWebFormParserHTMLTags
                 try {
                     this.parseHTMLItem(htmlItem.children[i], xsdItem);
                     this.htmlParse(htmlItem.children[i], xsdItem);
+
+                    this.setHeader(
+                            this.HTML_TITLE, 
+                            this.LabelObjects.map((label) => {
+                                    return `Labels.labels.${label.label} = '${label.text}';`;
+                                }).join("\n\t\t")
+                            );
+                    this.setFooter();
                 } catch(err) {
                     XSDWebFormParserError.reportError(err);
                 }
@@ -102,15 +112,14 @@ class XSDWebFormParserHTMLTags
      */
     parsePage(item, xsdItem, sender)
     {
+
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
         if (!item.attr.title){
             XSDWebFormParserError.reportError(`Can not find Page Title (<page title="?" ..>)`);
         }
 
-        sender.setHeader(item.attr.title);
-        sender.setFooter();
-
+        sender.HTML_TITLE = item.attr.title;
     } 
 
     /**
@@ -347,15 +356,45 @@ class XSDWebFormParserHTMLTags
 
         if (item.attr.element) {
 
-
             let itemInfo = sender.getItemInfo(item, xsdItem, sender);
             
+            let XSDWFormItem, XSDWFormItemTypeData;
+
+            try {
+                XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+            } catch (ex) {
+                XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
+            }
+            
+            try {
+                XSDWFormItemTypeData = xsdItem.childWithAttribute("name", XSDWFormItem.attr.type);
+            } catch (ex) {
+                XSDWebFormParserError.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
+            }
+
+            if (!XSDWFormItemTypeData)
+                XSDWebFormParserError.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);   
+            
+            let enums = XSDWFormItemTypeData.childNamed("xs:restriction");
+            if (!enums)
+                XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`);   
+
+            let enumItems = [];
+            enums.eachChild((enm) => {
+
+                if (enm.name === "xs:enumeration") {
+                   enumItems.push(enm.attr.value);
+                }
+
+            });
+
             var htmlItem = {
                                 name        : item.attr.element,
                                 tag         : 'select',
                                 tagclose    : false,
                                 autoclose   : true,
                                 hasLabel    : true,
+                                options     : enumItems,
                                 attrs       : {
                                                 name        : item.attr.element,
                                                 id          : item.attr.element.replace("-", ""),
@@ -432,18 +471,20 @@ class XSDWebFormParserHTMLTags
      */
     addItemToGroup(htmlItem, itemInfo, sender)
     {
-        itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+        itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml(sender));
     }
 
     /**
     * tagToHtml
     */
-    static tagToHtml() 
+    static tagToHtml(sender) 
     {
         let outPut = '';
 
-        if (this.hasLabel) 
+        if (this.hasLabel) {
+            sender.LabelObjects.push({ label : this.name.replace("-", ""), text : `Label for ${this.name}` });
             outPut = `<div class="field-caption ng-binding" ng-bind="Labels.labels.${this.name.replace("-", "")}"></div>`;
+        }
 
         outPut += "<" + this.tag;
 
@@ -451,6 +492,12 @@ class XSDWebFormParserHTMLTags
             outPut += " " + key + "=\"" + this.attrs[key] +"\""; 
         }
         outPut += ">";
+
+        if (this.options) {
+            outPut += this.options.map((option, index) => {
+                        return `<option value="${index}">${option}</option>`;
+                    }).join("");
+        }
 
         if (this.autoclose)
             outPut += "</" + this.tag + ">"
@@ -464,7 +511,7 @@ class XSDWebFormParserHTMLTags
      * @param pageTitle
      */
     
-    setHeader(pageTitle) {
+    setHeader(pageTitle , labels) {
 
         this.HTML_HEADER = `
 <!DOCTYPE html>
@@ -501,7 +548,7 @@ class XSDWebFormParserHTMLTags
             labels : {}
         };  
 
-        $scope.Labels.labels.AEA = "Test Label";
+        ${labels}
 
         $scope.submit = function(frm) {
             $scope.field[frm.$name].AEAPrice = 11;
