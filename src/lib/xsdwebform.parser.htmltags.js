@@ -74,7 +74,7 @@ class XSDWebFormParserHTMLTags
                     this.setHeader(
                             this.HTML_TITLE, 
                             this.LabelObjects.map((label) => {
-                                    return `Labels.labels.${label.label} = '${label.text}';`;
+                                    return `$scope.Labels.labels.${label.label} = '${label.text}';`;
                                 }).join("\n\t\t")
                             );
                     this.setFooter();
@@ -380,11 +380,26 @@ class XSDWebFormParserHTMLTags
                 XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`);   
 
             let enumItems = [];
-            enums.eachChild((enm) => {
+            enums.eachChild((enm, index) => {
 
                 if (enm.name === "xs:enumeration") {
-                   enumItems.push(enm.attr.value);
-                }
+                   enumItems.push({ value : enm.attr.value, option : enm.attr.value });
+                } 
+
+                if (enm.name === "xs:minInclusive") {
+                    let maxInclusive = enums.childNamed("xs:maxInclusive");     
+                    if (!maxInclusive)
+                        XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`);   
+
+                    let min = enm.attr.value;
+
+                    enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map((item, index) => {
+                        return { value : min, option : min++ };
+                    });
+                         
+                   console.log(enumItems);
+                   return;
+                } 
 
             });
 
@@ -482,7 +497,7 @@ class XSDWebFormParserHTMLTags
         let outPut = '';
 
         if (this.hasLabel) {
-            sender.LabelObjects.push({ label : this.name.replace("-", ""), text : `Label for ${this.name}` });
+            sender.LabelObjects.push({ label : this.name.replace("-", ""), text : `${this.name}` });
             outPut = `<div class="field-caption ng-binding" ng-bind="Labels.labels.${this.name.replace("-", "")}"></div>`;
         }
 
@@ -495,7 +510,7 @@ class XSDWebFormParserHTMLTags
 
         if (this.options) {
             outPut += this.options.map((option, index) => {
-                        return `<option value="${index}">${option}</option>`;
+                        return `<option value="${option.value}">${option.option}</option>`;
                     }).join("");
         }
 
