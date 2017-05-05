@@ -48,7 +48,7 @@ class XSDWebFormParser
      * parse - Parse XML Document
      * @param xml
      */
-    parse(xObject) 
+    parse(xObject)
     {
 
         if (this.showLog) {
