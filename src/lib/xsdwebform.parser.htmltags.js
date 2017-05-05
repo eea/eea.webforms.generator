@@ -188,7 +188,7 @@ class XSDWebFormParserHTMLTags
          
         sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.groups.push({ type : "group", itemObject : groupObject });
 
-    } 
+    }
 
     /**
      * parseInput- Parse Input Tag
@@ -217,7 +217,7 @@ class XSDWebFormParserHTMLTags
                             tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                         }
 
-        itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+        sender.addItemToGroup(htmlItem, itemInfo, sender);
         
     } 
 
@@ -250,7 +250,7 @@ class XSDWebFormParserHTMLTags
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
 
-            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            sender.addItemToGroup(htmlItem, itemInfo, sender);
             
         }
 
@@ -286,7 +286,7 @@ class XSDWebFormParserHTMLTags
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
 
-            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            sender.addItemToGroup(htmlItem, itemInfo, sender);
 
         }
  
@@ -322,7 +322,7 @@ class XSDWebFormParserHTMLTags
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
 
-            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            sender.addItemToGroup(htmlItem, itemInfo, sender);
 
         }
 
@@ -358,7 +358,7 @@ class XSDWebFormParserHTMLTags
                                 tagToHtml   : XSDWebFormParserHTMLTags.tagToHtml
                             }
 
-            itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
+            sender.addItemToGroup(htmlItem, itemInfo, sender);
 
         }
 
@@ -415,6 +415,17 @@ class XSDWebFormParserHTMLTags
         
         return XSDWFormComplexItems;
 
+    } 
+
+    /**
+     * addItemToGroup- Parse Input Tag
+     * @param htmlItem
+     * @param itemInfo
+     * @param sender
+     */
+    addItemToGroup(htmlItem, itemInfo, sender)
+    {
+        itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml());
     }
 
     /**
