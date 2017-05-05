@@ -26,7 +26,7 @@ class XSDWebForm
      * Class constructor
      * Check for -f file in arguments
      */
-    constructor(args) 
+    constructor(args)
     {
 
 		// XSDWebFormParser    		

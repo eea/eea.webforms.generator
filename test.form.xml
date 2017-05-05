@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page title="This is the Title">
+	<page title="Page Title">
 		
-		<form action="/api/testasdasd" name="form1" title="My Title">
+		<form action="/api/testasdasd" name="form1" title="Form Title">
 
 			<group multiple="1" element="ConcludedTransferRecord"> 	
 				<number element="AEA"/>	
