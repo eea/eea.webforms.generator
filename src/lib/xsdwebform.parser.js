@@ -82,7 +82,7 @@ class XSDWebFormParser
     /**
      * createHTMLOutput
      */
-    createHTMLOutput() 
+    createHTMLOutput()
     {
         
         var html = [];
@@ -105,7 +105,7 @@ class XSDWebFormParser
                 formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 
                 for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
-                    formHtml.push("\t\t\t\t" + groups[i].itemObject.items[i2]);
+                    formHtml.push("\t\t\t\t<div class=\"formitem\">" + groups[i].itemObject.items[i2] + "</div>");
                 }
                 
                 // if (group.itemObject.tagclose)

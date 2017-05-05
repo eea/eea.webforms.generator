@@ -534,7 +534,7 @@ class XSDWebFormParserHTMLTags
         </div>
     </div>
      
-    <div class="callout large primary">
+    <div class="callout small primary">
         <div class="row column text-center">
             <h1>EEA</h1>
             <h2 class="subheader">Web Form</h2>

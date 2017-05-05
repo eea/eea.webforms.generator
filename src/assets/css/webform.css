@@ -87,7 +87,7 @@ button {
     padding: 10px 30px;
     background-color: rgba(166, 207, 210, 0.1);
     border: 2px solid rgba(166, 207, 210, 0.5);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     color: #006699;
     cursor: pointer;
@@ -95,14 +95,17 @@ button {
     transition: all .2s ease-in-out;
 }
 
+button:hover::before,
+/*button:hover::after,*/
 button:hover {
 /*     transform: rotate(5deg) translateY(5%) translateX(5%); */
  background-color: rgba(0, 102, 153, 0.1);
 }
 
+
 .submitbutton {
 	display: block;
-	margin: 80px auto;
+	margin: 50px auto;
 }
 
 .submitbutton::after {
@@ -120,13 +123,18 @@ button:hover {
 	color: #fff;
     border: 2px solid rgba(166, 207, 210, 0.5);  
     padding: 4px;  
+    height: 42px;
+    line-height: 12px;
 }
 
 .rowbutton::before {
     float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 12px;
     background-color: #000;
     padding: 10px;
-    font-size: 24px;
+    font-size: 12px;
     border-radius: 50%;
     font-family: "foundation-icons";
     content: '\f199';
@@ -139,12 +147,21 @@ button:hover {
     content: 'Add row';
 }
 
+
+.formitem {
+	display: flex;
+}
+
 .field-caption {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 700;
+	width: 20%;
+	text-align: right;
+	margin-right: 20px;
 }
 
 .field-caption::after {
+	margin-left: 10px;
 	content: ':';
 }
 
@@ -154,6 +171,7 @@ button:hover {
 
 .top-bar, .top-bar a {
     color: #fff;
+    font-size: 14px;
 }
 
 .callout.primary {
@@ -161,8 +179,13 @@ button:hover {
     color: #fff;
 }
 
+.callout.primary h1 {
+    font-size: 36px;
+}
+
 .callout.primary h2 {
     color: #ccc;
+    font-size: 30px;
 }
 
 #container {
@@ -170,7 +193,7 @@ button:hover {
 }
 
 .footer {
-	font-size: 12px;
+	font-size: 11px;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -180,4 +203,5 @@ button:hover {
     color: #ccc;
     text-align: center;
 }
+
 
