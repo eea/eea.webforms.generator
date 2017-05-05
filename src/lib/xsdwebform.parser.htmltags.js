@@ -627,7 +627,7 @@ class XSDWebFormParserHTMLTags
 
         this.HTML_FOOTER = `
       
-    </div> 
+    </div>
 
 </div>
 
