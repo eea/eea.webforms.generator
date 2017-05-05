@@ -125,7 +125,7 @@ class XSDWebFormParserHTMLTags
         XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
 
-        let formEnd = "<button type=\"submit\">Submit Form</button>";
+        let formEnd = "<button type=\"submit\" class=\"submitbutton\">Submit Form</button>";
         
 
         var formObject = {
@@ -170,7 +170,7 @@ class XSDWebFormParserHTMLTags
         
         let groupEnd = ''; 
         if (item.attr.multiple === "1") {
-            groupEnd += `<button type=\"button\" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">Add Row</button>`;
+            groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\"></button>`;
         }
         
         var groupObject = {
@@ -564,6 +564,13 @@ class XSDWebFormParserHTMLTags
     </div> 
 
 </div>
+
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+        ${new Date()}
+        </div>
+    </footer>
 
 </body>
 </html>

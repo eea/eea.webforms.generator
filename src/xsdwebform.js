@@ -37,6 +37,7 @@ class XSDWebForm
 	    // HTML Input file variable
 	    var xmlHtmlFile = null;
 
+	    // Open the default browser when build is completed
 	    this.autoOpenOutput = false;
 
 	    // Check for [-f file] input
