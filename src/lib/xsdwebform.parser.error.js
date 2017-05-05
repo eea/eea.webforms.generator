@@ -17,7 +17,7 @@ class XSDWebFormParserError
 	static reportError(error) 
 	{
 		console.log("\n\x1b[1m\x1b[31m" + error + "\n\x1b[0m");
-        exit();
+        process.exit();
 	}
 }
 

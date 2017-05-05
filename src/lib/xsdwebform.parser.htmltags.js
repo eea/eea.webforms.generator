@@ -65,8 +65,12 @@ class XSDWebFormParserHTMLTags
                     console.log("");
                 }
 
-                this.parseHTMLItem(htmlItem.children[i], xsdItem);
-                this.htmlParse(htmlItem.children[i], xsdItem);
+                try {
+                    this.parseHTMLItem(htmlItem.children[i], xsdItem);
+                    this.htmlParse(htmlItem.children[i], xsdItem);
+                } catch(err) {
+                    XSDWebFormParserError.reportError(err);
+                }
 
             }
         };

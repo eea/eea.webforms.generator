@@ -57,14 +57,18 @@ class XSDWebFormParserTags
             for (let i = 0, l = xsdItem.children.length; i < l; i++) {
                 if (xsdItem.children[i].type === "element") {
 
-                    // Parse Tag Tag
-                    this.parseXSDItem(xsdItem.children[i].name);
-                    xsdItem.children[i].xparent = xsdItem;
-                    xsdItem.children[i].level = xsdItem.level + 1;
+                    try {
+                        // Parse Tag Tag
+                        this.parseXSDItem(xsdItem.children[i].name);
+                        xsdItem.children[i].xparent = xsdItem;
+                        xsdItem.children[i].level = xsdItem.level + 1;
 
-                    // Recursive call
-                    this.xsdParse(xsdItem.children[i]);
-
+                        // Recursive call
+                        this.xsdParse(xsdItem.children[i]);
+                    } catch(err) {
+                        XSDWebFormParserError.reportError(err);
+                    }
+                    
                 }
             }
         }

@@ -57,7 +57,11 @@ class XSDWebForm
 	    // Copy assets folde to build
 	    this.prepareJSFiles();
 
-	    this.parseFiles(xsdFile, xmlHtmlFile);
+	    try {
+	    	this.parseFiles(xsdFile, xmlHtmlFile);
+	    } catch(err){
+	    	XSDWebFormParserError.reportError(err);
+	    }
 
     } 
 
