@@ -19,120 +19,119 @@ import XSDWebFormParserLog from './xsdwebform.parser.log.js'
 class XSDWebFormParser 
 {
  
-    /**
-     * Class constructor
-     * @param showlog
-     * @param verbose
-     */
-    constructor(showlog = false, verbose = false) 
-    {
+	/**
+	* Class constructor
+	* @param showlog
+	* @param verbose
+	*/
+	constructor(showlog = false, verbose = false) 
+	{
 
-        this.xsdTagParser = new XsdTagParser();
-        this.htmlTagParser = new HtmlTagParser();
+		this.xsdTagParser = new XsdTagParser();
+		this.htmlTagParser = new HtmlTagParser();
 
-        this.htmlOutput = {
-            content: '',
-            HTMLObjects : []
-        };
+		this.htmlOutput = {
+			content: '',
+			HTMLObjects : []
+		};
 
-        this.showLog = showlog;
-        this.verbose = verbose;
+		this.showLog = showlog;
+		this.verbose = verbose;
 
-        this.xsdTagParser.setLog((this.showLog && this.verbose));
-        this.htmlTagParser.setLog(this.showLog);
-        this.htmlTagParser.setVerbose((this.showLog && this.verbose));
+		this.xsdTagParser.setLog((this.showLog && this.verbose));
+		this.htmlTagParser.setLog(this.showLog);
+		this.htmlTagParser.setVerbose((this.showLog && this.verbose));
 
-    }
+	}
 
-    /**
-     * parse - Parse XML Document
-     * @param xml
-     */
-    parse(xObject)
-    {
+	/**
+	 * parse - Parse XML Document
+	 * @param xml
+	 */
+	parse(xObject)
+	{
 
-        if (this.showLog) {
-           XSDWebFormParserLog.logXSD(xObject);
-        }
+		if (this.showLog) 
+			XSDWebFormParserLog.logXSD(xObject);
 
-        // Create XML Document for XSD
-        var xsdItem = new XmlDocument(xObject.xdata);
-        xsdItem.level = 0;
-        if (this.showLog)
-            this.xsdTagParser.xsdParse(xsdItem);
+		// Create XML Document for XSD
+		var xsdItem = new XmlDocument(xObject.xdata);
+		xsdItem.level = 0;
+
+		if (this.showLog)
+			this.xsdTagParser.xsdParse(xsdItem);
 
 
-        if (this.showLog) 
-            XSDWebFormParserLog.logHTML(xObject);
-        
-        // Create XML Document for FORM.XML
-        var htmlItem = new XmlDocument(xObject.hdata);
-        htmlItem.level = 0;
-        this.htmlTagParser.htmlParse(htmlItem, xsdItem);
-        this.htmlOutput.HTMLObjects =  this.htmlTagParser.HTMLObjects;
-        this.createHTMLOutput();
-        // this.htmlOutput.content = this.getHTMLOutput();
+		if (this.showLog) 
+			XSDWebFormParserLog.logHTML(xObject);
 
-        if (this.showLog) {
-            XSDWebFormParserLog.showLogs(this);
-        }
+		// Create XML Document for FORM.XML
+		var htmlItem = new XmlDocument(xObject.hdata);
+		htmlItem.level = 0;
+		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
+		this.htmlOutput.HTMLObjects =  this.htmlTagParser.HTMLObjects;
+		this.createHTMLOutput();
+		// this.htmlOutput.content = this.getHTMLOutput();
 
-    }
+		if (this.showLog) 
+				XSDWebFormParserLog.showLogs(this);
 
-    /**
-     * createHTMLOutput
-     */
-    createHTMLOutput()
-    {
-        
-        var html = [];
+	}
 
-        for (let f = 0, t = this.htmlOutput.HTMLObjects.length; f < t; f++) {
+	/**
+	 * createHTMLOutput
+	 */
+	createHTMLOutput()
+	{
+	    
+		var html = [];
 
-            let form = this.htmlOutput.HTMLObjects[f];
-            let formHtml = [];
+		for (let f = 0, t = this.htmlOutput.HTMLObjects.length; f < t; f++) {
 
-            html.splice(html.length + 1, 0, "\t\t"+ form.itemObject.tagToHtml());
-            let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
+			let form = this.htmlOutput.HTMLObjects[f];
+			let formHtml = [];
 
-            // if (form.itemObject.tagclose)
-                html.splice(groups.length + html.length + 1, 0, "\t\t</"+ form.itemObject.tag + ">");
+			html.splice(html.length + 1, 0, "\t\t"+ form.itemObject.tagToHtml());
+			let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
 
-            for (let i = 0, l = groups.length; i < l; i++) {
-                
-                let group = groups[i];
-                
-                formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
+			// if (form.itemObject.tagclose)
+			html.splice(groups.length + html.length + 1, 0, "\t\t</"+ form.itemObject.tag + ">");
 
-                for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
-                    formHtml.push("\t\t\t\t<div class=\"formitem\">" + groups[i].itemObject.items[i2] + "</div>");
-                }
-                
-                // if (group.itemObject.tagclose)
-                    formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
+			for (let i = 0, l = groups.length; i < l; i++) {
 
-                if (group.itemObject.append)
-                    formHtml.push("\t\t\t" + group.itemObject.append);
+				let group = groups[i];
 
-            }
-            
-            if (form.itemObject.append)
-                formHtml.push("\t\t\t" + form.itemObject.append);
+				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 
-            html.splice(html.length - 1, 0, formHtml.join('\n\n'));
-        }
+				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
+					formHtml.push("\t\t\t\t<div class=\"formitem\">" + groups[i].itemObject.items[i2] + "</div>");
+				}
 
-        this.htmlOutput.content = html.join("\n\n");
+				// if (group.itemObject.tagclose)
+				formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
 
-    }
+				if (group.itemObject.append)
+					formHtml.push("\t\t\t" + group.itemObject.append);
 
-    /**
-     * getHTML - Return HTML5 Document
-     */
-    getHTMLOutput() 
-    { 
-        return this.htmlTagParser.HTML_HEADER + this.htmlOutput.content + this.htmlTagParser.HTML_FOOTER;
-    }
+			}
+
+			if (form.itemObject.append)
+				formHtml.push("\t\t\t" + form.itemObject.append);
+
+			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
+		}
+
+		this.htmlOutput.content = html.join("\n\n");
+
+	}
+
+	/**
+	* getHTML - Return HTML5 Document
+	*/
+	getHTMLOutput() 
+	{ 
+		return this.htmlTagParser.HTML_HEADER + this.htmlOutput.content + this.htmlTagParser.HTML_FOOTER;
+	}
 
 }
 
