@@ -22,14 +22,14 @@ class XSDWebFormParserHTMLTags
 	constructor(){
 
 		this.HTML_TYPES = {
-			"page"         	: this.parsePage,
-			"form"          	: this.parseForm,
-			"group"        	: this.parseGroup,
-			"input"         	: this.parseInput,
-			"text"         	: this.parseText,
-			"number"        	: this.parseNumber,
-			"date"          	: this.parseDate,
-			"select"        	: this.parseSelect
+			"page"         		: this.parsePage,
+			"form"          		: this.parseForm,
+			"group"        		: this.parseGroup,
+			"input"         		: this.parseInput,
+			"text"         		: this.parseText,
+			"number"        		: this.parseNumber,
+			"date"          		: this.parseDate,
+			"select"        		: this.parseSelect
 		};
 
 		this.HTML_HEADER        	= '';
