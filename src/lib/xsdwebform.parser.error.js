@@ -21,7 +21,7 @@ class XSDWebFormParserError
 		if (item)
 			console.log(`\x1b[0m\x1b[37mline: ${item.line}, colum: ${item.column}, position: ${item.position}\n\x1b[0m`);
 			
-        process.exit();
+        		process.exit();
 	}
 }
 
