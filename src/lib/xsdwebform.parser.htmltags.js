@@ -7,7 +7,7 @@
 
 import XSDWebFormParserLog from './xsdwebform.parser.log.js'
 import XSDWebFormParserError from './xsdwebform.parser.error.js'
-
+ 
 /**
 * Class XSDWebFormParserHTMLTags
 * Parser for XSD Schema Tags
