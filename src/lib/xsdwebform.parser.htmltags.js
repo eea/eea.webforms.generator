@@ -7,7 +7,7 @@
 
 import XSDWebFormParserLog from './xsdwebform.parser.log.js'
 import XSDWebFormParserError from './xsdwebform.parser.error.js'
- 
+
 /**
 * Class XSDWebFormParserHTMLTags
 * Parser for XSD Schema Tags
@@ -32,14 +32,14 @@ class XSDWebFormParserHTMLTags
 			"select"        		: this.parseSelect
 		};
 
-		this.HTML_HEADER        	= '';
-		this.HTML_FOOTER        	= '';
-		this.HTML_TITLE        	= '';
-		this.HTML_FORM_TITLE   	= '';
-		this.HTMLObjects        	= [];
-		this.LabelObjects       		= [];
-		this.showLog            		= false;
-		this.verbose            		= false;
+		this.HTML_HEADER        		= '';
+		this.HTML_FOOTER        		= '';
+		this.HTML_TITLE        		= '';
+		this.HTML_FORM_TITLE   		= '';
+		this.HTMLObjects        		= [];
+		this.LabelObjects       			= [];
+		this.showLog            			= false;
+		this.verbose            			= false;
 	}
 
 	/**
