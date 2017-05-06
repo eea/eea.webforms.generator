@@ -30,6 +30,9 @@ class XSDWebForm
 	constructor(args)
 	{
 
+		//Build directory
+		this.buildPath = "./build";
+
 		// XSDWebFormParser    		
 		this.parser = new XSDWebFormParser(true, true);
 
@@ -63,8 +66,6 @@ class XSDWebForm
 		this.baseFileName = xsdFile.substring(0, xsdFile.length - 3);
 		xmlHtmlFile = this.baseFileName + "form.xml";
 
-		//Build directory
-		this.buildPath = "./build";
 		this.prepareJSFiles().then((res) => {			
 			try {
 				this.parseFiles(xsdFile, xmlHtmlFile);
