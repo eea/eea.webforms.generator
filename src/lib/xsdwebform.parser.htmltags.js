@@ -45,7 +45,7 @@ class XSDWebFormParserHTMLTags
 		this.HTML_HEADER				= '';
 		this.HTML_FOOTER				= '';
 		this.HTML_TITLE 				= '';
-		this.HTML_FORM_TITLE 			= '';
+		this.HTML_FORM_TITLE			= '';
 		this.HTMLObjects 				= [];
 		this.TextContentObjects 		= [];
 		this.showLog 					= false;
