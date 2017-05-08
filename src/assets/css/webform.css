@@ -165,21 +165,25 @@ button:hover {
     float: right;
 }
 
+.formitem input, .formitem textarea, .formitem select {
+    border-radius: 0 5px 5px 5px!important;
+}
+
 .field-caption {
     font-size: 14px;
     font-weight: 600;
 /*  width: 220px; */
     width: 15%;
     min-width: 220px;
-    text-align: right;
+    text-align: center;
     margin-right: 20px;
     color: #fff;
     position: absolute;
-    margin-top: -29px;
+    margin-top: -31px;
     padding: 5px 10px;
     background-color: #00446A;
-    border-radius: 5px  0 0;
-    opacity: 0.98;
+    border-radius: 5px 5px 0 0;
+    opacity: 1;
 }
 
 .field-caption::after {
