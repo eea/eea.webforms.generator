@@ -220,7 +220,7 @@ class XSDWebFormParserHTMLTags
 	}
 
 	/**
-	* parseItem
+	* parseItem - Find XSD Element and its type
 	* @param item
 	* @param xsdItem
 	* @param sender
@@ -232,13 +232,14 @@ class XSDWebFormParserHTMLTags
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 
-		let XSDWFormItemType;
+		let XSDWFormItem;
 		try {
 
-			XSDWFormItemType = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).attr.type;
-				
-			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
-				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
+			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+
+			if ((XSDWFormItem.attr.type in sender.XSD_HTML_TYPES)) {
+				item.name = sender.XSD_HTML_TYPES[XSDWFormItem.attr.type];
+				item.src = XSDWFormItem;
 			} else {
 				item.name = "lookup";
 			}
@@ -293,6 +294,7 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseText(item, xsdItem, sender) 
 	{
+
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {

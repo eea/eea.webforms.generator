@@ -184,11 +184,11 @@ button:hover {
     border-radius: 5px 5px 0 0;
     opacity: 1;
 }
-
+/*
 .field-caption::after {
     margin-left: 4px;
     content: ':';
-}
+}*/
 
 .multiple-index {
     float: left;
