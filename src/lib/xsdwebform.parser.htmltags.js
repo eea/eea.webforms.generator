@@ -76,8 +76,8 @@ class XSDWebFormParserHTMLTags
 						this.HTML_TITLE, 
 						this.HTML_FORM_TITLE,
 						this.TextContentObjects.map((label) => {
-							return `$scope.TextContent.labels.${label.label} = '${label.text}';`;
-					            }).join("\n\t")
+							return `${label.label} : '${label.text}',`;
+					            }).join("\n\t\t\t\t")
 					        );
 					this.setFooter();
 				} catch(err) {
@@ -504,7 +504,7 @@ class XSDWebFormParserHTMLTags
 
 		if (this.hasLabel) {
 			sender.TextContentObjects.push({ label: this.name.replace("-", ""), text: `${this.name}` });
-			outPut = `<div class="field-caption ng-binding" ng-bind="TextContent.labels.${this.name.replace("-", "")}"></div>`;
+			outPut = `<div class="field-caption ng-binding" ng-bind="'${this.name.replace("-", "")}' | translate"></div>`;
 		}
 
 		outPut += "<" + this.tag;
@@ -547,6 +547,7 @@ class XSDWebFormParserHTMLTags
 
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.min.js" ></script>
+<script src="./assets/js/a/angular-translate.min.js" ></script>
 <script src="./assets/js/a/angular-datepicker.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
@@ -557,8 +558,35 @@ class XSDWebFormParserHTMLTags
 
 <script type="text/javascript">
 
-const app = angular.module('WebFormApp', []);
+const app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
+
+app.config(["$translateProvider",function($translateProvider){
+  
+  var TextContent = {
+    	en : {
+    		"language" : "Selected Language English",
+    		"greeting" : "Welcome" ,
+    		labels : {
+    			${labels}
+    		}
+    	},
+    	sp : {
+    		"language" : "Selected Language Spanish",
+    		"greeting" : "Bienvenida",
+    		labels : {}  
+    	}
+  }
+  
+  $translateProvider.translations('en',TextContent.en);
+  
+  $translateProvider.translations('sp',TextContent.sp);
+  $translateProvider.preferredLanguage('en');
+
+  $translateProvider.useSanitizeValueStrategy('escapeParameters');
+  
+}]);
+
 
 /**
 * WebFormAppCtrl: Main controller
@@ -566,11 +594,7 @@ app.controller('WebFormAppCtrl', WebFormAppCtrl);
 function WebFormAppCtrl($scope, $http, $timeout) {
 
 	$scope.field = {};  
-	$scope.TextContent = {
-		labels : {}
-	};  
-
-	${labels}
+	
 
 	$scope.submit = function(frm) {
 		$scope.field[frm.$name].AEAPrice = 11;
