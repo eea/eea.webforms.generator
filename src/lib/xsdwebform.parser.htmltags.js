@@ -763,7 +763,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window) {
                 <span>Validation </span>
                 <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
                 <span ng-show="!ValidationDisabled">On</span>
-                <div class="switch round tiny wfswitch">
+                <div class="round tiny">
                   <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
                   <label for="validationSwitch" class="switch-paddle"></label>
                 </div>
