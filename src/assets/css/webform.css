@@ -104,6 +104,76 @@ button:hover {
  background-color: rgba(0, 102, 153, 0.5);
 }
 
+#tool-ribbon {
+  background-color: #ffffff;
+  border-bottom: 4px solid #6f7072;
+  color: #315076;
+  font-size: 80%;
+  height: 30px;
+  width: 100%; 
+}
+
+#left-tools {
+  float: left;
+  height: 20px;
+  padding: 4px 0.5em;
+  text-align: left;
+  vertical-align: middle; 
+}
+
+a#eealink {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/eeaicon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 18px; 
+}
+
+#right-tools {
+  float: right;
+  text-align: right;
+  width: 60%;
+  font-size: 0.75rem; 
+}
+
+a#printlink {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/print_icon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding: 3px 0.5em 1px 16px;
+  display: inline-block;
+  margin-left: 1.25rem; 
+}
+
+#page-head {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+  border-top: 1px solid #4b5257;
+  clear: both;
+  height: 102px; 
+}
+
+#page-head a {
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_graphic.gif") no-repeat scroll left center transparent;
+    height: 101px;
+    position: absolute;
+    right: 40px;
+    top: 31px;
+    width: 36px;
+    width: 323px; 
+}
+
+
+#network-title {
+  color: white;
+  font-size: 200%;
+  font-variant: small-caps;
+  font-weight: bold;
+  padding-left: 25px;
+  padding-top: 20px; 
+}
+
+#site-title {
+  color: white;
+  font-size: 120%;
+  font-weight: bold;
+  padding-left: 25px; 
+}
+
 .top-bar{
     position: fixed;
     display: block;
@@ -111,7 +181,7 @@ button:hover {
     width: 100%;
     top: 0;
     z-index: 9999;
-    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
+    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3); 
 }
 
 .top-bar, .top-bar ul {

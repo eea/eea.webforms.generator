@@ -695,16 +695,38 @@ function WebFormAppCtrl($scope, $http, $timeout, $window) {
 
 <div id="container" ng-controller="WebFormAppCtrl">
 
-<div class="top-bar">
-<div class="top-bar-left">
-<ul class="menu">
-    <li class="menu-text">EEA</li>
-    <li><a href="#">One</a></li>
-    <li><a href="#">Two</a></li>
-    <li><a href="#">Three</a></li>
-</ul>
+<div id="tool-ribbon">
+	<div id="left-tools">
+		<a id="eealink" href="http://www.eea.europa.eu/">EEA</a>
+	</div>
+	<div id="right-tools">
+			<a href="http://www.eea.europa.eu/">
+				<b>European Environment Agency</b>
+			</a>
+			Kgs. Nytorv 6, DK-1050 Copenhagen K, Denmark - Phone: +45 3336 7100              
+		<a id="printlink" href="javascript:this.print();" title="Print this page">
+			<span>Print</span>
+		</a>
+	</div>
 </div>
+
+<div id="page-head">
+	<a accesskey="1" href="/">
+	</a>
+	<div id="network-title">Eionet</div>
+	<div id="site-title">European Environment Information and Observation Network</div>
 </div>
+
+<!--<div class="top-bar">
+	<div class="top-bar-left">
+		<ul class="menu">
+		    <li class="menu-text">EEA</li>
+		    <li><a href="#">One</a></li>
+		    <li><a href="#">Two</a></li>
+		    <li><a href="#">Three</a></li>
+		</ul>
+</div>
+</div>-->
 
 <div class="callout small primary">
 	<div class="row column text-center">
