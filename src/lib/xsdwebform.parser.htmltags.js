@@ -30,7 +30,8 @@ class XSDWebFormParserHTMLTags
 			"text"         			: this.parseText,
 			"number"        		: this.parseNumber,
 			"date"          		: this.parseDate,
-			"select"        		: this.parseSelect
+			"select"        		: this.parseSelect,
+			"lookup"        		: this.parseSelect
 		};
 
 		this.XSD_HTML_TYPES = {
@@ -229,31 +230,24 @@ class XSDWebFormParserHTMLTags
 
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
-		let xsdGroupTag;
-
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
-		console.log(item.attr.element);
 
 		let XSDWFormItemType;
 		try {
 
-			console.log("item.attr.element", item.attr.element);
 			XSDWFormItemType = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).attr.type;
-			console.log("XSDWFormItemType", XSDWFormItemType);
 				
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
-				sender.parseHTMLItem(item, xsdItem); 
 			} else {
-				console.log(`\n************* Unknown XSD->HTML Tag {${item.name}} *************\n`);
-				process.stdout.write('\x07');
+				item.name = "lookup";
 			}
+
+			sender.parseHTMLItem(item, xsdItem); 
 
 		} catch (ex) {
 			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
-		}
-		
+		}		
 
 	} 
 
