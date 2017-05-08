@@ -51,6 +51,10 @@ textarea, select {
 	border-radius: 5px;
 }
 
+textarea {
+    height: 100px;
+}
+
 :focus,
 .btn:active.focus, 
 .btn:focus {
@@ -278,4 +282,74 @@ button:hover {
 
 .footer .footer-wrapper {
 	line-height: 200px;
+}
+
+#pagefoot {
+  color: #666;
+  font-size: 0.875rem;
+  background-color: rgba(242, 242, 242, 0.9);
+  border-top: 1px solid #E6E6E6;
+  width: 100%;
+  max-width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  display: table; 
+}
+  
+#pagefoot > div.columns {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    float: none; 
+}
+
+#pagefoot button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 1.25rem 50%;
+    padding-left: 3.125rem;
+    color: #00446a;
+    margin: 0; 
+}
+
+#pagefoot button[ng-click="save()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik0xLjIyOCwxOGgxNS41NDhjMC42NzcsMCwxLjIyNy0wLjU1LDEuMjI3LTEuMjI3VjQuOTU0YzAtMC40ODctMC4xOTUtMC45NTctMC41NC0xLjNMMTMuODA3LDBoLTAuMDA0djYuODE4SDQuMDY3VjBoLTIuODRDMC41NTEsMCwwLDAuNTQ5LDAsMS4yMjZ2MTEuNTAzdjQuMDQ1QzAsMTcuNDUsMC41NTEsMTgsMS4yMjgsMTh6IE05LjcwNSwwaDIuNjExdjUuNDkxSDkuNzA1VjB6Ii8+PC9zdmc+); 
+}
+
+#pagefoot button[ng-click="printPreview()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyMC41OHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAyMC41OCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAuNTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik01LjE0NiwwaDEwLjI4OXYyLjU3Mkg1LjE0NlYweiBNMTkuMjk0LDMuODUxSDEuMjg2QzAuNTc5LDMuODUxLDAsNC40MzgsMCw1LjE0NXY2LjQzMmMwLDAuNzA3LDAuNTc5LDEuMjc4LDEuMjg2LDEuMjc4aDMuODU5VjE4aDEwLjI4OXYtNS4xNDZoMy44NTljMC43MDcsMCwxLjI4Ni0wLjU3MSwxLjI4Ni0xLjI3OFY1LjE0NUMyMC41OCw0LjQzOCwyMC4wMDEsMy44NTEsMTkuMjk0LDMuODUxeiBNMTQuMDI5LDEzLjQzOWMtMC4zMzEsMC4zMy0wLjgwNiwwLjM5MS0xLjA2NCwwLjEzMmwtMS40MjgtMS40M2MtMC40NTMsMC4xOTEtMC45NSwwLjI5Ni0xLjQ3LDAuMjk2Yy0yLjEwNCwwLTMuODA5LTEuNzA1LTMuODA5LTMuODA3YzAtMi4xMDMsMS43MDUtMy44MDgsMy44MDktMy44MDhjMi4xMDMsMCwzLjgwOCwxLjcwNSwzLjgwOCwzLjgwOGMwLDAuOTYyLTAuMzY5LDEuODMtMC45NTgsMi41bDEuMjQ0LDEuMjQ1QzE0LjQyMSwxMi42MzMsMTQuMzU5LDEzLjEwOCwxNC4wMjksMTMuNDM5eiBNMTguNjUsNi43MjFjLTAuNTE1LDAtMC45MzMtMC40MTgtMC45MzMtMC45MzRjMC0wLjUxNSwwLjQxOC0wLjkzMiwwLjkzMy0wLjkzMmMwLjUxNiwwLDAuOTMzLDAuNDE3LDAuOTMzLDAuOTMyQzE5LjU4Myw2LjMwMywxOS4xNjYsNi43MjEsMTguNjUsNi43MjF6IE0xMC4wNjcsNi40NmMtMS4xOTksMC0yLjE3MiwwLjk3Mi0yLjE3MiwyLjE3MXMwLjk3MywyLjE3LDIuMTcyLDIuMTdzMi4xNzEtMC45NzEsMi4xNzEtMi4xN1MxMS4yNjcsNi40NiwxMC4wNjcsNi40NnoiLz48L3N2Zz4=); 
+}
+
+#pagefoot button[ng-click="close()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiMwMDQ0NkEiIHBvaW50cz0iMTgsMTUuMjI0IDExLjc3Nyw5LjAwMSAxOCwyLjc3NyAxNS4yMjMsMCA5LDYuMjIzIDIuNzc3LDAuMDAxIDAsMi43NzcgNi4yMjMsOSAwLDE1LjIyNCAyLjc3NywxOCA5LDExLjc3NyAxNS4yMjMsMTggIi8+PC9zdmc+); 
+}
+
+#pagefoot button:hover {
+  background-color: #ccd9e1; 
+}
+
+#pagefoot p {
+    margin: 0 0.5em;
+    padding: 0.1em; 
+}
+
+#pagefoot .switch {
+    display: table; 
+    top: 8px;
+}
+
+#pagefoot .switch > span {
+  display: table-cell;
+  height: 100%;
+  padding: 0 1.25rem;
+  vertical-align: middle; 
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+#pagefoot .switch label {
+  display: table-cell;
+  min-width: 3rem; 
 }

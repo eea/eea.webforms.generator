@@ -597,6 +597,10 @@ function WebFormAppCtrl($scope, $http, $timeout) {
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
 
+	$scope.toggleValidation = function(){
+		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+	}
+
 	$scope.submit = function(frm) {
 		$scope.field[frm.$name].AEAPrice = 11;
 		console.log(frm);
@@ -657,8 +661,27 @@ function WebFormAppCtrl($scope, $http, $timeout) {
 
 </div>
 
-</div>
+	<div id="pagefoot" class="row">
+        <div class="columns small-4">
+            <div class="switch round tiny">
+                <span>Validation </span>
+                <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
+                <span ng-show="!ValidationDisabled">On</span>
+                <div class="switch round tiny wfswitch">
+                  <input id="validationSwitch" class="switch-input" ng-click="toggleValidation()" type="checkbox">
+                  <label for="validationSwitch" class="switch-paddle"></label>
+                </div>
+                <label for="validationSwitch"></label>
+            </div> 
+        </div>
+        <div class="columns small-8 text-right">
+            <button ng-click="save()">Save</button>
+            <button ng-click="printPreview()">Print Preview</button>
+            <button ng-click="close()">Close</button>
+        </div>
+    </div>
 
+</div>
 
 <footer class="footer">
 <div class="footer-wrapper">
