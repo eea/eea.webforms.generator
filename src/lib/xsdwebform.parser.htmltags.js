@@ -37,7 +37,7 @@ class XSDWebFormParserHTMLTags
 		this.HTML_TITLE        		= '';
 		this.HTML_FORM_TITLE   		= '';
 		this.HTMLObjects        	= [];
-		this.LabelObjects       	= [];
+		this.TextContentObjects     = [];
 		this.showLog            	= false;
 		this.verbose            	= false;
 	}
@@ -75,9 +75,9 @@ class XSDWebFormParserHTMLTags
 					this.setHeader(
 						this.HTML_TITLE, 
 						this.HTML_FORM_TITLE,
-						this.LabelObjects.map((label) => {
-							return `$scope.Labels.labels.${label.label} = '${label.text}';`;
-					            }).join("\n\t\t")
+						this.TextContentObjects.map((label) => {
+							return `$scope.TextContent.labels.${label.label} = '${label.text}';`;
+					            }).join("\n\t")
 					        );
 					this.setFooter();
 				} catch(err) {
@@ -151,7 +151,7 @@ class XSDWebFormParserHTMLTags
 						            id              	: item.attr.name.replace("-", ""),
 						            'ew-action'     	: item.attr.action,
 						            title           	: item.attr.title,
-						            method         	: 'post',
+						            method         		: 'post',
 						            'ng-submit'     	: `submit(${item.attr.name})`
 					        	},
 			groups      		: [],
@@ -191,11 +191,11 @@ class XSDWebFormParserHTMLTags
 		var groupObject = {
 			name        		: item.attr.element,
 			xsdName     		: xsdGroupTag.name,
-			tag        		: 'fieldset',
+			tag        			: 'fieldset',
 			// tagclose   		: true,
 			attrs       		: {
-							'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
-							id        		: item.attr.element.replace("-", "")
+									'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
+									id        	: item.attr.element.replace("-", "")
 					            },
 			append      		: groupEnd,
 			xsdXML      		: xsdGroupTag,
@@ -227,11 +227,11 @@ class XSDWebFormParserHTMLTags
 			autoclose   		: false,
 			hasLabel    		: true,
 			attrs       		: {
-							name        	: item.attr.name,
-							id          	: item.attr.name.replace("-", ""),
-							required    	: 1,
-							type        	: 'text',
-							'ng-model'  	: sender.getNgModel(item.attr.name, sender)
+									name        	: item.attr.name,
+									id          	: item.attr.name.replace("-", ""),
+									required    	: 1,
+									type        	: 'text',
+									'ng-model'  	: sender.getNgModel(item.attr.name, sender)
 			            		},
 			tagToHtml   		: XSDWebFormParserHTMLTags.tagToHtml
 		            }
@@ -261,12 +261,12 @@ class XSDWebFormParserHTMLTags
 				autoclose 		: true,
 				hasLabel 		: true,
 				attrs 			: {
-								name: item.attr.element,
-								id: item.attr.element.replace("-", ""),
-								required: 1,
-								'ew-map': sender.getEwMap(item, itemInfo),
-								'ng-model': sender.getNgModel(item.attr.element, sender)
-							},
+									name: item.attr.element,
+									id: item.attr.element.replace("-", ""),
+									required: 1,
+									'ew-map': sender.getEwMap(item, itemInfo),
+									'ng-model': sender.getNgModel(item.attr.element, sender)
+								},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -297,13 +297,13 @@ class XSDWebFormParserHTMLTags
 				autoclose		: false,
 				hasLabel		: true,
 				attrs			: {
-								name: item.attr.element,
-								id: item.attr.element.replace("-", ""),
-								required: 1,
-								type: "number",
-								'ew-map': sender.getEwMap(item, itemInfo),
-								'ng-model': sender.getNgModel(item.attr.element, sender)
-							},
+									name: item.attr.element,
+									id: item.attr.element.replace("-", ""),
+									required: 1,
+									type: "number",
+									'ew-map': sender.getEwMap(item, itemInfo),
+									'ng-model': sender.getNgModel(item.attr.element, sender)
+								},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -335,13 +335,13 @@ class XSDWebFormParserHTMLTags
 				autoclose 		: false,
 				hasLabel 		: true,
 				attrs			: {
-								name: item.attr.element,
-								id: item.attr.element.replace("-", ""),
-								required: 1,
-								type: "date",
-								'ew-map': sender.getEwMap(item, itemInfo),
-								'ng-model': sender.getNgModel(item.attr.element, sender)
-							},
+									name: item.attr.element,
+									id: item.attr.element.replace("-", ""),
+									required: 1,
+									type: "date",
+									'ew-map': sender.getEwMap(item, itemInfo),
+									'ng-model': sender.getNgModel(item.attr.element, sender)
+								},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -417,12 +417,12 @@ class XSDWebFormParserHTMLTags
 				hasLabel		: true,
 				options 		: enumItems,
 				attrs 			: {
-								name: item.attr.element,
-								id: item.attr.element.replace("-", ""),
-								required: 1,
-								'ew-map': sender.getEwMap(item, itemInfo),
-								'ng-model': sender.getNgModel(item.attr.element, sender)
-							},
+									name: item.attr.element,
+									id: item.attr.element.replace("-", ""),
+									required: 1,
+									'ew-map': sender.getEwMap(item, itemInfo),
+									'ng-model': sender.getNgModel(item.attr.element, sender)
+								},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -503,8 +503,8 @@ class XSDWebFormParserHTMLTags
 		let outPut = '';
 
 		if (this.hasLabel) {
-			sender.LabelObjects.push({ label: this.name.replace("-", ""), text: `${this.name}` });
-			outPut = `<div class="field-caption ng-binding" ng-bind="Labels.labels.${this.name.replace("-", "")}"></div>`;
+			sender.TextContentObjects.push({ label: this.name.replace("-", ""), text: `${this.name}` });
+			outPut = `<div class="field-caption ng-binding" ng-bind="TextContent.labels.${this.name.replace("-", "")}"></div>`;
 		}
 
 		outPut += "<" + this.tag;
@@ -565,24 +565,24 @@ app.controller('WebFormAppCtrl', WebFormAppCtrl);
 */
 function WebFormAppCtrl($scope, $http, $timeout) {
 
-$scope.field = {};  
-$scope.Labels = {
-labels : {}
-};  
+	$scope.field = {};  
+	$scope.TextContent = {
+		labels : {}
+	};  
 
-${labels}
+	${labels}
 
-$scope.submit = function(frm) {
-$scope.field[frm.$name].AEAPrice = 11;
-console.log(frm);
-console.log(frm['AEA-Price'].$$attr.ewMap);
-return false;
-};
+	$scope.submit = function(frm) {
+		$scope.field[frm.$name].AEAPrice = 11;
+		console.log(frm);
+		console.log(frm['AEA-Price'].$$attr.ewMap);
+		return false;
+	};
 
 
-$scope.addRow = function() {
-alert('Row');
-};
+	$scope.addRow = function() {
+		alert('Row');
+	};
 
 }
 </script>
