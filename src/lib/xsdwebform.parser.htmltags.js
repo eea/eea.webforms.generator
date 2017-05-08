@@ -21,35 +21,36 @@ class XSDWebFormParserHTMLTags
 	*/
 	constructor(){
 
-		this.HTML_TYPES = {
-			"page"         			: this.parsePage,
-			"form"          		: this.parseForm,
-			"group"        			: this.parseGroup,
-			"item"        			: this.parseItem,
-			"input"         		: this.parseInput,
-			"text"         			: this.parseText,
-			"number"        		: this.parseNumber,
-			"date"          		: this.parseDate,
-			"select"        		: this.parseSelect,
-			"lookup"        		: this.parseSelect
-		};
+                        this.HTML_TYPES = {
+                                    "page"         			: this.parsePage,
+                                    "form"          			: this.parseForm,
+                                    "group"        			: this.parseGroup,
+                                    "item"        			: this.parseItem,
+                                    "input"         			: this.parseInput,
+                                    "text"         			: this.parseText,
+                                    "number"        			: this.parseNumber,
+                                    "date"          			: this.parseDate,
+                                    "select"        			: this.parseSelect,
+                                    "lookup"        			: this.parseSelect
+                        };
 
-		this.XSD_HTML_TYPES = {
-			"xs:integer"			: "number",
-			"xs:decimal"			: "number",
-			"xs:date"				: "date",
-			"xs:string"				: "text"
-		}
+                        this.XSD_HTML_TYPES = {
+                                    "xs:integer"			: "number",
+                                    "xs:decimal"			: "number",
+                                    "xs:date"			: "date",
+                                    "xs:string"			: "text"
+                        }
 
-		this.HTML_HEADER        	= '';
-		this.HTML_FOOTER        	= '';
-		this.HTML_TITLE        		= '';
-		this.HTML_FORM_TITLE   		= '';
-		this.HTMLObjects        	= [];
-		this.TextContentObjects     = [];
-		this.showLog            	= false;
-		this.verbose            	= false;
-	}
+                        this.HTML_HEADER                        = '';
+                        this.HTML_FOOTER                        = '';
+                        this.HTML_TITLE                             = '';
+                        this.HTML_FORM_TITLE                = '';
+                        this.HTMLObjects                            = [];
+                        this.TextContentObjects                  = [];
+                        this.showLog                                    = false;
+                        this.verbose            	                     = false;
+
+            }
 
 	/**
 	* htmlParse - Parse inner XML Document
