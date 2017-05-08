@@ -32,10 +32,10 @@ class XSDWebFormParserHTMLTags
 			"select"        		: this.parseSelect
 		};
 
-		this.HTML_HEADER        		= '';
-		this.HTML_FOOTER        		= '';
+		this.HTML_HEADER        	= '';
+		this.HTML_FOOTER        	= '';
 		this.HTML_TITLE        		= '';
-		this.HTML_FORM_TITLE   		= '';
+		this.HTML_FORM_TITLE   	= '';
 		this.HTMLObjects        		= [];
 		this.LabelObjects       		= [];
 		this.showLog            		= false;
