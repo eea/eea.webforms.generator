@@ -748,7 +748,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window) {
                 <label for="validationSwitch"></label>
             </div> 
         </div>
-        <div class="columns small-8 text-right">
+        <div class="columns small-8 text-right buttons">
             <button ng-click="save()">Save</button>
             <button ng-click="printPreview()">Print Preview</button>
             <button ng-click="close()">Close</button>
