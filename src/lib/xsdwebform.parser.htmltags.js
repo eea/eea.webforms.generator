@@ -207,8 +207,8 @@ class XSDWebFormParserHTMLTags
 			tag        			: 'fieldset',
 			// tagclose   		: true,
 			attrs       		: {
-									'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
-									id        	: item.attr.element.replace("-", "")
+							'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
+							id        	: item.attr.element.replace("-", "")
 					            },
 			append      		: groupEnd,
 			xsdXML      		: xsdGroupTag,
