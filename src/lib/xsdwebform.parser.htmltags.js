@@ -37,9 +37,9 @@ class XSDWebFormParserHTMLTags
 		this.HTML_TITLE        		= '';
 		this.HTML_FORM_TITLE   		= '';
 		this.HTMLObjects        		= [];
-		this.LabelObjects       			= [];
-		this.showLog            			= false;
-		this.verbose            			= false;
+		this.LabelObjects       		= [];
+		this.showLog            		= false;
+		this.verbose            		= false;
 	}
 
 	/**
