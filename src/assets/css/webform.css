@@ -52,24 +52,22 @@ textarea, select {
 }
 
 :focus,
-.btn.active.focus, 
-.btn.active:focus, 
-.btn.focus, 
 .btn:active.focus, 
-.btn:active:focus, 
 .btn:focus {
     outline: none;
 }
 
 input, select, textarea {
-    background-color: #fff !important;
-    border: 1px solid rgba(0,0,0,0.07) !important;
+    background-color: #fafafa !important;
+    border: 1px solid rgba(6, 68, 103, 0.3) !important;
     border-radius: 5px !important;
     box-shadow: 0 1px 1px rgba(0,0,0,0.07) inset !important;
 }
 
 input:focus, select:focus, textarea:focus {
-    /*border-color: rgba(0, 102, 153, 0.4) !important;*/
+    border-color: rgba(6, 68, 103, 0.5) !important;
+    border-top: none!important;
+    border-right: none!important;
     box-shadow: 0 1px 1px rgba(0, 102, 153, 0.075) inset,0 0 4px rgba(0, 102, 153,0.4) !important; 
     outline: 0 none !important;
 }
@@ -85,11 +83,11 @@ button {
     min-width: 200px;
     line-height: 20px;
     padding: 10px 30px;
-    background-color: rgba(166, 207, 210, 0.1);
-    border: 2px solid rgba(166, 207, 210, 0.5);
+    background-color: rgba(54, 138, 85, 1);
+    border: none;
     font-size: 14px;
     font-weight: 800;
-    color: #006699;
+    color: #fff;
     cursor: pointer;
     will-change: transform;
     transition: all .2s ease-in-out;
@@ -100,71 +98,6 @@ button:hover::before,
 button:hover {
 /*     transform: rotate(5deg) translateY(5%) translateX(5%); */
  background-color: rgba(0, 102, 153, 0.1);
-}
-
-
-.submitbutton {
-	display: block;
-	margin: 50px auto;
-}
-
-.submitbutton::after {
-    float: right;
-	content: '>>';
-	opacity: 0.5;
-}
-
-.rowbutton {
-	float: right;
-	display: block;
-	min-width: auto;
-	font-size: 10px;
-	background-color: #006699;
-	color: #fff;
-    border: 2px solid rgba(166, 207, 210, 0.5);  
-    padding: 4px;  
-    height: 42px;
-    line-height: 12px;
-}
-
-.rowbutton::before {
-    float: left;
-    width: 30px;
-    height: 30px;
-    line-height: 12px;
-    background-color: #0a0a0a;
-    padding: 10px;
-    font-size: 12px;
-    border-radius: 50%;
-    font-family: "foundation-icons";
-    content: '\f199';
-}
-
-.rowbutton::after {
-    float: right;
-    padding: 10px;
-    font-size: 12px;
-    content: 'Add row';
-}
-
-
-.formitem {
-	display: flex;
-}
-
-.field-caption {
-	font-size: 14px;
-	font-weight: 600;
-	width: 30%;
-	text-align: right;
-    color: #999;
-	margin-right: 20px;
-	/*line-height: 35px;*/
-}
-
-.field-caption::after {
-	margin-left: 4px;
-	content: ':';
 }
 
 .top-bar{
@@ -205,6 +138,130 @@ button:hover {
 	background-color: #F7F8F8;
 	box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
+
+.ewform {
+   padding: 50px 30px 10px 30px;
+   background-color:#fff;
+}
+
+.formitem {
+    display: flex;
+    color: #fff;
+    background-color: #F15A24;
+    padding: 15px;
+    margin: auto;
+    width: 50%;  
+    min-width: 400px;
+}
+
+.formitem:nth-child(odd) {
+    float: left;
+}
+.formitem:nth-child(even) {
+    float: right;
+}
+
+.field-caption {
+    font-size: 14px;
+    font-weight: 600;
+/*  width: 220px; */
+    width: 15%;
+    min-width: 220px;
+    text-align: right;
+    margin-right: 20px;
+    color: #fff;
+    position: absolute;
+    margin-top: -29px;
+    padding: 5px 10px;
+    background-color: #00446A;
+    border-radius: 5px  0 0;
+    opacity: 0.98;
+}
+
+.field-caption::after {
+    margin-left: 4px;
+    content: ':';
+}
+
+.multiple-index {
+    float: left;
+    width: 70px;
+    background-color: #497A95;
+    color: #fff;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.multiple-index .index {
+    display: inline-block;
+    color: #497A95;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%; 
+}
+
+.multiple-index-right {
+    float: right;
+    width: calc(100% - 70px);
+    height: 50px;
+    background-color: #C9E2E4;
+}
+
+.multiple-index-right h2 {
+    font-size: 18px;
+    color: #0a0a0a;
+    text-align: center;
+    margin-left: -70px;
+    font-weight: 900;
+    line-height: 50px;
+}
+
+.submitbutton {
+    display: block;
+    margin: 50px auto;
+}
+
+.submitbutton::after {
+    float: right;
+    content: '>>';
+    opacity: 0.5;
+}
+
+.rowbutton {
+    float: right;
+    display: block;
+    min-width: auto;
+    font-size: 12px;
+    background-color: #368A55;
+    color: #fff;
+    border: none;  
+    padding: 4px;  
+    height: 42px;
+    line-height: 32px;
+    padding-left:20px;
+    margin-top: 20px;
+}
+
+.rowbutton::before {
+    float: left;
+    margin: 0 10px 0 -16px;
+    width: 30px;
+    height: 30px;
+    line-height: 12px;
+    background-color: #fff;
+    color: #368A55;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 50%;
+    font-family: "foundation-icons";
+    content: '\f199';
+}
+
 
 .footer {
 	font-size: 11px;

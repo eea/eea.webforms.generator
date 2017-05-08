@@ -152,6 +152,7 @@ class XSDWebFormParserHTMLTags
 						            'ew-action'     	: item.attr.action,
 						            title           	: item.attr.title,
 						            method         		: 'post',
+						            class         		: 'ewform medium-12',
 						            'ng-submit'     	: `submit(${item.attr.name})`
 					        	},
 			groups      		: [],
@@ -184,8 +185,9 @@ class XSDWebFormParserHTMLTags
 		}
 
 		let groupEnd = ''; 
-			if (item.attr.multiple === "1") {
-			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\"></button>`;
+		if (item.attr.multiple === "1") {
+			let addRow = (item.attr.multiplelabel) ? item.attr.multiplelabel : 'Add Row';
+			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">${addRow}</button>`;
 		}
 
 		var groupObject = {
@@ -565,28 +567,27 @@ app.config(["$translateProvider",function($translateProvider){
   
   var TextContent = {
     	en : {
-    		"language" : "Selected Language English",
-    		"greeting" : "Welcome" ,
-    		labels : {
+    		"language" 	: "Selected Language English",
+    		"greeting" 	: "Welcome" ,
+    		"number" 	: "#",
+    		labels 		: {
     			${labels}
     		}
     	},
     	sp : {
-    		"language" : "Selected Language Spanish",
-    		"greeting" : "Bienvenida",
-    		labels : {}  
+    		"language" 	: "Selected Language Spanish",
+    		"greeting" 	: "Bienvenida",
+    		"number" 	: "#",
+    		labels 		: {}  
     	}
   }
   
   $translateProvider.translations('en',TextContent.en);
-  
   $translateProvider.translations('sp',TextContent.sp);
-  $translateProvider.preferredLanguage('en');
-
   $translateProvider.useSanitizeValueStrategy('escapeParameters');
+  $translateProvider.preferredLanguage('en');
   
 }]);
-
 
 /**
 * WebFormAppCtrl: Main controller
@@ -594,7 +595,7 @@ app.config(["$translateProvider",function($translateProvider){
 function WebFormAppCtrl($scope, $http, $timeout) {
 
 	$scope.field = {};  
-	
+	$scope.multipleIndex = 1;
 
 	$scope.submit = function(frm) {
 		$scope.field[frm.$name].AEAPrice = 11;
@@ -628,20 +629,20 @@ function WebFormAppCtrl($scope, $http, $timeout) {
 </div>
 
 <div class="callout small primary">
-<div class="row column text-center">
-<h1>EEA</h1>
-<h2 class="subheader">Web Form</h2>
-</div>
-</div>
-
-<div class="row">
-<div class="text-center medium-offset-3 medium-6">
-<h2>${formTitle}</h2>
-</div>
+	<div class="row column text-center">
+		<h1>EEA</h1>
+		<h2 class="subheader">Web Form</h2>
+	</div>
 </div>
 
 <div id="workarea" class="row collapse">
+	
+	<div class="row">
+		<div class="multiple-index medium-1">{{'number' | translate}} <span class="index">{{multipleIndex}}</span></div>
+		<div class="multiple-index-right medium-11"><h2>${formTitle}</h2></div>
+	</div>
 
+	<div class="row">
 	`;       
 	}
 
@@ -652,6 +653,7 @@ function WebFormAppCtrl($scope, $http, $timeout) {
 	setFooter() {
 
 		this.HTML_FOOTER = `
+	</div>
 
 </div>
 
