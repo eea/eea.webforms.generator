@@ -25,12 +25,20 @@ class XSDWebFormParserHTMLTags
 			"page"         			: this.parsePage,
 			"form"          		: this.parseForm,
 			"group"        			: this.parseGroup,
+			"item"        			: this.parseItem,
 			"input"         		: this.parseInput,
 			"text"         			: this.parseText,
 			"number"        		: this.parseNumber,
 			"date"          		: this.parseDate,
 			"select"        		: this.parseSelect
 		};
+
+		this.XSD_HTML_TYPES = {
+			"xs:integer"			: "number",
+			"xs:decimal"			: "number",
+			"xs:date"				: "date",
+			"xs:string"				: "text"
+		}
 
 		this.HTML_HEADER        	= '';
 		this.HTML_FOOTER        	= '';
@@ -69,6 +77,7 @@ class XSDWebFormParserHTMLTags
 				}
 
 				try {
+					
 					this.parseHTMLItem(htmlItem.children[i], xsdItem);
 					this.htmlParse(htmlItem.children[i], xsdItem);
 
@@ -208,6 +217,46 @@ class XSDWebFormParserHTMLTags
 		sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.groups.push({ type : "group", itemObject : groupObject });
 
 	}
+
+	/**
+	* parseItem
+	* @param item
+	* @param xsdItem
+	* @param sender
+	*/
+	parseItem(item, xsdItem, sender)
+	{
+
+		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
+
+		let xsdGroupTag;
+
+		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+
+		console.log(item.attr.element);
+
+		let XSDWFormItemType;
+		try {
+
+			console.log("item.attr.element", item.attr.element);
+			XSDWFormItemType = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).attr.type;
+			console.log("XSDWFormItemType", XSDWFormItemType);
+				
+			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
+				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
+				sender.parseHTMLItem(item, xsdItem); 
+			} else {
+				console.log(`\n************* Unknown XSD->HTML Tag {${item.name}} *************\n`);
+				process.stdout.write('\x07');
+			}
+
+		} catch (ex) {
+			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
+		}
+		
+
+	} 
+
 
 	/**
 	* parseInput - Parse Input Tag
@@ -697,7 +746,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window) {
                 <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
                 <span ng-show="!ValidationDisabled">On</span>
                 <div class="switch round tiny wfswitch">
-                  <input id="validationSwitch" class="switch-input" ng-click="toggleValidation()" type="checkbox">
+                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
                   <label for="validationSwitch" class="switch-paddle"></label>
                 </div>
                 <label for="validationSwitch"></label>

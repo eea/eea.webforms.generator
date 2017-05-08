@@ -5,13 +5,13 @@
 		<form action="/api/testasdasd" name="form1" title="Information on concluded transfers for the year">
 
 			<group multiple="1" multiplelabel="Add Transfer {{multipleindex}}" element="ConcludedTransferRecord"> 	
-				<number element="AEA"/>	
-				<select element="TransferringMemberState"/>
-				<select element="AcquiringMemberState"/>
-				<number element="AEA-Price"/>
-				<date element="TransferAgreementDate"/>
-				<select element="ExpectedTransactionYear"/>
-				<text element="Other"/>
+				<item element="AEA"/>	
+				<item element="TransferringMemberState"/>
+				<item element="AcquiringMemberState"/>
+				<item element="AEA-Price"/>
+				<item element="TransferAgreementDate"/>
+				<item element="ExpectedTransactionYear"/>
+				<item element="Other"/>
 				<input name="Test"/>
 			</group>
 
@@ -19,3 +19,17 @@
 
 	</page>
 </root>
+
+
+<!--
+
+	<number element="AEA"/>	
+				<select element="TransferringMemberState"/>
+				<select element="AcquiringMemberState"/>
+				<number element="AEA-Price"/>
+				<date element="TransferAgreementDate"/>
+				<select element="ExpectedTransactionYear"/>
+				<text element="Other"/>
+				<input name="Test"/>
+
+				-->

@@ -63,13 +63,13 @@ textarea {
 
 input, select, textarea {
     background-color: #fafafa !important;
-    border: 1px solid rgba(6, 68, 103, 0.3) !important;
+    border: 1px solid rgba(150, 150, 150, .6) !important;
     border-radius: 5px !important;
     box-shadow: 0 1px 1px rgba(0,0,0,0.07) inset !important;
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: rgba(6, 68, 103, 0.5) !important;
+    /*border-color: rgba(6, 68, 103, 0.5) !important;*/
     border-top: none!important;
     border-right: none!important;
     box-shadow: 0 1px 1px rgba(0, 102, 153, 0.075) inset,0 0 4px rgba(0, 102, 153,0.4) !important; 
@@ -101,7 +101,7 @@ button:hover::before,
 /*button:hover::after,*/
 button:hover {
 /*     transform: rotate(5deg) translateY(5%) translateX(5%); */
- background-color: rgba(0, 102, 153, 0.1);
+ background-color: rgba(0, 102, 153, 0.5);
 }
 
 .top-bar{
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .callout.primary h2 {
-    color: #ccc;
+    color: #fff;
     font-size: 30px;
 }
 
@@ -172,7 +172,6 @@ button:hover {
 .field-caption {
     font-size: 14px;
     font-weight: 600;
-/*  width: 220px; */
     width: 15%;
     min-width: 220px;
     text-align: center;
@@ -217,15 +216,15 @@ button:hover {
     float: right;
     width: calc(100% - 70px);
     height: 50px;
-    background-color: #C9E2E4;
+    background-color: #A6CFD2;
 }
 
 .multiple-index-right h2 {
     font-size: 18px;
-    color: #0a0a0a;
+    color: #fff;
     text-align: center;
     margin-left: -70px;
-    font-weight: 900;
+    font-weight: 500;
     line-height: 50px;
 }
 
