@@ -274,11 +274,11 @@ class XSDWebFormParserHTMLTags
 			autoclose   		: false,
 			hasLabel    		: true,
 			attrs       		: {
-									name        	: item.attr.name,
-									id          	: item.attr.name.replace("-", ""),
-									required    	: 1,
-									type        	: 'text',
-									'ng-model'  	: sender.getNgModel(item.attr.name, sender)
+							name        	: item.attr.name,
+							id          	: item.attr.name.replace("-", ""),
+							required    	: 1,
+							type        	: 'text',
+							'ng-model'  	: sender.getNgModel(item.attr.name, sender)
 			            		},
 			tagToHtml   		: XSDWebFormParserHTMLTags.tagToHtml
 		            }
@@ -309,12 +309,12 @@ class XSDWebFormParserHTMLTags
 				autoclose 		: true,
 				hasLabel 		: true,
 				attrs 			: {
-									name: item.attr.element,
-									id: item.attr.element.replace("-", ""),
-									required: 1,
-									'ew-map': sender.getEwMap(item, itemInfo),
-									'ng-model': sender.getNgModel(item.attr.element, sender)
-								},
+								name: item.attr.element,
+								id: item.attr.element.replace("-", ""),
+								required: 1,
+								'ew-map': sender.getEwMap(item, itemInfo),
+								'ng-model': sender.getNgModel(item.attr.element, sender)
+							},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -345,13 +345,13 @@ class XSDWebFormParserHTMLTags
 				autoclose		: false,
 				hasLabel		: true,
 				attrs			: {
-									name: item.attr.element,
-									id: item.attr.element.replace("-", ""),
-									required: 1,
-									type: "number",
-									'ew-map': sender.getEwMap(item, itemInfo),
-									'ng-model': sender.getNgModel(item.attr.element, sender)
-								},
+								name: item.attr.element,
+								id: item.attr.element.replace("-", ""),
+								required: 1,
+								type: "number",
+								'ew-map': sender.getEwMap(item, itemInfo),
+								'ng-model': sender.getNgModel(item.attr.element, sender)
+							},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -383,13 +383,13 @@ class XSDWebFormParserHTMLTags
 				autoclose 		: false,
 				hasLabel 		: true,
 				attrs			: {
-									name: item.attr.element,
-									id: item.attr.element.replace("-", ""),
-									required: 1,
-									type: "date",
-									'ew-map': sender.getEwMap(item, itemInfo),
-									'ng-model': sender.getNgModel(item.attr.element, sender)
-								},
+								name: item.attr.element,
+								id: item.attr.element.replace("-", ""),
+								required: 1,
+								type: "date",
+								'ew-map': sender.getEwMap(item, itemInfo),
+								'ng-model': sender.getNgModel(item.attr.element, sender)
+							},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
@@ -465,12 +465,12 @@ class XSDWebFormParserHTMLTags
 				hasLabel		: true,
 				options 		: enumItems,
 				attrs 			: {
-									name: item.attr.element,
-									id: item.attr.element.replace("-", ""),
-									required: 1,
-									'ew-map': sender.getEwMap(item, itemInfo),
-									'ng-model': sender.getNgModel(item.attr.element, sender)
-								},
+								name: item.attr.element,
+								id: item.attr.element.replace("-", ""),
+								required: 1,
+								'ew-map': sender.getEwMap(item, itemInfo),
+								'ng-model': sender.getNgModel(item.attr.element, sender)
+							},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
 
