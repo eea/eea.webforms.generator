@@ -204,7 +204,7 @@ class XSDWebFormParserHTMLTags
 		var groupObject = {
 			name        		: item.attr.element,
 			xsdName     		: xsdGroupTag.name,
-			tag        			: 'fieldset',
+			tag        		: 'fieldset',
 			// tagclose   		: true,
 			attrs       		: {
 							'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
