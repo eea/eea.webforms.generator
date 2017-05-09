@@ -26,7 +26,6 @@ class XSDWebFormParser
 	*/
 	constructor(showlog = false, verbose = false) 
 	{
-
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 
@@ -41,7 +40,6 @@ class XSDWebFormParser
 		this.xsdTagParser.setLog((this.showLog && this.verbose));
 		this.htmlTagParser.setLog(this.showLog);
 		this.htmlTagParser.setVerbose((this.showLog && this.verbose));
-
 	}
 
 	/**
@@ -50,7 +48,6 @@ class XSDWebFormParser
 	 */
 	parse(xObject)
 	{
-
 		if (this.showLog) 
 			XSDWebFormParserLog.logXSD(xObject);
 
@@ -60,7 +57,6 @@ class XSDWebFormParser
 
 		if (this.showLog)
 			this.xsdTagParser.xsdParse(xsdItem);
-
 
 		if (this.showLog) 
 			XSDWebFormParserLog.logHTML(xObject);
@@ -75,7 +71,6 @@ class XSDWebFormParser
 
 		if (this.showLog) 
 				XSDWebFormParserLog.showLogs(this);
-
 	}
 
 	/**
@@ -83,36 +78,28 @@ class XSDWebFormParser
 	 */
 	createHTMLOutput()
 	{
-	    
 		var html = [];
 
 		for (let f = 0, t = this.htmlOutput.HTMLObjects.length; f < t; f++) {
-
 			let form = this.htmlOutput.HTMLObjects[f];
 			let formHtml = [];
 
 			html.splice(html.length + 1, 0, "\t\t"+ form.itemObject.tagToHtml());
 			let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
-
-			// if (form.itemObject.tagclose)
 			html.splice(groups.length + html.length + 1, 0, "\t\t</"+ form.itemObject.tag + ">");
 
 			for (let i = 0, l = groups.length; i < l; i++) {
-
 				let group = groups[i];
-
 				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					formHtml.push("\t\t\t\t<div class=\"formitem\">" + groups[i].itemObject.items[i2] + "</div>");
 				}
 
-				// if (group.itemObject.tagclose)
 				formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
 
 				if (group.itemObject.append)
 					formHtml.push("\t\t\t" + group.itemObject.append);
-
 			}
 
 			if (form.itemObject.append)
@@ -120,9 +107,7 @@ class XSDWebFormParser
 
 			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
 		}
-
 		this.htmlOutput.content = html.join("\n\n");
-
 	}
 
 	/**

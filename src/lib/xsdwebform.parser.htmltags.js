@@ -20,36 +20,33 @@ class XSDWebFormParserHTMLTags
 	* Class constructor
 	*/
 	constructor(){
-
 		this.HTML_TYPES = {
-			"page"         				: this.parsePage,
+			"page"         			: this.parsePage,
 			"form"          			: this.parseForm,
-			"group"        				: this.parseGroup,
-			"item"        				: this.parseItem,
+			"group"        			: this.parseGroup,
+			"item"        			: this.parseItem,
 			"input"         			: this.parseInput,
-			"text"         				: this.parseText,
+			"text"         			: this.parseText,
 			"number"        			: this.parseNumber,
 			"date"          			: this.parseDate,
-			"select"        			: this.parseSelect,
-			"lookup"        			: this.parseSelect
+			"select"        			: this.parseSelect
 		};
 
 		this.XSD_HTML_TYPES = {
 			"xs:integer"			: "number",
 			"xs:decimal"			: "number",
-			"xs:date"				: "date",
-			"xs:string"				: "text"
+			"xs:date"			: "date",
+			"xs:string"			: "text"
 		}
 
 		this.HTML_HEADER			= '';
 		this.HTML_FOOTER			= '';
 		this.HTML_TITLE 			= '';
-		this.HTML_FORM_TITLE 		= '';
+		this.HTML_FORM_TITLE 			= '';
 		this.HTMLObjects 			= [];
-		this.TextContentObjects 	= [];
+		this.TextContentObjects 			= [];
 		this.showLog 				= false;
 		this.verbose 				= false;
-
             }
 
 	/**
@@ -62,16 +59,12 @@ class XSDWebFormParserHTMLTags
 	{
 		// Loop through Tag's childNodes
 		for (let i = 0, l = htmlItem.children.length; i < l; i++) {
-
 			if (htmlItem.children[i].type === "element") {
-
 				if (this.showLog) {
 					process.stdout.write(`\x1b[0m\x1b[31mHTML => \x1b[0m\x1b[33m${htmlItem.children[i].name}`);
-
 					if (htmlItem.children[i].attr.name) {
 						process.stdout.write(` :: \x1b[1m\x1b[33m${htmlItem.children[i].attr.name} \x1b[0m`);
 					}
-
 					if (htmlItem.children[i].attr.element) {
 						process.stdout.write(` :: \x1b[1m\x1b[33m${htmlItem.children[i].attr.element} \x1b[0m`);
 					}
@@ -79,10 +72,8 @@ class XSDWebFormParserHTMLTags
 				}
 
 				try {
-					
 					this.parseHTMLItem(htmlItem.children[i], xsdItem);
 					this.htmlParse(htmlItem.children[i], xsdItem);
-
 					this.setHeader(
 						this.HTML_TITLE, 
 						this.HTML_FORM_TITLE,
@@ -94,10 +85,8 @@ class XSDWebFormParserHTMLTags
 				} catch(err) {
 					XSDWebFormParserError.reportError(err);
 				}
-
 			}
 		};
-
 	}
 
 	/**
@@ -107,14 +96,12 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseHTMLItem(item, xsdItem) 
 	{
-
 		if ((item.name in this.HTML_TYPES)) {
 			(this.HTML_TYPES[item.name])(item, xsdItem, this);
 		} else {
 			console.log(`\n************* Unknown HTML Tag {${item.name}} *************\n`);
 			process.stdout.write('\x07');
 		}
-
 	}
 
 	/**
@@ -125,15 +112,12 @@ class XSDWebFormParserHTMLTags
 	*/
 	parsePage(item, xsdItem, sender)
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
 		if (!item.attr.title){
 			XSDWebFormParserError.reportError(`Can not find Page Title (<page title="?" ..>)`);
 		}
-
 		sender.HTML_TITLE = item.attr.title;
-
 	} 
 
 	/**
@@ -144,36 +128,29 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseForm(item, xsdItem, sender) 
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
-
-		let formEnd = "<button type=\"submit\" class=\"submitbutton\">Submit Form</button>";
-
-
+		let formEnd = "<button type=\"submit\" class=\"submitbutton\">{{'submitform' | translate}}</button>";
 		var formObject = {
 			name        		: item.attr.name,
 			action      		: item.attr.action,
-			tag         		: 'form',
+			tag         			: 'form',
 			// tagclose    		: true,
 			append      		: formEnd,
-			attrs       		: {
+			attrs       			: {
 						            name            	: item.attr.name,
-						            id              	: item.attr.name.replace("-", ""),
+						            id              		: item.attr.name.replace("-", ""),
 						            'ew-action'     	: item.attr.action,
-						            title           	: item.attr.title,
-						            method         		: 'post',
+						            title           		: item.attr.title,
+						            method         	: 'post',
 						            class         		: 'ewform medium-12',
 						            'ng-submit'     	: `submit(${item.attr.name})`
 					        	},
 			groups      		: [],
 			tagToHtml   		:  XSDWebFormParserHTMLTags.tagToHtml
 			}
-
 		sender.HTML_FORM_TITLE = item.attr.title;
-
 		sender.HTMLObjects.push({ type : "form", itemObject : formObject });
-
 	}
 
 	/**
@@ -184,7 +161,6 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseGroup(item, xsdItem, sender)  
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
 		let xsdGroupTag;
@@ -200,24 +176,21 @@ class XSDWebFormParserHTMLTags
 			let addRow = (item.attr.multiplelabel) ? item.attr.multiplelabel : 'Add Row';
 			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">${addRow}</button>`;
 		}
-
 		var groupObject = {
 			name        		: item.attr.element,
 			xsdName     		: xsdGroupTag.name,
-			tag        		: 'fieldset',
+			tag        			: 'fieldset',
 			// tagclose   		: true,
-			attrs       		: {
+			attrs       			: {
 							'ew-map'  	: xsdGroupTag.name + "/" + item.attr.element,
-							id        	: item.attr.element.replace("-", "")
-					            },
+							id        		: item.attr.element.replace("-", "")
+					           	},
 			append      		: groupEnd,
 			xsdXML      		: xsdGroupTag,
 			items       		: [],
 			tagToHtml   		: XSDWebFormParserHTMLTags.tagToHtml
 		    }
-
 		sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.groups.push({ type : "group", itemObject : groupObject });
-
 	}
 
 	/**
@@ -228,29 +201,22 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseItem(item, xsdItem, sender)
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 		let XSDWFormItem;
 		try {
-
 			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
-
 			if ((XSDWFormItem.attr.type in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItem.attr.type];
 				item.src = XSDWFormItem;
 			} else {
-				item.name = "lookup";
+				item.name = "select";
 			}
-
 			sender.parseHTMLItem(item, xsdItem); 
-
 		} catch (ex) {
 			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 		}		
-
 	} 
 
 
@@ -262,29 +228,25 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseInput(item, xsdItem, sender)
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);  
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 		var htmlItem = {
 			name        		: item.attr.name,
-			tag         		: 'input',
+			tag         			: 'input',
 			tagclose    		: false,
 			autoclose   		: false,
 			hasLabel    		: true,
-			attrs       		: {
+			attrs       			: {
 							name        	: item.attr.name,
-							id          	: item.attr.name.replace("-", ""),
+							id          		: item.attr.name.replace("-", ""),
 							required    	: 1,
 							type        	: 'text',
 							'ng-model'  	: sender.getNgModel(item.attr.name, sender)
-			            		},
+			            			},
 			tagToHtml   		: XSDWebFormParserHTMLTags.tagToHtml
 		            }
-
 		sender.addItemToGroup(htmlItem, itemInfo, sender);
-
 	} 
 
 	/**
@@ -295,13 +257,10 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseText(item, xsdItem, sender) 
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
-
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 			var htmlItem = {
 				name 			: item.attr.element,
 				tag 			: 'textarea',
@@ -317,10 +276,8 @@ class XSDWebFormParserHTMLTags
 							},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
-
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
-
 	} 
 
 	/**
@@ -331,13 +288,10 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseNumber(item, xsdItem, sender) 
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
-
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 			var htmlItem = {
 				name 			: item.attr.element,
 				tag 			: 'input',
@@ -354,11 +308,8 @@ class XSDWebFormParserHTMLTags
 							},
 				tagToHtml		: XSDWebFormParserHTMLTags.tagToHtml
 			}
-
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
-
 		}
-
 	} 
 
 	/**
@@ -369,13 +320,10 @@ class XSDWebFormParserHTMLTags
 	*/
 	parseDate(item, xsdItem, sender) 
 	{
-
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);    
 
 		if (item.attr.element) {
-
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 			var htmlItem = {
 				name 			: item.attr.element,
 				tag 			: 'input',
@@ -392,7 +340,6 @@ class XSDWebFormParserHTMLTags
 							},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
-
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 
@@ -412,7 +359,6 @@ class XSDWebFormParserHTMLTags
 		if (item.attr.element) {
 
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
 			let XSDWFormItem, XSDWFormItemTypeData;
 
 			try {
@@ -436,25 +382,20 @@ class XSDWebFormParserHTMLTags
 
 			let enumItems = [];
 			enums.eachChild((enm, index) => {
-
 				if (enm.name === "xs:enumeration") {
 					enumItems.push({ value: enm.attr.value, option: enm.attr.value });
 				}
-
 				if (enm.name === "xs:minInclusive") {
 					let maxInclusive = enums.childNamed("xs:maxInclusive");
 					if (!maxInclusive)
 						XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);
 
 					let min = enm.attr.value;
-
 					enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map((item, index) => {
 						return { value: min, option: min++ };
 					});
-
 					return;
 				}
-
 			});
 
 			var htmlItem = {
@@ -465,19 +406,16 @@ class XSDWebFormParserHTMLTags
 				hasLabel		: true,
 				options 		: enumItems,
 				attrs 			: {
-								name: item.attr.element,
-								id: item.attr.element.replace("-", ""),
-								required: 1,
-								'ew-map': sender.getEwMap(item, itemInfo),
-								'ng-model': sender.getNgModel(item.attr.element, sender)
+								name		: item.attr.element,
+								id 		: item.attr.element.replace("-", ""),
+								required 	: 1,
+								'ew-map' 	: sender.getEwMap(item, itemInfo),
+								'ng-model' 	: sender.getNgModel(item.attr.element, sender)
 							},
 				tagToHtml 		: XSDWebFormParserHTMLTags.tagToHtml
 			}
-
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
-
 		}
-
 	} 
 
 	/**
@@ -496,7 +434,6 @@ class XSDWebFormParserHTMLTags
 			groupBase 		: groupBase,
 			parentXsdName 	: groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name
 		};
-
 	}
 
 	/**
@@ -572,7 +509,6 @@ class XSDWebFormParserHTMLTags
 			outPut += "</" + this.tag + ">"
 
 		return outPut;
-
 	}
 
 
@@ -613,18 +549,22 @@ app.config(["$translateProvider",function($translateProvider){
   
   var TextContent = {
     	en : {
-    		"language" 	: "Selected Language English",
-    		"greeting" 	: "Welcome" ,
-    		"number" 	: "#",
-    		labels 		: {
-    			${labels}
-    		}
+    		"language" 		: "Selected Language English",
+    		"greeting" 		: "Welcome" ,
+    		"number" 		: "#",
+    		"submitform" 		: "Submit",
+    		labels 			: {
+    						${labels}
+    					}
     	},
     	sp : {
-    		"language" 	: "Selected Language Spanish",
-    		"greeting" 	: "Bienvenida",
-    		"number" 	: "#",
-    		labels 		: {}  
+    		"language" 		: "Selected Language Spanish",
+    		"greeting" 		: "Bienvenida",
+    		"number" 		: "#",
+    		"submitform" 		: "Submit",
+    		labels 			: {
+    						${labels}
+    					}
     	}
   }
   

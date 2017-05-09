@@ -14,12 +14,10 @@ import XSDWebFormParserLog from './xsdwebform.parser.log.js'
  */
 class XSDWebFormParserTags
 {
-
 	/**
 	* Class constructor
 	*/
 	constructor() {
-
 		this.ELEMENT_TYPES = {
 			"xs:element"        		: this.parseElement,
 			"xs:import"         		: this.parseImport,
@@ -38,7 +36,6 @@ class XSDWebFormParserTags
 			"xs:minLength"      		: this.parseMinLength,
 			"xs:maxLength"      		: this.parseMaxLength
 		};    
-
 		this.showLog = false;
 	}
 
@@ -48,32 +45,25 @@ class XSDWebFormParserTags
 	*/
 	xsdParse(xsdItem) 
 	{
-
 		if (this.showLog)
 			XSDWebFormParserLog.showItemLog(xsdItem);
-
 		// Loop through Tag's childNodes
 		if (xsdItem.children) {
 			for (let i = 0, l = xsdItem.children.length; i < l; i++) {
 				if (xsdItem.children[i].type === "element") {
-
 					try {
 						// Parse Tag Tag
 						this.parseXSDItem(xsdItem.children[i].name);
 						xsdItem.children[i].xparent = xsdItem;
 						xsdItem.children[i].level = xsdItem.level + 1;
-
 						// Recursive call
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
 						XSDWebFormParserError.reportError(err);
 					}
-
 				}
-
 			}
 		}
-
 	}
 
 	/**
@@ -267,7 +257,6 @@ class XSDWebFormParserTags
 			XSDWebFormParserLog.logXsdTag(item); 
 	}
 
-    
 }
 
 

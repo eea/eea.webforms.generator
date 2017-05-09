@@ -14,13 +14,11 @@
 */
 class XSDWebFormParserLog
 {
-
 	/**
 	* showLog 
 	*/
 	static showLogs(sender)
 	{
-
 		if (!sender.verbose) 
 			console.log("");
 		
@@ -33,10 +31,8 @@ class XSDWebFormParserLog
 			console.log("");
 		}
 		console.log("\x1b[0m"); 
-
 		console.log(new Date());
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
-
 	}
 
 	/**
@@ -45,11 +41,9 @@ class XSDWebFormParserLog
 	*/
 	static logXSD(xObject)
 	{
-
 		console.log("\n\n\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
-
 	}
 
 	/**
@@ -58,11 +52,9 @@ class XSDWebFormParserLog
 	*/
 	static logHTML(xObject)
 	{
-
 		console.log("\n\n\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
-
 	}
 
 	/**
@@ -71,7 +63,6 @@ class XSDWebFormParserLog
 	*/
 	static showItemLog(xsdItem) 
 	{
-
 		let xspace = "  ";
 		for (let i = 0; i < xsdItem.level; i++) {
 			xspace += "\t";
@@ -88,7 +79,6 @@ class XSDWebFormParserLog
 
 				if (this.verbose) {
 					if (xsdItem.name === "xs:element") {    
-
 						var txmlItem = xsdItem.toString();
 						txmlItem = txmlItem.split("\n").join("");
 						txmlItem = txmlItem.split("<").join(xspace + `\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓\t \x1b[2m<`);
@@ -98,7 +88,6 @@ class XSDWebFormParserLog
 							var pos2 = txmlItem.indexOf("</xs:documentation>");
 							txmlItem = txmlItem.substring(0, pos1) + "<xs:documentation> ..." + txmlItem.substring(pos2);
 						}
-
 						process.stdout.write(`\x1b[2m${txmlItem}`);
 					}
 				}
@@ -107,7 +96,6 @@ class XSDWebFormParserLog
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`); 
 			if (xsdItem.xparent) {
 				console.log(`\x1b[32m  parent ::\x1b[1m ${xsdItem.xparent.name}\x1b[0m`);
-
 				if (xsdItem.xparent.attr.name) {
 					console.log(`${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓ \x1b[0m\x1b[36m par.name ::\x1b[1m ${xsdItem.xparent.attr.name}\x1b[0m`);
 				}
@@ -118,10 +106,6 @@ class XSDWebFormParserLog
 			console.log(" ");
 
 		process.stdout.write(`\x1b[2m${xspace}         ▒▒`); 
-		// if (!sender.showLog) {
-		//     console.log(" ");
-		// }
-
 	}
 
 	/**
