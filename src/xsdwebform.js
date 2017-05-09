@@ -66,8 +66,6 @@ class XSDWebForm {
 			try {
 				this.parseFiles(xsdFile, xmlHtmlFile, this.basePath);
 
-				if (this.autoOpenOutput)
-					openurl.open(`./build/${this.baseFileName}html`);
 			} catch (err) {
 				XSDWebFormParserError.reportError(err);
 			}
@@ -97,6 +95,9 @@ class XSDWebForm {
 				// Create HTML file
 				this.createFile(this.buildPath + "/" + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() );
 				this.createFile(this.buildPath + "/" + this.baseFileName + "lang.json", this.parser.getFullTextContent());
+				// Open browser 
+				if (this.autoOpenOutput)
+					openurl.open(`./build/${this.baseFileName}html`);
 			});
 		});
 	}
