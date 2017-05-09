@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<page>
-		
 		<form action="/api/testasdasd">
 
 			<group multiple="1" multiplelabel="Add Transfer {{multipleindex}}" element="ConcludedTransferRecord"> 	
@@ -13,6 +12,7 @@
 				<item element="ExpectedTransactionYear"/>
 				<item element="Other"/>
 				<input name="Test"/>
+				<input name="Test2"/>
 			</group>
 
 		</form>

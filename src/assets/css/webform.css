@@ -8,7 +8,6 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*user-select: none;*/
 }
 
 html {
@@ -18,7 +17,6 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*user-select: none;*/
 }
 
 body {
@@ -98,10 +96,8 @@ button {
 }
 
 button:hover::before,
-/*button:hover::after,*/
 button:hover {
-/*     transform: rotate(5deg) translateY(5%) translateX(5%); */
- background-color: rgba(0, 102, 153, 0.5);
+    background-color: rgba(0, 102, 153, 0.5);
 }
 
 #tool-ribbon {
@@ -219,15 +215,14 @@ a#printlink {
 }
 
 .formitem {
-    display: flex;
+    float: left;
     color: #fff;
     background-color: #C9E2E4;
     padding: 15px;
     font-size: 12px;
     margin: auto;
     width: 50%;  
-    min-width: 400px;
-    /*text-align: left;*/
+    min-width: 50%;
     transition: background-color 0.4s ease-in-out;
 }
 
@@ -235,15 +230,12 @@ a#printlink {
    background-color: rgba(201, 226, 228, 0.3);
 }
 
-.formitem:nth-child(odd) {
-    float: left;
-}
-.formitem:nth-child(even) {
-    float: right;
-}
-
 .formitem input, .formitem textarea, .formitem select {
     border-radius: 0 5px 5px 5px!important;
+}
+
+.formitem textarea {
+    height: 124px;
 }
 
 .field-caption {
@@ -262,11 +254,6 @@ a#printlink {
     border-radius: 5px 5px 0 0;
     opacity: 1;
 }
-/*
-.field-caption::after {
-    margin-left: 4px;
-    content: ':';
-}*/
 
 .multiple-index {
     float: left;
