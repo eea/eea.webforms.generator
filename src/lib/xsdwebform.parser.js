@@ -115,8 +115,12 @@ class XSDWebFormParser {
 	 * getTextContent - Return Text Content 
 	 */
 	getTextContent() {
-		return this.htmlTagParser.TextContentObjects.map((label) => {
-			return `\t\t\t\t\t\t"${label.label}" : "${label.text}",`;
+		var textContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
+		return this.htmlTagParser.TextContentObjects.map((label, index) => {
+			if (index < textContentObjectsLength)
+				return `\t\t\t\t\t\t\t"${label.label}" : "${label.text}",`;
+			else
+				return `\t\t\t\t\t\t\t"${label.label}" : "${label.text}"`;
 		}).join("\n");
 	}
 
@@ -126,28 +130,15 @@ class XSDWebFormParser {
 	getFullTextContent() {
 		let textContent = this.getTextContent();
 		var fullTextContent = `{
-	"en" : {
-		"language" 		: "Selected Language English",
-		"greeting" 		: "Welcome" ,
-		"pagetitle"		: "Page Title",
-		"formtitle"		: "Form Title",
-		"number" 		: "#",
-		"submitform" 		: "Submit",
-		"labels "			: {
+			"language" 		: "Selected Language English",
+			"greeting" 		: "Welcome" ,
+			"pagetitle"		: "Page Title",
+			"formtitle"		: "Form Title",
+			"number" 		: "#",
+			"submitform" 		: "Submit",
+			"labels "			: {
 ${textContent}
-					}
-	},
-	"sp" : {
-		"language" 		: "Selected Language Spanish",
-		"greeting" 		: "Bienvenida",
-		"pagetitle"		: "Page Title",
-		"formtitle"		: "Form Title",
-		"number" 		: "#",
-		"submitform" 		: "Enviar",
-		"labels "			: {
-${textContent}
-					}
-	}
+						}
 }`;
 		return fullTextContent;
 	}

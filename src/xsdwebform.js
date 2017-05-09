@@ -74,9 +74,10 @@ class XSDWebForm {
 		var filePath = path.join( __dirname.substring(0, __dirname.length - 3), 'build/');
 		
 		app.use(express.static(filePath))
-			.get(`/${this.baseFileName}html`, function (req, res) {
-				res.sendFile();
-			})
+			// .get(`/${this.baseFileName}html`, function (req, res) {
+			// 	console.log(req.path);
+			// 	res.sendFile();
+			// })
 			.listen(3001, function () {
 				console.log('Example app listening on port 3001!')
 			})
@@ -154,6 +155,7 @@ class XSDWebForm {
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.min.js" ></script>
 <script src="./assets/js/a/angular-translate.min.js" ></script>
+<script src="./assets/js/a/angular-translate-loader-url.min.js" ></script>
 <script src="./assets/js/a/angular-datepicker.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
@@ -167,27 +169,28 @@ class XSDWebForm {
 const app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
 
-app.config(["$translateProvider",function($translateProvider){
-  	
-	var TextContent = ${this.parser.getFullTextContent()};
-	//$.get("${this.baseFileName + "lang.json"}");
+app.config(["$translateProvider", function($translateProvider) {
 
-	$translateProvider.translations('en',TextContent.en);
-	$translateProvider.translations('sp',TextContent.sp);
+	$translateProvider.useUrlLoader('${this.baseFileName + "lang.json"}');
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
 	$translateProvider.preferredLanguage('en');
-  
+
 }]);
+
 
 /**
 * WebFormAppCtrl: Main controller
 */
-function WebFormAppCtrl($scope, $http, $timeout, $window) {
-
+function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
+ 
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
 
-	$scope.toggleValidation = function(){
+	$scope.changeLanguage = function(langKey) {
+		$translate.use(langKey);
+	};
+
+	$scope.toggleValidation = function() {
 		$scope.ValidationDisabled = !$scope.ValidationDisabled;
 	}
 
@@ -198,12 +201,12 @@ function WebFormAppCtrl($scope, $http, $timeout, $window) {
 		return false;
 	};
 
-	$scope.printPreview = function(){
+	$scope.printPreview = function() {
 		var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
 		$window.open(conversionLink, '_blank');
 	}
 
-	$scope.toggleValidation = function(){
+	$scope.toggleValidation = function() {
 		$scope.ValidationDisabled = !$scope.ValidationDisabled;
 	}
 
