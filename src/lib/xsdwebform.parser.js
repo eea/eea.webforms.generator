@@ -18,7 +18,6 @@ import XSDWebFormParserLog from './xsdwebform.parser.log.js'
  */
 class XSDWebFormParser 
 {
- 
 	/**
 	* Class constructor
 	* @param showlog
@@ -67,10 +66,9 @@ class XSDWebFormParser
 		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
 		this.htmlOutput.HTMLObjects =  this.htmlTagParser.HTMLObjects;
 		this.createHTMLOutput();
-		// this.htmlOutput.content = this.getHTMLOutput();
 
 		if (this.showLog) 
-				XSDWebFormParserLog.showLogs(this);
+			XSDWebFormParserLog.showLogs(this);
 	}
 
 	/**

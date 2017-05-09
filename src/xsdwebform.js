@@ -8,6 +8,7 @@
 'use strict';
 
 import fs from 'fs';
+import path from 'path';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import openurl from 'openurl';
@@ -22,62 +23,58 @@ import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
  */
 class XSDWebForm 
 {
-
 	/**
 	 * Class constructor
 	 * Check for -f file in arguments
 	 */
 	constructor(args)
 	{
-
 		//Build directory
 		this.buildPath = "./build";
-
 		// XSDWebFormParser    		
 		this.parser = new XSDWebFormParser(true, true);
-
 		// Input file variable
 		var xsdFile = null;
 		// HTML Input file variable
 		var xmlHtmlFile = null; 
-
 		// Open the default browser when build is completed
 		this.autoOpenOutput = false;
 
-		// Check for [-f file] input
+		// Check for [-f file] [-a | open browser after build] input
 		args.forEach(
-		    (item, index) => {
-		        if (item == '-f') {
-		            xsdFile = args[index + 1];
-		            return;
-		        }
-		        if (item == '-a') {
-		            this.autoOpenOutput = true;
-		            return;
-		        }
-		    }
+			(item, index) => {
+				if (item == '-f') {
+					xsdFile = args[index + 1];
+					return;
+				}
+				if (item == '-a') {
+					this.autoOpenOutput = true;
+					return;
+				}
+			}
 		);
 
 		// If not file input
 		if (!xsdFile) {
-		    xsdFile = "test.xsd";
+			xsdFile = "test.xsd";
 		}
 
-		this.baseFileName = xsdFile.substring(0, xsdFile.length - 3);
-		xmlHtmlFile = this.baseFileName + "form.xml";
 
+		this.baseFileName =path.basename(xsdFile);
+		this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
+		this.basePath = path.dirname(xsdFile);
+		xmlHtmlFile = this.baseFileName + "form.xml";
+		
 		this.prepareJSFiles().then((res) => {			
 			try {
-				this.parseFiles(xsdFile, xmlHtmlFile);
-			    	
+				this.parseFiles(xsdFile, xmlHtmlFile, this.basePath);
+			   
 				if (this.autoOpenOutput)
 					openurl.open(`./build/${this.baseFileName}html`);
-
 			} catch(err){
 				XSDWebFormParserError.reportError(err);
 			}
 		});
-
 	} 
 
 	/**
@@ -86,7 +83,7 @@ class XSDWebForm
 	 * @param xsdFile
 	 * @param xmlHtmlFile
 	 */
-	parseFiles(xsdFile, xmlHtmlFile) 
+	parseFiles(xsdFile, xmlHtmlFile, filePath) 
 	{
 		var xObject = {
 	    		xfile : xsdFile,
@@ -97,7 +94,7 @@ class XSDWebForm
 
 		this.getFile(xsdFile).then((res) => {
 	    		xObject.xdata = res;
-	    		this.getFile(xmlHtmlFile).then((res) => {
+	    		this.getFile(filePath + "/" + xmlHtmlFile).then((res) => {
 		    		xObject.hdata = res;
 		    		// Parse file content
 				this.parser.parse(xObject);
@@ -106,7 +103,6 @@ class XSDWebForm
 				this.createHTMLFile( this.buildPath + "/" + this.baseFileName + "html", this.parser.getHTMLOutput());
 		    	});
 	    	});
-		
 	}
 
 	/**
@@ -116,14 +112,12 @@ class XSDWebForm
 	 */
 	createHTMLFile(filename, content) 
 	{
-    	
 	    	fs.writeFile(filename, content, function(err) {
 	        		if(err)
 		        		console.log(err);
 		        	else
 		    		console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 			}); 
-
 	}
 
 	/**
@@ -131,7 +125,6 @@ class XSDWebForm
 	 */
 	prepareJSFiles() 
 	{	
-
 		var buildPath = this.buildPath;
 		return new Promise( (resolve, reject) =>{
 			rimraf(buildPath, fs, function() {
@@ -147,7 +140,6 @@ class XSDWebForm
 				}
 			});
 		});
-
 	}
 
 	/**
@@ -155,7 +147,6 @@ class XSDWebForm
 	 * @param file
 	 */
 	getFile(file) {
-
 		return new Promise((resolve, reject) => {
 			fs.readFile(file, 'utf8', (err, data) => {
 			    if (err) {
@@ -165,7 +156,6 @@ class XSDWebForm
 			    resolve(data);
 			});
 		});
-
 	}
 }
 
