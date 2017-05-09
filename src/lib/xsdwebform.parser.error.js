@@ -11,17 +11,15 @@
  * Error log for XSD Schema Tags
  * Static
  */
-class XSDWebFormParserError
-{
+class XSDWebFormParserError {
 
-	static reportError(error, item) 
-	{
+	static reportError(error, item) {
 		console.log("\n\x1b[1m\x1b[31m" + error + "\x1b[0m");
 
 		if (item)
 			console.log(`\x1b[0m\x1b[37mline: ${item.line}, colum: ${item.column}, position: ${item.position}\n\x1b[0m`);
-			
-        		process.exit();
+
+		process.exit();
 	}
 }
 

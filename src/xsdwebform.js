@@ -21,14 +21,12 @@ import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
  * Class XSDWebForm
  * XSD Schema to HTML5
  */
-class XSDWebForm 
-{
+class XSDWebForm {
 	/**
 	 * Class constructor
 	 * Check for -f file in arguments
 	 */
-	constructor(args)
-	{
+	constructor(args) {
 		//Build directory
 		this.buildPath = "./build";
 		// XSDWebFormParser    		
@@ -36,7 +34,7 @@ class XSDWebForm
 		// Input file variable
 		var xsdFile = null;
 		// HTML Input file variable
-		var xmlHtmlFile = null; 
+		var xmlHtmlFile = null;
 		// Open the default browser when build is completed
 		this.autoOpenOutput = false;
 
@@ -59,23 +57,22 @@ class XSDWebForm
 			xsdFile = "test.xsd";
 		}
 
-
-		this.baseFileName =path.basename(xsdFile);
+		this.baseFileName = path.basename(xsdFile);
 		this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
 		this.basePath = path.dirname(xsdFile);
 		xmlHtmlFile = this.baseFileName + "form.xml";
-		
-		this.prepareJSFiles().then((res) => {			
+
+		this.prepareJSFiles().then((res) => {
 			try {
 				this.parseFiles(xsdFile, xmlHtmlFile, this.basePath);
-			   
+
 				if (this.autoOpenOutput)
 					openurl.open(`./build/${this.baseFileName}html`);
-			} catch(err){
+			} catch (err) {
 				XSDWebFormParserError.reportError(err);
 			}
 		});
-	} 
+	}
 
 	/**
 	 * parseFiles - Parse XSD and XML files
@@ -83,55 +80,38 @@ class XSDWebForm
 	 * @param xsdFile
 	 * @param xmlHtmlFile
 	 */
-	parseFiles(xsdFile, xmlHtmlFile, filePath) 
-	{
+	parseFiles(xsdFile, xmlHtmlFile, filePath) {
 		var xObject = {
-	    		xfile : xsdFile,
-	    		xdata : '',
-	    		hfile : xmlHtmlFile,
-	    		hdata : ''
-			};
+			xfile: xsdFile,
+			xdata: '',
+			hfile: xmlHtmlFile,
+			hdata: ''
+		};
 
 		this.getFile(xsdFile).then((res) => {
-	    		xObject.xdata = res;
-	    		this.getFile(filePath + "/" + xmlHtmlFile).then((res) => {
-		    		xObject.hdata = res;
-		    		// Parse file content
+			xObject.xdata = res;
+			this.getFile(filePath + "/" + xmlHtmlFile).then((res) => {
+				xObject.hdata = res;
+				// Parse file content
 				this.parser.parse(xObject);
-
 				// Create HTML file
-				this.createHTMLFile( this.buildPath + "/" + this.baseFileName + "html", this.parser.getHTMLOutput());
-		    	});
-	    	});
-	}
-
-	/**
-	 * createHTMLFile - Save output file
-	 * @param filename
-	 * @param content
-	 */
-	createHTMLFile(filename, content) 
-	{
-	    	fs.writeFile(filename, content, function(err) {
-	        		if(err)
-		        		console.log(err);
-		        	else
-		    		console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
-			}); 
+				this.createFile(this.buildPath + "/" + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() );
+				this.createFile(this.buildPath + "/" + this.baseFileName + "lang.json", this.parser.getFullTextContent());
+			});
+		});
 	}
 
 	/**
 	 * prepareJSFiles - Copy JS folder to build
 	 */
-	prepareJSFiles() 
-	{	
+	prepareJSFiles() {
 		var buildPath = this.buildPath;
-		return new Promise( (resolve, reject) =>{
+		return new Promise((resolve, reject) => {
 			rimraf(buildPath, fs, function() {
-				if (!fs.existsSync(buildPath)){
+				if (!fs.existsSync(buildPath)) {
 					fs.mkdirSync(buildPath);
-					ncp("./src/assets", buildPath + "/assets", function (err) {
-						if (err) { 
+					ncp("./src/assets", buildPath + "/assets", function(err) {
+						if (err) {
 							return console.error(err);
 							reject();
 						}
@@ -142,6 +122,206 @@ class XSDWebForm
 		});
 	}
 
+
+	/**
+	 * setHeaer
+	 * @param pageTitle
+	 */
+
+	getHeader() {
+
+		return `
+<!DOCTYPE html>
+<html lang="en" ng-app="WebFormApp">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{'pagetitle' | translate}}</title>
+
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/a/angular.min.js" ></script>
+<script src="./assets/js/a/angular-translate.min.js" ></script>
+<script src="./assets/js/a/angular-datepicker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
+
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
+
+<script type="text/javascript">
+
+const app = angular.module('WebFormApp', ['pascalprecht.translate']);
+app.controller('WebFormAppCtrl', WebFormAppCtrl);
+
+app.config(["$translateProvider",function($translateProvider){
+  	
+	var TextContent = ${this.parser.getFullTextContent()};
+	//$.get("${this.baseFileName + "lang.json"}");
+
+	$translateProvider.translations('en',TextContent.en);
+	$translateProvider.translations('sp',TextContent.sp);
+	$translateProvider.useSanitizeValueStrategy('escapeParameters');
+	$translateProvider.preferredLanguage('en');
+  
+}]);
+
+/**
+* WebFormAppCtrl: Main controller
+*/
+function WebFormAppCtrl($scope, $http, $timeout, $window) {
+
+	$scope.field = {};  
+	$scope.multipleIndex = 1;
+
+	$scope.toggleValidation = function(){
+		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+	}
+
+	$scope.submit = function(frm) {
+		$scope.field[frm.$name].AEAPrice = 11;
+		console.log(frm);
+		console.log(frm['AEA-Price'].$$attr.ewMap);
+		return false;
+	};
+
+	$scope.printPreview = function(){
+		var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
+		$window.open(conversionLink, '_blank');
+	}
+
+	$scope.toggleValidation = function(){
+		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+	}
+
+	$scope.save = function(){
+		dataRepository.saveInstance($scope.Webform);
+	}
+
+	$scope.close = function(){
+		if (urlProperties.baseURI == ''){
+				urlProperties.baseURI = "/";
+		};
+   	 	var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
+	    	if ($scope.Webform.$dirty){
+		        	if ($window.confirm('You have made changes in the questionnaire! \\n\\n Do you want to leave without saving the data?')){
+		 	           	window.location = windowLocation;
+		        	}
+	    	}
+	    	else {
+	       	 	window.location = windowLocation;
+	    	}
+	}
+
+	$scope.addRow = function() {
+		alert('Row');
+	};
+
+}
+</script>
+
+</head>
+<body>
+
+<div id="container" ng-controller="WebFormAppCtrl">
+
+<div id="tool-ribbon">
+	<div id="left-tools">
+		<a id="eealink" href="http://www.eea.europa.eu/">EEA</a>
+	</div>
+	<div id="right-tools">
+			<a href="http://www.eea.europa.eu/">
+				<b>European Environment Agency</b>
+			</a>
+			Kgs. Nytorv 6, DK-1050 Copenhagen K, Denmark - Phone: +45 3336 7100              
+		<a id="printlink" href="javascript:this.print();" title="Print this page">
+			<span>Print</span>
+		</a>
+	</div>
+</div>
+
+<div id="page-head">
+	<a accesskey="1" href="/">
+	</a>
+	<div id="network-title">Eionet</div>
+	<div id="site-title">European Environment Information and Observation Network</div>
+</div>
+
+<!--<div class="top-bar">
+	<div class="top-bar-left">
+		<ul class="menu">
+		    <li class="menu-text">EEA</li>
+		    <li><a href="#">One</a></li>
+		    <li><a href="#">Two</a></li>
+		    <li><a href="#">Three</a></li>
+		</ul>
+</div>
+</div>-->
+
+<div class="callout small primary">
+	<div class="row column text-center">
+		<h1>EEA</h1>
+		<h2 class="subheader">Web Form</h2>
+	</div>
+</div>
+
+<div id="workarea" class="row collapse">
+	
+	<div class="row">
+		<div class="multiple-index medium-1">{{'number' | translate}} <span class="index">{{multipleIndex}}</span></div>
+		<div class="multiple-index-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
+	</div>
+
+	<div class="row">
+	`;
+	}
+
+
+	/**
+	 * getFooter
+	 */
+	getFooter() {
+
+		return `
+	</div>
+
+</div>
+
+<div id="pagefoot" class="row">
+        <div class="columns small-4">
+            <div class="switch round tiny">
+                <span>Validation </span>
+                <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
+                <span ng-show="!ValidationDisabled">On</span>
+                <div class="round tiny">
+                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
+                  <label for="validationSwitch" class="switch-paddle"></label>
+                </div>
+                <label for="validationSwitch"></label>
+            </div> 
+        </div>
+        <div class="columns small-8 text-right buttons">
+            <button ng-click="save()">Save</button>
+            <button ng-click="printPreview()">Print Preview</button>
+            <button ng-click="close()">Close</button>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+<div class="footer-wrapper">
+${new Date()}
+</div>
+</footer>
+
+</body>
+</html>
+`;
+	}
+
 	/**
 	 * getFile
 	 * @param file
@@ -149,12 +329,26 @@ class XSDWebForm
 	getFile(file) {
 		return new Promise((resolve, reject) => {
 			fs.readFile(file, 'utf8', (err, data) => {
-			    if (err) {
-			        console.log(err);
-			        reject(err);
-			    }
-			    resolve(data);
+				if (err) {
+					console.log(err);
+					reject(err);
+				}
+				resolve(data);
 			});
+		});
+	}
+
+	/**
+	 * createFile - Save output file
+	 * @param filename
+	 * @param content
+	 */
+	createFile(filename, content) {
+		fs.writeFile(filename, content, function(err) {
+			if (err)
+				console.log(err);
+			else
+				console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 		});
 	}
 }

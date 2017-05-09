@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page title="Page Title">
+	<page>
 		
-		<form action="/api/testasdasd" name="form1" title="Information on concluded transfers for the year">
+		<form action="/api/testasdasd">
 
 			<group multiple="1" multiplelabel="Add Transfer {{multipleindex}}" element="ConcludedTransferRecord"> 	
 				<item element="AEA"/>	

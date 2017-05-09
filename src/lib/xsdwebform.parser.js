@@ -16,21 +16,19 @@ import XSDWebFormParserLog from './xsdwebform.parser.log.js'
  * Class XSDWebFormParser
  * Parser for XSD Schema to HTML5
  */
-class XSDWebFormParser 
-{
+class XSDWebFormParser {
 	/**
-	* Class constructor
-	* @param showlog
-	* @param verbose
-	*/
-	constructor(showlog = false, verbose = false) 
-	{
+	 * Class constructor
+	 * @param showlog
+	 * @param verbose
+	 */
+	constructor(showlog = false, verbose = false) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 
 		this.htmlOutput = {
 			content: '',
-			HTMLObjects : []
+			HTMLObjects: []
 		};
 
 		this.showLog = showlog;
@@ -45,9 +43,8 @@ class XSDWebFormParser
 	 * parse - Parse XML Document
 	 * @param xml
 	 */
-	parse(xObject)
-	{
-		if (this.showLog) 
+	parse(xObject) {
+		if (this.showLog)
 			XSDWebFormParserLog.logXSD(xObject);
 
 		// Create XML Document for XSD
@@ -57,34 +54,33 @@ class XSDWebFormParser
 		if (this.showLog)
 			this.xsdTagParser.xsdParse(xsdItem);
 
-		if (this.showLog) 
+		if (this.showLog)
 			XSDWebFormParserLog.logHTML(xObject);
 
 		// Create XML Document for FORM.XML
 		var htmlItem = new XmlDocument(xObject.hdata);
 		htmlItem.level = 0;
 		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
-		this.htmlOutput.HTMLObjects =  this.htmlTagParser.HTMLObjects;
+		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
 		this.createHTMLOutput();
 
-		if (this.showLog) 
+		if (this.showLog)
 			XSDWebFormParserLog.showLogs(this);
 	}
 
 	/**
 	 * createHTMLOutput
 	 */
-	createHTMLOutput()
-	{
+	createHTMLOutput() {
 		var html = [];
 
 		for (let f = 0, t = this.htmlOutput.HTMLObjects.length; f < t; f++) {
 			let form = this.htmlOutput.HTMLObjects[f];
 			let formHtml = [];
 
-			html.splice(html.length + 1, 0, "\t\t"+ form.itemObject.tagToHtml());
+			html.splice(html.length + 1, 0, "\t\t" + form.itemObject.tagToHtml());
 			let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
-			html.splice(groups.length + html.length + 1, 0, "\t\t</"+ form.itemObject.tag + ">");
+			html.splice(groups.length + html.length + 1, 0, "\t\t</" + form.itemObject.tag + ">");
 
 			for (let i = 0, l = groups.length; i < l; i++) {
 				let group = groups[i];
@@ -109,11 +105,51 @@ class XSDWebFormParser
 	}
 
 	/**
-	* getHTML - Return HTML5 Document
-	*/
-	getHTMLOutput() 
-	{ 
-		return this.htmlTagParser.HTML_HEADER + this.htmlOutput.content + this.htmlTagParser.HTML_FOOTER;
+	 * getHTMLOutput - Return HTML5 Document
+	 */
+	getHTMLOutput() {
+		return this.htmlOutput.content ;
+	}
+
+	/**
+	 * getTextContent - Return Text Content 
+	 */
+	getTextContent() {
+		return this.htmlTagParser.TextContentObjects.map((label) => {
+			return `\t\t\t\t\t\t"${label.label}" : "${label.text}",`;
+		}).join("\n");
+	}
+
+	/**
+	 * getFullTextContent - getTextContent - Return Full JSON Text Content
+	 */
+	getFullTextContent() {
+		let textContent = this.getTextContent();
+		var fullTextContent = `{
+	"en" : {
+		"language" 		: "Selected Language English",
+		"greeting" 		: "Welcome" ,
+		"pagetitle"		: "Page Title",
+		"formtitle"		: "Form Title",
+		"number" 		: "#",
+		"submitform" 		: "Submit",
+		"labels "			: {
+${textContent}
+					}
+	},
+	"sp" : {
+		"language" 		: "Selected Language Spanish",
+		"greeting" 		: "Bienvenida",
+		"pagetitle"		: "Page Title",
+		"formtitle"		: "Form Title",
+		"number" 		: "#",
+		"submitform" 		: "Enviar",
+		"labels "			: {
+${textContent}
+					}
+	}
+}`;
+		return fullTextContent;
 	}
 
 }
