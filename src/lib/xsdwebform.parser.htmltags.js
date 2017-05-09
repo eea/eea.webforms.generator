@@ -22,12 +22,12 @@ class XSDWebFormParserHTMLTags
 	constructor(){
 
 		this.HTML_TYPES = {
-			"page"         			: this.parsePage,
+			"page"         				: this.parsePage,
 			"form"          			: this.parseForm,
-			"group"        			: this.parseGroup,
-			"item"        			: this.parseItem,
+			"group"        				: this.parseGroup,
+			"item"        				: this.parseItem,
 			"input"         			: this.parseInput,
-			"text"         			: this.parseText,
+			"text"         				: this.parseText,
 			"number"        			: this.parseNumber,
 			"date"          			: this.parseDate,
 			"select"        			: this.parseSelect,
@@ -37,8 +37,8 @@ class XSDWebFormParserHTMLTags
 		this.XSD_HTML_TYPES = {
 			"xs:integer"			: "number",
 			"xs:decimal"			: "number",
-			"xs:date"			: "date",
-			"xs:string"			: "text"
+			"xs:date"				: "date",
+			"xs:string"				: "text"
 		}
 
 		this.HTML_HEADER			= '';
@@ -46,7 +46,7 @@ class XSDWebFormParserHTMLTags
 		this.HTML_TITLE 			= '';
 		this.HTML_FORM_TITLE 		= '';
 		this.HTMLObjects 			= [];
-		this.TextContentObjects 		= [];
+		this.TextContentObjects 	= [];
 		this.showLog 				= false;
 		this.verbose 				= false;
 
