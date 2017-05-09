@@ -7,15 +7,15 @@
 
 'use strict';
 
+// import heapdump from 'heapdump';  //debug library
 import fs from 'fs';
 import path from 'path';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import openurl from 'openurl';
+import express from 'express';
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
-
-// import heapdump from 'heapdump'; 
 
 /**
  * Class XSDWebForm
@@ -24,7 +24,7 @@ import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
 class XSDWebForm {
 	/**
 	 * Class constructor
-	 * Check for -f file in arguments
+	 * Check for arguments
 	 */
 	constructor(args) {
 		//Build directory
@@ -65,11 +65,21 @@ class XSDWebForm {
 		this.prepareJSFiles().then((res) => {
 			try {
 				this.parseFiles(xsdFile, xmlHtmlFile, this.basePath);
-
 			} catch (err) {
 				XSDWebFormParserError.reportError(err);
 			}
 		});
+
+		var app = express();
+		var filePath = path.join( __dirname.substring(0, __dirname.length - 3), 'build/');
+		
+		app.use(express.static(filePath))
+			.get(`/${this.baseFileName}html`, function (req, res) {
+				res.sendFile();
+			})
+			.listen(3001, function () {
+				console.log('Example app listening on port 3001!')
+			})
 	}
 
 	/**
@@ -97,7 +107,7 @@ class XSDWebForm {
 				this.createFile(this.buildPath + "/" + this.baseFileName + "lang.json", this.parser.getFullTextContent());
 				// Open browser 
 				if (this.autoOpenOutput)
-					openurl.open(`./build/${this.baseFileName}html`);
+					openurl.open(`http://localhost:3001/${this.baseFileName}html`);
 			});
 		});
 	}

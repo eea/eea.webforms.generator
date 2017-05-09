@@ -5,9 +5,11 @@
   "main": "./src/xsdwebform.js",
   "dependencies": {
     "babel-register": "^6.24.1",
-    "npm": "^4.5.0",
+    "express": "^4.15.2",
     "ncp": "^2.0.0",
+    "npm": "^4.5.0",
     "openurl": "^1.1.1",
+    "path": "^0.12.7",
     "rimraf": "^2.6.1",
     "xmldoc": "^1.0.0"
   },
