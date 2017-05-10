@@ -77,7 +77,18 @@ export default class XSDWebForm {
 
 			this.prepareJSFiles().then((res) => {
 				try {
+					var parent = this;
 					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ( (response) => {	
+
+						var app = express();
+						var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
+						
+						app.use(express.static(filePath))
+							.listen(3001, function () {
+								if (parent.showLog)
+									console.log('Listening on port 3001')
+							});
+
 						resolve(this);
 					});
 				} catch (err) {
@@ -85,14 +96,6 @@ export default class XSDWebForm {
 					reject(this);
 				}
 			});
-					
-			var app = express();
-			var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
-			
-			app.use(express.static(filePath))
-				.listen(3001, function () {
-					console.log('Listening on port 3001')
-				});
 		});
 	};
 
@@ -376,14 +379,14 @@ ${new Date()}
 	 * @param content
 	 */
 	createFile(filename, content) {
-		var sender = this;
+		var parent = this;
 		return new Promise((resolve, reject) => {
 			fs.writeFile(filename, content, function(err) {
 				if (err) {
 					console.log(err);
 					reject(err);
 				} else {
-					if (sender.showLog)
+					if (parent.showLog)
 						console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 					resolve();
 				}
