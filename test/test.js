@@ -5,6 +5,7 @@ import request from 'request';
 import httpUtils from 'request-mocha';
 import openurl from 'openurl';
 import { xsdWebForm } from '../src/xsdwebform';
+import XSDWebFormParserError from '../src/lib/xsdwebform.parser.error'
 
 var showCoverageHTML = false;
 
@@ -29,12 +30,17 @@ describe('Creating Class', function() {
 					});
 				});
 
-
 				describe("Test web server:", function() {
 					new httpUtils(request).save('http://localhost:3001/' + data.baseFileName + 'html');
 					it("Return Status: 200", function() {
 						expect(this.err).to.equal(null);
 						expect(this.res.statusCode).to.equal(200);
+					});
+				});
+
+				describe("Custom Error:", function() {
+					it("Prints: 'test'", function() {
+						expect(XSDWebFormParserError.reportError('test', null, true)).to.equal(true);
 					});
 				});
 
