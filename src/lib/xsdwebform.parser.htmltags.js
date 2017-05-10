@@ -5,8 +5,8 @@
  * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
  */
 
-import XSDWebFormParserLog from './xsdwebform.parser.log.js'
-import XSDWebFormParserError from './xsdwebform.parser.error.js'
+import XSDWebFormParserLog from './xsdwebform.parser.log.js';
+import XSDWebFormParserError from './xsdwebform.parser.error.js';
 
 /**
  * Class XSDWebFormParserHTMLTags
@@ -35,7 +35,7 @@ class XSDWebFormParserHTMLTags {
 			"xs:decimal": "number",
 			"xs:date": "date",
 			"xs:string": "text"
-		}
+		};
 
 		this.HTMLObjects = [];
 		this.TextContentObjects = [];
@@ -71,7 +71,7 @@ class XSDWebFormParserHTMLTags {
 					XSDWebFormParserError.reportError(err);
 				}
 			}
-		};
+		}
 	}
 
 	/**
@@ -124,7 +124,7 @@ class XSDWebFormParserHTMLTags {
 			},
 			groups: [],
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-		}
+		};
 		sender.HTMLObjects.push({
 			type: "form",
 			itemObject: formObject
@@ -164,7 +164,7 @@ class XSDWebFormParserHTMLTags {
 			xsdXML: xsdGroupTag,
 			items: [],
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-		}
+		};
 		sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.groups.push({
 			type: "group",
 			itemObject: groupObject
@@ -220,7 +220,7 @@ class XSDWebFormParserHTMLTags {
 				'ng-model': sender.getNgModel(item.attr.name, sender)
 			},
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-		}
+		};
 		sender.addItemToGroup(htmlItem, itemInfo, sender);
 	}
 
@@ -249,7 +249,7 @@ class XSDWebFormParserHTMLTags {
 					'ng-model': sender.getNgModel(item.attr.element, sender)
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-			}
+			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 	}
@@ -280,7 +280,7 @@ class XSDWebFormParserHTMLTags {
 					'ng-model': sender.getNgModel(item.attr.element, sender)
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-			}
+			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 	}
@@ -311,7 +311,7 @@ class XSDWebFormParserHTMLTags {
 					'ng-model': sender.getNgModel(item.attr.element, sender)
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-			}
+			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 
@@ -352,7 +352,7 @@ class XSDWebFormParserHTMLTags {
 				XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`, XSDWFormItemTypeData);
 
 			let enumItems = [];
-			enums.eachChild((enm, index) => {
+			enums.eachChild((enm) => {
 				if (enm.name === "xs:enumeration") {
 					enumItems.push({
 						value: enm.attr.value,
@@ -365,7 +365,7 @@ class XSDWebFormParserHTMLTags {
 						XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);
 
 					let min = enm.attr.value;
-					enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map((item, index) => {
+					enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map(() => {
 						return {
 							value: min,
 							option: min++
@@ -390,7 +390,7 @@ class XSDWebFormParserHTMLTags {
 					'ng-model': sender.getNgModel(item.attr.element, sender)
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
-			}
+			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 	}
@@ -473,13 +473,13 @@ class XSDWebFormParserHTMLTags {
 		outPut += ">";
 
 		if (this.options) {
-			outPut += this.options.map((option, index) => {
+			outPut += this.options.map((option) => {
 				return `<option value="${option.value}">${option.option}</option>`;
 			}).join("");
 		}
 
 		if (this.autoclose)
-			outPut += "</" + this.tag + ">"
+			outPut += "</" + this.tag + ">";
 
 		return outPut;
 	}

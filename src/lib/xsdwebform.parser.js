@@ -10,7 +10,7 @@
 import { XmlDocument } from 'xmldoc';
 import XsdTagParser from './xsdwebform.parser.tags.js';
 import HtmlTagParser from './xsdwebform.parser.htmltags.js';
-import XSDWebFormParserLog from './xsdwebform.parser.log.js'
+import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 
 /**
  * Class XSDWebFormParser
