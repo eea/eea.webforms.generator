@@ -1,0 +1,19 @@
+{
+	"language" 		: "Selected Language English",
+	"greeting" 		: "Welcome" ,
+	"pagetitle"		: "Page Title",
+	"formtitle"		: "Form Title",
+	"number" 		: "#",
+	"submitform" 		: "Submit",
+	"labels "		: {
+					"AEA" : "AEA",
+					"TransferringMemberState" : "TransferringMemberState",
+					"AcquiringMemberState" : "AcquiringMemberState",
+					"AEAPrice" : "AEA-Price",
+					"TransferAgreementDate" : "TransferAgreementDate",
+					"ExpectedTransactionYear" : "ExpectedTransactionYear",
+					"Other" : "Other",
+					"Test" : "Test",
+					"Test2" : "Test2"
+				}
+}

@@ -28,20 +28,20 @@ export default class XSDWebForm {
 	 * Check for arguments
 	 */
 	constructor(args) {
-		//Build directory
-		this.buildPath = "./build";
-		// XSDWebFormParser    		
-		this.parser = new XSDWebFormParser(true, true);
-		// Input file variable
-		var xsdFile = null;
-		// HTML Input file variable
-		var xmlHtmlFile = null;
-		// Open the default browser when build is completed
-		this.autoOpenOutput = false;
+		return new Promise ( (resolve, reject) => {			
+			//Build directory
+			this.buildPath = "build/";
+			// XSDWebFormParser    		
+			this.parser = new XSDWebFormParser(true, true);
+			// Input file variable
+			var xsdFile = null;
+			// HTML Input file variable
+			var xmlHtmlFile = null;
+			// Open the default browser when build is completed
+			this.autoOpenOutput = false;
 
-		//no args - unit testing
-		if (args)
-			args.forEach( // Check for [-f file] [-a | open browser after build] input
+			// Check for [-f file] [-a | open browser after build] input
+			args.forEach( 
 				(item, index) => {
 					if (item == '-f') {
 						xsdFile = args[index + 1];
@@ -54,40 +54,36 @@ export default class XSDWebForm {
 				}
 			);
 
-		// If not file input
-		if (!xsdFile) {
-			xsdFile = "test.xsd";
-		}
-
-		this.baseFileName = path.basename(xsdFile);
-		this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
-		this.basePath = path.dirname(xsdFile);
-		xmlHtmlFile = this.baseFileName + "form.xml";
-
-		this.prepareJSFiles().then((res) => {
-			try {
-				this.parseFiles(xsdFile, xmlHtmlFile, this.basePath);
-			} catch (err) {
-				XSDWebFormParserError.reportError(err);
+			// If not file input
+			if (!xsdFile) {
+				xsdFile = "./test/test.xsd";
 			}
+
+			this.baseFileName = path.basename(xsdFile);
+			this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
+			this.basePath = path.dirname(xsdFile);
+			xmlHtmlFile = this.baseFileName + "form.xml";
+
+			this.prepareJSFiles().then((res) => {
+				try {
+					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ( (response) => {	
+						resolve(this);
+					});
+				} catch (err) {
+					XSDWebFormParserError.reportError(err);
+					reject(this);
+				}
+			});
+					
+			var app = express();
+			var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
+			
+			app.use(express.static(filePath))
+				.listen(3001, function () {
+					console.log('Listening on port 3001')
+				});
 		});
-
-		//no args - unit testing
-		if (!args)
-			return;
-
-		var app = express();
-		var filePath = path.join( __dirname.substring(0, __dirname.length - 3), 'build/');
-		
-		app.use(express.static(filePath))
-			// .get(`/${this.baseFileName}html`, function (req, res) {
-			// 	console.log(req.path);
-			// 	res.sendFile();
-			// })
-			.listen(3001, function () {
-				console.log('Example app listening on port 3001!')
-			})
-	}
+	};
 
 	/**
 	 * parseFiles - Parse XSD and XML files
@@ -96,25 +92,28 @@ export default class XSDWebForm {
 	 * @param xmlHtmlFile
 	 */
 	parseFiles(xsdFile, xmlHtmlFile, filePath) {
-		var xObject = {
-			xfile: xsdFile,
-			xdata: '',
-			hfile: xmlHtmlFile,
-			hdata: ''
-		};
+		return new Promise ( (resolve, reject) => {	
+			var xObject = {
+				xfile: xsdFile,
+				xdata: '',
+				hfile: xmlHtmlFile,
+				hdata: ''
+			};
 
-		this.getFile(xsdFile).then((res) => {
-			xObject.xdata = res;
-			this.getFile(filePath + "/" + xmlHtmlFile).then((res) => {
-				xObject.hdata = res;
-				// Parse file content
-				this.parser.parse(xObject);
-				// Create HTML file
-				this.createFile(this.buildPath + "/" + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() );
-				this.createFile(this.buildPath + "/" + this.baseFileName + "lang.json", this.parser.getFullTextContent());
-				// Open browser 
-				if (this.autoOpenOutput)
-					openurl.open(`http://localhost:3001/${this.baseFileName}html`);
+			this.getFile(xsdFile).then((res) => {
+				xObject.xdata = res;
+				this.getFile(filePath + "/" + xmlHtmlFile).then((res) => {
+					xObject.hdata = res;
+					// Parse file content
+					this.parser.parse(xObject);
+					// Create HTML file
+					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() );
+					this.createFile(this.buildPath  + this.baseFileName + "lang.json", this.parser.getFullTextContent());
+					// Open browser 
+					if (this.autoOpenOutput)
+						openurl.open(`http://localhost:3001/${this.baseFileName}html`);
+					resolve();
+				});
 			});
 		});
 	}
@@ -128,7 +127,7 @@ export default class XSDWebForm {
 			rimraf(buildPath, fs, function() {
 				if (!fs.existsSync(buildPath)) {
 					fs.mkdirSync(buildPath);
-					ncp("./src/assets", buildPath + "/assets", function(err) {
+					ncp("./src/assets/", buildPath + "assets", function(err) {
 						if (err) {
 							return console.error(err);
 							reject();
@@ -373,7 +372,8 @@ ${new Date()}
 	}
 }
 
+var xsdWebForm = new XSDWebForm(process.argv);
 
-const xsdWebForm = new XSDWebForm(process.argv);
+module.exports.xsdWebForm = xsdWebForm;
 
 // heapdump.writeSnapshot('./' + Date.now() + '.heapsnapshot');

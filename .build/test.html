@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="WebFormApp">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{'pagetitle' | translate}}</title>
+
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/a/angular.min.js" ></script>
+<script src="./assets/js/a/angular-translate.min.js" ></script>
+<script src="./assets/js/a/angular-translate-loader-url.min.js" ></script>
+<script src="./assets/js/a/angular-datepicker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
+
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
+
+<script type="text/javascript">
+
+const app = angular.module('WebFormApp', ['pascalprecht.translate']);
+app.controller('WebFormAppCtrl', WebFormAppCtrl);
+
+app.config(["$translateProvider", function($translateProvider) {
+
+	$translateProvider.useUrlLoader('test.lang.json');
+	$translateProvider.useSanitizeValueStrategy('escapeParameters');
+	$translateProvider.preferredLanguage('en');
+
+}]);
+
+
+/**
+* WebFormAppCtrl: Main controller
+*/
+function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
+ 
+	$scope.field = {};  
+	$scope.multipleIndex = 1;
+
+	$scope.changeLanguage = function(langKey) {
+		$translate.use(langKey);
+	};
+
+	$scope.toggleValidation = function() {
+		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+	}
+
+	$scope.submit = function(frm) {
+		$scope.field[frm.$name].AEAPrice = 11;
+		console.log(frm);
+		console.log(frm['AEA-Price'].$$attr.ewMap);
+		return false;
+	};
+
+	$scope.printPreview = function() {
+		var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
+		$window.open(conversionLink, '_blank');
+	}
+
+	$scope.toggleValidation = function() {
+		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+	}
+
+	$scope.save = function(){
+		dataRepository.saveInstance($scope.Webform);
+	}
+
+	$scope.close = function(){
+		if (urlProperties.baseURI == ''){
+				urlProperties.baseURI = "/";
+		};
+   	 	var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
+	    	if ($scope.Webform.$dirty){
+		        	if ($window.confirm('You have made changes in the questionnaire! \n\n Do you want to leave without saving the data?')){
+		 	           	window.location = windowLocation;
+		        	}
+	    	}
+	    	else {
+	       	 	window.location = windowLocation;
+	    	}
+	}
+
+	$scope.addRow = function() {
+		alert('Row');
+	};
+
+}
+</script>
+
+</head>
+<body>
+
+<div id="container" ng-controller="WebFormAppCtrl">
+
+<div id="tool-ribbon">
+	<div id="left-tools">
+		<a id="eealink" href="http://www.eea.europa.eu/">EEA</a>
+	</div>
+	<div id="right-tools">
+			<a href="http://www.eea.europa.eu/">
+				<b>European Environment Agency</b>
+			</a>
+			Kgs. Nytorv 6, DK-1050 Copenhagen K, Denmark - Phone: +45 3336 7100              
+		<a id="printlink" href="javascript:this.print();" title="Print this page">
+			<span>Print</span>
+		</a>
+	</div>
+</div>
+
+<div id="page-head">
+	<a accesskey="1" href="/">
+	</a>
+	<div id="network-title">Eionet</div>
+	<div id="site-title">European Environment Information and Observation Network</div>
+</div>
+
+<!--<div class="top-bar">
+	<div class="top-bar-left">
+		<ul class="menu">
+		    <li class="menu-text">EEA</li>
+		    <li><a href="#">One</a></li>
+		    <li><a href="#">Two</a></li>
+		    <li><a href="#">Three</a></li>
+		</ul>
+</div>
+</div>-->
+
+<div class="callout small primary">
+	<div class="row column text-center">
+		<h1>EEA</h1>
+		<h2 class="subheader">Web Form</h2>
+	</div>
+</div>
+
+<div id="workarea" class="row collapse">
+	
+	<div class="row">
+		<div class="multiple-index medium-1">{{'number' | translate}} <span class="index">{{multipleIndex}}</span></div>
+		<div class="multiple-index-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
+	</div>
+
+	<div class="row">
+			<form name="form1" id="form1" ew-action="/api/testasdasd" method="post" class="ewform medium-12" ng-submit="submit(undefined)">
+
+			<fieldset ew-map="xs:sequence/ConcludedTransferRecord" id="ConcludedTransferRecord">
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'AEA' | translate"></div><input name="AEA" id="AEA" required="1" type="number" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AEA" ng-model="field.undefined.AEA"></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'TransferringMemberState' | translate"></div><select name="TransferringMemberState" id="TransferringMemberState" required="1" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/TransferringMemberState" ng-model="field.undefined.TransferringMemberState"><option value="Austria">Austria</option><option value="Belgium">Belgium</option><option value="Bulgaria">Bulgaria</option><option value="Cyprus">Cyprus</option><option value="Czech Republic">Czech Republic</option><option value="Germany">Germany</option><option value="Denmark">Denmark</option><option value="Estonia">Estonia</option><option value="Spain">Spain</option><option value="Finland">Finland</option><option value="France">France</option><option value="Greece">Greece</option><option value="Croatia">Croatia</option><option value="Hungary">Hungary</option><option value="Ireland">Ireland</option><option value="Italy">Italy</option><option value="Lithuania">Lithuania</option><option value="Luxembourg">Luxembourg</option><option value="Latvia">Latvia</option><option value="Malta">Malta</option><option value="Netherlands">Netherlands</option><option value="Poland">Poland</option><option value="Portugal">Portugal</option><option value="Romania">Romania</option><option value="Sweden">Sweden</option><option value="Slovenia">Slovenia</option><option value="Slovakia">Slovakia</option><option value="United Kingdom">United Kingdom</option></select></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'AcquiringMemberState' | translate"></div><select name="AcquiringMemberState" id="AcquiringMemberState" required="1" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AcquiringMemberState" ng-model="field.undefined.AcquiringMemberState"><option value="Austria">Austria</option><option value="Belgium">Belgium</option><option value="Bulgaria">Bulgaria</option><option value="Cyprus">Cyprus</option><option value="Czech Republic">Czech Republic</option><option value="Germany">Germany</option><option value="Denmark">Denmark</option><option value="Estonia">Estonia</option><option value="Spain">Spain</option><option value="Finland">Finland</option><option value="France">France</option><option value="Greece">Greece</option><option value="Croatia">Croatia</option><option value="Hungary">Hungary</option><option value="Ireland">Ireland</option><option value="Italy">Italy</option><option value="Lithuania">Lithuania</option><option value="Luxembourg">Luxembourg</option><option value="Latvia">Latvia</option><option value="Malta">Malta</option><option value="Netherlands">Netherlands</option><option value="Poland">Poland</option><option value="Portugal">Portugal</option><option value="Romania">Romania</option><option value="Sweden">Sweden</option><option value="Slovenia">Slovenia</option><option value="Slovakia">Slovakia</option><option value="United Kingdom">United Kingdom</option></select></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'AEAPrice' | translate"></div><input name="AEA-Price" id="AEAPrice" required="1" type="number" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/AEA-Price" ng-model="field.undefined.AEAPrice"></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'TransferAgreementDate' | translate"></div><input name="TransferAgreementDate" id="TransferAgreementDate" required="1" type="date" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/TransferAgreementDate" ng-model="field.undefined.TransferAgreementDate"></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'ExpectedTransactionYear' | translate"></div><select name="ExpectedTransactionYear" id="ExpectedTransactionYear" required="1" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/ExpectedTransactionYear" ng-model="field.undefined.ExpectedTransactionYear"><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option></select></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'Other' | translate"></div><textarea name="Other" id="Other" required="1" ew-map="xs:sequence/ConcludedTransferRecord/xs:element/Other" ng-model="field.undefined.Other"></textarea></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'Test' | translate"></div><input name="Test" id="Test" required="1" type="text" ng-model="field.undefined.Test"></div>
+
+				<div class="formitem"><div class="field-caption ng-binding" ng-bind="'Test2' | translate"></div><input name="Test2" id="Test2" required="1" type="text" ng-model="field.undefined.Test2"></div>
+
+			</fieldset>
+
+			<button type="button" class="rowbutton" ng-click="addRow('ConcludedTransferRecord')" ng-model="group.item['ConcludedTransferRecord'].item['addConcludedTransferRecord']" group="ConcludedTransferRecord">Add Transfer {{multipleindex}}</button>
+
+			<button type="submit" class="submitbutton">{{'submitform' | translate}}</button>
+
+		</form>
+	</div>
+
+</div>
+
+<div id="pagefoot" class="row">
+        <div class="columns small-4">
+            <div class="switch round tiny">
+                <span>Validation </span>
+                <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
+                <span ng-show="!ValidationDisabled">On</span>
+                <div class="round tiny">
+                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
+                  <label for="validationSwitch" class="switch-paddle"></label>
+                </div>
+                <label for="validationSwitch"></label>
+            </div> 
+        </div>
+        <div class="columns small-8 text-right buttons">
+            <button ng-click="save()">Save</button>
+            <button ng-click="printPreview()">Print Preview</button>
+            <button ng-click="close()">Close</button>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+<div class="footer-wrapper">
+Wed May 10 2017 15:11:25 GMT+0300 (EEST)
+</div>
+</footer>
+
+</body>
+</html>
