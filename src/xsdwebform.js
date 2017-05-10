@@ -31,8 +31,8 @@ export default class XSDWebForm {
 		return new Promise ( (resolve, reject) => {			
 
 			//logging
-			this.showLog = false;
-			this.verbose = false;
+			this.showLog = true;
+			this.verbose = true;
 
 			//Build directory
 			this.buildPath = "build/";
@@ -50,9 +50,9 @@ export default class XSDWebForm {
 						xsdFile = args[index + 1];
 						return;
 					}
-					if (item == '-l') {
-						this.showLog = true;
-						this.verbose = true;
+					if (item == '-ul') {
+						this.showLog = false;
+						this.verbose = false;
 						return;
 					}
 					if (item == '-a') {
@@ -77,20 +77,17 @@ export default class XSDWebForm {
 
 			this.prepareJSFiles().then((res) => {
 				try {
-					var parent = this;
 					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ( (response) => {	
-
 						var app = express();
+						var parent = this;
 						var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
-						
 						app.use(express.static(filePath))
 							.listen(3001, function () {
 								if (parent.showLog)
-									console.log('Listening on port 3001')
+									console.log("\x1b[2m\x1b[37m\nTest web server is listening on port 3001\x1b[0m");								
+								resolve(parent);
 							});
-
-						resolve(this);
-					});
+						});
 				} catch (err) {
 					XSDWebFormParserError.reportError(err);
 					reject(this);
