@@ -2,8 +2,8 @@
 
 import { expect } from 'chai';
 import request from 'request';
+import httpUtils  from 'request-mocha';
 import { xsdWebForm } from '../src/xsdwebform';
-var httpUtils = require('request-mocha')(request);
 
 describe('Creating Class', function() {
 
@@ -18,7 +18,7 @@ describe('Creating Class', function() {
 				});
 
 				describe("Web Server", function() {
-					httpUtils.save('http://localhost:3001/' + data.baseFileName + 'html');
+					new httpUtils(request).save('http://localhost:3001/' + data.baseFileName + 'html');
 					it("Return Status: 200", function() {
 						expect(this.err).to.equal(null);
 						expect(this.res.statusCode).to.equal(200);
