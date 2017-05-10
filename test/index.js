@@ -11,7 +11,7 @@ describe('Creating Class', function() {
 		return xsdWebForm
 			.then(function(data) {
 				
-				describe('Filename', function() {
+				describe('Filename:', function() {
 					it('should return test.', function() {
 						expect(data.baseFileName).to.be.equal('test.');
 					});
