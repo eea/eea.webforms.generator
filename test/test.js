@@ -2,7 +2,7 @@
 
 import { expect } from 'chai';
 import request from 'request';
-import httpUtils  from 'request-mocha';
+import httpUtils from 'request-mocha';
 import openurl from 'openurl';
 import { xsdWebForm } from '../src/xsdwebform';
 
@@ -11,18 +11,18 @@ var showCoverageHTML = false;
 describe('Creating Class', function() {
 
 	before(function() {
-		process.argv.forEach(  (item, index) => {
-					if (item == '-c') {
-						showCoverageHTML = true;
-						return;
-					}
-				});		
+		process.argv.forEach((item, index) => {
+			if (item == '-c') {
+				showCoverageHTML = true;
+				return;
+			}
+		});
 	});
 
 	it('XSDWebForm CLASS', function() {
 		return xsdWebForm
 			.then(function(data) {
-				
+
 				describe('Form.xml Filename:', function() {
 					it('should return test.', function() {
 						expect(data.baseFileName).to.be.equal('test.');
@@ -43,6 +43,6 @@ describe('Creating Class', function() {
 						openurl.open(`file:///${__dirname}/../coverage/lcov-report/index.html`);
 				});
 
-			});		
+			});
 	});
 });

@@ -196,7 +196,6 @@ class XSDWebFormParserHTMLTags {
 		}
 	}
 
-
 	/**
 	 * parseInput - Parse Input Tag
 	 * @param item
@@ -484,7 +483,6 @@ class XSDWebFormParserHTMLTags {
 
 		return outPut;
 	}
-
 
 	/**
 	 * setLog - Show Log 
