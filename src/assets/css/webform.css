@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,400,300,600,700&subset=latin,greek);
 @import url(https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css);
-
 html {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -26,27 +25,33 @@ body {
     color: #0a0a0a;
     background-color: none;
     padding-bottom: 6.25rem;
-  	height: auto;
+    height: auto;
 }
 
-a, a:hover, a:active, a:focus   {
+a,
+a:hover,
+a:active,
+a:focus {
     text-decoration: none;
     color: #006699;
 }
 
-input:focus, .form-control:focus { 
+input:focus,
+.form-control:focus {
     outline: none;
     border: solid 1px transparent;
 }
 
-ul, li {
-  list-style-type: none;
-  user-select: none;
+ul,
+li {
+    list-style-type: none;
+    user-select: none;
 }
 
 input,
-textarea, select { 
-	border-radius: 5px;
+textarea,
+select {
+    border-radius: 3px;
 }
 
 textarea {
@@ -54,19 +59,23 @@ textarea {
 }
 
 :focus,
-.btn:active.focus, 
+.btn:active.focus,
 .btn:focus {
     outline: none;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     background-color: #fafafa !important;
     border: 1px solid rgba(150, 150, 150, .6) !important;
-    border-radius: 5px !important;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.07) inset !important;
+    border-radius: 3px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07) inset !important;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     border-color: rgba(6, 68, 103, 0.5) !important;
     border-top: none!important;
     border-right: none!important;
@@ -75,21 +84,23 @@ input:focus, select:focus, textarea:focus {
     outline: 0 none !important;
 }
 
-input.ng-invalid:focus, select.ng-invalid:focus, textarea.ng-invalid:focus {
+input.ng-invalid:focus,
+select.ng-invalid:focus,
+textarea.ng-invalid:focus {
     border-top: none!important;
     border-right: none!important;
     border-color: #999999;
     border: 1px solid #F15A24!important;
     box-shadow: 0px 0px 26px -5px #F15A24!important;
-       outline: 0 none !important;
+    outline: 0 none !important;
 }
 
-
-[type=button], [type=submit] {
+[type=button],
+[type=submit] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 4px; 
+    border-radius: 3px;
 }
 
 button {
@@ -112,46 +123,46 @@ button:hover {
 }
 
 #tool-ribbon {
-  background-color: #ffffff;
-  border-bottom: 4px solid #6f7072;
-  color: #315076;
-  font-size: 80%;
-  height: 30px;
-  width: 100%; 
+    background-color: #ffffff;
+    border-bottom: 4px solid #6f7072;
+    color: #315076;
+    font-size: 80%;
+    height: 30px;
+    width: 100%;
 }
 
 #left-tools {
-  float: left;
-  height: 20px;
-  padding: 4px 0.5em;
-  text-align: left;
-  vertical-align: middle; 
+    float: left;
+    height: 20px;
+    padding: 4px 0.5em;
+    text-align: left;
+    vertical-align: middle;
 }
 
 a#eealink {
-  background: url("http://www.eionet.europa.eu/styles/eionet2007/eeaicon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
-  padding-left: 18px; 
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/eeaicon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+    padding-left: 18px;
 }
 
 #right-tools {
-  float: right;
-  text-align: right;
-  width: 60%;
-  font-size: 0.75rem; 
+    float: right;
+    text-align: right;
+    width: 60%;
+    font-size: 0.75rem;
 }
 
 a#printlink {
-  background: url("http://www.eionet.europa.eu/styles/eionet2007/print_icon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
-  padding: 3px 0.5em 1px 16px;
-  display: inline-block;
-  margin-left: 1.25rem; 
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/print_icon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+    padding: 3px 0.5em 1px 16px;
+    display: inline-block;
+    margin-left: 1.25rem;
 }
 
 #page-head {
-  background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
-  border-top: 1px solid #4b5257;
-  clear: both;
-  height: 102px; 
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+    border-top: 1px solid #4b5257;
+    clear: both;
+    height: 102px;
 }
 
 #page-head a {
@@ -161,47 +172,48 @@ a#printlink {
     right: 40px;
     top: 31px;
     width: 36px;
-    width: 323px; 
+    width: 323px;
 }
 
-
 #network-title {
-  color: white;
-  font-size: 200%;
-  font-variant: small-caps;
-  font-weight: bold;
-  padding-left: 25px;
-  padding-top: 20px; 
+    color: white;
+    font-size: 200%;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-top: 20px;
 }
 
 #site-title {
-  color: white;
-  font-size: 120%;
-  font-weight: bold;
-  padding-left: 25px; 
+    color: white;
+    font-size: 120%;
+    font-weight: bold;
+    padding-left: 25px;
 }
 
-.top-bar{
+.top-bar {
     position: fixed;
     display: block;
     height: 50px;
     width: 100%;
     top: 0;
     z-index: 9999;
-    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3); 
+    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
 
-.top-bar, .top-bar ul {
+.top-bar,
+.top-bar ul {
     background-color: #A6CFD2;
 }
 
-.top-bar, .top-bar a {
+.top-bar,
+.top-bar a {
     color: #fff;
     font-size: 14px;
 }
 
 .callout.primary {
-	margin-top: 50px;
+    margin-top: 50px;
     background-color: #006699;
     color: #fff;
 }
@@ -216,13 +228,13 @@ a#printlink {
 }
 
 #container {
-	background-color: #F7F8F8;
-	box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
+    background-color: #F7F8F8;
+    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
 
 .ewform {
-   padding: 50px 30px 10px 30px;
-   background-color:#fff;
+    padding: 50px 30px 10px 30px;
+    background-color: #fff;
 }
 
 .formitem {
@@ -232,18 +244,19 @@ a#printlink {
     padding: 15px;
     font-size: 12px;
     margin: auto;
-    width: 50%;  
+    width: 50%;
     min-width: 50%;
     transition: background-color 0.4s ease-in-out;
 }
 
-
 .formitem:hover {
-   background-color: rgba(201, 226, 228, 0.3);
+    background-color: rgba(201, 226, 228, 0.3);
 }
 
-.formitem input, .formitem textarea, .formitem select {
-    border-radius: 0 5px 5px 5px!important;
+.formitem input,
+.formitem textarea,
+.formitem select {
+    border-radius: 0 3px 3px 3px!important;
 }
 
 .formitem textarea {
@@ -263,7 +276,7 @@ a#printlink {
     margin-top: -31px;
     padding: 5px 10px;
     background-color: #006699;
-    border-radius: 5px 5px 0 0;
+    border-radius: 3px 3px 0 0;
     opacity: 1;
 }
 
@@ -286,7 +299,7 @@ a#printlink {
     line-height: 30px;
     text-align: center;
     background-color: #fff;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 .multiple-index-right {
@@ -323,11 +336,11 @@ a#printlink {
     font-size: 12px;
     background-color: #368A55;
     color: #fff;
-    border: none;  
-    padding: 4px;  
+    border: none;
+    padding: 4px;
     height: 42px;
     line-height: 32px;
-    padding-left:20px;
+    padding-left: 20px;
     margin-top: 20px;
 }
 
@@ -346,9 +359,8 @@ a#printlink {
     content: '\f199';
 }
 
-
 .footer {
-	font-size: 11px;
+    font-size: 11px;
     width: 100%;
     height: 200px;
     position: fixed;
@@ -361,27 +373,27 @@ a#printlink {
 }
 
 .footer .footer-wrapper {
-	line-height: 140px;
+    line-height: 140px;
 }
 
 #pagefoot {
-  color: #666;
-  font-size: 0.875rem;
-  background-color: rgba(242, 242, 242, 0.9);
-  border-top: 1px solid #E6E6E6;
-  width: 100%;
-  max-width: 100%;
-  height: 30px;
-  position: fixed;
-  bottom: 0;
-  display: table; 
+    color: #666;
+    font-size: 0.875rem;
+    background-color: rgba(242, 242, 242, 0.9);
+    border-top: 1px solid #E6E6E6;
+    width: 100%;
+    max-width: 100%;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    display: table;
 }
-  
+
 #pagefoot > div.columns {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
-    float: none; 
+    float: none;
 }
 
 #pagefoot .buttons button {
@@ -393,47 +405,47 @@ a#printlink {
     background-position: 1.25rem 50%;
     padding-left: 3.125rem;
     color: #00446a;
-    margin: 0; 
+    margin: 0;
     transition: background-color 300ms ease-out;
 }
 
 #pagefoot .buttons button[ng-click="save()"] {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik0xLjIyOCwxOGgxNS41NDhjMC42NzcsMCwxLjIyNy0wLjU1LDEuMjI3LTEuMjI3VjQuOTU0YzAtMC40ODctMC4xOTUtMC45NTctMC41NC0xLjNMMTMuODA3LDBoLTAuMDA0djYuODE4SDQuMDY3VjBoLTIuODRDMC41NTEsMCwwLDAuNTQ5LDAsMS4yMjZ2MTEuNTAzdjQuMDQ1QzAsMTcuNDUsMC41NTEsMTgsMS4yMjgsMTh6IE05LjcwNSwwaDIuNjExdjUuNDkxSDkuNzA1VjB6Ii8+PC9zdmc+); 
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik0xLjIyOCwxOGgxNS41NDhjMC42NzcsMCwxLjIyNy0wLjU1LDEuMjI3LTEuMjI3VjQuOTU0YzAtMC40ODctMC4xOTUtMC45NTctMC41NC0xLjNMMTMuODA3LDBoLTAuMDA0djYuODE4SDQuMDY3VjBoLTIuODRDMC41NTEsMCwwLDAuNTQ5LDAsMS4yMjZ2MTEuNTAzdjQuMDQ1QzAsMTcuNDUsMC41NTEsMTgsMS4yMjgsMTh6IE05LjcwNSwwaDIuNjExdjUuNDkxSDkuNzA1VjB6Ii8+PC9zdmc+);
 }
 
 #pagefoot .buttons button[ng-click="printPreview()"] {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyMC41OHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAyMC41OCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAuNTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik01LjE0NiwwaDEwLjI4OXYyLjU3Mkg1LjE0NlYweiBNMTkuMjk0LDMuODUxSDEuMjg2QzAuNTc5LDMuODUxLDAsNC40MzgsMCw1LjE0NXY2LjQzMmMwLDAuNzA3LDAuNTc5LDEuMjc4LDEuMjg2LDEuMjc4aDMuODU5VjE4aDEwLjI4OXYtNS4xNDZoMy44NTljMC43MDcsMCwxLjI4Ni0wLjU3MSwxLjI4Ni0xLjI3OFY1LjE0NUMyMC41OCw0LjQzOCwyMC4wMDEsMy44NTEsMTkuMjk0LDMuODUxeiBNMTQuMDI5LDEzLjQzOWMtMC4zMzEsMC4zMy0wLjgwNiwwLjM5MS0xLjA2NCwwLjEzMmwtMS40MjgtMS40M2MtMC40NTMsMC4xOTEtMC45NSwwLjI5Ni0xLjQ3LDAuMjk2Yy0yLjEwNCwwLTMuODA5LTEuNzA1LTMuODA5LTMuODA3YzAtMi4xMDMsMS43MDUtMy44MDgsMy44MDktMy44MDhjMi4xMDMsMCwzLjgwOCwxLjcwNSwzLjgwOCwzLjgwOGMwLDAuOTYyLTAuMzY5LDEuODMtMC45NTgsMi41bDEuMjQ0LDEuMjQ1QzE0LjQyMSwxMi42MzMsMTQuMzU5LDEzLjEwOCwxNC4wMjksMTMuNDM5eiBNMTguNjUsNi43MjFjLTAuNTE1LDAtMC45MzMtMC40MTgtMC45MzMtMC45MzRjMC0wLjUxNSwwLjQxOC0wLjkzMiwwLjkzMy0wLjkzMmMwLjUxNiwwLDAuOTMzLDAuNDE3LDAuOTMzLDAuOTMyQzE5LjU4Myw2LjMwMywxOS4xNjYsNi43MjEsMTguNjUsNi43MjF6IE0xMC4wNjcsNi40NmMtMS4xOTksMC0yLjE3MiwwLjk3Mi0yLjE3MiwyLjE3MXMwLjk3MywyLjE3LDIuMTcyLDIuMTdzMi4xNzEtMC45NzEsMi4xNzEtMi4xN1MxMS4yNjcsNi40NiwxMC4wNjcsNi40NnoiLz48L3N2Zz4=); 
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyMC41OHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAyMC41OCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAuNTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik01LjE0NiwwaDEwLjI4OXYyLjU3Mkg1LjE0NlYweiBNMTkuMjk0LDMuODUxSDEuMjg2QzAuNTc5LDMuODUxLDAsNC40MzgsMCw1LjE0NXY2LjQzMmMwLDAuNzA3LDAuNTc5LDEuMjc4LDEuMjg2LDEuMjc4aDMuODU5VjE4aDEwLjI4OXYtNS4xNDZoMy44NTljMC43MDcsMCwxLjI4Ni0wLjU3MSwxLjI4Ni0xLjI3OFY1LjE0NUMyMC41OCw0LjQzOCwyMC4wMDEsMy44NTEsMTkuMjk0LDMuODUxeiBNMTQuMDI5LDEzLjQzOWMtMC4zMzEsMC4zMy0wLjgwNiwwLjM5MS0xLjA2NCwwLjEzMmwtMS40MjgtMS40M2MtMC40NTMsMC4xOTEtMC45NSwwLjI5Ni0xLjQ3LDAuMjk2Yy0yLjEwNCwwLTMuODA5LTEuNzA1LTMuODA5LTMuODA3YzAtMi4xMDMsMS43MDUtMy44MDgsMy44MDktMy44MDhjMi4xMDMsMCwzLjgwOCwxLjcwNSwzLjgwOCwzLjgwOGMwLDAuOTYyLTAuMzY5LDEuODMtMC45NTgsMi41bDEuMjQ0LDEuMjQ1QzE0LjQyMSwxMi42MzMsMTQuMzU5LDEzLjEwOCwxNC4wMjksMTMuNDM5eiBNMTguNjUsNi43MjFjLTAuNTE1LDAtMC45MzMtMC40MTgtMC45MzMtMC45MzRjMC0wLjUxNSwwLjQxOC0wLjkzMiwwLjkzMy0wLjkzMmMwLjUxNiwwLDAuOTMzLDAuNDE3LDAuOTMzLDAuOTMyQzE5LjU4Myw2LjMwMywxOS4xNjYsNi43MjEsMTguNjUsNi43MjF6IE0xMC4wNjcsNi40NmMtMS4xOTksMC0yLjE3MiwwLjk3Mi0yLjE3MiwyLjE3MXMwLjk3MywyLjE3LDIuMTcyLDIuMTdzMi4xNzEtMC45NzEsMi4xNzEtMi4xN1MxMS4yNjcsNi40NiwxMC4wNjcsNi40NnoiLz48L3N2Zz4=);
 }
 
 #pagefoot .buttons button[ng-click="close()"] {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiMwMDQ0NkEiIHBvaW50cz0iMTgsMTUuMjI0IDExLjc3Nyw5LjAwMSAxOCwyLjc3NyAxNS4yMjMsMCA5LDYuMjIzIDIuNzc3LDAuMDAxIDAsMi43NzcgNi4yMjMsOSAwLDE1LjIyNCAyLjc3NywxOCA5LDExLjc3NyAxNS4yMjMsMTggIi8+PC9zdmc+); 
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiMwMDQ0NkEiIHBvaW50cz0iMTgsMTUuMjI0IDExLjc3Nyw5LjAwMSAxOCwyLjc3NyAxNS4yMjMsMCA5LDYuMjIzIDIuNzc3LDAuMDAxIDAsMi43NzcgNi4yMjMsOSAwLDE1LjIyNCAyLjc3NywxOCA5LDExLjc3NyAxNS4yMjMsMTggIi8+PC9zdmc+);
 }
 
 #pagefoot .buttons button:hover {
-  background-color: #ccd9e1; 
+    background-color: #ccd9e1;
 }
 
 #pagefoot p {
     margin: 0 0.5em;
-    padding: 0.1em; 
+    padding: 0.1em;
 }
 
 #pagefoot .switch {
-    display: table; 
+    display: table;
     top: 8px;
 }
 
 #pagefoot .switch > span {
-  display: table-cell;
-  height: 100%;
-  padding: 0 1.25rem;
-  vertical-align: middle; 
-  color: #666;
-  font-size: 0.875rem;
-  font-weight: 400;
+    display: table-cell;
+    height: 100%;
+    padding: 0 1.25rem;
+    vertical-align: middle;
+    color: #666;
+    font-size: 0.875rem;
+    font-weight: 400;
 }
 
 #pagefoot .switch label {
-  display: table-cell;
-  min-width: 3rem; 
+    display: table-cell;
+    min-width: 3rem;
 }

@@ -21,7 +21,8 @@ import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
  * Class XSDWebForm
  * XSD Schema to HTML5
  */
-class XSDWebForm {
+export default class XSDWebForm {
+
 	/**
 	 * Class constructor
 	 * Check for arguments
@@ -38,19 +39,20 @@ class XSDWebForm {
 		// Open the default browser when build is completed
 		this.autoOpenOutput = false;
 
-		// Check for [-f file] [-a | open browser after build] input
-		args.forEach(
-			(item, index) => {
-				if (item == '-f') {
-					xsdFile = args[index + 1];
-					return;
+		//no args - unit testing
+		if (args)
+			args.forEach( // Check for [-f file] [-a | open browser after build] input
+				(item, index) => {
+					if (item == '-f') {
+						xsdFile = args[index + 1];
+						return;
+					}
+					if (item == '-a') {
+						this.autoOpenOutput = true;
+						return;
+					}
 				}
-				if (item == '-a') {
-					this.autoOpenOutput = true;
-					return;
-				}
-			}
-		);
+			);
 
 		// If not file input
 		if (!xsdFile) {
@@ -69,6 +71,10 @@ class XSDWebForm {
 				XSDWebFormParserError.reportError(err);
 			}
 		});
+
+		//no args - unit testing
+		if (!args)
+			return;
 
 		var app = express();
 		var filePath = path.join( __dirname.substring(0, __dirname.length - 3), 'build/');
