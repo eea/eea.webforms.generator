@@ -28,7 +28,7 @@
   "scripts": {
     "testc": "babel-node ./node_modules/.bin/isparta cover  --report text --report html node_modules/mocha/bin/_mocha",
     "test": "mocha --compilers js:babel-register",
-    "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
+    "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2 -l",
     "build": "babel ./ -d dist --presets es2015,stage-2"
   },
   "author": "George Bouris",

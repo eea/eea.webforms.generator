@@ -29,10 +29,13 @@ export default class XSDWebForm {
 	 */
 	constructor(args) {
 		return new Promise ( (resolve, reject) => {			
+
+			//logging
+			this.showLog = false;
+			this.verbose = false;
+
 			//Build directory
 			this.buildPath = "build/";
-			// XSDWebFormParser    		
-			this.parser = new XSDWebFormParser(true, true);
 			// Input file variable
 			var xsdFile = null;
 			// HTML Input file variable
@@ -47,6 +50,11 @@ export default class XSDWebForm {
 						xsdFile = args[index + 1];
 						return;
 					}
+					if (item == '-l') {
+						this.showLog = true;
+						this.verbose = true;
+						return;
+					}
 					if (item == '-a') {
 						this.autoOpenOutput = true;
 						return;
@@ -54,6 +62,9 @@ export default class XSDWebForm {
 				}
 			);
 
+			// XSDWebFormParser    		
+			this.parser = new XSDWebFormParser(this.showLog, this.verbose);
+			
 			// If not file input
 			if (!xsdFile) {
 				xsdFile = "./test/test.xsd";
@@ -107,12 +118,14 @@ export default class XSDWebForm {
 					// Parse file content
 					this.parser.parse(xObject);
 					// Create HTML file
-					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() );
-					this.createFile(this.buildPath  + this.baseFileName + "lang.json", this.parser.getFullTextContent());
+					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
+						this.createFile(this.buildPath  + this.baseFileName + "lang.json", this.parser.getFullTextContent()).then ( () => {
+							resolve();
+						})
+					});
 					// Open browser 
 					if (this.autoOpenOutput)
 						openurl.open(`http://localhost:3001/${this.baseFileName}html`);
-					resolve();
 				});
 			});
 		});
@@ -363,11 +376,18 @@ ${new Date()}
 	 * @param content
 	 */
 	createFile(filename, content) {
-		fs.writeFile(filename, content, function(err) {
-			if (err)
-				console.log(err);
-			else
-				console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
+		var sender = this;
+		return new Promise((resolve, reject) => {
+			fs.writeFile(filename, content, function(err) {
+				if (err) {
+					console.log(err);
+					reject(err);
+				} else {
+					if (sender.showLog)
+						console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
+					resolve();
+				}
+			});
 		});
 	}
 }
