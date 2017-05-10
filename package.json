@@ -27,6 +27,7 @@
   },
   "scripts": {
     "testc": "istanbul cover _mocha -- --compilers js:babel-register",
+    "testh": "istanbul cover _mocha -- --compilers js:babel-register -c",
     "test": "mocha --compilers js:babel-register",
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "build": "babel ./ -d dist --presets es2015,stage-2"

@@ -59,8 +59,7 @@ export default class XSDWebForm {
 						this.autoOpenOutput = true;
 						return;
 					}
-				}
-			);
+				});
 
 			// XSDWebFormParser    		
 			this.parser = new XSDWebFormParser(this.showLog, this.verbose);
