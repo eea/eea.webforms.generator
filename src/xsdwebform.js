@@ -82,8 +82,10 @@ export default class XSDWebForm {
 						var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
 						app.use(express.static(filePath))
 							.listen(3001, function () {
-								if (parent.showLog)
-									console.log("\x1b[2m\x1b[37m\nTest web server is listening on port 3001\x1b[0m\n\n");
+								if (parent.showLog) {
+									console.log("\x1b[1m\x1b[37m\nTest web server is listening on port 3001\x1b[0m");
+									console.log(`http://localhost:3001/${parent.baseFileName}html\n\n`);
+								}
 								resolve(parent);
 							});
 						});
