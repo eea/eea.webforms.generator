@@ -480,7 +480,7 @@ class XSDWebFormParserHTMLTags {
 				label: this.name.replace("-", ""),
 				text: `${this.name}`
 			});
-			outPut = `<div class="field-caption ng-binding" ng-bind="'${this.name.replace("-", "")}' | translate"></div>`;
+			outPut = `<div ng-bind="'${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></div>`;
 		}
 
 		outPut += "<" + this.tag;

@@ -20,11 +20,17 @@ class XSDWebFormParserLog {
 		if (!sender.verbose)
 			console.log("");
 
-		process.stdout.write("\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m\n");
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
+			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
 			console.log("\x1b[0m\x1b[2m");
-			console.log(sender.htmlOutput.HTMLObjects);
+			sender.htmlOutput.HTMLObjects.forEach( (item) => {
+				item.itemObject.groups.forEach( (gitem) => {
+					gitem.itemObject.items.forEach( (eitem) => {
+						console.log(eitem.toString().substring(0, 40) + "...");
+					});
+				});
+			});
 		} else {
 			console.log("");
 		}
