@@ -79,7 +79,6 @@ class XSDWebFormParserLog {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
 
 				if (verbose) {
-					console.log("(xsdItem.name", xsdItem.name);
 					if (xsdItem.name === "xs:element") {
 						var txmlItem = xsdItem.toString();
 						txmlItem = txmlItem.split("\n").join("");
