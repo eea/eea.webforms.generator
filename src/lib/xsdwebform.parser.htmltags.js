@@ -121,7 +121,7 @@ class XSDWebFormParserHTMLTags {
 				'ew-action': item.attr.action,
 				method: 'post',
 				class: 'ewform medium-12',
-				'ng-submit': `submit(${item.attr.name})`
+				'ng-submit': `submit(form${formNum})`
 			},
 			groups: [],
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -156,8 +156,7 @@ class XSDWebFormParserHTMLTags {
 
 		let groupEnd = '';
 		if (xsdGroupProperties.attr.maxOccurs > 1) {
-			let addRow = (item.attr.multiplelabel) ? item.attr.multiplelabel : 'Add Row';
-			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addRow'  | translate}}</button>`;
+			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
 		}
 		var groupObject = {
 			name: item.attr.element,
@@ -213,18 +212,20 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+		let itemFormModel = sender.getFullFormName(item.attr.name, sender);
 		var htmlItem = {
 			name: item.attr.name,
 			tag: 'input',
 			tagclose: false,
 			autoclose: false,
 			hasLabel: true,
+			formModel: itemFormModel,
 			attrs: {
 				name: item.attr.name,
 				id: item.attr.name.replace("-", ""),
 				required: 1,
 				type: 'text',
-				'ng-model': sender.getNgModel(item.attr.name, sender)
+				'ng-model': 'field.' + itemFormModel
 			},
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 		};
@@ -242,18 +243,20 @@ class XSDWebFormParserHTMLTags {
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'textarea',
 				tagclose: false,
 				autoclose: true,
 				hasLabel: true,
+				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element,
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					'ew-map': sender.getEwMap(item, itemInfo),
-					'ng-model': sender.getNgModel(item.attr.element, sender)
+					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
@@ -272,19 +275,21 @@ class XSDWebFormParserHTMLTags {
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'input',
 				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
+				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element,
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					type: "number",
 					'ew-map': sender.getEwMap(item, itemInfo),
-					'ng-model': sender.getNgModel(item.attr.element, sender)
+					'ng-model': 'field.' +itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
@@ -303,19 +308,21 @@ class XSDWebFormParserHTMLTags {
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'input',
 				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
+				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element,
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					type: "date",
 					'ew-map': sender.getEwMap(item, itemInfo),
-					'ng-model': sender.getNgModel(item.attr.element, sender)
+					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
@@ -382,6 +389,7 @@ class XSDWebFormParserHTMLTags {
 				}
 			});
 
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'select',
@@ -389,12 +397,13 @@ class XSDWebFormParserHTMLTags {
 				autoclose: true,
 				hasLabel: true,
 				options: enumItems,
+				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element,
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					'ew-map': sender.getEwMap(item, itemInfo),
-					'ng-model': sender.getNgModel(item.attr.element, sender)
+					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
@@ -429,13 +438,14 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * getNgModel
+	 * getFullFormName
 	 * @param name
 	 * @param sender
 	 */
-	getNgModel(name, sender) {
-		return "field." + sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.name + "." + name.replace("-", "");
+	getFullFormName(name, sender) {
+		return sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.name + "." + name.replace("-", "");
 	}
+
 
 	/**
 	 * getXSDComplexByGroupTag - Find and get XSD complexType Type filtered by Group Tag name
@@ -488,6 +498,10 @@ class XSDWebFormParserHTMLTags {
 		if (this.autoclose)
 			outPut += "</" + this.tag + ">";
 
+		if (this.attrs.required === 1) {
+			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid" class="required-msg">Field  ${this.attrs.id} is required.</span>`;
+		}
+
 		return outPut;
 	}
 
@@ -525,5 +539,3 @@ class XSDWebFormParserHTMLTags {
 
 
 module.exports = XSDWebFormParserHTMLTags;
-
-//<span ng-show="form1.AEA.$touched && form1.AEA.$invalid" class="required-msg">The name is required.</span>
