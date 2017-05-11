@@ -57,7 +57,7 @@ class XSDWebFormParserLog {
 	 * showItemLog - ShowLog
 	 * @param xsdItem
 	 */
-	static showItemLog(xsdItem) {
+	static showItemLog(xsdItem, verbose) {
 		let xspace = "  ";
 		for (let i = 0; i < xsdItem.level; i++) {
 			xspace += "\t";
@@ -72,11 +72,12 @@ class XSDWebFormParserLog {
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
 
-				if (this.verbose) {
+				if (verbose) {
+					console.log("(xsdItem.name", xsdItem.name);
 					if (xsdItem.name === "xs:element") {
 						var txmlItem = xsdItem.toString();
 						txmlItem = txmlItem.split("\n").join("");
-						txmlItem = txmlItem.split("<").join(xspace + `\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓\t \x1b[2m<`);
+						txmlItem = txmlItem.split("<").join(xspace + `\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m<`);
 
 						let pos1 = txmlItem.indexOf("<xs:documentation>");
 						if (pos1 > 0) {

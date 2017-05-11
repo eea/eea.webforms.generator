@@ -34,7 +34,8 @@ class XSDWebFormParser {
 		this.showLog = showlog;
 		this.verbose = verbose;
 
-		this.xsdTagParser.setLog((this.showLog && this.verbose));
+		this.xsdTagParser.setLog(this.showLog);
+		this.xsdTagParser.setVerbose((this.showLog && this.verbose));
 		this.htmlTagParser.setLog(this.showLog);
 		this.htmlTagParser.setVerbose((this.showLog && this.verbose));
 	}

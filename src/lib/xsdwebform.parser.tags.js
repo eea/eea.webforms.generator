@@ -37,6 +37,7 @@ class XSDWebFormParserTags {
 			"xs:maxLength": this.parseMaxLength
 		};
 		this.showLog = false;
+		this.verbose = false;
 	}
 
 	/**
@@ -45,7 +46,7 @@ class XSDWebFormParserTags {
 	 */
 	xsdParse(xsdItem) {
 		if (this.showLog)
-			XSDWebFormParserLog.showItemLog(xsdItem);
+			XSDWebFormParserLog.showItemLog(xsdItem, this.verbose);
 		// Loop through Tag's childNodes
 		if (xsdItem.children) {
 			for (let i = 0, l = xsdItem.children.length; i < l; i++) {
@@ -79,7 +80,7 @@ class XSDWebFormParserTags {
 	}
 
 	/**
-	 * setLog - Show Log
+	 * setLog  - Show Log
 	 * @param bool
 	 */
 	setLog(bool) {
@@ -87,10 +88,25 @@ class XSDWebFormParserTags {
 	}
 
 	/**
+	 * setVerbose - Show Log verbose
+	 * @param bool
+	 */
+	setVerbose(bool) {
+		this.verbose = bool;
+	}
+
+	/**
 	 * getLog - Show Log
 	 */
 	getLog() {
 		return this.showLog;
+	}
+
+	/**
+	 * getLog - Show Log
+	 */
+	getVerbose() {
+		return this.verbose;
 	}
 	/**
 	 * parseElement- Parse Element Tag
