@@ -117,6 +117,18 @@ button:hover::before,
 button:hover {
     background-color: rgba(0, 102, 153, 0.5);
 }
+/*
+#head {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0px;
+    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
+}
+*/
+#container {
+    margin-top: 132px;
+}
 
 #tool-ribbon {
     background-color: #ffffff;
@@ -155,20 +167,56 @@ a#printlink {
 }
 
 #page-head {
-    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+    /*background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;*/
     border-top: 1px solid #4b5257;
     clear: both;
-    height: 102px;
+    /*height: 102px;*/
+}
+
+.tplarge {
+    height: 130px;
+}
+
+.tpsmall {
+    height: 80px;
+}
+
+.tplarge #network-title {
+    font-size: 200%;
+    padding-top: 20px;
+}
+
+.tpsmall #network-title {
+    font-size: 100%;
+    padding-top: 2px;
+}
+
+.tplarge #site-title {
+    font-size: 120%;
+}
+
+.tpsmall #site-title {
+    font-size: 100%;
+}
+
+.tplarge  #page-head a {
+    font-size: 120%;
+    height: 101px;
+}
+
+.tpsmall #page-head a {
+    font-size: 100%;
+    height: 48px;
 }
 
 #page-head a {
     background: url("http://www.eionet.europa.eu/styles/eionet2007/top_graphic.gif") no-repeat scroll left center transparent;
-    height: 101px;
     position: absolute;
     right: 40px;
     top: 31px;
-    width: 36px;
     width: 323px;
+    will-change: all;
+    transition: all 0.3s ease-out;
 }
 
 #network-title {
@@ -178,6 +226,8 @@ a#printlink {
     font-weight: bold;
     padding-left: 25px;
     padding-top: 20px;
+    will-change: all;
+    transition: all 0.3s ease-out;
 }
 
 #site-title {
@@ -185,16 +235,22 @@ a#printlink {
     font-size: 120%;
     font-weight: bold;
     padding-left: 25px;
+    will-change: all;
+    transition: all 0.3s ease-out;
 }
 
 .top-bar {
     position: fixed;
     display: block;
-    height: 50px;
+    margin: 0;
+    padding: 0;
     width: 100%;
     top: 0;
     z-index: 9999;
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+    will-change: all;
+    transition: all 0.3s ease-out;
 }
 
 .top-bar,
