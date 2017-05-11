@@ -2,7 +2,6 @@
 <root>
 	<page>
 		<form action="/api/testasdasd">
-
 			<group element="ConcludedTransferRecord"> 	
 				<item element="AEA"/>	
 				<item element="TransferringMemberState"/>
@@ -14,9 +13,7 @@
 				<input name="Test"/>
 				<input name="Test2"/>
 			</group>
-
 		</form>
-
 	</page>
 </root>
 

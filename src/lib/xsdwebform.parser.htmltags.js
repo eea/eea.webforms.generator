@@ -159,7 +159,7 @@ class XSDWebFormParserHTMLTags {
 			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
 		}
 		var groupObject = {
-			name: item.attr.element,
+			name: item.attr.element.replace("-", ""),
 			xsdName: xsdGroupTag.name,
 			tag: 'fieldset',
 			attrs: {
@@ -214,14 +214,14 @@ class XSDWebFormParserHTMLTags {
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		let itemFormModel = sender.getFullFormName(item.attr.name, sender);
 		var htmlItem = {
-			name: item.attr.name,
+			name: item.attr.name.replace("-", ""),
 			tag: 'input',
 			tagclose: false,
 			autoclose: false,
 			hasLabel: true,
 			formModel: itemFormModel,
 			attrs: {
-				name: item.attr.name,
+				name: item.attr.name.replace("-", ""),
 				id: item.attr.name.replace("-", ""),
 				required: 1,
 				type: 'text',
@@ -252,7 +252,7 @@ class XSDWebFormParserHTMLTags {
 				hasLabel: true,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element,
+					name: item.attr.element.replace("-", ""),
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					'ew-map': sender.getEwMap(item, itemInfo),
@@ -284,7 +284,7 @@ class XSDWebFormParserHTMLTags {
 				hasLabel: true,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element,
+					name: item.attr.element.replace("-", ""),
 					id: item.attr.element.replace("-", ""),
 					required: 1,
 					type: "number",
@@ -310,7 +310,7 @@ class XSDWebFormParserHTMLTags {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
-				name: item.attr.element,
+				name: item.attr.element.replace("-", ""),
 				tag: 'input',
 				tagclose: false,
 				autoclose: false,
@@ -499,7 +499,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += "</" + this.tag + ">";
 
 		if (this.attrs.required === 1) {
-			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid" class="required-msg">Field  ${this.attrs.id} is required.</span>`;
+			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid" class="required-msg">${this.attrs.id} {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;

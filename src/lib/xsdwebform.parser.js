@@ -135,6 +135,7 @@ class XSDWebFormParser {
 	"greeting" 		: "Welcome" ,
 	"pagetitle"		: "Page Title",
 	"formtitle"		: "Form Title",
+	"isrequired"		: "is required",
 	"addrow"		: "Add Row",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
