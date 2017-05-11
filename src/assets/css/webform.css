@@ -383,7 +383,7 @@ a#printlink {
     margin-top: -15px;
     background-color: #F15A24;
     padding: 1px 10px 1px 10px;
-    border-radius: 7px;   
+    border-radius: 10%; 
 }
 
 .rowbutton {
