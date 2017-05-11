@@ -254,7 +254,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 }
 
 $(document).on("scroll", function() {
-	if ($(document).scrollTop() > 60) {
+	if ($(document).scrollTop() > 40) {
 		$("#head").removeClass("tplarge").addClass("tpsmall");
 	} else {
 		$("#head").removeClass("tpsmall").addClass("tplarge");

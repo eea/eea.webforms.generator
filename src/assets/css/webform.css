@@ -220,7 +220,8 @@ a#printlink {
 }
 
 #network-title {
-    color: white;
+    /*color: white;*/
+    color: #00446A;
     font-size: 200%;
     font-variant: small-caps;
     font-weight: bold;
@@ -231,7 +232,8 @@ a#printlink {
 }
 
 #site-title {
-    color: white;
+    /*color: white;*/
+    color: #006699;
     font-size: 120%;
     font-weight: bold;
     padding-left: 25px;
@@ -248,14 +250,15 @@ a#printlink {
     top: 0;
     z-index: 9999;
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
-    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+    /*background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;*/
     will-change: all;
     transition: all 0.3s ease-out;
 }
 
 .top-bar,
 .top-bar ul {
-    background-color: #A6CFD2;
+    /*background-color: #A6CFD2;*/
+    background-color: #E6E6E6;
 }
 
 .top-bar,
@@ -266,8 +269,10 @@ a#printlink {
 
 .callout.primary {
     margin-top: 50px;
-    background-color: #006699;
-    color: #fff;
+    /*background-color: #006699;*/
+    /*color: #fff;*/
+    background-color: #fff;
+    color: #006699;
 }
 
 .callout.primary h1 {
@@ -275,7 +280,8 @@ a#printlink {
 }
 
 .callout.primary h2 {
-    color: #fff;
+    /*color: #fff;*/
+    color: #8a8a8a;
     font-size: 26px;
 }
 
@@ -286,13 +292,15 @@ a#printlink {
 
 .ewform {
     padding: 50px 30px 10px 30px;
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: #333
 }
 
 .formitem {
     float: left;
     color: #fff;
-    background-color: #C9E2E4;
+ /*   background-color: #C9E2E4;*/
+    background-color: rgba(100, 100, 100, 0.5);
     padding: 22px;
     margin: auto;
     width: 50%;
