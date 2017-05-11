@@ -83,7 +83,7 @@ export default class XSDWebForm {
 						app.use(express.static(filePath))
 							.listen(3001, function () {
 								if (parent.showLog)
-									console.log("\x1b[2m\x1b[37m\nTest web server is listening on port 3001\x1b[0m");								
+									console.log("\x1b[2m\x1b[37m\nTest web server is listening on port 3001\x1b[0m\n\n");
 								resolve(parent);
 							});
 						});
