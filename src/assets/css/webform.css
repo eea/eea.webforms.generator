@@ -271,12 +271,12 @@ a#printlink {
 }
 
 .callout.primary h1 {
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .callout.primary h2 {
     color: #fff;
-    font-size: 30px;
+    font-size: 26px;
 }
 
 #container {
@@ -490,6 +490,10 @@ a#printlink {
 #pagefoot .switch {
     display: table;
     top: 8px;
+}
+
+#pagefoot  input:checked~.switch-paddle {
+    background: #f15a24;
 }
 
 #pagefoot .switch > span {
