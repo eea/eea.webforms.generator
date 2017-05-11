@@ -3,7 +3,7 @@
 	<page>
 		<form action="/api/testasdasd">
 
-			<group multiple="1" multiplelabel="Add Transfer {{multipleindex}}" element="ConcludedTransferRecord"> 	
+			<group element="ConcludedTransferRecord"> 	
 				<item element="AEA"/>	
 				<item element="TransferringMemberState"/>
 				<item element="AcquiringMemberState"/>

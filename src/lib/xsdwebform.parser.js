@@ -134,6 +134,7 @@ class XSDWebFormParser {
 	"greeting" 		: "Welcome" ,
 	"pagetitle"		: "Page Title",
 	"formtitle"		: "Form Title",
+	"addrow"		: "Add Transfer {{multipleindex}}",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
 	"labels "		: {

@@ -39,7 +39,7 @@ describe('Creating Class', function() {
 				});
 
 				describe("Custom Error:", function() {
-					it("Prints: 'test'", function() {
+					it("Returs: 'test'", function() {
 						expect(XSDWebFormParserError.reportError('test', null, true)).to.equal(true);
 					});
 				});

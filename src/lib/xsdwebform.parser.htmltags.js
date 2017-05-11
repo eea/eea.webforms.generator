@@ -140,17 +140,23 @@ class XSDWebFormParserHTMLTags {
 	parseGroup(item, xsdItem, sender) {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
-		let xsdGroupTag;
+		let xsdGroupTag, xsdGroupProperties;
 		try {
 			xsdGroupTag = sender.getXSDComplexByGroupTag(item.attr.element, xsdItem);
 		} catch (ex) {
 			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
 		}
 
+		try {
+			xsdGroupProperties = xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence").childWithAttribute("type", item.attr.element, xsdItem);
+		} catch (ex) {
+			XSDWebFormParserError.reportError(`Can not find type="${item.attr.element}" element in XSD root element`);
+		}
+
 		let groupEnd = '';
-		if (item.attr.multiple === "1") {
+		if (xsdGroupProperties.attr.maxOccurs > 1) {
 			let addRow = (item.attr.multiplelabel) ? item.attr.multiplelabel : 'Add Row';
-			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">${addRow}</button>`;
+			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addRow'  | translate}}</button>`;
 		}
 		var groupObject = {
 			name: item.attr.element,
