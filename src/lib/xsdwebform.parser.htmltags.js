@@ -109,14 +109,15 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		let formEnd = "<button type=\"submit\" class=\"submitbutton\">{{'submitform' | translate}}</button>";
+		let formNum = sender.HTMLObjects.length + 1;
 		var formObject = {
-			name: item.attr.name,
+			name: 'form' + formNum,
 			action: item.attr.action,
 			tag: 'form',
 			append: formEnd,
 			attrs: {
-				name: 'form1',
-				id: 'form1',
+				name: 'form' + formNum,
+				id: 'form' + formNum,
 				'ew-action': item.attr.action,
 				method: 'post',
 				class: 'ewform medium-12',
@@ -524,3 +525,5 @@ class XSDWebFormParserHTMLTags {
 
 
 module.exports = XSDWebFormParserHTMLTags;
+
+//<span ng-show="form1.AEA.$touched && form1.AEA.$invalid" class="required-msg">The name is required.</span>
