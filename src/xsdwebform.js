@@ -184,14 +184,10 @@ export default class XSDWebForm {
 <title>{{'pagetitle' | translate}}</title>
 
 <script src="./assets/js/jquery.min.js"></script>
-<script src="./assets/js/a/angular.min.js" ></script>
-<script src="./assets/js/a/angular-translate.min.js" ></script>
-<script src="./assets/js/a/angular-translate-loader-url.min.js" ></script>
-<script src="./assets/js/a/angular-datepicker.min.js"></script>
+<script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}webform.js"></script>
 
-<link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
-<link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.css"/>
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
