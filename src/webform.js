@@ -18,17 +18,19 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
-	$scope.Language = "en";
+	$scope.selectedLanguage = "en";
 	$scope.CodeLists;
 
 	($scope.getCodeList = function() {
 		$http.get('ct-codelists-en.json').then( function(response) {
 				$scope.CodeLists = response.data;
+				$scope.language = $scope.selectedLanguage;
 			})
 	})();
 
-	$scope.changeLanguage = function(langKey) {
-		$translate.use(langKey);
+	$scope.updateTranslations = function() {
+		alert($scope.language);
+		// $translate.use(langKey);
 	};
 
 	$scope.toggleValidation = function() {

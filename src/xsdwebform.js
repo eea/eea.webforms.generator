@@ -236,7 +236,7 @@ var langFile = '${this.baseFileName}en.lang.json';
 	</div>
 </div>
 
-<select ng-model="Language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
+<select ng-model="language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
 </select>
 
 <div id="workarea" class="row collapse">
