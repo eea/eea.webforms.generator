@@ -290,6 +290,16 @@ a#printlink {
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
 
+.slanguage {
+    position: absolute;
+    margin-right: 0;
+    width: auto;
+}
+
+select.slanguage:focus {
+    box-shadow: 0 0px 0px!important;
+}
+
 .ewform {
     padding: 50px 30px 10px 30px;
     /*background-color: #fff;*/

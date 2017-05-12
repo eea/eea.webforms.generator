@@ -156,7 +156,7 @@ export default class XSDWebForm {
 									console.error(err);
 									reject(err);
 								}
-								ncp(__dirname + "/ct-codelists-en.json", parent. buildPath + parent.baseFileName + "ct-codelists-en.json", function(err) {
+								ncp(__dirname + "/ct-codelists-en.json", parent. buildPath  + "ct-codelists-en.json", function(err) {
 									if (err) {
 										console.error(err);
 										reject(err);
@@ -236,7 +236,7 @@ var langFile = '${this.baseFileName}en.lang.json';
 	</div>
 </div>
 
-<select ng-model="Language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="radius" required>
+<select ng-model="Language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
 </select>
 
 <div id="workarea" class="row collapse">

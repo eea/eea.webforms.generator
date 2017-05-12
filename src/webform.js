@@ -19,10 +19,11 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.Language = "en";
+	$scope.CodeLists;
 
 	($scope.getCodeList = function() {
-		$http.get('ct-codelists-en.json').then( function(data) {
-				alert(data);
+		$http.get('ct-codelists-en.json').then( function(response) {
+				$scope.CodeLists = response.data;
 			})
 	})();
 
