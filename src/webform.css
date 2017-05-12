@@ -117,6 +117,8 @@ button:hover::before,
 button:hover {
     background-color: rgba(0, 102, 153, 0.5);
 }
+
+
 /*
 #head {
     position: fixed;
@@ -126,6 +128,7 @@ button:hover {
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
 */
+
 #container {
     margin-top: 132px;
 }
@@ -199,7 +202,7 @@ a#printlink {
     font-size: 100%;
 }
 
-.tplarge  #page-head a {
+.tplarge #page-head a {
     font-size: 120%;
     height: 101px;
 }
@@ -292,7 +295,7 @@ a#printlink {
 
 .slanguage {
     position: absolute;
-    margin-right: 0;
+    right: 10px;
     width: auto;
 }
 
@@ -309,7 +312,7 @@ select.slanguage:focus {
 .formitem {
     float: left;
     color: #fff;
- /*   background-color: #C9E2E4;*/
+    /*   background-color: #C9E2E4;*/
     background-color: rgba(100, 100, 100, 0.5);
     padding: 22px;
     margin: auto;
@@ -401,7 +404,7 @@ select.slanguage:focus {
     margin-top: -15px;
     background-color: #F15A24;
     padding: 1px 10px 1px 10px;
-    border-radius: 10%; 
+    border-radius: 10%;
 }
 
 .rowbutton {
@@ -510,7 +513,7 @@ select.slanguage:focus {
     top: 8px;
 }
 
-#pagefoot  input:checked~.switch-paddle {
+#pagefoot input:checked~.switch-paddle {
     background: #f15a24;
 }
 
