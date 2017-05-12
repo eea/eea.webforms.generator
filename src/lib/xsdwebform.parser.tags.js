@@ -74,7 +74,7 @@ class XSDWebFormParserTags {
 		if ((item in this.ELEMENT_TYPES)) {
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
-			console.log(`\n************* Unknown Tag {${item}} *************\n`);
+			console.log(`\n\x1b[1m\x1b[31m************* Unknown Tag {${item}} *************\x1b[0m\n`);
 			process.stdout.write('\x07');
 		}
 	}
@@ -249,6 +249,7 @@ class XSDWebFormParserTags {
 	 * @param item
 	 */
 	parseMaxLength(item, sender) {
+		
 		if (sender.showLog)
 			XSDWebFormParserLog.logXsdTag(item);
 	}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <page>
+        <form action="/api/testasdasd">
+            <group element="NoiseControlProgramme">  
+                <item element="NameOfNoiseControlProgramme"/>    
+                <item element="FullNameOfProgramme"/>
+                <item element="ReportingEntityUniqueCode"/>
+                <item element="CostOfProgramme"/>
+                <item element="DateOfAdoption"/>
+                <item element="DateOfCompletion"/>
+                <item element="NofPeopleExperiencingNoiseReduction"/>
+                <item element="LimitValues"/>
+                <item element="SummaryOfProblems"/>
+                <item element="SummaryOfResults"/>
+                <item element="SummaryOfActions"/>
+                <item element="SummaryOfProvisions"/>
+                <item element="WebLinks"/>
+            </group>
+        </form>
+    </page>
+</root>

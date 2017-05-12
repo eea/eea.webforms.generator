@@ -26,6 +26,7 @@ class XSDWebFormParserHTMLTags {
 			"input": this.parseInput,
 			"text": this.parseText,
 			"number": this.parseNumber,
+			"positivenumber": this.parseNumberP,
 			"date": this.parseDate,
 			"select": this.parseSelect
 		};
@@ -33,7 +34,9 @@ class XSDWebFormParserHTMLTags {
 		this.XSD_HTML_TYPES = {
 			"xs:integer": "number",
 			"xs:decimal": "number",
+			"NonNegativeIntegerType": "positivenumber",
 			"xs:date": "date",
+			"DateType": "date",
 			"xs:string": "text"
 		};
 
@@ -209,12 +212,19 @@ class XSDWebFormParserHTMLTags {
 
 		try {
 			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+			
 			if (!XSDWFormItem) {
-				XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
-				XSDWFormItemType = xsdItem.childWithAttribute("name", item.attr.element).attr.type;
-			} else {
-				XSDWFormItemType = XSDWFormItem.attr.type;
+				if (itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element)) {
+					XSDWFormItem =  xsdItem.childWithAttribute("name", item.attr.element);
+					if (!XSDWFormItem.attr.type) {
+						XSDWFormItem = XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction");
+						XSDWFormItem.attr.type = XSDWFormItem.attr.base;
+					}
+				} else {
+					XSDWebFormParserError.reportError(`Can not find name or ref "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
+				}
 			}
+			XSDWFormItemType = XSDWFormItem.attr.type;
 			
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
@@ -295,8 +305,9 @@ class XSDWebFormParserHTMLTags {
 	 * @param item
 	 * @param xsdItem
 	 * @param sender
+	 * @param positive
 	 */
-	parseNumber(item, xsdItem, sender) {
+	parseNumber(item, xsdItem, sender, positive) {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
@@ -319,8 +330,22 @@ class XSDWebFormParserHTMLTags {
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
+			
+			if (positive) {
+				htmlItem.attrs.min = 0;
+			}
+
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
+	}
+	/**
+	 * parseNumberP - Parse Positive Number Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	parseNumberP(item, xsdItem, sender) {
+		sender.parseNumber(item,  xsdItem, sender, true);
 	}
 
 	/**
