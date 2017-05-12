@@ -20,6 +20,12 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.ValidationDisabled = false;
 	$scope.Language = "en";
 
+	($scope.getCodeList = function() {
+		$http.get('ct-codelists-en.json').then( function(data) {
+				alert(data);
+			})
+	})();
+
 	$scope.changeLanguage = function(langKey) {
 		$translate.use(langKey);
 	};

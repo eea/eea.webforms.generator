@@ -141,22 +141,28 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
-					ncp("./src/assets/", parent.buildPath + "assets", function(err) {
+					ncp(__dirname + "/assets/", parent.buildPath + "assets", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
-						ncp("./src/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
+						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
-							ncp("./src/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
+							ncp(__dirname + "/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
 								if (err) {
 									console.error(err);
 									reject(err);
 								}
-								resolve();
+								ncp(__dirname + "/ct-codelists-en.json", parent. buildPath + parent.baseFileName + "ct-codelists-en.json", function(err) {
+									if (err) {
+										console.error(err);
+										reject(err);
+									}
+									resolve();
+								});
 							});
 						});
 					});
@@ -195,9 +201,7 @@ export default class XSDWebForm {
 var langFile = '${this.baseFileName}en.lang.json';
 </script>
 </head>
-<body>
-
-<div ng-controller="WebFormAppCtrl">
+<body  ng-controller="WebFormAppCtrl">
 
 <div id="head" class="top-bar sticky tplarge">
 
@@ -231,6 +235,9 @@ var langFile = '${this.baseFileName}en.lang.json';
 		<h2 class="subheader">Web Form</h2>
 	</div>
 </div>
+
+<select ng-model="Language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="radius" required>
+</select>
 
 <div id="workarea" class="row collapse">
 	
@@ -275,7 +282,6 @@ var langFile = '${this.baseFileName}en.lang.json';
         </div>
     </div>
 
-</div>
 
 <footer class="footer">
 <div class="footer-wrapper">

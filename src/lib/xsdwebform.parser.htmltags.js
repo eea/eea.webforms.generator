@@ -464,7 +464,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param itemInfo
 	 */
 	getEwMap(item, itemInfo) {
-		return itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.groupBase.itemObject.name + "/" + itemInfo.parentXsdName + "/" + item.attr.element;
+		return itemInfo.groupBase.itemObject.name + "::" + itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.parentXsdName + "/" + item.attr.element ;
 	}
 
 	/**
@@ -533,7 +533,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += "</" + this.tag + ">";
 
 		if (this.attrs.required === 1) {
-			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg">${this.attrs.id} {{'isrequired' | translate}}</span>`;
+			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>${this.attrs.id}</b> {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;
