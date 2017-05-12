@@ -300,7 +300,7 @@ Build date: ${new Date()}
 		return new Promise((resolve, reject) => {
 			fs.readFile(file, 'utf8', (err, data) => {
 				if (err) {
-					console.log(err);
+					XSDWebFormParserError.reportError(`No such file or directory ${err.path}\n`);
 					reject(err);
 				}
 				resolve(data);

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<page>
+		<form action="/api/testasdasd">
+			<group element="note"> 	
+				<item element="to"/>	
+				<item element="from"/>
+				<item element="heading"/>
+				<item element="body"/>
+			</group>
+		</form>
+	</page>
+</root>

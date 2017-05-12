@@ -438,11 +438,15 @@ class XSDWebFormParserHTMLTags {
 	getItemInfo(item, xsdItem, sender) {
 		var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
-
+		var parentName = groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+		if (! parentName) {
+			parentName = groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
+		}
+		
 		return {
 			htmlBase: htmlBase,
 			groupBase: groupBase,
-			parentXsdName: groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element).name
+			parentXsdName: parentName.name
 		};
 	}
 

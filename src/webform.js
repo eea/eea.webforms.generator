@@ -29,7 +29,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.submit = function(frm) {
 		$scope.field[frm.$name].AEAPrice = 11;
 		console.log(frm);
-		console.log(frm['AEA-Price'].$$attr.ewMap);
 		return false;
 	};
 
