@@ -533,7 +533,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += "</" + this.tag + ">";
 
 		if (this.attrs.required === 1) {
-			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid" class="required-msg">${this.attrs.id} {{'isrequired' | translate}}</span>`;
+			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg">${this.attrs.id} {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;

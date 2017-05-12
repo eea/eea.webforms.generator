@@ -17,6 +17,8 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
  
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
+	$scope.ValidationDisabled = false;
+	$scope.Language = "en";
 
 	$scope.changeLanguage = function(langKey) {
 		$translate.use(langKey);
