@@ -120,7 +120,7 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					// Create HTML file
 					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
-						this.createFile(this.buildPath  + this.baseFileName + "lang.json", this.parser.getFullTextContent()).then ( () => {
+						this.createFile(this.buildPath  + this.baseFileName + "en.lang.json", this.parser.getFullTextContent()).then ( () => {
 							resolve();
 						})
 					});
@@ -192,7 +192,7 @@ export default class XSDWebForm {
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-var langFile = '${this.baseFileName}lang.json';
+var langFile = '${this.baseFileName}en.lang.json';
 </script>
 </head>
 <body>
