@@ -204,12 +204,20 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		let XSDWFormItem;
+		
+		let XSDWFormItem, XSDWFormItemType;
 
 		try {
 			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
-			if ((XSDWFormItem.attr.type in sender.XSD_HTML_TYPES)) {
-				item.name = sender.XSD_HTML_TYPES[XSDWFormItem.attr.type];
+			if (!XSDWFormItem) {
+				XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
+				XSDWFormItemType = xsdItem.childWithAttribute("name", item.attr.element).attr.type;
+			} else {
+				XSDWFormItemType = XSDWFormItem.attr.type;
+			}
+			
+			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
+				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
 				item.src = XSDWFormItem;
 			} else {
 				item.name = "select";
@@ -442,7 +450,7 @@ class XSDWebFormParserHTMLTags {
 		if (! parentName) {
 			parentName = groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
 		}
-		
+
 		return {
 			htmlBase: htmlBase,
 			groupBase: groupBase,
