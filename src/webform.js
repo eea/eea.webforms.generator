@@ -1,4 +1,15 @@
 
+const app = angular.module('WebFormApp', ['pascalprecht.translate']);
+app.controller('WebFormAppCtrl', WebFormAppCtrl);
+
+app.config(["$translateProvider", function($translateProvider) {
+
+	$translateProvider.useUrlLoader(langFile);
+	$translateProvider.useSanitizeValueStrategy('escapeParameters');
+	$translateProvider.preferredLanguage('en');
+
+}]);
+
 /**
 * WebFormAppCtrl: Main controller
 */

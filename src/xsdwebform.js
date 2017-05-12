@@ -151,7 +151,13 @@ export default class XSDWebForm {
 								console.error(err);
 								reject(err);
 							}
-							resolve();
+							ncp("./src/assets/css/webform.css", buildPath + "webform.css", function(err) {
+								if (err) {
+									console.error(err);
+									reject(err);
+								}
+								resolve();
+							});
 						});
 					});
 				}
@@ -186,22 +192,11 @@ export default class XSDWebForm {
 
 <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
-<link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
+<link rel="stylesheet" type="text/css" href="./webform.css"/>
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-
-const app = angular.module('WebFormApp', ['pascalprecht.translate']);
-app.controller('WebFormAppCtrl', WebFormAppCtrl);
-
-app.config(["$translateProvider", function($translateProvider) {
-
-	$translateProvider.useUrlLoader('${this.baseFileName + "lang.json"}');
-	$translateProvider.useSanitizeValueStrategy('escapeParameters');
-	$translateProvider.preferredLanguage('en');
-
-}]);
-
+var langFile = '${this.baseFileName + "lang.json"}';
 </script>
 </head>
 <body>
@@ -288,7 +283,7 @@ app.config(["$translateProvider", function($translateProvider) {
 
 <footer class="footer">
 <div class="footer-wrapper">
-${new Date()}
+Build date: ${new Date()}
 </div>
 </footer>
 
