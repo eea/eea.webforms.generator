@@ -66,7 +66,7 @@ export default class XSDWebForm {
 			
 			// If not file input
 			if (!xsdFile) {
-				xsdFile = "./test/test.xsd";
+				xsdFile = "./src/test/test.xsd";
 			}
 
 			this.baseFileName = path.basename(xsdFile);

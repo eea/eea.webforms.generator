@@ -4,8 +4,8 @@ import { expect } from 'chai';
 import request from 'request';
 import httpUtils from 'request-mocha';
 import openurl from 'openurl';
-import { xsdWebForm } from '../src/xsdwebform';
-import XSDWebFormParserError from '../src/lib/xsdwebform.parser.error'
+import { xsdWebForm } from '../xsdwebform';
+import XSDWebFormParserError from '../lib/xsdwebform.parser.error'
 
 var showCoverageHTML = false;
 
