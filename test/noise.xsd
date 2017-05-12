@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="NoiseDirective_DF6_9">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="NoiseControlProgramme" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="NoiseControlProgramme">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="NameOfNoiseControlProgramme"/>
+                <xs:element ref="FullNameOfProgramme"/>
+                <xs:element ref="ReportingEntityUniqueCode"/>
+                <xs:element ref="ReportingIssue" minOccurs="0" maxOccurs="4"/>
+                <xs:element ref="CostOfProgramme"/>
+                <xs:element ref="DateOfAdoption"/>
+                <xs:element ref="DateOfCompletion"/>
+                <xs:element ref="NofPeopleExperiencingNoiseReduction"/>
+                <xs:element ref="LimitValues"/>
+                <xs:element ref="SummaryOfProblems"/>
+                <xs:element ref="SummaryOfResults"/>
+                <xs:element ref="SummaryOfActions"/>
+                <xs:element ref="SummaryOfProvisions"/>
+                <xs:element ref="WebLinks"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ReportingEntityUniqueCode">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+A single character Unique code assigned by the Member State to each Reporting Entity.
+</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="1"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="ReportingIssue">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="UniqueAgglomerationId" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="UniqueRoadId" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="UniqueRailId" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="IcaoCode" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="PartialArea" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="agg"/>
+                        <xs:enumeration value="air"/>
+                        <xs:enumeration value="rail"/>
+                        <xs:enumeration value="road"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="entireEntity" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UniqueRoadId">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+Unique Road ID assigned by the reporting entity to each major road segment.
+</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="0"/>
+                <xs:maxLength value="14"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="UniqueRailId">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+Unique Rail ID assigned by the reporting entity to each major rail segment.
+</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="0"/>
+                <xs:maxLength value="14"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="UniqueAgglomerationId">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+Unique Agglomeration ID assigned by the reporting entity to each agglomeration.
+</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="0"/>
+                <xs:maxLength value="14"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="IcaoCode">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+The airport code defined by the International Civil Aviation Organization
+</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="0"/>
+                <xs:maxLength value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="NameOfNoiseControlProgramme" type="xs:string"/>
+    <xs:element name="FullNameOfProgramme" type="xs:string"/>
+    <xs:element name="CostOfProgramme" type="NonNegativeIntegerType"/>
+    <xs:element name="DateOfCompletion" type="DateType"/>
+    <xs:element name="DateOfAdoption" type="DateType"/>
+    <xs:element name="NofPeopleExperiencingNoiseReduction" type="NonNegativeIntegerType"/>
+    <xs:element name="LimitValues" type="xs:string"/>
+    <xs:element name="SummaryOfResults" type="xs:string"/>
+    <xs:element name="SummaryOfProvisions" type="xs:string"/>
+    <xs:element name="SummaryOfProblems" type="xs:string"/>
+    <xs:element name="SummaryOfActions" type="xs:string"/>
+    <xs:element name="WebLinks" type="xs:string"/>
+    <xs:element name="PartialArea" type="xs:string"/>
+    <xs:simpleType name="DateSimpleType">
+        <xs:annotation>
+            <xs:documentation>Type to enter Trend code</xs:documentation>
+        </xs:annotation>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:date"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="EmptySimpleType"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:complexType name="DateType">
+        <xs:annotation>
+            <xs:documentation>Date type. If value is not available then add "notavailable" attribute with true value.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="DateSimpleType">
+                <xs:attribute name="notavailable" use="optional" type="xs:boolean"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="NonNegativeIntegerType">
+        <xs:annotation>
+            <xs:documentation>Type to enter non negative integers. It is also allowed to insert -2, if the value is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:nonNegativeInteger"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:enumeration value="-2"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="EmptySimpleType">
+        <xs:annotation>
+            <xs:documentation>Type to enter empty string</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

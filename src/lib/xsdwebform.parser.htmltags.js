@@ -151,13 +151,22 @@ class XSDWebFormParserHTMLTags {
 		try {
 			xsdGroupProperties = xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence").childWithAttribute("type", item.attr.element, xsdItem);
 		} catch (ex) {
-			XSDWebFormParserError.reportError(`Can not find type="${item.attr.element}" element in XSD root element`);
+			XSDWebFormParserError.reportError(`Can not find type="${item.attr.element}" element in XSD root element`, item);
+		}
+
+		if (!xsdGroupProperties) {
+			try {
+			xsdGroupProperties = xsdItem.childWithAttribute("name", item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
+			} catch (ex) {
+				XSDWebFormParserError.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
+			}			
 		}
 
 		let groupEnd = '';
-		if (xsdGroupProperties.attr.maxOccurs > 1) {
-			groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
-		}
+			if ( xsdGroupProperties.attr.maxOccurs == 'unbounded' || xsdGroupProperties.attr.maxOccurs > 1) {
+				groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
+			}
+		
 		var groupObject = {
 			name: item.attr.element.replace("-", ""),
 			xsdName: xsdGroupTag.name,
@@ -188,6 +197,7 @@ class XSDWebFormParserHTMLTags {
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		let XSDWFormItem;
+
 		try {
 			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
 			if ((XSDWFormItem.attr.type in sender.XSD_HTML_TYPES)) {
@@ -453,7 +463,11 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItem
 	 */
 	getXSDComplexByGroupTag(xsdItemName, xsdItem) {
+
 		var XSDWFormComplexItems = xsdItem.childWithAttribute("name", xsdItemName).childNamed("xs:sequence");
+		if (!XSDWFormComplexItems) {
+			XSDWFormComplexItems = xsdItem.childWithAttribute("name", xsdItemName).childNamed("xs:complexType").childNamed("xs:sequence");
+		}
 		if (!XSDWFormComplexItems) return "";
 
 		return XSDWFormComplexItems;
