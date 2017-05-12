@@ -136,22 +136,22 @@ export default class XSDWebForm {
 	 * prepareJSFiles - Copy JS folder to build
 	 */
 	prepareJSFiles() {
-		var buildPath = this.buildPath;
+		var parent = this;
 		return new Promise((resolve, reject) => {
-			rimraf(buildPath, fs, function() {
-				if (!fs.existsSync(buildPath)) {
-					fs.mkdirSync(buildPath);
-					ncp("./src/assets/", buildPath + "assets", function(err) {
+			rimraf(parent.buildPath, fs, function() {
+				if (!fs.existsSync(parent.buildPath)) {
+					fs.mkdirSync(parent.buildPath);
+					ncp("./src/assets/", parent.buildPath + "assets", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
-						ncp("./src/webform.js", buildPath + "webform.js", function(err) {
+						ncp("./src/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
-							ncp("./src/assets/css/webform.css", buildPath + "webform.css", function(err) {
+							ncp("./src/assets/css/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
 								if (err) {
 									console.error(err);
 									reject(err);
@@ -188,15 +188,15 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular-translate.min.js" ></script>
 <script src="./assets/js/a/angular-translate-loader-url.min.js" ></script>
 <script src="./assets/js/a/angular-datepicker.min.js"></script>
-<script src="./webform.js"></script>
+<script src="./${this.baseFileName}webform.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
-<link rel="stylesheet" type="text/css" href="./webform.css"/>
+<link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.css"/>
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-var langFile = '${this.baseFileName + "lang.json"}';
+var langFile = '${this.baseFileName}lang.json';
 </script>
 </head>
 <body>
