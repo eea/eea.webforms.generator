@@ -163,9 +163,17 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		let groupEnd = '';
-			if ( xsdGroupProperties.attr.maxOccurs == 'unbounded' || xsdGroupProperties.attr.maxOccurs > 1) {
-				groupEnd += `<button type=\"button\" class="rowbutton" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
+		if (xsdGroupProperties.attr.maxOccurs) {
+			let maxOccurs = '';
+			if (isNaN(xsdGroupProperties.attr.maxOccurs))  {
+				 if ( xsdGroupProperties.attr.maxOccurs === 'unbounded')  {
+				 	maxOccurs = '0';
+				 }
+			} else {
+				maxOccurs = xsdGroupProperties.attr.maxOccurs;
 			}
+			groupEnd += `<button type=\"button\" class="rowbutton" maxOccurs="${maxOccurs}" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
+		}
 		
 		var groupObject = {
 			name: item.attr.element.replace("-", ""),
