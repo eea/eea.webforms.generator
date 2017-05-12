@@ -37,7 +37,7 @@ class XSDWebFormParserHTMLTags {
 			"NonNegativeIntegerType": "positivenumber",
 			"xs:date": "date",
 			"DateType": "date",
-			"xs:string": "text"
+			"xs:string": "input"
 		};
 
 		this.HTMLObjects = [];
@@ -248,17 +248,20 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		let itemFormModel = sender.getFullFormName(item.attr.name, sender);
+		let name = (item.attr.name) ? item.attr.name : item.attr.element;
+		let itemFormModel = sender.getFullFormName(name, sender);
+		name = name.replace("-", "");
+		
 		var htmlItem = {
-			name: item.attr.name.replace("-", ""),
+			name: name,
 			tag: 'input',
 			tagclose: false,
 			autoclose: false,
 			hasLabel: true,
 			formModel: itemFormModel,
 			attrs: {
-				name: item.attr.name.replace("-", ""),
-				id: item.attr.name.replace("-", ""),
+				name:name,
+				id: name,
 				required: 1,
 				type: 'text',
 				'ng-model': 'field.' + itemFormModel
@@ -281,7 +284,7 @@ class XSDWebFormParserHTMLTags {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
-				name: item.attr.element,
+				name: item.attr.element.replace("-", ""),
 				tag: 'textarea',
 				tagclose: false,
 				autoclose: true,
