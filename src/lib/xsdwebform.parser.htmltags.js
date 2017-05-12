@@ -156,7 +156,7 @@ class XSDWebFormParserHTMLTags {
 
 		if (!xsdGroupProperties) {
 			try {
-			xsdGroupProperties = xsdItem.childWithAttribute("name", item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
+				xsdGroupProperties = xsdItem.childWithAttribute("name", item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
 			} catch (ex) {
 				XSDWebFormParserError.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
 			}			
@@ -166,9 +166,9 @@ class XSDWebFormParserHTMLTags {
 		if (xsdGroupProperties.attr.maxOccurs) {
 			let maxOccurs = '';
 			if (isNaN(xsdGroupProperties.attr.maxOccurs))  {
-				 if ( xsdGroupProperties.attr.maxOccurs === 'unbounded')  {
-				 	maxOccurs = '0';
-				 }
+				if ( xsdGroupProperties.attr.maxOccurs === 'unbounded')  {
+					maxOccurs = '0';
+				}
 			} else {
 				maxOccurs = xsdGroupProperties.attr.maxOccurs;
 			}
