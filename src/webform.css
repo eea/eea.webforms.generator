@@ -507,7 +507,7 @@ a#printlink {
 #pagefoot .switch > span {
     display: table-cell;
     height: 100%;
-    padding: 0 1.25rem;
+    padding: 0 4px;
     vertical-align: middle;
     color: #666;
     font-size: 0.875rem;

@@ -151,7 +151,7 @@ export default class XSDWebForm {
 								console.error(err);
 								reject(err);
 							}
-							ncp("./src/assets/css/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
+							ncp("./src/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
 								if (err) {
 									console.error(err);
 									reject(err);
