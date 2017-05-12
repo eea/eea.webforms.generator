@@ -143,10 +143,16 @@ export default class XSDWebForm {
 					fs.mkdirSync(buildPath);
 					ncp("./src/assets/", buildPath + "assets", function(err) {
 						if (err) {
-							return console.error(err);
-							reject();
+							console.error(err);
+							reject(err);
 						}
-						resolve();
+						ncp("./src/webform.js", buildPath + "webform.js", function(err) {
+							if (err) {
+								console.error(err);
+								reject(err);
+							}
+							resolve();
+						});
 					});
 				}
 			});
@@ -176,14 +182,14 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular-translate.min.js" ></script>
 <script src="./assets/js/a/angular-translate-loader-url.min.js" ></script>
 <script src="./assets/js/a/angular-datepicker.min.js"></script>
+<script src="./webform.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/a/angular-datepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="./assets/css/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.css"/>
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
-
-<script type="text/javascript">
+<script>
 
 const app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
@@ -196,72 +202,7 @@ app.config(["$translateProvider", function($translateProvider) {
 
 }]);
 
-
-/**
-* WebFormAppCtrl: Main controller
-*/
-function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
- 
-	$scope.field = {};  
-	$scope.multipleIndex = 1;
-
-	$scope.changeLanguage = function(langKey) {
-		$translate.use(langKey);
-	};
-
-	$scope.toggleValidation = function() {
-		$scope.ValidationDisabled = !$scope.ValidationDisabled;
-	}
-
-	$scope.submit = function(frm) {
-		$scope.field[frm.$name].AEAPrice = 11;
-		console.log(frm);
-		console.log(frm['AEA-Price'].$$attr.ewMap);
-		return false;
-	};
-
-	$scope.printPreview = function() {
-		var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
-		$window.open(conversionLink, '_blank');
-	}
-
-	$scope.toggleValidation = function() {
-		$scope.ValidationDisabled = !$scope.ValidationDisabled;
-	}
-
-	$scope.save = function(){
-		dataRepository.saveInstance($scope.Webform);
-	}
-
-	$scope.close = function(){
-		if (urlProperties.baseURI == ''){
-				urlProperties.baseURI = "/";
-		};
-   	 	var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
-	    	if ($scope.Webform.$dirty){
-		        	if ($window.confirm('You have made changes in the questionnaire! \\n\\n Do you want to leave without saving the data?')){
-		 	           	window.location = windowLocation;
-		        	}
-	    	}
-	    	else {
-	       	 	window.location = windowLocation;
-	    	}
-	}
-
-	$scope.addRow = function() {
-		alert('Row');
-	};
-}
-
-$(document).on("scroll", function() {
-	if ($(document).scrollTop() > 40) {
-		$("#head").removeClass("tplarge").addClass("tpsmall");
-	} else {
-		$("#head").removeClass("tpsmall").addClass("tplarge");
-	}
-});
 </script>
-
 </head>
 <body>
 
