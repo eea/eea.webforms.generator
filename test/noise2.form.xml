@@ -1,0 +1,24 @@
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <page>
+        <form action="/api/testasdasd">
+        <group element="NoiseActionPlan">  
+                <item element="NameOfNoiseActionPlan"/>
+                <item element="FullNameOfActionPlan"/>
+                <item element="ReportingEntityUniqueCode"/>
+                <item element="ReportingIssue" minOccurs="0" maxOccurs="4"/>
+                <item element="Cost"/>
+                <item element="DateOfAdoption"/>
+                <item element="DateOfCompletion"/>
+                <item element="NofPeopleExperiencingNoiseReduction"/>
+                <item element="LimitValues"/>
+                <item element="SummaryOfProblems"/>
+                <item element="SummaryOfResults"/>
+                <item element="SummaryOfActions"/>
+                <item element="SummaryOfProvisions"/>
+                <item element="WebLinks"/>
+            </group>
+        </form>
+    </page>
+</root>

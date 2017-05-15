@@ -2,7 +2,7 @@
  * @file xsdwebform.parser.htmltags.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
- * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
+ * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
 import XSDWebFormParserLog from './xsdwebform.parser.log.js';
@@ -28,7 +28,8 @@ class XSDWebFormParserHTMLTags {
 			"number": this.parseNumber,
 			"positivenumber": this.parseNumberP,
 			"date": this.parseDate,
-			"select": this.parseSelect
+			"select": this.parseSelect,
+			"radio": this.parseRadio
 		};
 
 		this.XSD_HTML_TYPES = {
@@ -37,7 +38,8 @@ class XSDWebFormParserHTMLTags {
 			"NonNegativeIntegerType": "positivenumber",
 			"xs:date": "date",
 			"DateType": "date",
-			"xs:string": "input"
+			"xs:string": "input",
+			"xs:boolean": "radio"
 		};
 
 		this.HTMLObjects = [];
@@ -165,7 +167,7 @@ class XSDWebFormParserHTMLTags {
 			}			
 		}
 
-		let groupEnd = '';
+		let groupStart= '', groupEnd = '', canAddRows = 0;
 		if (xsdGroupProperties.attr.maxOccurs) {
 			let maxOccurs = '';
 			if (isNaN(xsdGroupProperties.attr.maxOccurs))  {
@@ -175,6 +177,9 @@ class XSDWebFormParserHTMLTags {
 			} else {
 				maxOccurs = xsdGroupProperties.attr.maxOccurs;
 			}
+			canAddRows = 1;
+
+			groupStart += `<div class="multiple-index medium-1">{{'number' | translate}} <span class="index">{{multipleIndex}}</span></div>`;
 			groupEnd += `<button type=\"button\" class="rowbutton" maxOccurs="${maxOccurs}" ng-click=\"addRow('${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button>`;
 		}
 		
@@ -184,8 +189,10 @@ class XSDWebFormParserHTMLTags {
 			tag: 'fieldset',
 			attrs: {
 				'ew-map': xsdGroupTag.name + "/" + item.attr.element,
+				multi: canAddRows,
 				id: item.attr.element.replace("-", "")
 			},
+			prepend: groupStart,
 			append: groupEnd,
 			xsdXML: xsdGroupTag,
 			items: [],
@@ -216,24 +223,50 @@ class XSDWebFormParserHTMLTags {
 			if (!XSDWFormItem) {
 				if (itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element)) {
 					XSDWFormItem =  xsdItem.childWithAttribute("name", item.attr.element);
+
 					if (!XSDWFormItem.attr.type) {
-						XSDWFormItem = XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction");
-						XSDWFormItem.attr.type = XSDWFormItem.attr.base;
+
+						let subXSDWFormItem = XSDWFormItem.childNamed("xs:simpleType");
+
+						if (!subXSDWFormItem) {
+							XSDWFormItem = XSDWFormItem.childNamed("xs:complexType").childWithAttribute("name", "entireEntity");
+						} else {
+							XSDWFormItem = subXSDWFormItem.childNamed("xs:restriction");
+							XSDWFormItem.attr.type = XSDWFormItem.attr.base;
+						}
 					}
 				} else {
 					XSDWebFormParserError.reportError(`Can not find name or ref "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 				}
 			}
 			XSDWFormItemType = XSDWFormItem.attr.type;
-			
+							
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
 				item.src = XSDWFormItem;
 			} else {
-				item.name = "select";
+
+				let subXSDWFormItem = xsdItem.childWithAttribute("name", XSDWFormItemType).childNamed("xs:simpleContent");
+				
+				if (subXSDWFormItem) {
+					subXSDWFormItem= subXSDWFormItem.childNamed("xs:extension");
+
+					if (subXSDWFormItem.attr.base) {
+						XSDWFormItemType = subXSDWFormItem.attr.base;
+						item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
+						item.src = XSDWFormItem;
+					}
+				}
+				
+				if (!(XSDWFormItemType in sender.XSD_HTML_TYPES)) {
+					item.name = "select";
+				}
 			}
+
+
 			sender.parseHTMLItem(item, xsdItem);
 		} catch (ex) {
+			console.log("ex", ex);
 			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 		}
 	}
@@ -386,7 +419,7 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * parseSelect- Parse Select Tag
+	 * parseSelect - Parse Select Tag
 	 * @param item
 	 * @param xsdItem
 	 * @param sender
@@ -403,7 +436,7 @@ class XSDWebFormParserHTMLTags {
 			try {
 				XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
+				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
 
 			try {
@@ -462,6 +495,21 @@ class XSDWebFormParserHTMLTags {
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
+		}
+	}
+	
+	/**
+	 * parseRadio - Parse  Radio Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	parseRadio(item, xsdItem, sender) {
+
+		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+
+		if (item.attr.element) {
+			console.log("TO DO: RADIO ");
 		}
 	}
 

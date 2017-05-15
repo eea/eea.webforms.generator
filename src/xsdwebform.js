@@ -2,7 +2,7 @@
  * @file index.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
- * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
+ * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
 'use strict';
@@ -242,8 +242,8 @@ var langFile = '${this.baseFileName}en.lang.json';
 <div id="workarea" class="row collapse">
 	
 	<div class="row">
-		<div class="multiple-index medium-1">{{'number' | translate}} <span class="index">{{multipleIndex}}</span></div>
-		<div class="multiple-index-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
+		<div class="top-form-left medium-1"><span class="index">&nbsp;</span></div>
+		<div class="top-form-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
 	</div>
 
 	<div class="row">

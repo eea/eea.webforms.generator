@@ -2,7 +2,7 @@
  * @file xsdwebform.parser.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
- * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
+ * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
 'use strict';
@@ -85,8 +85,11 @@ class XSDWebFormParser {
 
 			for (let i = 0, l = groups.length; i < l; i++) {
 				let group = groups[i];
-				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 
+				if (group.itemObject.prepend)
+					formHtml.push("\t\t\t" + group.itemObject.prepend);
+
+				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					formHtml.push("\t\t\t\t<div class=\"formitem\">" + groups[i].itemObject.items[i2] + "</div>");
 				}

@@ -2,7 +2,7 @@
  * @file xsdwebform.parser.error.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
- * @copyright Copyright (C) 2017 Eworx, George Bouris. All rights reserved.
+ * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
 
