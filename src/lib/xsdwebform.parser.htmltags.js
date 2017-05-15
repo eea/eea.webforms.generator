@@ -293,8 +293,8 @@ class XSDWebFormParserHTMLTags {
 			hasLabel: true,
 			formModel: itemFormModel,
 			attrs: {
-				name:name,
-				id: name,
+				name:name + '${{$index + 1}}',
+				id: name + '${{$index + 1}}',
 				required: 1,
 				type: 'text',
 				'ng-model': 'field.' + itemFormModel
@@ -324,8 +324,8 @@ class XSDWebFormParserHTMLTags {
 				hasLabel: true,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element.replace("-", ""),
-					id: item.attr.element.replace("-", ""),
+					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
@@ -357,12 +357,12 @@ class XSDWebFormParserHTMLTags {
 				hasLabel: true,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element.replace("-", ""),
-					id: item.attr.element.replace("-", ""),
+					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "number",
 					'ew-map': sender.getEwMap(item, itemInfo),
-					'ng-model': 'field.' +itemFormModel
+					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
@@ -404,8 +404,8 @@ class XSDWebFormParserHTMLTags {
 				hasLabel: true,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element,
-					id: item.attr.element.replace("-", ""),
+					name: item.attr.element + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "date",
 					'ew-map': sender.getEwMap(item, itemInfo),
@@ -486,8 +486,8 @@ class XSDWebFormParserHTMLTags {
 				options: enumItems,
 				formModel: itemFormModel,
 				attrs: {
-					name: item.attr.element,
-					id: item.attr.element.replace("-", ""),
+					name: item.attr.element + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
@@ -549,7 +549,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	getFullFormName(name, sender) {
-		return sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.name + "." + name.replace("-", "");
+		return sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.name + "['" + name.replace("-", "") + "$' + ($index + 1)]";
 	}
 
 
@@ -609,7 +609,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += "</" + this.tag + ">";
 
 		if (this.attrs.required === 1) {
-			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>${this.attrs.id}</b> {{'isrequired' | translate}}</span>`;
+			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;

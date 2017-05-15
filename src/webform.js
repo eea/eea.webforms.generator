@@ -17,7 +17,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
  
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
-	$scope.ValidationDisabled = false;
+	$window.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
 	$scope.codeLists;
 	$scope.groups =  groups;
@@ -25,7 +25,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	($scope.getCodeList = function() {
 		$http.get('ct-codelists-en.json').then( function(response) {
 				$scope.codeLists = response.data;
-				console.log("$scope.codeLists =", $scope.codeLists );
 				$scope.language = $scope.selectedLanguage;
 			})
 	})();
@@ -36,7 +35,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	};
 
 	$scope.toggleValidation = function() {
-		$scope.ValidationDisabled = !$scope.ValidationDisabled;
+		$window.ValidationDisabled = !$window.ValidationDisabled;
 	}
 
 	$scope.submit = function(frm) {
@@ -48,10 +47,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.printPreview = function() {
 		var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
 		$window.open(conversionLink, '_blank');
-	}
-
-	$scope.toggleValidation = function() {
-		$scope.ValidationDisabled = !$scope.ValidationDisabled;
 	}
 
 	$scope.save = function(){
@@ -76,7 +71,9 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.addRow = function(frm, group) {
 		$scope.groups[frm][group].push(++$scope.multipleIndex);
 	}
+
 }
+
 
 $(document).on("scroll", function() {
 	if ($(document).scrollTop() > 40) {
