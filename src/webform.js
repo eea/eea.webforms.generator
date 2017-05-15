@@ -19,11 +19,12 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
-	$scope.CodeLists;
+	$scope.codeLists;
+	$scope.groupRows =  [$scope.multipleIndex];
 
 	($scope.getCodeList = function() {
 		$http.get('ct-codelists-en.json').then( function(response) {
-				$scope.CodeLists = response.data;
+				$scope.codeLists = response.data;
 				$scope.language = $scope.selectedLanguage;
 			})
 	})();
@@ -70,11 +71,11 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	       	 	window.location = windowLocation;
 	    	}
 	}
-
+	
 	$scope.addRow = function(frm, group) {
-		$('#form-area-' + frm).append(`<div id="group-area-${++$scope.multipleIndex}-${group}" class="group-area">`+ $('#group-area-1-'+ group).html() +'</div>');
-		$(`#group-area-${$scope.multipleIndex}-${group} .index`).html($scope.multipleIndex);
-	};
+		$scope.groupRows.push(++$scope.multipleIndex);
+	}
+
 }
 
 $(document).on("scroll", function() {

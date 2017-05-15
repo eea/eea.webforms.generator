@@ -246,7 +246,7 @@ var langFile = '${this.baseFileName}en.lang.json';
 		<div class="top-form-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
 	</div>
 
-	<div class="row">
+	<div class="row"> 
 	`;
 	}
 
