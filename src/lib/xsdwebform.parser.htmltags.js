@@ -116,7 +116,7 @@ class XSDWebFormParserHTMLTags {
 		let formEnd = "<button type=\"submit\" class=\"submitbutton\">{{'submitform' | translate}}</button>";
 		let formNum = sender.HTMLObjects.length + 1;
 		var formObject = {
-			name: 'form' + formNum,
+			name: 'form' + formNum ,
 			action: item.attr.action,
 			tag: 'form',
 			append: formEnd,
@@ -179,7 +179,7 @@ class XSDWebFormParserHTMLTags {
 			}
 			canAddRows = 1;
 
-			groupStart += `<div class="multiple-index medium-1"><span class="index">{{multipleIndex}}</span></div>`;
+			groupStart += `<div class="multiple-index medium-1"><span class="index">1</span></div>`;
 			groupEnd += `<div class="row"><button type=\"button\" class="rowbutton" maxOccurs="${maxOccurs}" ng-click=\"addRow('form${sender.HTMLObjects.length}', '${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button></div>`;
 		}
 		
