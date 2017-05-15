@@ -242,7 +242,7 @@ var langFile = '${this.baseFileName}en.lang.json';
 <div id="workarea" class="row collapse">
 	
 	<div class="row">
-		<div class="top-form-left medium-1"><span class="index">&nbsp;</span></div>
+		<div class="top-form-left medium-1"><span class="index">#</span></div>
 		<div class="top-form-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
 	</div>
 
