@@ -123,6 +123,7 @@ fieldset {
     border-radius: 3px;
     background-color: rgba(3, 3, 3, 0.1);
     padding: 0px;
+    clear: both;
 }
 
 /*
@@ -315,6 +316,10 @@ select.slanguage:focus {
     background-color: #333
 }
 
+.group-area {
+    clear: both;
+}
+
 .formitem {
     float: left;
     color: #fff;
@@ -464,6 +469,7 @@ select.slanguage:focus {
     line-height: 32px;
     padding-left: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .rowbutton::before {

@@ -71,8 +71,11 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	    	}
 	}
 
-	$scope.addRow = function() {
-		alert('Row');
+	$scope.totalRows = 1;
+	$scope.addRow = function(frm, group) {
+		$('#form-area-' + frm).append(`<div id="group-area-${++$scope.totalRows}-${group} class="group-area">`+ $('#group-area-1-'+ group).html());
+		console.log("$scope.totalRows", $scope.totalRows);
+	
 	};
 }
 

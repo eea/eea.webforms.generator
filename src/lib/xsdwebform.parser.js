@@ -86,6 +86,9 @@ class XSDWebFormParser {
 			for (let i = 0, l = groups.length; i < l; i++) {
 				let group = groups[i];
 
+				formHtml.push(`\t\t<div id="form-area-${form.itemObject.name}">`);
+				formHtml.push(`\t\t\t<div id="group-area-1-${group.itemObject.name}" class="group-area">`);
+
 				if (group.itemObject.prepend)
 					formHtml.push("\t\t\t" + group.itemObject.prepend);
 
@@ -100,8 +103,12 @@ class XSDWebFormParser {
 					formHtml.push("\t\t\t" + group.itemObject.append);
 			}
 
+			formHtml.push('\t\t\t</div>');
+			formHtml.push('\t\t</div>');
+
 			if (form.itemObject.append)
 				formHtml.push("\t\t\t" + form.itemObject.append);
+
 
 			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
 		}
