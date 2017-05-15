@@ -304,6 +304,7 @@ a#printlink {
     position: absolute;
     right: 10px;
     width: auto;
+    margin-top: -40px;
 }
 
 select.slanguage:focus {

@@ -199,6 +199,14 @@ export default class XSDWebForm {
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
 var langFile = '${this.baseFileName}en.lang.json';
+var groups = {${
+	this.parser.htmlTagParser.HTMLObjects.map( (frm) => { 
+		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {
+			return '\n\t\t\t' + grp.itemObject.name + ' : [1]';
+		}) + ' \n\t\t}';
+	})
+} 
+};
 </script>
 </head>
 <body  ng-controller="WebFormAppCtrl">
@@ -225,7 +233,6 @@ var langFile = '${this.baseFileName}en.lang.json';
 		<div id="network-title">Eionet</div>
 		<div id="site-title">European Environment Information and Observation Network</div>
 	</div>
-
 </div>
 
 <div id="container">
@@ -234,10 +241,10 @@ var langFile = '${this.baseFileName}en.lang.json';
 		<h1>EEA</h1>
 		<h2 class="subheader">Web Form</h2>
 	</div>
+	<select ng-model="language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in codeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
+	</select>
 </div>
 
-<select ng-model="language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in CodeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
-</select>
 
 <div id="workarea" class="row collapse">
 	
