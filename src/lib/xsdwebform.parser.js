@@ -87,7 +87,6 @@ class XSDWebFormParser {
 				let group = groups[i];
 
 				formHtml.push(`\t\t<div id="form-area-${form.itemObject.name}">`);
-				formHtml.push(`\t\t<script></script>`);
 				formHtml.push(`\t\t\t<div id="group-area-1-${group.itemObject.name}" class="group-area"  ng-repeat="grouprow in groupRows">`);
 
 				if (group.itemObject.prepend)
