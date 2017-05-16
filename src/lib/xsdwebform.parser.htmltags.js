@@ -636,10 +636,6 @@ class XSDWebFormParserHTMLTags {
 		let outPut = '';
 
 		if (this.hasLabel) {
-			// sender.TextContentObjects.push({
-			// 	label: this.name.replace("-", ""),
-			// 	text: this.name
-			// });
 			sender.TextContentObjects.push({
 				label: this.name.replace("-", ""),
 				text: this.name
@@ -673,9 +669,8 @@ class XSDWebFormParserHTMLTags {
 						text: option.label
 					});
 					let req = '';
-					if (this.attrs.required) {
+					if (this.attrs.required) 
 						req = 'required="1"';
-					}
 					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}" ${req}>{{'labels.${lbl}' | translate}}</label>`;
 				}).join("") + '</div>';
 			}

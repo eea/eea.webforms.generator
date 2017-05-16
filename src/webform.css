@@ -137,6 +137,7 @@ fieldset {
 .radioclass {
     border: inset 1px rgba(100, 100, 100, 0.1);
     min-height: 55px;
+    background-color: rgba(100, 100, 100, 0.1);
 }
 
 /*
