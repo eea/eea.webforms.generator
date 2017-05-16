@@ -22,7 +22,7 @@ class XSDWebFormParser {
 	 * @param showlog
 	 * @param verbose
 	 */
-	constructor(showlog = false, verbose = false) {
+	constructor(showlog = false, verbose = false,  showXSDLog  = true) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 
@@ -33,6 +33,7 @@ class XSDWebFormParser {
 
 		this.showLog = showlog;
 		this.verbose = verbose;
+		this.showXSDLog = showXSDLog;
 
 		this.xsdTagParser.setLog(this.showLog);
 		this.xsdTagParser.setVerbose((this.showLog && this.verbose));
@@ -45,14 +46,14 @@ class XSDWebFormParser {
 	 * @param xml
 	 */
 	parse(xObject) {
-		if (this.showLog)
+		if (this.showLog && this.showXSDLog)
 			XSDWebFormParserLog.logXSD(xObject);
 
 		// Create XML Document for XSD
 		var xsdItem = new XmlDocument(xObject.xdata);
 		xsdItem.level = 0;
 
-		if (this.showLog) 
+		if (this.showLog && this.showXSDLog) 
 			this.xsdTagParser.xsdParse(xsdItem);
 
 		if (this.showLog)

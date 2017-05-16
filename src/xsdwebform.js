@@ -33,6 +33,7 @@ export default class XSDWebForm {
 			//logging
 			this.showLog = true;
 			this.verbose = true;
+			this.showXSDLog = true;
 
 			//Build directory
 			this.buildPath = "build/";
@@ -46,23 +47,27 @@ export default class XSDWebForm {
 			// Check for [-f file] [-a | open browser after build] input
 			args.forEach( 
 				(item, index) => {
-					if (item == '-f') {
+					if (item === '-f') {
 						xsdFile = args[index + 1];
 						return;
 					}
-					if (item == '-ul') {
+					if (item === '-ul') {
 						this.showLog = false;
 						this.verbose = false;
 						return;
 					}
-					if (item == '-a') {
+					if (item === '-l') {
+						this.showXSDLog = false;
+						return;
+					}
+					if (item === '-a') {
 						this.autoOpenOutput = true;
 						return;
 					}
 				});
 
 			// XSDWebFormParser    		
-			this.parser = new XSDWebFormParser(this.showLog, this.verbose);
+			this.parser = new XSDWebFormParser(this.showLog, this.verbose, this.showXSDLog);
 			
 			// If not file input
 			if (!xsdFile) {
