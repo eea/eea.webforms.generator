@@ -635,6 +635,10 @@ class XSDWebFormParserHTMLTags {
 		let outPut = '';
 
 		if (this.hasLabel) {
+			// sender.TextContentObjects.push({
+			// 	label: this.name.replace("-", ""),
+			// 	text: this.name
+			// });
 			sender.TextContentObjects.push({
 				label: this.name.replace("-", ""),
 				text: this.name

@@ -127,6 +127,14 @@ class XSDWebFormParser {
 	 * getTextContent - Return Text Content 
 	 */
 	getTextContent() {
+		// Remove duplicate labels
+		let exists = {};
+		this.htmlTagParser.TextContentObjects.forEach((item, index) => {
+			if (exists[item.label])
+				 this.htmlTagParser.TextContentObjects.splice(index, 1);
+			
+				exists[item.label] = 1;
+		});
 		var textContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
 		return this.htmlTagParser.TextContentObjects.map((label, index) => {
 			if (index < textContentObjectsLength)
