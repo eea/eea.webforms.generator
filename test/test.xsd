@@ -77,6 +77,26 @@
         </xs:restriction>
     </xs:simpleType>
 
+        <xs:element name="ReportingIssue">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="UniqueAgglomerationId" minOccurs="0"/>
+                <xs:element ref="UniqueRoadId" minOccurs="0"/>
+                <xs:element ref="UniqueRailId" minOccurs="0"/>
+                </xs:sequence>
+            <xs:attribute name="type" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="agg"/>
+                        <xs:enumeration value="air"/>
+                        <xs:enumeration value="rail"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="entireEntity" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
   <xs:complexType name="ConcludedTransferRecord">
         <xs:annotation>
             <xs:documentation>Record of Concluded Transfer</xs:documentation>
@@ -88,6 +108,7 @@
           <xs:element name="AEA-Price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
           <xs:element name="TransferAgreementDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
           <xs:element name="ExpectedTransactionYear" type="TransactionYear" minOccurs="1" maxOccurs="1"/>
+          <xs:element ref="ReportingIssue" minOccurs="0" maxOccurs="4"/>
           <xs:element name="Other" type="xs:string" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>

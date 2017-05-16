@@ -130,10 +130,14 @@ fieldset {
     color: #fff;
     font-size: 12px;
     float: left;
-    margin: 4px;
-    padding: 4px;
+    margin: 5px;
+    padding: 6px;
 }
 
+.radioclass {
+    border: inset 1px rgba(100, 100, 100, 0.1);
+    min-height: 55px;
+}
 
 /*
 #head {

@@ -12,6 +12,7 @@
 				<item element="Other"/>
 				<input name="Test"/>
 				<input name="Test2"/>
+				<item element="ReportingIssue"/>
 			</group>
 		</form>
 	</page>

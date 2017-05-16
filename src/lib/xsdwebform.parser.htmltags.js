@@ -547,6 +547,7 @@ class XSDWebFormParserHTMLTags {
 				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
+				noTag: true,
 				options: enumItems,
 				formModel: itemFormModel,
 				attrs: {
@@ -646,13 +647,15 @@ class XSDWebFormParserHTMLTags {
 			outPut = `<div ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></div>`;
 		}
 
-		outPut += "<" + this.tag;
-		for (let key in this.attrs) {
-			outPut += " " + key + "=\"" + this.attrs[key] + "\"";
+		if (!this.noTag) {
+			outPut += "<" + this.tag;
+			for (let key in this.attrs) {
+				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
+			}
+			outPut += ">";
 		}
-		outPut += ">";
 
-		if (this.options ) {
+		if (this.options) {
 			if (this.tag === 'select') {
 				outPut += this.options.map((option) => {
 					let lbl = option.option.toString().replace(" ","").replace("-","");
@@ -663,14 +666,18 @@ class XSDWebFormParserHTMLTags {
 					return `<option value="${option.value}">{{'labels.${lbl}' | translate}}</option>`;
 				}).join("");
 			} else {
-				outPut += this.options.map((option) => {
+				outPut += '<div class="radioclass">' + this.options.map((option) => {
 					let lbl = option.label.toString().replace(" ","").replace("-","");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.label
 					});
-					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}">{{'labels.${lbl}' | translate}}</label>`;
-				}).join("");
+					let req = '';
+					if (this.attrs.required) {
+						req = 'required="1"';
+					}
+					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}" ${req}>{{'labels.${lbl}' | translate}}</label>`;
+				}).join("") + '</div>';
 			}
 		}
 
