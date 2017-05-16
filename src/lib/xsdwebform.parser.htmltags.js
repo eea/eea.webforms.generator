@@ -637,9 +637,9 @@ class XSDWebFormParserHTMLTags {
 		if (this.hasLabel) {
 			sender.TextContentObjects.push({
 				label: this.name.replace("-", ""),
-				text: `${this.name}`
+				text: this.name
 			});
-			outPut = `<div ng-bind="'${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></div>`;
+			outPut = `<div ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></div>`;
 		}
 
 		outPut += "<" + this.tag;
@@ -651,11 +651,21 @@ class XSDWebFormParserHTMLTags {
 		if (this.options ) {
 			if (this.tag === 'select') {
 				outPut += this.options.map((option) => {
-					return `<option value="${option.value}">${option.option}</option>`;
+					let lbl = option.option.replace(" ","").replace("-","");
+					sender.TextContentObjects.push({
+						label: lbl,
+						text: option.option
+					});
+					return `<option value="${option.value}">{{'labels.${lbl}' | translate}}</option>`;
 				}).join("");
 			} else {
 				outPut += this.options.map((option) => {
-					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}"> ${option.label}</label>`;
+					let lbl = option.label.replace(" ","").replace("-","");
+					sender.TextContentObjects.push({
+						label: lbl,
+						text: option.label
+					});
+					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}">{{'labels.${lbl}' | translate}}</label>`;
 				}).join("");
 			}
 		}

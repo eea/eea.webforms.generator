@@ -150,7 +150,7 @@ class XSDWebFormParser {
 	"addrow"		: "Add Row",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
-	"labels "		: {
+	"labels"		: {
 ${textContent}
 				}
 }`;
