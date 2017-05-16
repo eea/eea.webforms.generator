@@ -134,6 +134,7 @@ fieldset {
     padding: 4px;
 }
 
+
 /*
 #head {
     position: fixed;
@@ -466,24 +467,8 @@ select.slanguage:focus {
     border-radius: 10%;
 }
 
-.rowbutton {
-    float: right;
-    display: block;
-    min-width: auto;
-    font-size: 12px;
-    background-color: #368A55;
-    color: #fff;
-    border: none;
-    padding: 6px;
-    height: 42px;
-    line-height: 32px;
-    padding-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .rowbutton::before {
-    float: left;
+    float: right;
     margin: 0 10px 0 -16px;
     width: 30px;
     height: 30px;
@@ -497,6 +482,25 @@ select.slanguage:focus {
     content: '\f199';
 }
 
+.rowbutton {
+    float: right;
+    display: block;
+    min-width: auto;
+    font-size: 12px;
+    background-color: #368A55;
+    color: #fff;
+    border: none;
+    padding: 6px;
+    height: 42px;
+    width: 60px;
+    line-height: 32px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/*
 .deleterowbutton {
     cursor: pointer;
     background-color: #F15A24;
@@ -507,6 +511,23 @@ select.slanguage:focus {
     opacity: 0.9;
     margin-left: -54px;
     margin-top: 54px;
+}*/
+
+.deleterowbutton {
+    cursor: pointer;
+    background-color: rgba(241, 90, 36, .2);
+    width: 60px;
+    min-width: auto;
+    font-size: 12px;
+    position: absolute;
+    opacity: 0.5;
+    margin-left: -53px;
+    margin-top: 55px;
+}
+
+.deleterowbutton:hover {
+    opacity: 1;
+    background-color: rgb(241, 90, 36);
 }
 
 .deleterowbutton::before {
@@ -523,6 +544,24 @@ select.slanguage:focus {
     font-family: "foundation-icons";
     content: '\f204';
 }
+
+
+/*.deleterowbutton {
+    cursor: pointer;
+    background-color: #F15A24;
+    width: 60px;
+    min-width: auto;
+    font-size: 12px;
+    position: absolute;
+    opacity: 0.9;
+    margin-left: -17px;
+    float:right;
+    margin-top: 2px;
+}
+
+.group-area .row {
+    text-align: right;
+}*/
 
 .footer {
     font-size: 11px;
