@@ -327,6 +327,7 @@ select.slanguage:focus {
 
 .group-area {
     clear: both;
+    margin-bottom: 30px;
 }
 
 .formitem {
@@ -497,14 +498,30 @@ select.slanguage:focus {
 }
 
 .deleterowbutton {
-    /*width: 1.5rem;*/
-    /*height: 1.5rem;*/
-    /*display: inline-block;*/
-    /*text-indent: -9999px;*/
-    /*background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…doMy4zMTJjMC4zMSwwLDAuNTYzLDAuMjQ4LDAuNTYzLDAuNTU3VjIuMTA3eiIvPjwvc3ZnPg==);*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 50% 50%;*/
     cursor: pointer;
+    background-color: #F15A24;
+    width: 60px;
+    min-width: auto;    
+    font-size: 12px;
+    position: absolute;
+    opacity: 0.9;
+    margin-left: -54px;
+    margin-top: 54px;
+}
+
+.deleterowbutton::before {
+    float: left;
+    margin: 0 10px 0 -16px;
+    width: 30px;
+    height: 30px;
+    line-height: 12px;
+    background-color: #fff;
+    color: #F15A24;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 50%;
+    font-family: "foundation-icons";
+    content: '\f204';
 }
 
 .footer {
