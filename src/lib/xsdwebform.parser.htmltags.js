@@ -651,7 +651,7 @@ class XSDWebFormParserHTMLTags {
 		if (this.options ) {
 			if (this.tag === 'select') {
 				outPut += this.options.map((option) => {
-					let lbl = option.option.replace(" ","").replace("-","");
+					let lbl = option.option.toString().replace(" ","").replace("-","");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.option
@@ -660,7 +660,7 @@ class XSDWebFormParserHTMLTags {
 				}).join("");
 			} else {
 				outPut += this.options.map((option) => {
-					let lbl = option.label.replace(" ","").replace("-","");
+					let lbl = option.label.toString().replace(" ","").replace("-","");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.label
