@@ -126,6 +126,14 @@ fieldset {
     clear: both;
 }
 
+.radio-label {
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    margin: 4px;
+    padding: 4px;
+}
+
 /*
 #head {
     position: fixed;

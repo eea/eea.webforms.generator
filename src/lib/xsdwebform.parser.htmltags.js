@@ -509,7 +509,56 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
-			console.log("TO DO: RADIO ");
+			
+			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+			let XSDWFormItem, XSDWFormItemData;
+
+			try {
+				XSDWFormItem = xsdItem.childWithAttribute("name", item.attr.element);
+			} catch (ex) {
+				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
+			}
+
+			try {
+				XSDWFormItemData = XSDWFormItem.childNamed("xs:complexType").childNamed("xs:sequence");
+			} catch (ex) {
+				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" sequence in XSD`);
+			}
+
+			if (!XSDWFormItemData)
+				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
+
+			let enumItems = [];
+			XSDWFormItemData.eachChild((enm) => {
+				if (enm.name === "xs:element") {
+					enumItems.push({
+						value: enm.attr.ref,
+						name: item.attr.element,
+						label: enm.attr.ref
+					});
+				}
+			});
+			
+
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
+			var htmlItem = {
+				name: item.attr.element,
+				tag: 'radio',
+				tagclose: false,
+				autoclose: false,
+				hasLabel: true,
+				options: enumItems,
+				formModel: itemFormModel,
+				attrs: {
+					name: item.attr.element + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					required: 1,
+					'ew-map': sender.getEwMap(item, itemInfo),
+					'ng-model': 'field.' + itemFormModel
+				},
+				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
+			};
+			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 	}
 
@@ -599,10 +648,16 @@ class XSDWebFormParserHTMLTags {
 		}
 		outPut += ">";
 
-		if (this.options) {
-			outPut += this.options.map((option) => {
-				return `<option value="${option.value}">${option.option}</option>`;
-			}).join("");
+		if (this.options ) {
+			if (this.tag === 'select') {
+				outPut += this.options.map((option) => {
+					return `<option value="${option.value}">${option.option}</option>`;
+				}).join("");
+			} else {
+				outPut += this.options.map((option) => {
+					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}"> ${option.label}</label>`;
+				}).join("");
+			}
 		}
 
 		if (this.autoclose)
