@@ -13,7 +13,7 @@ app.config(["$translateProvider", function($translateProvider) {
 /**
 * WebFormAppCtrl: Main controller
 */
-function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
+function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile) {
  
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
@@ -71,11 +71,12 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	$scope.addRow = function(frm, group) {
 		$scope.groups[frm][group].push(++$scope.multipleIndex);
 		$timeout ( () => {
-				$(`#group-area-${$scope.multipleIndex}-${group}`).prepend(`<div class="row"><button type="button" class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')"></button></div>`);
+				$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button" class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')"></button></div>`)($scope));
 			}, 10);
 	}
 
 	$scope.deleteRow = function(frm, group, index) {
+		alert(index);
 		console.log("index", index);
 	}
 
