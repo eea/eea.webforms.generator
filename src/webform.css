@@ -496,6 +496,17 @@ select.slanguage:focus {
     content: '\f199';
 }
 
+.deleterowbutton {
+    /*width: 1.5rem;*/
+    /*height: 1.5rem;*/
+    /*display: inline-block;*/
+    /*text-indent: -9999px;*/
+    /*background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…doMy4zMTJjMC4zMSwwLDAuNTYzLDAuMjQ4LDAuNTYzLDAuNTU3VjIuMTA3eiIvPjwvc3ZnPg==);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 50% 50%;*/
+    cursor: pointer;
+}
+
 .footer {
     font-size: 11px;
     width: 100%;

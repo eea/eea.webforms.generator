@@ -70,6 +70,13 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate) {
 	
 	$scope.addRow = function(frm, group) {
 		$scope.groups[frm][group].push(++$scope.multipleIndex);
+		$timeout ( () => {
+				$(`#group-area-${$scope.multipleIndex}-${group}`).append(`<div class="row"><button type="button" class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')">${$translate.instant('deleterow' )}</button></div>`);
+			}, 10);
+	}
+
+	$scope.deleteRow = function(frm, group, index) {
+		console.log("index", index);
 	}
 
 }

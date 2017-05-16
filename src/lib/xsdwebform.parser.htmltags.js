@@ -180,7 +180,7 @@ class XSDWebFormParserHTMLTags {
 			canAddRows = 1;
 
 			groupStart += `<div class="multiple-index medium-1"><span class="index">{{$index + 1}}</span></div>`;
-			groupEnd += `<div class="row"><button type=\"button\" class="rowbutton" maxOccurs="${maxOccurs}" ng-click=\"addRow('form${sender.HTMLObjects.length}', '${item.attr.element}')\" ng-model=\"group.item['${item.attr.element + "'].item['add" + item.attr.element}']\" group=\"${item.attr.element}\">{{'addrow'  | translate}}</button></div>`;
+			groupEnd += `<div class="row"><button type="button" class="rowbutton" maxOccurs="${maxOccurs}" ng-click="addRow('form${sender.HTMLObjects.length}', '${item.attr.element}')" ng-model="group.item['${item.attr.element + "'].item['add" + item.attr.element}']" group="${item.attr.element}">{{'addrow'  | translate}}</button></div>`;
 		}
 		
 		var groupObject = {

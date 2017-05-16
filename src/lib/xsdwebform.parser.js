@@ -87,8 +87,8 @@ class XSDWebFormParser {
 			for (let i = 0, l = groups.length; i < l; i++) {
 				let group = groups[i];
 
-				formHtml.push(`\t\t<div id="form-area-{form.itemObject.name}$">`);
-				formHtml.push(`\t\t\t<div id="group-area-1-${group.itemObject.name}" class="group-area"  ng-repeat="grouprow in groups.${form.itemObject.name}.${group.itemObject.name}">`);
+				formHtml.push(`\t\t<div id="form-area-${form.itemObject.name}">`);
+				formHtml.push(`\t\t\t<div id="group-area-{{$index + 1}}-${group.itemObject.name}" class="group-area" ng-repeat="grouprow in groups.${form.itemObject.name}.${group.itemObject.name}">`);
 
 				if (group.itemObject.prepend)
 					formHtml.push("\t\t\t" + group.itemObject.prepend);
@@ -100,12 +100,12 @@ class XSDWebFormParser {
 
 				formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
 
+				formHtml.push('\t\t\t</div>');
+				formHtml.push('\t\t</div>');
+
 				if (group.itemObject.append)
 					formHtml.push("\t\t\t" + group.itemObject.append);
 			}
-
-			formHtml.push('\t\t\t</div>');
-			formHtml.push('\t\t</div>');
 
 			if (form.itemObject.append)
 				formHtml.push("\t\t\t" + form.itemObject.append);
@@ -147,7 +147,8 @@ class XSDWebFormParser {
 	"pagetitle"		: "Page Title",
 	"formtitle"		: "Form Title",
 	"isrequired"		: "is required",
-	"addrow"		: "Add Row",
+	"adddrow"		: "Add Row",
+	"deleterow"		: "Delete Row",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
 	"labels"		: {
