@@ -146,7 +146,12 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
-					fs.mkdirSync(parent.buildPath+"/test");
+					ncp(__dirname + "/test/", parent.buildPath + "test", function(err) {
+						if (err) {
+							console.error(err);
+							reject(err);
+						}
+					});
 					ncp(__dirname + "/assets/", parent.buildPath + "assets", function(err) {
 						if (err) {
 							console.error(err);
@@ -258,7 +263,7 @@ var groups = {${
 		<div class="top-form-left medium-1"><span class="index">#</span></div>
 		<div class="top-form-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
 	</div>
-
+	
 	<div class="row"> 
 	`;
 	}
@@ -298,7 +303,7 @@ var groups = {${
 
 <footer class="footer">
 <div class="footer-wrapper">
-Build date: ${new Date()}
+<eea-form-build date="${new Date()}"></eea-form-build>
 </div>
 </footer>
 
