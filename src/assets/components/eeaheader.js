@@ -1,4 +1,4 @@
-app.component("eeaHeader",{
+app.component("eeaHeader", {
 	template: `<div id="head" class="top-bar sticky tplarge">
 
 	<div id="tool-ribbon">

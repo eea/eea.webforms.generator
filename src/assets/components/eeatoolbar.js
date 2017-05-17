@@ -1,5 +1,5 @@
 
-app.component("eeaToolbar",{
+app.component("eeaToolbar", {
 	template: `<div id="pagefoot" class="row">
         <div class="columns small-4">
             <div class="switch round tiny">
