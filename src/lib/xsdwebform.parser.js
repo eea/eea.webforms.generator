@@ -131,16 +131,16 @@ class XSDWebFormParser {
 		let exists = {};
 		this.htmlTagParser.TextContentObjects.forEach((item, index) => {
 			if (exists[item.label])
-				 this.htmlTagParser.TextContentObjects.splice(index, 1);
-			
-				exists[item.label] = 1;
+				this.htmlTagParser.TextContentObjects.splice(index, 1);
+
+			exists[item.label] = 1;
 		});
 		var textContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
 		return this.htmlTagParser.TextContentObjects.map((label, index) => {
 			if (index < textContentObjectsLength)
-				return `\t\t\t\t\t"${label.label}" : "${label.text}",`;
+				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}",`;
 			else
-				return `\t\t\t\t\t"${label.label}" : "${label.text}"`;
+				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}"`;
 		}).join("\n");
 	}
 

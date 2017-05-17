@@ -83,27 +83,29 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 }
 
 app.component("eeaFormBuild",{
-      template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago',
-      bindings: { date: '@' },
-       controller: function(){
-        	this.$onInit = function() {
-        		var delta = Math.abs(new Date().getTime() - new Date(this.date).getTime()) / 1000;
-		
-		var days = Math.floor(delta / 86400);
-		delta -= days * 86400;
+	template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago',
+	bindings: {
+		date: '@'
+	},
+	controller: function() {
+		this.$onInit = function() {
+			var delta = Math.abs(new Date().getTime() - new Date(this.date).getTime()) / 1000;
 
-		var hours = Math.floor(delta / 3600) % 24;
-		delta -= hours * 3600;
+			var days = Math.floor(delta / 86400);
+			delta -= days * 86400;
 
-		var minutes = Math.floor(delta / 60) % 60;
-		delta -= minutes * 60;
+			var hours = Math.floor(delta / 3600) % 24;
+			delta -= hours * 3600;
 
-		var seconds = Math.floor(delta % 60) ;
+			var minutes = Math.floor(delta / 60) % 60;
+			delta -= minutes * 60;
 
-		this.diff = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " sec.";
-	  }
-      }
-  });
+			var seconds = Math.floor(delta % 60);
+
+			this.diff = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " sec.";
+		}
+	}
+});
 
 $(document).on("scroll", function() {
 	if ($(document).scrollTop() > 40) {

@@ -1,0 +1,25 @@
+{
+  "name": "eea-webform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../webform.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.3.0",
+    "karma": "^1.7.0",
+    "sinon": "^2.2.0",
+    "request": "^2.81.0",
+    "request-mocha": "^0.2.0"
+  },
+  "scripts": {
+    "lint": "eslint ",
+    "test": "mocha",
+    "testc": "istanbul cover _mocha"
+  },
+  "author": "EEA aurthor",
+  "license": "ISC"
+}

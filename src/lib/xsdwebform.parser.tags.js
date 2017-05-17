@@ -24,6 +24,7 @@ class XSDWebFormParserTags {
 			"xs:simpleType": this.parseSimpleType,
 			"xs:complexType": this.parseComplexType,
 			"xs:sequence": this.parseSequence,
+			"xs:attribute": this.parseAttribute,
 			"xs:restriction": this.parseRestriction,
 			"xs:annotation": this.parseAnnotation,
 			"xs:documentation": this.parseDocumentation,
@@ -150,6 +151,15 @@ class XSDWebFormParserTags {
 	 * @param item
 	 */
 	parseSequence(item, sender) {
+		if (sender.showLog)
+			XSDWebFormParserLog.logXsdTag(item);
+	}
+
+	/**
+	 * parseAttribute - Parse Attribute Tag
+	 * @param item
+	 */
+	parseAttribute(item, sender) {
 		if (sender.showLog)
 			XSDWebFormParserLog.logXsdTag(item);
 	}
