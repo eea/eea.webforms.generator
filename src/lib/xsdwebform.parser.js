@@ -159,6 +159,12 @@ class XSDWebFormParser {
 	"deleterow"		: "Delete Row",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
+	"validation" 		: "Validation",
+	"on" 			: "On",
+	"off" 			: "Off",
+	"save" 			: "Save",
+	"printpreview" 		: "Print Preview",
+	"close" 			: "Close",
 	"labels"		: {
 ${textContent}
 				}

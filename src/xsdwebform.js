@@ -280,31 +280,13 @@ var groups = {${
 
 </div>
 
-<div id="pagefoot" class="row">
-        <div class="columns small-4">
-            <div class="switch round tiny">
-                <span>Validation </span>
-                <span ng-show="ValidationDisabled" class="ng-hide">Off</span>
-                <span ng-show="!ValidationDisabled">On</span>
-                <div class="round tiny">
-                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
-                  <label for="validationSwitch" class="switch-paddle"></label>
-                </div>
-                <label for="validationSwitch"></label>
-            </div> 
-        </div>
-        <div class="columns small-8 text-right buttons">
-            <button ng-click="save()">Save</button>
-            <button ng-click="printPreview()">Print Preview</button>
-            <button ng-click="close()">Close</button>
-        </div>
-    </div>
+<eea-toolbar off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
 
 
 <footer class="footer">
-<div class="footer-wrapper">
-<eea-form-build date="${new Date()}"></eea-form-build>
-</div>
+	<div class="footer-wrapper">
+		<eea-form-build date="${new Date()}"></eea-form-build>
+	</div>
 </footer>
 
 </body>
