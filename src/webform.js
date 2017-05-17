@@ -82,61 +82,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 
 }
 
-app.component("eeaToolbar",{
-	template: `<div id="pagefoot" class="row">
-        <div class="columns small-4">
-            <div class="switch round tiny">
-                <span>{{$ctrl.validation}}</span>
-                <span ng-show="ValidationDisabled" class="ng-hide">{{$ctrl.off}}</span>
-                <span ng-show="!ValidationDisabled">{{$ctrl.on}}</span>
-                <div class="round tiny">
-                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
-                  <label for="validationSwitch" class="switch-paddle"></label>
-                </div>
-                <label for="validationSwitch"></label>
-            </div> 
-        </div>
-        <div class="columns small-8 text-right buttons">
-            <button ng-click="save()">{{$ctrl.save}}</button>
-            <button ng-click="printPreview()">{{$ctrl.printpreview}}</button>
-            <button ng-click="close()">{{$ctrl.close}}</button>
-        </div>
-    </div>`,
-    bindings: {
-    		validation: '@',
-		on: '@',
-		off: '@',
-		save: '@',
-		printpreview: '@',
-		close: '@',
-	}
-});
-
-app.component("eeaFormBuild",{
-	template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago',
-	bindings: {
-		date: '@'
-	},
-	controller: function() {
-		this.$onInit = function() {
-			var delta = Math.abs(new Date().getTime() - new Date(this.date).getTime()) / 1000;
-
-			var days = Math.floor(delta / 86400);
-			delta -= days * 86400;
-
-			var hours = Math.floor(delta / 3600) % 24;
-			delta -= hours * 3600;
-
-			var minutes = Math.floor(delta / 60) % 60;
-			delta -= minutes * 60;
-
-			var seconds = Math.floor(delta % 60);
-
-			this.diff = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " sec.";
-		}
-	}
-});
-
 $(document).on("scroll", function() {
 	if ($(document).scrollTop() > 40) {
 		$("#head").removeClass("tplarge").addClass("tpsmall");
