@@ -125,7 +125,7 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					// Create HTML file
 					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
-						this.createFile(this.buildPath  + this.baseFileName + "en.lang.json", this.parser.getFullTextContent()).then ( () => {
+						this.createFile(this.buildPath + "lng/" + this.baseFileName + "en.lang.json", this.parser.getFullTextContent()).then ( () => {
 							resolve();
 						})
 					});
@@ -146,6 +146,7 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
+					fs.mkdirSync(parent.buildPath + 'lng');
 					ncp(__dirname + "/test/", parent.buildPath + "test", function(err) {
 						if (err) {
 							console.error(err);
@@ -213,7 +214,7 @@ export default class XSDWebForm {
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-var langFile = '${this.baseFileName}en.lang.json';
+var langFile = 'lng/${this.baseFileName}en.lang.json';
 var groups = {${
 	this.parser.htmlTagParser.HTMLObjects.map( (frm) => { 
 		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {
