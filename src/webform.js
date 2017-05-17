@@ -6,7 +6,6 @@ app.config(["$translateProvider", function($translateProvider) {
 
 	$translateProvider.useUrlLoader(langFile);
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
-	$translateProvider.preferredLanguage('en');
 
 }]);
 
@@ -25,7 +24,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	($scope.getCodeList = function() {
 		$http.get('ct-codelists-en.json').then( function(response) {
 				$scope.codeLists = response.data;
-				// $scope.language = $scope.selectedLanguage;
 			})
 	})();
 
