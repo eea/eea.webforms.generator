@@ -6,6 +6,8 @@ app.config(["$translateProvider", function($translateProvider) {
 
 	$translateProvider.useUrlLoader(langFile);
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
+	$translateProvider.fallbackLanguage('en');
+	$translateProvider.determinePreferredLanguage();
 
 }]);
 
