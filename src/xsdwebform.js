@@ -282,7 +282,6 @@ var groups = {${
 
 <eea-toolbar off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
 
-
 <footer class="footer">
 	<div class="footer-wrapper">
 		<eea-form-build date="${new Date()}"></eea-form-build>

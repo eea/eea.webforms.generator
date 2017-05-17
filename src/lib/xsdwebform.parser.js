@@ -124,31 +124,53 @@ class XSDWebFormParser {
 	}
 
 	/**
-	 * getTextContent - Return Text Content 
+	 * getLanguageContent - Return Text Content 
 	 */
-	getTextContent() {
+	getLanguageContent() {
 		// Remove duplicate labels
 		let exists = {};
+		this.htmlTagParser.LabelContentObjects.forEach((item, index) => {
+			if (exists[item.label])
+				this.htmlTagParser.LabelContentObjects.splice(index, 1);
+
+			exists[item.label] = 1;
+		});
+		
+		exists = {};
 		this.htmlTagParser.TextContentObjects.forEach((item, index) => {
 			if (exists[item.label])
 				this.htmlTagParser.TextContentObjects.splice(index, 1);
 
 			exists[item.label] = 1;
 		});
-		var textContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
-		return this.htmlTagParser.TextContentObjects.map((label, index) => {
-			if (index < textContentObjectsLength)
+		
+		let TextContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
+		this.htmlTagParser.LabelContentObjects.push( { "text" : this.htmlTagParser.TextContentObjects.map((label, index) => {
+			if (index < TextContentObjectsLength)
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t"${label.text}",`;
+			else
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t"${label.text}"`;
+		}).join("\n") } );
+		
+		
+		let labelContentObjectsLength = this.htmlTagParser.LabelContentObjects.length - 1;
+		let LabelContentObjects =  this.htmlTagParser.LabelContentObjects.map((label, index) => {
+			if (!label.label) 
+				return `\t\t\t\t\t"text" : \t\t {\n ${label.text} \n\t\t\t\t\t\t\t\t}`;
+			if (index < labelContentObjectsLength)
 				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}",`;
 			else
 				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}"`;
 		}).join("\n");
+
+		return LabelContentObjects;
 	}
 
 	/**
-	 * getFullTextContent - getTextContent - Return Full JSON Text Content
+	 * getFullTextContent - getLanguageContent - Return Full JSON Text Content
 	 */
 	getFullTextContent() {
-		let textContent = this.getTextContent();
+		let textContent = this.getLanguageContent();
 		var fullTextContent = `{
 	"language" 		: "Selected Language English",
 	"greeting" 		: "Welcome" ,
