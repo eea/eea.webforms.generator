@@ -237,7 +237,6 @@ var groups = {${
 	<eea-language data="codeLists" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
 </div>
 
-
 <div id="workarea" class="row collapse">
 	
 	<div class="row">
@@ -261,7 +260,7 @@ var groups = {${
 
 </div>
 
-<eea-toolbar off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
+<eea-toolbar scp="this" off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
 
 <footer class="footer">
 	<div class="footer-wrapper">

@@ -4,10 +4,10 @@ app.component("eeaToolbar", {
         <div class="columns small-4">
             <div class="switch round tiny">
                 <span>{{$ctrl.validation}}</span>
-                <span ng-show="ValidationDisabled" class="ng-hide">{{$ctrl.off}}</span>
-                <span ng-show="!ValidationDisabled">{{$ctrl.on}}</span>
+                <span ng-show="$ctrl.scp.ValidationDisabled" class="ng-hide">{{$ctrl.off}}</span>
+                <span ng-show="!$ctrl.scp.ValidationDisabled">{{$ctrl.on}}</span>
                 <div class="round tiny">
-                  <input id="validationSwitch" class="switch-input" checked ng-click="toggleValidation()" type="checkbox">
+                  <input id="validationSwitch" class="switch-input" checked ng-click="$ctrl.scp.toggleValidation()" type="checkbox">
                   <label for="validationSwitch" class="switch-paddle"></label>
                 </div>
                 <label for="validationSwitch"></label>
@@ -26,5 +26,6 @@ app.component("eeaToolbar", {
 		save: '@',
 		printpreview: '@',
 		close: '@',
-	}
+                        scp: '='
+	},
 });
