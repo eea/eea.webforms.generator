@@ -472,7 +472,7 @@ select.slanguage:focus {
 
 .rowbutton::before {
     float: right;
-    margin: 0 10px 0 -16px;
+    margin: 0 8px 0 -16px;
     width: 30px;
     height: 30px;
     line-height: 12px;
