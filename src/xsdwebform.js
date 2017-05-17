@@ -204,6 +204,7 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}webform.js"></script>
 <script src="./assets/components/eeaheader.js" ></script>
+<script src="./assets/components/eealanguage.js" ></script>
 <script src="./assets/components/eeatoolbar.js" ></script>
 <script src="./assets/components/eeabuildinfo.js" ></script>
 
@@ -233,8 +234,7 @@ var groups = {${
 		<h1>EEA</h1>
 		<h2 class="subheader">Web Form</h2>
 	</div>
-	<select ng-model="language" ng-change="updateTranslations()" name="form-language" data-placeholder="Choose Language" ng-options="item.code as item.label for item in codeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required>
-	</select>
+	<eea-language data="codeLists" lang="en"></eea-language>
 </div>
 
 

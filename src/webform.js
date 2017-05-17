@@ -25,7 +25,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	($scope.getCodeList = function() {
 		$http.get('ct-codelists-en.json').then( function(response) {
 				$scope.codeLists = response.data;
-				$scope.language = $scope.selectedLanguage;
+				// $scope.language = $scope.selectedLanguage;
 			})
 	})();
 
