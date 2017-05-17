@@ -7,7 +7,7 @@ app.component("eeaToolbar", {
                 <span ng-show="$ctrl.scp.ValidationDisabled" class="ng-hide">{{$ctrl.off}}</span>
                 <span ng-show="!$ctrl.scp.ValidationDisabled">{{$ctrl.on}}</span>
                 <div class="round tiny">
-                  <input id="validationSwitch" class="switch-input" checked ng-click="$ctrl.scp.toggleValidation()" type="checkbox">
+                  <input id="validationSwitch" class="switch-input" checked ng-click="$ctrl.toggleValidation()" type="checkbox">
                   <label for="validationSwitch" class="switch-paddle"></label>
                 </div>
                 <label for="validationSwitch"></label>
@@ -28,4 +28,39 @@ app.component("eeaToolbar", {
 		close: '@',
                         scp: '='
 	},
+    controller: function() {
+    	var parent = this;
+    	this.$onInit = function() {
+
+    		this.toggleValidation = function() {
+			parent.scp.ValidationDisabled = !parent.scp.ValidationDisabled;
+		}
+
+		this.printPreview = function() {
+			var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
+			$window.open(conversionLink, '_blank');
+		}
+
+		this.save = function(){
+			dataRepository.saveInstance($scope.Webform);
+		}
+
+		this.close = function(){
+			if (urlProperties.baseURI == ''){
+					urlProperties.baseURI = "/";
+			};
+			 	var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
+		    	if (parent.scp.Webform.$dirty){
+			        	if ($window.confirm('You have made changes in the questionnaire! \\n\\n Do you want to leave without saving the data?')){
+			 	           	window.location = windowLocation;
+			        	}
+		    	}
+		    	else {
+		       	 	window.location = windowLocation;
+		    	}
+		}
+
+	}
+
+    }
 });
