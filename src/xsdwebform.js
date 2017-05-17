@@ -146,6 +146,7 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
+					fs.mkdirSync(parent.buildPath+"/test");
 					ncp(__dirname + "/assets/", parent.buildPath + "assets", function(err) {
 						if (err) {
 							console.error(err);
