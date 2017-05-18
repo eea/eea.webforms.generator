@@ -2,14 +2,12 @@
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
 
-app.config(["$translateProvider", function($translateProvider) {
-
-	$translateProvider.useUrlLoader(langFile);
-	$translateProvider.useSanitizeValueStrategy('escapeParameters');
-	$translateProvider.fallbackLanguage('en');
-	$translateProvider.determinePreferredLanguage();
-
-}]);
+// app.config(["$translateProvider", function($translateProvider) {
+// 	$translateProvider.useUrlLoader(langFile);
+// 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
+// 	$translateProvider.fallbackLanguage('en');
+// 	$translateProvider.determinePreferredLanguage();
+// }]);
 
 /**
 * WebFormAppCtrl: Main controller
@@ -20,19 +18,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
-	$scope.codeLists;
 	$scope.groups =  groups;
-
-	($scope.getCodeList = function() {
-		$http.get('ct-codelists-en.json').then( function(response) {
-				$scope.codeLists = response.data;
-			})
-	})();
-
-	$scope.updateTranslations = function() {
-		alert($scope.language);
-		// $translate.use(langKey);
-	};
 
 	$scope.submit = function(frm) {
 		$scope.field[frm.$name].AEAPrice = 11;
@@ -43,14 +29,14 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	$scope.addRow = function(frm, group) {
 		$scope.groups[frm][group].push(++$scope.multipleIndex);
 		$timeout ( () => {
-				$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button"  title="{{'deleterow' | translate}}"class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')"></button></div>`)($scope));
-			}, 10);
-	}
+			$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button"  title="{{'deleterow' | translate}}"class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')"></button></div>`)($scope));
+		}, 10);
+	};
 
 	$scope.deleteRow = function(frm, group, index) {
 		alert(index);
 		console.log("index", index);
-	}
+	};
 
 }
 

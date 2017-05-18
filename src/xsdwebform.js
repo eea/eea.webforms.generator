@@ -240,7 +240,7 @@ var groups = {${
 		<h1>EEA</h1>
 		<h2 class="subheader">Web Form</h2>
 	</div>
-	<eea-language data="codeLists" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
+	<eea-language scp="this" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
 </div>
 
 <div id="workarea" class="row collapse">

@@ -26,7 +26,7 @@ app.component("eeaToolbar", {
 		save: '@',
 		printpreview: '@',
 		close: '@',
-                        scp: '='
+		scp: '='
 	},
     controller: function() {
     	var parent = this;
