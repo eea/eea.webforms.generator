@@ -127,8 +127,9 @@ export default class XSDWebForm {
 					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
 						this.getFile(__dirname + "/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
+							let langData = this.parser.getFullTextContent();
 							langs.CTCodelists.Languages.item.forEach((item) => {
-								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", this.parser.getFullTextContent(), false);
+								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
 								resolve();
 							});
 						});
