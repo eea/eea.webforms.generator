@@ -569,7 +569,7 @@ class XSDWebFormParserHTMLTags {
 
 	/**
 	 * getItemByName
-	 * @param item
+	 * @param itemname
 	 * @param xsdItem
 	 */
 	getItemByName(itemname, xsdItem) {
@@ -578,11 +578,11 @@ class XSDWebFormParserHTMLTags {
 
 	/**
 	 * getItemByRef
-	 * @param item
+	 * @param itemref
 	 * @param xsdItem
 	 */
-	getItemByRef(itemname, xsdItem) {
-		return xsdItem.childWithAttribute("ref", itemname);
+	getItemByRef(itemref, xsdItem) {
+		return xsdItem.childWithAttribute("ref", itemref);
 	}
 
 	/**
