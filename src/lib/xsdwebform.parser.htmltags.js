@@ -149,7 +149,7 @@ class XSDWebFormParserHTMLTags {
 
 		let xsdGroupTag, xsdGroupProperties;
 		try {
-			xsdGroupTag = sender.getXSDComplexByGroupTag(item.attr.element, xsdItem);
+			xsdGroupTag = sender.getXSDComplexByGroupTag(item.attr.element, xsdItem, sender);
 		} catch (ex) {
 			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
 		}
@@ -162,7 +162,7 @@ class XSDWebFormParserHTMLTags {
 
 		if (!xsdGroupProperties) {
 			try {
-				xsdGroupProperties = xsdItem.childWithAttribute("name", item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
+				xsdGroupProperties = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
 			} catch (ex) {
 				XSDWebFormParserError.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
 			}			
@@ -219,18 +219,18 @@ class XSDWebFormParserHTMLTags {
 		let XSDWFormItem, XSDWFormItemType;
 
 		try {
-			XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
 			
 			if (!XSDWFormItem) {
 				if (itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element)) {
-					XSDWFormItem =  xsdItem.childWithAttribute("name", item.attr.element);
+					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
 
 					if (!XSDWFormItem.attr.type) {
 
 						let subXSDWFormItem = XSDWFormItem.childNamed("xs:simpleType");
 
 						if (!subXSDWFormItem) {
-							XSDWFormItem = XSDWFormItem.childNamed("xs:complexType").childWithAttribute("name", "entireEntity");
+							XSDWFormItem = XSDWFormItem = sender.getItemByName("entireEntity", XSDWFormItem.childNamed("xs:complexType"));
 						} else {
 							XSDWFormItem = subXSDWFormItem.childNamed("xs:restriction");
 							XSDWFormItem.attr.type = XSDWFormItem.attr.base;
@@ -247,7 +247,7 @@ class XSDWebFormParserHTMLTags {
 				item.src = XSDWFormItem;
 			} else {
 
-				let subXSDWFormItem = xsdItem.childWithAttribute("name", XSDWFormItemType).childNamed("xs:simpleContent");
+				let subXSDWFormItem = sender.getItemByName(XSDWFormItemType, xsdItem).childNamed("xs:simpleContent");
 				
 				if (subXSDWFormItem) {
 					subXSDWFormItem= subXSDWFormItem.childNamed("xs:extension");
@@ -435,13 +435,13 @@ class XSDWebFormParserHTMLTags {
 			let XSDWFormItem, XSDWFormItemTypeData;
 
 			try {
-				XSDWFormItem = itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+				XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
 			} catch (ex) {
 				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
 
 			try {
-				XSDWFormItemTypeData = xsdItem.childWithAttribute("name", XSDWFormItem.attr.type);
+				XSDWFormItemTypeData = sender.getItemByName(XSDWFormItem.attr.type, xsdItem);
 			} catch (ex) {
 				XSDWebFormParserError.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 			}
@@ -515,7 +515,7 @@ class XSDWebFormParserHTMLTags {
 			let XSDWFormItem, XSDWFormItemData;
 
 			try {
-				XSDWFormItem = xsdItem.childWithAttribute("name", item.attr.element);
+				XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
 			} catch (ex) {
 				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
@@ -531,6 +531,9 @@ class XSDWebFormParserHTMLTags {
 
 			let enumItems = [];
 			XSDWFormItemData.eachChild((enm) => {
+				if (enm.attr.ref) {
+					console.log("TODO - check radio reference : enm.attr.ref", enm.attr.ref, sender.getItemByName(enm.attr.ref, xsdItem));
+				}
 				if (enm.name === "xs:element") {
 					enumItems.push({
 						value: enm.attr.ref,
@@ -565,6 +568,16 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
+	 * getRefItem
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	getItemByName(itemname, xsdItem) {
+		return xsdItem.childWithAttribute("name", itemname);
+	}
+
+	/**
 	 * getItemInfo
 	 * @param item
 	 * @param xsdItem
@@ -573,7 +586,7 @@ class XSDWebFormParserHTMLTags {
 	getItemInfo(item, xsdItem, sender) {
 		var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
-		var parentName = groupBase.itemObject.xsdXML.childWithAttribute("name", item.attr.element);
+		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML);
 		if (! parentName) {
 			parentName = groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
 		}
@@ -609,11 +622,11 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItemName
 	 * @param xsdItem
 	 */
-	getXSDComplexByGroupTag(xsdItemName, xsdItem) {
+	getXSDComplexByGroupTag(xsdItemName, xsdItem, sender) {
 
-		var XSDWFormComplexItems = xsdItem.childWithAttribute("name", xsdItemName).childNamed("xs:sequence");
+		var XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:sequence");
 		if (!XSDWFormComplexItems) {
-			XSDWFormComplexItems = xsdItem.childWithAttribute("name", xsdItemName).childNamed("xs:complexType").childNamed("xs:sequence");
+			XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
 		}
 		if (!XSDWFormComplexItems) return "";
 
