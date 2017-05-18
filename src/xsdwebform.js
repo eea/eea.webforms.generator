@@ -28,7 +28,10 @@ export default class XSDWebForm {
 	 * Check for arguments
 	 */
 	constructor(args) {
-		return new Promise ( (resolve, reject) => {			
+		return new Promise ( (resolve, reject) => {		
+
+			//Version	
+			this.Vesrion="0.1";
 
 			//logging
 			this.showLog = true;

@@ -1,3 +1,4 @@
+var Vesrion="0.1";
 
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
