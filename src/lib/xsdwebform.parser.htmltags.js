@@ -222,7 +222,7 @@ class XSDWebFormParserHTMLTags {
 			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
 			
 			if (!XSDWFormItem) {
-				if (itemInfo.groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element)) {
+				if (sender.getItemByRef(item.attr.element, itemInfo.groupBase.itemObject.xsdXML)) {
 					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
 
 					if (!XSDWFormItem.attr.type) {
@@ -568,13 +568,21 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * getRefItem
+	 * getItemByName
 	 * @param item
 	 * @param xsdItem
-	 * @param sender
 	 */
 	getItemByName(itemname, xsdItem) {
 		return xsdItem.childWithAttribute("name", itemname);
+	}
+
+	/**
+	 * getItemByRef
+	 * @param item
+	 * @param xsdItem
+	 */
+	getItemByRef(itemname, xsdItem) {
+		return xsdItem.childWithAttribute("ref", itemname);
 	}
 
 	/**
@@ -588,7 +596,7 @@ class XSDWebFormParserHTMLTags {
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
 		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML);
 		if (! parentName) {
-			parentName = groupBase.itemObject.xsdXML.childWithAttribute("ref", item.attr.element);
+			parentName = sender.getItemByRef(item.attr.element, groupBase.itemObject.xsdXML);
 		}
 
 		return {
