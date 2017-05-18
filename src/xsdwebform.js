@@ -125,9 +125,13 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					// Create HTML file
 					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
-						this.createFile(this.buildPath + "lng/" + this.baseFileName + "en.lang.json", this.parser.getFullTextContent()).then ( () => {
-							resolve();
-						})
+						this.getFile(__dirname + "/ct-codelists-en.json").then((langs) => {
+							langs = JSON.parse(langs);
+							langs.CTCodelists.Languages.item.forEach((item) => {
+								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", this.parser.getFullTextContent(), false);
+								resolve();
+							});
+						});
 					});
 					// Open browser 
 					if (this.autoOpenOutput)
@@ -295,7 +299,7 @@ var groups = {${
 	 * @param filename
 	 * @param content
 	 */
-	createFile(filename, content) {
+	createFile(filename, content, log = true) {
 		var parent = this;
 		return new Promise((resolve, reject) => {
 			fs.writeFile(filename, content, function(err) {
@@ -303,7 +307,7 @@ var groups = {${
 					console.log(err);
 					reject(err);
 				} else {
-					if (parent.showLog)
+					if (parent.showLog && log)
 						console.log(`\x1b[2m\x1b[36mThe file ${filename} was saved\x1b[0m\n`);
 					resolve();
 				}
