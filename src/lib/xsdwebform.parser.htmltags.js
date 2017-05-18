@@ -454,9 +454,6 @@ class XSDWebFormParserHTMLTags {
 
 			let enumItems = [];
 			enums.eachChild((enm) => {
-				if (enm.attr.ref) {
-					console.log("TODO - check select reference : enm.attr.ref", enm.attr.ref/*, sender.getItemByName(enm.attr.ref, xsdItem)*/);
-				}
 				if (enm.name === "xs:enumeration") {
 					enumItems.push({
 						value: enm.attr.value,
