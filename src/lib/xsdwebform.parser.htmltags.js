@@ -212,8 +212,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseItem(item, xsdItem, sender) {
-		// XSDWebFormParserLog.logHtmlTag(item.name, sender);
-
+		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		
 		let XSDWFormItem, XSDWFormItemType;
