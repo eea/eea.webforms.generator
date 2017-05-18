@@ -219,7 +219,7 @@ export default class XSDWebForm {
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-var langFile = 'lng/${this.baseFileName}en.lang.json';
+var langFile = '${this.baseFileName}';
 var groups = {${
 	this.parser.htmlTagParser.HTMLObjects.map( (frm) => { 
 		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {

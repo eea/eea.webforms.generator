@@ -1,9 +1,12 @@
-app.config(["$translateProvider", function($translateProvider) {
-	$translateProvider.useUrlLoader(langFile);
+app.config(function($translateProvider, $translatePartialLoaderProvider) {
+    	$translatePartialLoaderProvider.addPart('lng');
+	$translateProvider.useLoader('$translatePartialLoader', {
+		urlTemplate: '{part}/test.{lang}.lang.json'
+	});
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
 	$translateProvider.fallbackLanguage('en');
-	$translateProvider.determinePreferredLanguage();
-}]);
+	$translateProvider.preferredLanguage('en');	
+});
 
 app.component("eeaLanguage",{
 	template: '<select ng-model="$ctrl.language" ng-change="$ctrl.updateTranslations()" name="form-language" data-placeholder="{{$ctrl.chooselanguage}}" ng-options="item.code as item.label for item in $ctrl.codeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required></select>',
@@ -12,19 +15,18 @@ app.component("eeaLanguage",{
 		chooselanguage: '@',
 		scp: '='
 	},
-	controller: function() {
+	controller: function($http, $translate) {
 		var parent = this;
 		this.$onInit = function() {
 			(this.getCodeList = function() {
-				$.get('ct-codelists-en.json').then( function(response) {
-					parent.codeLists = response;
+				$http.get('ct-codelists-en.json').then( function(response) {
+					parent.codeLists = response.data;
 					parent.language = parent.lang;
 				});
 			})();
-
-			this.updateTranslations = function(lng) {
-				alert(parent.language);
-				// $translate.use(langKey);
+			this.updateTranslations = function() {
+				$translate.use(parent.language);
+				$translate.refresh();
 			};
 
 		}

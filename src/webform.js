@@ -2,18 +2,11 @@
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', WebFormAppCtrl);
 
-// app.config(["$translateProvider", function($translateProvider) {
-// 	$translateProvider.useUrlLoader(langFile);
-// 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
-// 	$translateProvider.fallbackLanguage('en');
-// 	$translateProvider.determinePreferredLanguage();
-// }]);
-
 /**
 * WebFormAppCtrl: Main controller
 */
 function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile) {
- 
+ 	
 	$scope.field = {};  
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
