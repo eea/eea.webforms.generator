@@ -116,15 +116,18 @@ button:hover {
 }
 
 fieldset {
-    border: solid 2px #2f2f2f;
-    border-radius: 3px;
-    background-color: rgba(3, 3, 3, 0.1);
-    padding: 0px;
+    background-color: rgba(3, 3, 3, 0.001);
     clear: both;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(47, 47, 47, 0.1);
+    border-image: initial;
+    border-radius: 3px;
+    padding: 0px;
 }
 
 .radio-label {
-    color: #fff;
+    color: #0a0a0a;
     font-size: 12px;
     float: left;
     margin: 5px;
@@ -134,7 +137,7 @@ fieldset {
 .radioclass {
     border: inset 1px rgba(100, 100, 100, 0.1);
     min-height: 55px;
-    background-color: rgba(100, 100, 100, 0.1);
+    background-color: rgba(100, 100, 100, 0.01);
     border-radius: 0 15px;
 }
 
@@ -324,9 +327,8 @@ select.slanguage:focus {
 }
 
 .ewform {
-    padding: 50px 30px 10px 30px;
-    /*background-color: #fff;*/
-    background-color: #333
+    background-color: #c9e2e4;
+    padding: 50px 30px 10px;
 }
 
 .group-area {
@@ -334,15 +336,15 @@ select.slanguage:focus {
     margin-bottom: 30px;
 }
 
+
 .formitem {
     float: left;
-    color: #fff;
-    /*   background-color: #C9E2E4;*/
-    background-color: rgba(100, 100, 100, 0.5);
-    padding: 22px;
-    margin: auto;
+    color: rgb(255, 255, 255);
+    background-color: rgba(100, 100, 100, 0.1);
     width: 50%;
     min-width: 50%;
+    padding: 22px;
+    margin: auto;
     transition: background-color 0.4s ease-in-out;
 }
 
@@ -415,7 +417,7 @@ select.slanguage:focus {
 .multiple-index {
     float: left;
     width: 70px;
-    background-color: #444;
+    background-color: #497A95;
     color: #497A95;
     padding: 10px;
     font-weight: 700;
@@ -431,14 +433,15 @@ select.slanguage:focus {
 .multiple-index .index {
     display: inline-block;
     margin-left: -6px;
-    color: #fff;
+    color: #497A95;
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background-color: #497A95;
+    background-color: #fff;
     border-radius: 50%;
 }
+
 
 .multiple-index-right {
     float: right;
