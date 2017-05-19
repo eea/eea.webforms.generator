@@ -499,7 +499,7 @@ select.slanguage:focus {
     min-width: auto;
     font-size: 12px;
     /*background-color: #368A55;*/
-    background-color: rgba(138,156, 58, 1);
+    background-color: rgb(180, 203, 76);
     color: #fff;
     border: none;
     padding: 6px;
@@ -588,7 +588,7 @@ select.slanguage:focus {
     padding: 50px 20px;
     /*background-color: #F15A24;*/
     background-color: #CEDC32;
-    color: #0a0a0a;
+    color: #fff;
     text-align: center;
 }
 
