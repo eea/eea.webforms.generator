@@ -205,6 +205,29 @@ a#printlink {
     clear: both;
 }
 
+.callout {
+    position: relative;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    border: 1px solid rgba(10, 10, 10, 0.25);
+    border-radius: 0;
+    background-color: white;
+    color: #0a0a0a;
+}
+
+.callout >:first-child {
+    margin-top: 0;
+}
+
+.callout >:last-child {
+    margin-bottom: 0;
+}
+
+.callout.primary {
+    background-color: #d7ecfa;
+    color: #0a0a0a;
+}
+
 .tplarge {
     height: 132px;
 }
@@ -630,7 +653,7 @@ select.slanguage:focus {
     font-weight: 400;
 }
 
-#pagefoot  label.vswitch {
+#pagefoot label.vswitch {
     min-width: 40px;
 }
 
@@ -640,54 +663,55 @@ select.slanguage:focus {
 }
 
 #pagefoot .vswitch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 22px;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
 }
 
-#pagefoot .vswitch input {display:none;}
+#pagefoot .vswitch input {
+    display: none;
+}
 
 #pagefoot .slider {
-
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 #pagefoot .slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
 }
 
 #pagefoot input:checked + .slider {
-  background-color: #f15a24;
+    background-color: #f15a24;
 }
 
 #pagefoot input:focus + .slider {
-  box-shadow: 0 0 1px #f15a24;
+    box-shadow: 0 0 1px #f15a24;
 }
 
 #pagefoot input:checked + .slider:before {
-  transform: translateX(16px);
+    transform: translateX(16px);
 }
 
 #pagefoot .slider.round {
-  border-radius: 14px;
+    border-radius: 14px;
 }
 
 #pagefoot .slider.round:before {
-  border-radius: 50%;
+    border-radius: 50%;
 }
