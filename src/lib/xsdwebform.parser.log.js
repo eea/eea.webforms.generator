@@ -64,6 +64,7 @@ class XSDWebFormParserLog {
 	 * @param xsdItem
 	 */
 	static showItemLog(xsdItem, verbose) {
+		
 		let xspace = "  ";
 		for (let i = 0; i < xsdItem.level; i++) {
 			xspace += "\t";
@@ -92,6 +93,8 @@ class XSDWebFormParserLog {
 						process.stdout.write(`\x1b[2m${txmlItem}`);
 					}
 				}
+			} else if (xsdItem.attr.value) {
+				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
