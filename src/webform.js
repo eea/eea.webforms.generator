@@ -28,8 +28,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	};
 
 	$scope.deleteRow = function(frm, group, index) {
-		alert(index);
-		console.log("index", index);
+		$scope.groups[frm][group].splice(index - 1, 1);
 	};
 
 }
