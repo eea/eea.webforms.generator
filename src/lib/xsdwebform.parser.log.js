@@ -95,13 +95,15 @@ class XSDWebFormParserLog {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
+			} else if (xsdItem.attr.ref) {
+				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
 			if (xsdItem.xparent) {
-				console.log(`\x1b[32m  parent ::\x1b[1m ${xsdItem.xparent.name}\x1b[0m`);
+				console.log(`\x1b[2m\x1b[32m  parent ::\x1b[1m ${xsdItem.xparent.name}\x1b[0m`);
 				if (xsdItem.xparent.attr.name) {
-					console.log(`${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓ \x1b[0m\x1b[36m par.name ::\x1b[1m ${xsdItem.xparent.attr.name}\x1b[0m`);
+					console.log(`${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓ \x1b[2m\x1b[32m par.name ::\x1b[1m ${xsdItem.xparent.attr.name}\x1b[0m`);
 				}
 			}
 		}
