@@ -27,7 +27,7 @@
     "request-mocha": "^0.2.0"
   },
   "scripts": {
-    "lint": "eslint src/**/*xsdwebform*",
+    "lint": "eslint src/**/*webform*",
     "test": "mocha --compilers js:babel-register",
     "testc": "istanbul cover _mocha -- --compilers js:babel-register",
     "testh": "istanbul cover _mocha -- --compilers js:babel-register -c",
