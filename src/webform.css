@@ -100,8 +100,7 @@ button {
     min-width: 200px;
     line-height: 20px;
     padding: 10px 30px;
-    /*background-color: rgba(54, 138, 85, 1);*/
-    background-color: rgba(138,156, 58, 1);
+    background-color: rgba(138, 156, 58, 1);
     border: none;
     font-size: 14px;
     font-weight: 800;
@@ -117,7 +116,6 @@ button:hover {
 }
 
 fieldset {
-    /*background-color: rgba(234, 234, 234, 0.3);*/
     background-color: rgba(234, 234, 234, 0.3);
     clear: both;
     border-width: 1px;
@@ -142,16 +140,6 @@ fieldset {
     background-color: rgba(100, 100, 100, 0.01);
     border-radius: 0 15px;
 }
-
-/*
-#head {
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    top: 0px;
-    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
-}
-*/
 
 #tool-ribbon {
     background-color: #ffffff;
@@ -190,10 +178,8 @@ a#printlink {
 }
 
 #page-head {
-    /*background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;*/
     border-top: 1px solid #4b5257;
     clear: both;
-    /*height: 102px;*/
 }
 
 .tplarge {
@@ -243,7 +229,6 @@ a#printlink {
 }
 
 #network-title {
-    /*color: white;*/
     color: #00446A;
     font-size: 200%;
     font-variant: small-caps;
@@ -255,7 +240,6 @@ a#printlink {
 }
 
 #site-title {
-    /*color: white;*/
     color: #006699;
     font-size: 120%;
     font-weight: bold;
@@ -273,14 +257,12 @@ a#printlink {
     top: 0;
     z-index: 9999;
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
-    /*background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;*/
     will-change: all;
     transition: all 0.3s ease-out;
 }
 
 .top-bar,
 .top-bar ul {
-    /*background-color: #A6CFD2;*/
     background-color: #E6E6E6;
 }
 
@@ -292,8 +274,6 @@ a#printlink {
 
 .callout.primary {
     margin-top: 50px;
-    /*background-color: #006699;*/
-    /*color: #fff;*/
     background-color: #fff;
     color: #006699;
 }
@@ -303,15 +283,12 @@ a#printlink {
 }
 
 .callout.primary h2 {
-    /*color: #fff;*/
     color: #8a8a8a;
     font-size: 26px;
 }
 
 #container {
     background-color: #F7F8F8;
-    /*background-color: rgb(199, 224, 233);*/
-    /*background-color: rgb(255, 255, 255);*/
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
     margin-top: 132px;
 }
@@ -328,10 +305,7 @@ select.slanguage:focus {
 }
 
 .ewform {
-    /*background-color: rgba(180, 180, 180, .2);*/
-    /*background-color: rgb(108 , 139, 162);*/
     background-color: rgb(199, 224, 233);
-    /*background-color: rgb(180, 203, 76);*/
     padding: 50px 30px 10px;
 }
 
@@ -340,11 +314,9 @@ select.slanguage:focus {
     margin-bottom: 30px;
 }
 
-
 .formitem {
     float: left;
     color: rgb(255, 255, 255);
-    /*background-color: rgba(100, 100, 100, 0.1);*/
     width: 50%;
     min-width: 50%;
     padding: 22px;
@@ -446,7 +418,6 @@ select.slanguage:focus {
     border-radius: 50%;
 }
 
-
 .multiple-index-right {
     float: right;
     width: calc(100% - 70px);
@@ -484,8 +455,7 @@ select.slanguage:focus {
     height: 30px;
     line-height: 12px;
     background-color: #fff;
-    /*color: #368A55;*/
-    color: rgba(138,156, 58, 1);
+    color: rgba(138, 156, 58, 1);
     padding: 10px;
     font-size: 12px;
     border-radius: 50%;
@@ -498,7 +468,6 @@ select.slanguage:focus {
     display: block;
     min-width: auto;
     font-size: 12px;
-    /*background-color: #368A55;*/
     background-color: rgb(180, 203, 76);
     color: #fff;
     border: none;
@@ -511,24 +480,9 @@ select.slanguage:focus {
     margin-bottom: 20px;
 }
 
-
-/*
-.deleterowbutton {
-    cursor: pointer;
-    background-color: #F15A24;
-    width: 60px;
-    min-width: auto;    
-    font-size: 12px;
-    position: absolute;
-    opacity: 0.9;
-    margin-left: -54px;
-    margin-top: 54px;
-}*/
-
 .deleterowbutton {
     cursor: pointer;
     background-color: rgba(241, 90, 36, .2);
-    /*background-color: rgba(204, 0 , 51, .2);*/
     width: 60px;
     min-width: auto;
     font-size: 12px;
@@ -541,7 +495,6 @@ select.slanguage:focus {
 .deleterowbutton:hover {
     opacity: 1;
     background-color: rgb(241, 90, 36);
-    /*background-color: rgb(204, 0 , 51);*/
 }
 
 .deleterowbutton::before {
@@ -552,31 +505,12 @@ select.slanguage:focus {
     line-height: 12px;
     background-color: #fff;
     color: rgb(241, 90, 36);
-    /*color: #F15A24;*/
     padding: 10px;
     font-size: 12px;
     border-radius: 50%;
     font-family: "foundation-icons";
     content: '\f204';
 }
-
-
-/*.deleterowbutton {
-    cursor: pointer;
-    background-color: #F15A24;
-    width: 60px;
-    min-width: auto;
-    font-size: 12px;
-    position: absolute;
-    opacity: 0.9;
-    margin-left: -17px;
-    float:right;
-    margin-top: 2px;
-}
-
-.group-area .row {
-    text-align: right;
-}*/
 
 .footer {
     font-size: 11px;
@@ -586,7 +520,6 @@ select.slanguage:focus {
     bottom: 0;
     z-index: -10;
     padding: 50px 20px;
-    /*background-color: #F15A24;*/
     background-color: #CEDC32;
     color: #fff;
     text-align: center;
@@ -600,7 +533,7 @@ select.slanguage:focus {
 #pagefoot {
     color: #666;
     font-size: 0.875rem;
-    background-color: rgba(242, 242, 242, 0.9);
+    background-color: rgba(242, 242, 242, 0);
     border-top: 1px solid #E6E6E6;
     width: 100%;
     max-width: 100%;
