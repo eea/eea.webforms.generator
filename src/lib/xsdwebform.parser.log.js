@@ -123,6 +123,14 @@ class XSDWebFormParserLog {
 	}
 
 	/**
+	 * logTODO - Log XSD Element Tag
+	 * @param msg
+	 */
+	static logTODO(msg) {
+		console.log(`\x1b[1m\x1b[31mTODO: \x1b[0m${msg}\x1b[0m`);
+	}
+
+	/**
 	 * logHtmlTag - Log HTML Element Tag
 	 * @param item
 	 */

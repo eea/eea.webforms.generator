@@ -531,7 +531,7 @@ class XSDWebFormParserHTMLTags {
 			let enumItems = [];
 			XSDWFormItemData.eachChild((enm) => {
 				if (enm.attr.ref) {
-					console.log("TODO - check radio reference : enm.attr.ref", enm.attr.ref/*, sender.getItemByName(enm.attr.ref, xsdItem)*/);
+					XSDWebFormParserLog.logTODO("check radio reference : enm.attr.ref" + enm.attr.ref);
 				}
 				if (enm.name === "xs:element") {
 					enumItems.push({
@@ -714,7 +714,7 @@ class XSDWebFormParserHTMLTags {
 	reportError(msg, item) {
 		XSDWebFormParserError.reportError(msg, item);
 	}
-	
+
 	/**
 	 * setLog - Show Log 
 	 * @param bool
