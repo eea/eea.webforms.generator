@@ -481,6 +481,8 @@ select.slanguage:focus {
 .submitbutton {
     display: block;
     margin: 50px auto;
+    font-weight: 600;
+    padding: 8px;
 }
 
 .submitbutton::after {
