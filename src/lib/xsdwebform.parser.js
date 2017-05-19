@@ -88,7 +88,7 @@ class XSDWebFormParser {
 				let group = groups[i];
 
 				formHtml.push(`\t\t<div id="form-area-${form.itemObject.name}">`);
-				formHtml.push(`\t\t\t<div id="group-area-{{$index + 1}}-${group.itemObject.name}" class="group-area" ng-repeat="grouprow in groups.${form.itemObject.name}.${group.itemObject.name}">`);
+				formHtml.push(`\t\t\t<div id="group-area-{{$index + 1}}-${group.itemObject.name}" class="group-area" ng-repeat="grouprow in groups.${form.itemObject.name}.${group.itemObject.name} track by $index" ng-show="grouprow > 0">`);
 
 				if (group.itemObject.prepend)
 					formHtml.push("\t\t\t" + group.itemObject.prepend);

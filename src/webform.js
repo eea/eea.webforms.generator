@@ -19,18 +19,17 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 		console.log(frm);
 		return false;
 	};
-	
-	$scope.addRow = function(frm, group) {
+	$scope.addRow = function(frm, group, rid) {
 		$scope.multipleIndex = $scope.groups[frm][group].length;
-		var tmi = $scope.multipleIndex++;
-		$scope.groups[frm][group].push(frm + '-' + tmi + '-' + group);
+		var id = ++$scope.multipleIndex;
+		$scope.groups[frm][group].push(id);
 		$timeout ( () => {
-			$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button"  title="{{'deleterow' | translate}}"class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', ${tmi})"></button></div>`)($scope));
+			$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button"  title="{{'deleterow' | translate}}"class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', ${id})"></button></div>`)($scope));
 		}, 10);
 	};
 
-	$scope.deleteRow = function(frm, group, index) {
-		$scope.groups[frm][group].splice($scope.groups[frm][group].indexOf(frm + '-' + index + '-' + group), 1);
+	$scope.deleteRow = function(frm, group, id) {
+		$scope.groups[frm][group][$scope.groups[frm][group].indexOf(id)] =  -1;
 	};
 
 }
