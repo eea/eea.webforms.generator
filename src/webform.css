@@ -116,11 +116,11 @@ button:hover {
 }
 
 fieldset {
-    background-color: rgba(3, 3, 3, 0.001);
+    background-color: rgba(234, 234, 234, 0.3);
     clear: both;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(47, 47, 47, 0.1);
+    border-color: rgba(147, 147, 147, 0.1);
     border-image: initial;
     border-radius: 3px;
     padding: 0px;
@@ -311,7 +311,8 @@ a#printlink {
 }
 
 #container {
-    background-color: #F7F8F8;
+    /*background-color: #F7F8F8;*/
+    background-color: rgb(199, 224, 233);
     box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
 }
 
@@ -327,7 +328,7 @@ select.slanguage:focus {
 }
 
 .ewform {
-    background-color: #c9e2e4;
+    background-color: rgb(108 , 139 , 162);
     padding: 50px 30px 10px;
 }
 
@@ -340,7 +341,7 @@ select.slanguage:focus {
 .formitem {
     float: left;
     color: rgb(255, 255, 255);
-    background-color: rgba(100, 100, 100, 0.1);
+    /*background-color: rgba(100, 100, 100, 0.1);*/
     width: 50%;
     min-width: 50%;
     padding: 22px;

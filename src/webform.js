@@ -7,8 +7,8 @@ app.controller('WebFormAppCtrl', WebFormAppCtrl);
 * WebFormAppCtrl: Main controller
 */
 function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile) {
- 	
-	$scope.field = {};  
+
+	$scope.field = {}; 
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
