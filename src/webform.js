@@ -21,6 +21,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 	};
 	
 	$scope.addRow = function(frm, group) {
+		$scope.multipleIndex = $scope.groups[frm][group].length;
 		$scope.groups[frm][group].push(++$scope.multipleIndex);
 		$timeout ( () => {
 			$(`#group-area-${$scope.multipleIndex}-${group}`).prepend( $compile(`<div class="row"><button type="button"  title="{{'deleterow' | translate}}"class="deleterowbutton" ng-click="deleteRow('${frm}', '${group}', '${$scope.multipleIndex}')"></button></div>`)($scope));
