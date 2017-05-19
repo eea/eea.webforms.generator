@@ -714,6 +714,7 @@ class XSDWebFormParserHTMLTags {
 	reportError(msg, item) {
 		XSDWebFormParserError.reportError(msg, item);
 	}
+	
 	/**
 	 * setLog - Show Log 
 	 * @param bool
