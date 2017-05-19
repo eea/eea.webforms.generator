@@ -1,19 +1,20 @@
 
 app.component("eeaToolbar", {
-	template: `<div id="pagefoot" class="row">
-        <div class="columns small-4">
+	template: `<style></style><div id="pagefoot" class="row">
+        <div class="col-sm-4">
             <div class="switch round tiny">
                 <span>{{$ctrl.validation}}</span>
                 <span ng-show="$ctrl.scp.ValidationDisabled" class="ng-hide">{{$ctrl.off}}</span>
                 <span ng-show="!$ctrl.scp.ValidationDisabled">{{$ctrl.on}}</span>
-                <div class="round tiny">
-                  <input id="validationSwitch" class="switch-input" checked ng-click="$ctrl.toggleValidation()" type="checkbox">
-                  <label for="validationSwitch" class="switch-paddle"></label>
-                </div>
-                <label for="validationSwitch"></label>
+                <div id="switch">
+	                <label  for="validationSwitch" class="vswitch">
+	  		<input type="checkbox"  id="validationSwitch" class="switch-input" checked ng-click="$ctrl.toggleValidation()" type="checkbox" data-toggle="toggle">
+	  		<div class="slider round"></div>
+		</label>
+	</div>
             </div> 
         </div>
-        <div class="columns small-8 text-right buttons">
+        <div class="col-md-8 text-right buttons">
             <button ng-click="save()">{{$ctrl.save}}</button>
             <button ng-click="printPreview()">{{$ctrl.printpreview}}</button>
             <button ng-click="close()">{{$ctrl.close}}</button>

@@ -623,15 +623,71 @@ select.slanguage:focus {
 
 #pagefoot .switch > span {
     display: table-cell;
-    height: 100%;
-    padding: 0 4px;
+    padding: 0 4px 0 10px;
     vertical-align: middle;
     color: #666;
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 400;
 }
 
-#pagefoot .switch label {
+#pagefoot  label.vswitch {
+    min-width: 40px;
+}
+
+#pagefoot #switch {
+    padding-top: 8px;
     display: table-cell;
-    min-width: 3rem;
+}
+
+#pagefoot .vswitch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+#pagefoot .vswitch input {display:none;}
+
+#pagefoot .slider {
+
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#pagefoot .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+#pagefoot input:checked + .slider {
+  background-color: #f15a24;
+}
+
+#pagefoot input:focus + .slider {
+  box-shadow: 0 0 1px #f15a24;
+}
+
+#pagefoot input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+#pagefoot .slider.round {
+  border-radius: 14px;
+}
+
+#pagefoot .slider.round:before {
+  border-radius: 50%;
 }
