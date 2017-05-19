@@ -19,7 +19,8 @@ function WebFormAppCtrl($scope, $http, $timeout, $window,  $translate, $compile)
 		console.log(frm);
 		return false;
 	};
-	$scope.addRow = function(frm, group, rid) {
+
+	$scope.addRow = function(frm, group) {
 		$scope.multipleIndex = $scope.groups[frm][group].length;
 		var id = ++$scope.multipleIndex;
 		$scope.groups[frm][group].push(id);
