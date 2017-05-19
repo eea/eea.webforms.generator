@@ -483,6 +483,8 @@ select.slanguage:focus {
     margin: 50px auto;
     font-weight: 600;
     padding: 8px;
+    background-color:  rgba(138, 156, 58, 1);
+    border-color: rgba(138, 156, 58, 1);;
 }
 
 .submitbutton::after {

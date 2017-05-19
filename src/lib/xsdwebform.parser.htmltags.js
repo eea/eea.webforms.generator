@@ -114,7 +114,7 @@ class XSDWebFormParserHTMLTags {
 	parseForm(item, xsdItem, sender) {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
-		let formEnd = "<button type=\"submit\" class=\"submitbutton btn\">{{'submitform' | translate}}</button>";
+		let formEnd = "<button type=\"submit\" class=\"submitbutton btn btn-primary\">{{'submitform' | translate}}</button>";
 		let formNum = sender.HTMLObjects.length + 1;
 		var formObject = {
 			name: 'form' + formNum ,
