@@ -238,18 +238,18 @@ var groups = {${
 
 <div id="container">
 <div class="callout small primary">
-	<div class="row column text-center">
+	<div class="text-center">
 		<h1>EEA</h1>
 		<h2 class="subheader">Web Form</h2>
 	</div>
 	<eea-language scp="this" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
 </div>
 
-<div id="workarea" class="row collapse">
+<div id="workarea" class="row col-lg-8">
 	
 	<div class="row">
-		<div class="top-form-left medium-1"><span class="index">#</span></div>
-		<div class="top-form-right medium-11"><h2>{{'formtitle' | translate}}</h2></div>
+		<div class="top-form-left col-md-1"><span class="index">#</span></div>
+		<div class="top-form-right col-md-11"><h2>{{'formtitle' | translate}}</h2></div>
 	</div>
 	
 	<div class="row"> 

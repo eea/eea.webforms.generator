@@ -88,6 +88,28 @@ textarea.ng-invalid:focus {
     outline: 0 none !important;
 }
 
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+select,
+textarea {
+    width: 100%;
+    min-height: 36px;
+    padding: 5px 4px;
+    color: #0a0a0a;
+}
+
 [type=button],
 [type=submit] {
     -webkit-appearance: none;
@@ -129,6 +151,7 @@ fieldset {
 .radio-label {
     color: #0a0a0a;
     font-size: 12px;
+    font-weight: 400;
     float: left;
     margin: 5px;
     padding: 5px;
@@ -228,6 +251,11 @@ a#printlink {
     transition: all 0.3s ease-out;
 }
 
+#workarea {
+    float: none;
+    margin: 0 auto;
+}
+
 #network-title {
     color: #00446A;
     font-size: 200%;
@@ -321,6 +349,7 @@ select.slanguage:focus {
     min-width: 50%;
     padding: 22px;
     margin: auto;
+    margin-bottom: 12px;
     transition: background-color 0.4s ease-in-out;
 }
 
@@ -386,8 +415,7 @@ select.slanguage:focus {
     color: #fff;
     text-align: center;
     margin-left: -70px;
-    font-weight: 500;
-    line-height: 50px;
+    font-weight: 700;
 }
 
 .multiple-index {
@@ -442,7 +470,7 @@ select.slanguage:focus {
     position: absolute;
     display: block;
     font-size: 13px;
-    margin-top: -15px;
+    margin-top: 0px;
     background-color: #F15A24;
     padding: 1px 10px 1px 10px;
     border-radius: 10%;
@@ -541,6 +569,7 @@ select.slanguage:focus {
     position: fixed;
     bottom: 0;
     display: table;
+    user-select: none;
 }
 
 #pagefoot > div.columns {
