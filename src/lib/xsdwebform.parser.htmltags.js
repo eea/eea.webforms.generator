@@ -74,7 +74,7 @@ class XSDWebFormParserHTMLTags {
 					this.parseHTMLItem(htmlItem.children[i], xsdItem);
 					this.htmlParse(htmlItem.children[i], xsdItem);
 				} catch (err) {
-					XSDWebFormParserError.reportError(err);
+					this.reportError(err);
 				}
 			}
 		}
@@ -151,20 +151,20 @@ class XSDWebFormParserHTMLTags {
 		try {
 			xsdGroupTag = sender.getXSDComplexByGroupTag(item.attr.element, xsdItem, sender);
 		} catch (ex) {
-			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
+			sender.reportError(`Can not find "${item.attr.element}" element in XSD`);
 		}
 
 		try {
 			xsdGroupProperties = xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence").childWithAttribute("type", item.attr.element, xsdItem);
 		} catch (ex) {
-			XSDWebFormParserError.reportError(`Can not find type="${item.attr.element}" element in XSD root element`, item);
+			sender.reportError(`Can not find type="${item.attr.element}" element in XSD root element`, item);
 		}
 
 		if (!xsdGroupProperties) {
 			try {
 				xsdGroupProperties = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
+				sender.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
 			}			
 		}
 
@@ -236,7 +236,7 @@ class XSDWebFormParserHTMLTags {
 						}
 					}
 				} else {
-					XSDWebFormParserError.reportError(`Can not find name or ref "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
+					sender.reportError(`Can not find name or ref "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 				}
 			}
 			XSDWFormItemType = XSDWFormItem.attr.type;
@@ -267,7 +267,7 @@ class XSDWebFormParserHTMLTags {
 			sender.parseHTMLItem(item, xsdItem);
 		} catch (ex) {
 			console.log("ex", ex);
-			XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
+			sender.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 		}
 	}
 
@@ -436,21 +436,21 @@ class XSDWebFormParserHTMLTags {
 			try {
 				XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
+				sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
 
 			try {
 				XSDWFormItemTypeData = sender.getItemByName(XSDWFormItem.attr.type, xsdItem);
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
+				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 			}
 
 			if (!XSDWFormItemTypeData)
-				XSDWebFormParserError.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
+				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 
 			let enums = XSDWFormItemTypeData.childNamed("xs:restriction");
 			if (!enums)
-				XSDWebFormParserError.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`, XSDWFormItemTypeData);
+				sender.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`, XSDWFormItemTypeData);
 
 			let enumItems = [];
 			enums.eachChild((enm) => {
@@ -463,7 +463,7 @@ class XSDWebFormParserHTMLTags {
 				if (enm.name === "xs:minInclusive") {
 					let maxInclusive = enums.childNamed("xs:maxInclusive");
 					if (!maxInclusive)
-						XSDWebFormParserError.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);
+						sender.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);
 
 					let min = enm.attr.value;
 					enumItems = Array(maxInclusive.attr.value - min + 1).fill(min).map(() => {
@@ -516,17 +516,17 @@ class XSDWebFormParserHTMLTags {
 			try {
 				XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
+				sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
 
 			try {
 				XSDWFormItemData = XSDWFormItem.childNamed("xs:complexType").childNamed("xs:sequence");
 			} catch (ex) {
-				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" sequence in XSD`);
+				sender.reportError(`Can not find "${item.attr.element}" sequence in XSD`);
 			}
 
 			if (!XSDWFormItemData)
-				XSDWebFormParserError.reportError(`Can not find "${item.attr.element}" element in XSD`);
+				sender.reportError(`Can not find "${item.attr.element}" element in XSD`);
 
 			let enumItems = [];
 			XSDWFormItemData.eachChild((enm) => {
@@ -707,6 +707,13 @@ class XSDWebFormParserHTMLTags {
 		return outPut;
 	}
 
+	/**
+	 * reportError - Report error via  XSDWebFormParserError 
+	 * @param bool
+	 */
+	reportError(msg, item) {
+		XSDWebFormParserError.reportError(msg, item);
+	}
 	/**
 	 * setLog - Show Log 
 	 * @param bool
