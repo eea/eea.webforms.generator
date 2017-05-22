@@ -635,6 +635,9 @@ class XSDWebFormParserHTMLTags {
 		if (!XSDWFormComplexItems) {
 			XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
 		}
+		if (!XSDWFormComplexItems) {
+			XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
+		}
 		if (!XSDWFormComplexItems) return "";
 
 		return XSDWFormComplexItems;
