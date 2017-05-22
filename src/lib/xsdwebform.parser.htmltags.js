@@ -746,7 +746,7 @@ class XSDWebFormParserHTMLTags {
 		if (this.options) {
 			if (this.tag === 'select') {
 				outPut += this.options.map((option) => {
-					let lbl = option.option.toString().replace(" ","").replace("-","");
+					let lbl = option.option.toString().toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.option
@@ -755,7 +755,7 @@ class XSDWebFormParserHTMLTags {
 				}).join("");
 			} else {
 				outPut += '<div class="radioclass">' + this.options.map((option) => {
-					let lbl = option.label.toString().replace(" ","").replace("-","");
+					let lbl = option.label.toString().toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.label

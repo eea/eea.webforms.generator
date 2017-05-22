@@ -147,9 +147,9 @@ class XSDWebFormParser {
 		let TextContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
 		this.htmlTagParser.LabelContentObjects.push( { "text" : this.htmlTagParser.TextContentObjects.map((label, index) => {
 			if (index < TextContentObjectsLength)
-				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t"${label.text}",`;
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)},`;
 			else
-				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t"${label.text}"`;
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)}`;
 		}).join("\n") } );
 		
 		
@@ -158,9 +158,9 @@ class XSDWebFormParser {
 			if (!label.label) 
 				return `\t\t\t\t\t"text" : \t\t {\n ${label.text} \n\t\t\t\t\t\t\t\t}`;
 			if (index < labelContentObjectsLength)
-				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}",`;
+				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)},`;
 			else
-				return `\t\t\t\t\t"${label.label}" : \t\t"${label.text}"`;
+				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)}`;
 		}).join("\n");
 
 		return LabelContentObjects;
