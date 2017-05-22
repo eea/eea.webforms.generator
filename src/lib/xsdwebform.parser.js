@@ -129,7 +129,7 @@ class XSDWebFormParser {
 	getLanguageContent() {
 		// Remove duplicate labels
 		let exists = {};
-		let filteredLabels = this.htmlTagParser.LabelContentObjects.filter((item, index) => {
+		let filteredLabels = this.htmlTagParser.LabelContentObjects.filter((item) => {
 			if (exists[item.label])
 				return false;
 
@@ -138,7 +138,7 @@ class XSDWebFormParser {
 		});
 		
 		exists = {};
-		let filteredText = this.htmlTagParser.TextContentObjects.filter((item, index) => {
+		let filteredText = this.htmlTagParser.TextContentObjects.filter((item) => {
 			if (exists[item.label])
 				return false;
 
