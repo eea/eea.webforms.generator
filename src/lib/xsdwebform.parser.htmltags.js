@@ -444,7 +444,8 @@ class XSDWebFormParserHTMLTags {
 				let value = enm.attr.value;
 				let option, annotation;
 				if (enm.name === "xs:enumeration") {
-					if (annotation = enm.childNamed("xs:annotation")) {
+					annotation = enm.childNamed("xs:annotation");
+					if (annotation) {
 						option = annotation.childNamed("xs:documentation").val;
 					} else {
 						option = enm.attr.value;
