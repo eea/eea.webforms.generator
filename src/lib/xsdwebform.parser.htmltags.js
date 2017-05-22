@@ -606,7 +606,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItem
 	 */
 	geTypeByName(itemname, xsdItem) {
-		console.log("itemname", itemname);
 		let elements = xsdItem.childrenNamed("xs:simpleType");
 		for (let i = 0, l = elements.length; i  < l; i++) {
 			if (elements[i].attr.name === itemname) {
