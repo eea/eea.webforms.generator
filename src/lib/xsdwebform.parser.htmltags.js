@@ -625,7 +625,6 @@ class XSDWebFormParserHTMLTags {
 		return sender.HTMLObjects[sender.HTMLObjects.length - 1].itemObject.name + "['" + name.replace("-", "") + "$' + ($index + 1)]";
 	}
 
-
 	/**
 	 * getXSDComplexByGroupTag - Find and get XSD complexType Type filtered by Group Tag name
 	 * @param xsdItemName
