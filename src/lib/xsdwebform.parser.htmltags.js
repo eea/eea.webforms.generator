@@ -157,20 +157,12 @@ class XSDWebFormParserHTMLTags {
 		try {
 			xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
-						).childWithAttribute("type", item.attr.element, xsdItem) ;
+						).childWithAttribute("type", item.attr.element, xsdItem) 
+						|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
+						|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 		} catch (ex) {
-			sender.reportError(`Can not find type="${item.attr.element}" element in XSD root element`, item);
+			sender.reportError(`Can not find type="${item.attr.element}" or  name="${item.attr.element}" element in XSD root element`, item);
 		}
-
-		if (!xsdGroupProperties) {
-			try {
-				xsdGroupProperties = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
-							|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
-			} catch (ex) {
-				sender.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
-			}			
-		}
-
 
 		let groupStart= '', groupEnd = '', canAddRows = 0;
 		if (xsdGroupProperties.attr.maxOccurs) {
