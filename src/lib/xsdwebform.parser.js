@@ -149,9 +149,9 @@ class XSDWebFormParser {
 		let TextContentObjectsLength = filteredText.length - 1;
 		filteredLabels.push( { "text" : filteredText.map((label, index) => {
 			if (index < TextContentObjectsLength)
-				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)},`;
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text.toString())},`;
 			else
-				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)}`;
+				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text.toString())}`;
 		}).join("\n") } );
 		
 		
@@ -160,9 +160,9 @@ class XSDWebFormParser {
 			if (!label.label) 
 				return `\t\t\t\t\t"text" : \t\t {\n ${label.text} \n\t\t\t\t\t\t\t\t}`;
 			if (index < labelContentObjectsLength)
-				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)},`;
+				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text.toString())},`;
 			else
-				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)}`;
+				return `\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text.toString())}`;
 		}).join("\n");
 
 		return LabelContentObjects;
