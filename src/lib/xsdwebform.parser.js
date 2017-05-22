@@ -129,23 +129,25 @@ class XSDWebFormParser {
 	getLanguageContent() {
 		// Remove duplicate labels
 		let exists = {};
-		this.htmlTagParser.LabelContentObjects.forEach((item, index) => {
+		let filteredLabels = this.htmlTagParser.LabelContentObjects.filter((item, index) => {
 			if (exists[item.label])
-				this.htmlTagParser.LabelContentObjects.splice(index, 1);
+				return false;
 
 			exists[item.label] = 1;
+			return true;
 		});
 		
 		exists = {};
-		this.htmlTagParser.TextContentObjects.forEach((item, index) => {
+		let filteredText = this.htmlTagParser.TextContentObjects.filter((item, index) => {
 			if (exists[item.label])
-				this.htmlTagParser.TextContentObjects.splice(index, 1);
+				return false;
 
 			exists[item.label] = 1;
+			return true;
 		});
 		
-		let TextContentObjectsLength = this.htmlTagParser.TextContentObjects.length - 1;
-		this.htmlTagParser.LabelContentObjects.push( { "text" : this.htmlTagParser.TextContentObjects.map((label, index) => {
+		let TextContentObjectsLength = filteredText.length - 1;
+		filteredLabels.push( { "text" : filteredText.map((label, index) => {
 			if (index < TextContentObjectsLength)
 				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text)},`;
 			else
@@ -153,8 +155,8 @@ class XSDWebFormParser {
 		}).join("\n") } );
 		
 		
-		let labelContentObjectsLength = this.htmlTagParser.LabelContentObjects.length - 1;
-		let LabelContentObjects =  this.htmlTagParser.LabelContentObjects.map((label, index) => {
+		let labelContentObjectsLength = filteredLabels.length - 1;
+		let LabelContentObjects =  filteredLabels.map((label, index) => {
 			if (!label.label) 
 				return `\t\t\t\t\t"text" : \t\t {\n ${label.text} \n\t\t\t\t\t\t\t\t}`;
 			if (index < labelContentObjectsLength)
