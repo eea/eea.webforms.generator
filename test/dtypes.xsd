@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+  <xs:element name="DestinationTypesRegister">
+    <xs:annotation>
+      <xs:documentation>
+
+                XML Schema for Reporting on designation types for protected areas
+
+                Reporting obligation: http://cdr.eionet.europa.eu/??
+                Obligation title:
+
+                Reporting year 2017.
+
+                The reporting is done through online questionnaire in CDR envelope. The online questionnaire saves the data
+                automatically in XML format.
+
+                The reported XML files have to conform XML Schema definition below.
+                The official schema location is: 
+
+                An empty XML file can be downloaded here:
+                
+
+                Version History:
+                v1.0 () - the first released version.
+
+                Version: v1.0.
+
+        </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+<!-- CUSTOM TYPES -->
+<xs:simpleType name="IsoCountryCode">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="ABW">
+      <xs:annotation>
+        <xs:documentation>Aruba</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AIA">
+      <xs:annotation>
+        <xs:documentation>Anguilla</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ALB">
+      <xs:annotation>
+        <xs:documentation>Albania</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- /CUSTOM TYPES -->
+
+<!-- ELEMENTS REFERENCES -->
+<xs:element name="isoCountryCode">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+	ISO 3 character code for the reporting country .
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="IsoCountryCode"/>
+  </xs:simpleType>
+</xs:element>
+
+<!-- /ELEMENTS REFERENCES -->
+
+<!-- ELEMENTS -->
+  <xs:element name="DestinationTypes">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="isoCountryCode"/>
+        </xs:all>
+    </xs:complexType>
+  </xs:element>
+<!-- /ELEMENTS -->
+
+</xs:schema>

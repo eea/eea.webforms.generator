@@ -206,7 +206,7 @@ class XSDWebFormParserHTMLTags {
 	parseItem(item, xsdItem, sender) {
 		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-
+		
 		let XSDWFormItem, XSDWFormItemType;
 		try {
 			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
@@ -416,7 +416,7 @@ class XSDWebFormParserHTMLTags {
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
-
+		
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let XSDWFormItem, XSDWFormItemTypeData;
 
@@ -426,8 +426,17 @@ class XSDWebFormParserHTMLTags {
 				sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
 			}
 
+			if (!XSDWFormItem) {
+				try {
+					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
+				} catch (ex) {
+					sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, xsdItem);
+				}
+			}
+
 			try {
-				XSDWFormItemTypeData = sender.getItemByName(XSDWFormItem.attr.type, xsdItem);
+				XSDWFormItemTypeData = sender.getItemByName(XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type, xsdItem) 
+				|| sender.getItemByName(XSDWFormItem.attr.type, xsdItem) ;
 			} catch (ex) {
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 			}
@@ -586,6 +595,7 @@ class XSDWebFormParserHTMLTags {
 	getItemInfo(item, xsdItem, sender) {
 		var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
+
 		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML)
 				|| sender.getItemByRef(item.attr.element, groupBase.itemObject.xsdXML);
 		
@@ -636,11 +646,18 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItem
 	 */
 	getXSDGroupProperties(xsdItemName, xsdItem, sender) {
+		var xsdGroupProperties;
 
-		var xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
+		try {
+			xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
-						).childWithAttribute("type", xsdItemName, xsdItem) 
-						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
+						).childWithAttribute("type", xsdItemName, xsdItem);
+		} catch (ex) {
+			// console.log("No Group Type description in root")
+		}
+
+		if (!xsdGroupProperties) 
+			xsdGroupProperties = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 		
 		if (!xsdGroupProperties) return "";
