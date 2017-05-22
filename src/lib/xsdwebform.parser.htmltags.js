@@ -458,10 +458,19 @@ class XSDWebFormParserHTMLTags {
 
 			let enumItems = [];
 			enums.eachChild((enm) => {
+				let value, option, annotation;
 				if (enm.name === "xs:enumeration") {
+					if (annotation = enm.childNamed("xs:annotation")) {
+						value = enm.attr.value;
+						option = annotation.childNamed("xs:documentation").val;
+					} else {
+						value = enm.attr.value;
+						option = enm.attr.value;
+					}
+					
 					enumItems.push({
-						value: enm.attr.value,
-						option: enm.attr.value
+						value:value,
+						option: option
 					});
 				}
 				if (enm.name === "xs:minInclusive") {
