@@ -155,11 +155,7 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		try {
-			xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
-						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
-						).childWithAttribute("type", item.attr.element, xsdItem) 
-						|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
-						|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
+			xsdGroupProperties = sender.getXSDGroupProperties(item.attr.element, xsdItem, sender);
 		} catch (ex) {
 			sender.reportError(`Can not find type="${item.attr.element}" or  name="${item.attr.element}" element in XSD root element`, item);
 		}
@@ -638,6 +634,24 @@ class XSDWebFormParserHTMLTags {
 		if (!XSDWFormComplexItems) return "";
 
 		return XSDWFormComplexItems;
+	}
+
+	/**
+	 * getXSDGroupProperties - Find and get XSD Group Properties
+	 * @param xsdItemName
+	 * @param xsdItem
+	 */
+	getXSDGroupProperties(xsdItemName, xsdItem, sender) {
+
+		var xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
+						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
+						).childWithAttribute("type", xsdItemName, xsdItem) 
+						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
+						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
+		
+		if (!xsdGroupProperties) return "";
+
+		return xsdGroupProperties;
 	}
 
 	/**
