@@ -206,20 +206,16 @@ class XSDWebFormParserHTMLTags {
 	parseItem(item, xsdItem, sender) {
 		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		
-		let XSDWFormItem, XSDWFormItemType;
 
+		let XSDWFormItem, XSDWFormItemType;
 		try {
 			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
 			
 			if (!XSDWFormItem) {
 				if (sender.getItemByRef(item.attr.element, itemInfo.groupBase.itemObject.xsdXML)) {
 					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
-
 					if (!XSDWFormItem.attr.type) {
-
 						let subXSDWFormItem = XSDWFormItem.childNamed("xs:simpleType");
-
 						if (!subXSDWFormItem) {
 							XSDWFormItem = XSDWFormItem = sender.getItemByName("entireEntity", XSDWFormItem.childNamed("xs:complexType"));
 						} else {
@@ -407,7 +403,6 @@ class XSDWebFormParserHTMLTags {
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
-
 	}
 
 	/**
@@ -458,8 +453,7 @@ class XSDWebFormParserHTMLTags {
 						value:value,
 						option: option
 					});
-				}
-				if (enm.name === "xs:minInclusive") {
+				} else if (enm.name === "xs:minInclusive") {
 					let maxInclusive = enums.childNamed("xs:maxInclusive");
 					if (!maxInclusive)
 						sender.reportError(`Found minInclusive but not maxInclusive for "${XSDWFormItem.attr.type}/${enums.name}" element in XSD`, enums);
@@ -541,7 +535,6 @@ class XSDWebFormParserHTMLTags {
 				}
 			});
 			
-
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
