@@ -155,18 +155,22 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		try {
-			xsdGroupProperties = xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence").childWithAttribute("type", item.attr.element, xsdItem);
+			xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
+						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
+						).childWithAttribute("type", item.attr.element, xsdItem) ;
 		} catch (ex) {
 			sender.reportError(`Can not find type="${item.attr.element}" element in XSD root element`, item);
 		}
 
 		if (!xsdGroupProperties) {
 			try {
-				xsdGroupProperties = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence");
+				xsdGroupProperties = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
+							|| sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 			} catch (ex) {
 				sender.reportError(`Can not find name="${item.attr.element}" element in XSD root element`, item);
 			}			
 		}
+
 
 		let groupStart= '', groupEnd = '', canAddRows = 0;
 		if (xsdGroupProperties.attr.maxOccurs) {
@@ -593,11 +597,9 @@ class XSDWebFormParserHTMLTags {
 	getItemInfo(item, xsdItem, sender) {
 		var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
-		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML);
-		if (! parentName) {
-			parentName = sender.getItemByRef(item.attr.element, groupBase.itemObject.xsdXML);
-		}
-
+		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML)
+				|| sender.getItemByRef(item.attr.element, groupBase.itemObject.xsdXML);
+		
 		return {
 			htmlBase: htmlBase,
 			groupBase: groupBase,
