@@ -100,6 +100,11 @@ class XSDWebFormParserLog {
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+
+			if (xsdItem.name === "xs:documentation" && xsdItem.xparent.name === "xs:annotation") {
+				process.stdout.write(` \x1b[2m\x1b[37m ${xsdItem.val.toString().trim()}\x1b[0m\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓`);	
+			}
+
 			if (xsdItem.xparent) {
 				console.log(`\x1b[2m\x1b[32m  parent ::\x1b[1m ${xsdItem.xparent.name}\x1b[0m`);
 				if (xsdItem.xparent.attr.name) {

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
-
   <xs:element name="ConcludedTransfersQuestionnaire">
     <xs:annotation>
       <xs:documentation>
@@ -28,131 +27,587 @@
                 Version: v1.0.
 
         </xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-        <xs:sequence>
-          <xs:element name="Transfer" type="ConcludedTransferRecord" minOccurs="1" maxOccurs="1000000" />
-          <xs:element name="TransfersNumber" type="xs:integer" minOccurs="1" maxOccurs="1" />
-        </xs:sequence>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Transfer" type="ConcludedTransferRecord" minOccurs="1" maxOccurs="1000000"/>
+        <xs:element name="TransfersNumber" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="TransactionYear">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="2013"/>
+      <xs:maxInclusive value="2022"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EUCountryName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Austria"/>
+      <xs:enumeration value="Belgium"/>
+      <xs:enumeration value="Bulgaria"/>
+      <xs:enumeration value="Cyprus"/>
+      <xs:enumeration value="Czech Republic"/>
+      <xs:enumeration value="Germany"/>
+      <xs:enumeration value="Denmark"/>
+      <xs:enumeration value="Estonia"/>
+      <xs:enumeration value="Spain"/>
+      <xs:enumeration value="Finland"/>
+      <xs:enumeration value="France"/>
+      <xs:enumeration value="Greece"/>
+      <xs:enumeration value="Croatia"/>
+      <xs:enumeration value="Hungary"/>
+      <xs:enumeration value="Ireland"/>
+      <xs:enumeration value="Italy"/>
+      <xs:enumeration value="Lithuania"/>
+      <xs:enumeration value="Luxembourg"/>
+      <xs:enumeration value="Latvia"/>
+      <xs:enumeration value="Malta"/>
+      <xs:enumeration value="Netherlands"/>
+      <xs:enumeration value="Poland"/>
+      <xs:enumeration value="Portugal"/>
+      <xs:enumeration value="Romania"/>
+      <xs:enumeration value="Sweden"/>
+      <xs:enumeration value="Slovenia"/>
+      <xs:enumeration value="Slovakia"/>
+      <xs:enumeration value="United Kingdom"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IsoCountryCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ABW">
+        <xs:annotation>
+          <xs:documentation>Aruba</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AIA">
+        <xs:annotation>
+          <xs:documentation>Anguilla</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ALB">
+        <xs:annotation>
+          <xs:documentation>Albania</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AND">
+        <xs:annotation>
+          <xs:documentation>Andorra</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ANT">
+        <xs:annotation>
+          <xs:documentation>Netherlands Antilles</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ARM">
+        <xs:annotation>
+          <xs:documentation>Armenia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ATF">
+        <xs:annotation>
+          <xs:documentation>French Southern &amp; Antarctic Lands</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AUT">
+        <xs:annotation>
+          <xs:documentation>Austria</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AZE">
+        <xs:annotation>
+          <xs:documentation>Azerbaijan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BEL">
+        <xs:annotation>
+          <xs:documentation>Belgium</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BGR">
+        <xs:annotation>
+          <xs:documentation>Bulgaria</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BIH">
+        <xs:annotation>
+          <xs:documentation>Bosnia &amp; Herzegovina</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BLM">
+        <xs:annotation>
+          <xs:documentation>Saint Barthélemy</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BLR">
+        <xs:annotation>
+          <xs:documentation>Belarus</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BMU">
+        <xs:annotation>
+          <xs:documentation>Bermuda</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BVT">
+        <xs:annotation>
+          <xs:documentation>Bouvet I.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CHE">
+        <xs:annotation>
+          <xs:documentation>Switzerland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CYM">
+        <xs:annotation>
+          <xs:documentation>Cayman Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CYP">
+        <xs:annotation>
+          <xs:documentation>Cyprus</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CZE">
+        <xs:annotation>
+          <xs:documentation>Czech Republic</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DEU">
+        <xs:annotation>
+          <xs:documentation>Germany</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DNK">
+        <xs:annotation>
+          <xs:documentation>Denmark</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DZA">
+        <xs:annotation>
+          <xs:documentation>Algeria</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EGY">
+        <xs:annotation>
+          <xs:documentation>Egypt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ESP">
+        <xs:annotation>
+          <xs:documentation>Spain</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EST">
+        <xs:annotation>
+          <xs:documentation>Estonia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FIN">
+        <xs:annotation>
+          <xs:documentation>Finland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FLK">
+        <xs:annotation>
+          <xs:documentation>Falkland Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FRA">
+        <xs:annotation>
+          <xs:documentation>France</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FRO">
+        <xs:annotation>
+          <xs:documentation>Faroe Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GBR">
+        <xs:annotation>
+          <xs:documentation>United Kingdom</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GEO">
+        <xs:annotation>
+          <xs:documentation>Georgia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GIB">
+        <xs:annotation>
+          <xs:documentation>Gibraltar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GLP">
+        <xs:annotation>
+          <xs:documentation>Guadeloupe</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GRC">
+        <xs:annotation>
+          <xs:documentation>Greece</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GRL">
+        <xs:annotation>
+          <xs:documentation>Greenland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GUF">
+        <xs:annotation>
+          <xs:documentation>French Guiana</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HRV">
+        <xs:annotation>
+          <xs:documentation>Croatia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HUN">
+        <xs:annotation>
+          <xs:documentation>Hungary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IOT">
+        <xs:annotation>
+          <xs:documentation>British Indian Ocean Territory</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IRL">
+        <xs:annotation>
+          <xs:documentation>Ireland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ISL">
+        <xs:annotation>
+          <xs:documentation>Iceland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ITA">
+        <xs:annotation>
+          <xs:documentation>Italy</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="KAZ">
+        <xs:annotation>
+          <xs:documentation>Kazakhstan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="KGZ">
+        <xs:annotation>
+          <xs:documentation>Kyrgyzstan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LBY">
+        <xs:annotation>
+          <xs:documentation>Libya</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LIE">
+        <xs:annotation>
+          <xs:documentation>Liechtenstein</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LTU">
+        <xs:annotation>
+          <xs:documentation>Lithuania</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LUX">
+        <xs:annotation>
+          <xs:documentation>Luxembourg</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LVA">
+        <xs:annotation>
+          <xs:documentation>Latvia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MAF">
+        <xs:annotation>
+          <xs:documentation>Saint Martin (French part)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MAR">
+        <xs:annotation>
+          <xs:documentation>Morocco</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MCO">
+        <xs:annotation>
+          <xs:documentation>Monaco</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MDA">
+        <xs:annotation>
+          <xs:documentation>Moldova</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MKD">
+        <xs:annotation>
+          <xs:documentation>Macedonia (FYR)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MLT">
+        <xs:annotation>
+          <xs:documentation>Malta</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MNE">
+        <xs:annotation>
+          <xs:documentation>Montenegro</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MNG">
+        <xs:annotation>
+          <xs:documentation>Mongolia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSR">
+        <xs:annotation>
+          <xs:documentation>Montserrat</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MTQ">
+        <xs:annotation>
+          <xs:documentation>Martinique</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MYT">
+        <xs:annotation>
+          <xs:documentation>Mayotte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NCL">
+        <xs:annotation>
+          <xs:documentation>New Caledonia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NLD">
+        <xs:annotation>
+          <xs:documentation>Netherlands</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NOR">
+        <xs:annotation>
+          <xs:documentation>Norway</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PCN">
+        <xs:annotation>
+          <xs:documentation>Pitcairn Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="POL">
+        <xs:annotation>
+          <xs:documentation>Poland</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PRT">
+        <xs:annotation>
+          <xs:documentation>Portugal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PYF">
+        <xs:annotation>
+          <xs:documentation>French Polynesia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REU">
+        <xs:annotation>
+          <xs:documentation>Reunion</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ROU">
+        <xs:annotation>
+          <xs:documentation>Romania</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RUS">
+        <xs:annotation>
+          <xs:documentation>Russia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SGS">
+        <xs:annotation>
+          <xs:documentation>South Georgia &amp; the South Sandwich Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SHN">
+        <xs:annotation>
+          <xs:documentation>St. Helena</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SJM">
+        <xs:annotation>
+          <xs:documentation>Svalbard &amp; Jan Mayen</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SMR">
+        <xs:annotation>
+          <xs:documentation>San Marino</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SPM">
+        <xs:annotation>
+          <xs:documentation>St. Pierre &amp; Miquelon</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SRB">
+        <xs:annotation>
+          <xs:documentation>Serbia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SVK">
+        <xs:annotation>
+          <xs:documentation>Slovakia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SVN">
+        <xs:annotation>
+          <xs:documentation>Slovenia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SWE">
+        <xs:annotation>
+          <xs:documentation>Sweden</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TCA">
+        <xs:annotation>
+          <xs:documentation>Turks &amp; Caicos Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TJK">
+        <xs:annotation>
+          <xs:documentation>Tajikistan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TKM">
+        <xs:annotation>
+          <xs:documentation>Turkmenistan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TUN">
+        <xs:annotation>
+          <xs:documentation>Tunisia</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TUR">
+        <xs:annotation>
+          <xs:documentation>Turkey</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UKR">
+        <xs:annotation>
+          <xs:documentation>Ukraine</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UZB">
+        <xs:annotation>
+          <xs:documentation>Uzbekistan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VGB">
+        <xs:annotation>
+          <xs:documentation>British Virgin Is.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WLF">
+        <xs:annotation>
+          <xs:documentation>Wallis &amp; Futuna</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="XKX">
+        <xs:annotation>
+          <xs:documentation>Kosovo (UNSCR 1244/99) it is not official ISO 3166-1 alpha-3 code XKX</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="ReportingIssue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UniqueAgglomerationId" minOccurs="0"/>
+        <xs:element ref="UniqueRoadId" minOccurs="0"/>
+        <xs:element ref="UniqueRailId" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="agg"/>
+            <xs:enumeration value="air"/>
+            <xs:enumeration value="rail"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="entireEntity" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
 
-  <xs:simpleType name="TransactionYear">
-        <xs:restriction base="xs:integer">
-            <xs:minInclusive value="2013" />
-            <xs:maxInclusive value="2022" />
-        </xs:restriction>
-  </xs:simpleType>
 
-    <xs:simpleType name="EUCountryName">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="Austria"/>
-            <xs:enumeration value="Belgium"/>
-            <xs:enumeration value="Bulgaria"/>
-            <xs:enumeration value="Cyprus"/>
-            <xs:enumeration value="Czech Republic"/>
-            <xs:enumeration value="Germany"/>
-            <xs:enumeration value="Denmark"/>
-            <xs:enumeration value="Estonia"/>
-            <xs:enumeration value="Spain"/>
-            <xs:enumeration value="Finland"/>
-            <xs:enumeration value="France"/>
-            <xs:enumeration value="Greece"/>
-            <xs:enumeration value="Croatia"/>
-            <xs:enumeration value="Hungary"/>
-            <xs:enumeration value="Ireland"/>
-            <xs:enumeration value="Italy"/>
-            <xs:enumeration value="Lithuania"/>
-            <xs:enumeration value="Luxembourg"/>
-            <xs:enumeration value="Latvia"/>
-            <xs:enumeration value="Malta"/>
-            <xs:enumeration value="Netherlands"/>
-            <xs:enumeration value="Poland"/>
-            <xs:enumeration value="Portugal"/>
-            <xs:enumeration value="Romania"/>
-            <xs:enumeration value="Sweden"/>
-            <xs:enumeration value="Slovenia"/>
-            <xs:enumeration value="Slovakia"/>
-            <xs:enumeration value="United Kingdom"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-        <xs:element name="ReportingIssue">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="UniqueAgglomerationId" minOccurs="0"/>
-                <xs:element ref="UniqueRoadId" minOccurs="0"/>
-                <xs:element ref="UniqueRailId" minOccurs="0"/>
-                </xs:sequence>
-            <xs:attribute name="type" use="required">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="agg"/>
-                        <xs:enumeration value="air"/>
-                        <xs:enumeration value="rail"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:attribute>
-            <xs:attribute name="entireEntity" type="xs:boolean"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="UniqueAgglomerationId">
-        <xs:annotation>
-            <xs:documentation xml:lang="en">
+  <xs:element name="UniqueAgglomerationId">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
 Unique Agglomeration ID assigned by the reporting entity to each agglomeration.
 </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:minLength value="0"/>
-                <xs:maxLength value="14"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="0"/>
+        <xs:maxLength value="14"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 
-    <xs:element name="UniqueRoadId">
-        <xs:annotation>
-            <xs:documentation xml:lang="en">
+
+  <xs:element name="UniqueRoadId">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
 Unique Road ID assigned by the reporting entity to each major road segment.
 </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:minLength value="0"/>
-                <xs:maxLength value="14"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
-    
-<xs:element name="UniqueRailId">
-        <xs:annotation>
-            <xs:documentation xml:lang="en">
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="0"/>
+        <xs:maxLength value="14"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+
+  <xs:element name="UniqueRailId">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
 Unique Rail ID assigned by the reporting entity to each major rail segment.
 </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:minLength value="0"/>
-                <xs:maxLength value="14"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="0"/>
+        <xs:maxLength value="14"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
 
   <xs:complexType name="ConcludedTransferRecord">
-        <xs:annotation>
-            <xs:documentation>Record of Concluded Transfer</xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-          <xs:element name="AEA" type="xs:integer" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="TransferringMemberState" type="EUCountryName" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="AcquiringMemberState" type="EUCountryName" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="AEA-Price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="TransferAgreementDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="ExpectedTransactionYear" type="TransactionYear" minOccurs="1" maxOccurs="1"/>
-          <xs:element ref="ReportingIssue" minOccurs="0" maxOccurs="4"/>
-          <xs:element name="Other" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
-    </xs:complexType>
-
+    <xs:annotation>
+      <xs:documentation>Record of Concluded Transfer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AEA" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TransferringMemberState" type="EUCountryName" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="AcquiringMemberState" type="IsoCountryCode" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="AEA-Price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TransferAgreementDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ExpectedTransactionYear" type="TransactionYear" minOccurs="1" maxOccurs="1"/>
+      <xs:element ref="ReportingIssue" minOccurs="0" maxOccurs="4"/>
+      <xs:element name="Other" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
