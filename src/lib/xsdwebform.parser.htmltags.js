@@ -29,7 +29,9 @@ class XSDWebFormParserHTMLTags {
 			"positivenumber": this.parseNumberP,
 			"date": this.parseDate,
 			"select": this.parseSelect,
-			"radio": this.parseRadio
+			"radio": this.parseRadio,
+			"checkbox": this.parseCheckbox,
+			"radioorselect" : this.decideRadioCheck
 		};
 
 		this.XSD_HTML_TYPES = {
@@ -39,7 +41,7 @@ class XSDWebFormParserHTMLTags {
 			"xs:date": "date",
 			"DateType": "date",
 			"xs:string": "input",
-			"xs:boolean": "radio"
+			"xs:boolean": "radioorselect"
 		};
 
 		this.HTMLObjects = [];
@@ -565,6 +567,51 @@ class XSDWebFormParserHTMLTags {
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
+		}
+	}
+
+	/**
+	 * parseCheckbox - Parse  Checkbox Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	parseCheckbox(item, xsdItem, sender) {
+
+		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		XSDWebFormParserLog.logTODO("CHECKBOX");
+
+	}
+
+	/**
+	 * decideRadioCheck - Parse  Checkbox Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	decideRadioCheck(item, xsdItem, sender) {
+		if (item.attr.element) {
+			if (!sender.geTypeByName(item.attr.element, xsdItem)) 
+				item.name = "checkbox";
+			else 
+				item.name = "radio";
+		}		
+		//XSDWebFormParserLog.logTODO("DECIDE");
+		sender.parseHTMLItem(item, xsdItem);
+	}
+
+	/**
+	 * geTypeByName
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	geTypeByName(itemname, xsdItem) {
+		console.log("itemname", itemname);
+		let elements = xsdItem.childrenNamed("xs:simpleType");
+		for (let i = 0, l = elements.length; i  < l; i++) {
+			if (elements[i].attr.name === itemname) {
+				return elements[i];
+			}
 		}
 	}
 

@@ -4,6 +4,7 @@
 		<form action="/api/testasdasd">
 			<group element="DestinationTypes"> 	
 				<item element="isoCountryCode"/>
+				<item element="creatingSites"/>
 			</group>
 		</form>
 	</page>

@@ -65,6 +65,17 @@
   </xs:simpleType>
 </xs:element>
 
+<xs:element name="creatingSites">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Flag to indicate whether the designation does or does not create sites (is measurable by area). 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+</xs:element>
+
 <!-- /ELEMENTS REFERENCES -->
 
 <!-- ELEMENTS -->
@@ -72,6 +83,7 @@
     <xs:complexType>
       <xs:all>
         <xs:element ref="isoCountryCode"/>
+        <xs:element ref="creatingSites"/>
         </xs:all>
     </xs:complexType>
   </xs:element>
