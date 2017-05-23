@@ -164,6 +164,13 @@ fieldset {
     border-radius: 0 15px;
 }
 
+.checkboxclass {
+    border: inset 1px rgba(100, 100, 100, 0.1);
+    background-color: rgba(100, 100, 100, 0.01);
+    border-radius: 0 15px;
+    padding: 5px 10px;
+}
+
 #tool-ribbon {
     background-color: #ffffff;
     border-bottom: 4px solid #6f7072;

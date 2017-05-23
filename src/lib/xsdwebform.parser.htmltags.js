@@ -601,7 +601,7 @@ class XSDWebFormParserHTMLTags {
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				prepend: "<div class=\"radioclass\">",
+				prepend: "<div class=\"checkboxclass\">",
 				append: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
