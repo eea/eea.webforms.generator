@@ -564,6 +564,8 @@ class XSDWebFormParserHTMLTags {
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
+				prepend: "<div class=\"radioclass\">",
+				append: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
@@ -579,7 +581,32 @@ class XSDWebFormParserHTMLTags {
 	parseCheckbox(item, xsdItem, sender) {
 
 		XSDWebFormParserLog.logHtmlTag(item.name, sender);
-		XSDWebFormParserLog.logTODO("CHECKBOX");
+		
+		if (item.attr.element) {
+			
+			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+		
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
+			var htmlItem = {
+				name: item.attr.element,
+				tag: 'input',
+				tagclose: false,
+				autoclose: false,
+				hasLabel: true,
+				formModel: itemFormModel,
+				attrs: {
+					name: item.attr.element + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					type: "checkbox",
+					'ew-map': sender.getEwMap(item, itemInfo),
+					'ng-model': 'field.' + itemFormModel
+				},
+				prepend: "<div class=\"radioclass\">",
+				append: "</div>",
+				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
+			};
+			sender.addItemToGroup(htmlItem, itemInfo, sender);
+		}
 
 	}
 
@@ -734,6 +761,10 @@ class XSDWebFormParserHTMLTags {
 			outPut = `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
 		}
 
+		if (this.prepend) {
+			outPut += this.prepend;
+		}
+
 		if (!this.noTag) {
 			outPut += "\n\t\t<" + this.tag;
 			for (let key in this.attrs) {
@@ -754,7 +785,7 @@ class XSDWebFormParserHTMLTags {
 					return `\t\t\t<option value="${option.value}">{{'labels.text.${lbl}' | translate}}</option>\n`;
 				}).join("");
 			} else {
-				outPut += '<div class="radioclass">' + this.options.map((option) => {
+				outPut += this.options.map((option) => {
 					let lbl = option.label.toString().toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
@@ -764,8 +795,12 @@ class XSDWebFormParserHTMLTags {
 					if (this.attrs.required) 
 						req = 'required="1"';
 					return `<label class="radio-label"><input type="radio" name="${option.name}" value="${option.value}" ${req}>{{'labels.text.${lbl}' | translate}}</label>`;
-				}).join("") + '</div>';
+				}).join("");
 			}
+		}
+
+		if (this.append) {
+			outPut += this.append;
 		}
 
 		if (this.autoclose)
