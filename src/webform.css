@@ -171,6 +171,11 @@ fieldset {
     padding: 5px 10px;
 }
 
+input[type=checkbox] {
+    transform: scale(1.2)
+}
+
+
 #tool-ribbon {
     background-color: #ffffff;
     border-bottom: 4px solid #6f7072;
@@ -398,15 +403,15 @@ select.slanguage:focus {
     height: 32px;
     line-height: 20px;
     font-weight: 700;
-    width: 15%;
-    min-width: 220px;
+    /*width: 15%;*/
+    min-width: 300px;
     margin-right: 20px;
     color: #fff;
     position: absolute;
     margin-top: -31px;
     padding: 5px 10px;
     background-color: #006699;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
     user-select: none;
 }
 
