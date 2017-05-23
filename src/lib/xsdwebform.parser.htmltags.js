@@ -596,7 +596,6 @@ class XSDWebFormParserHTMLTags {
 			else 
 				item.name = "radio";
 		}		
-		//XSDWebFormParserLog.logTODO("DECIDE");
 		sender.parseHTMLItem(item, xsdItem);
 	}
 
@@ -736,11 +735,11 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		if (!this.noTag) {
-			outPut += "<" + this.tag;
+			outPut += "\n\t\t<" + this.tag;
 			for (let key in this.attrs) {
 				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
 			}
-			outPut += ">";
+			outPut += ">\n";
 		}
 
 		if (this.options) {
@@ -751,7 +750,7 @@ class XSDWebFormParserHTMLTags {
 						label: lbl,
 						text: option.option
 					});
-					return `<option value="${option.value}">{{'labels.text.${lbl}' | translate}}</option>`;
+					return `\t\t\t<option value="${option.value}">{{'labels.text.${lbl}' | translate}}</option>\n`;
 				}).join("");
 			} else {
 				outPut += '<div class="radioclass">' + this.options.map((option) => {
@@ -769,10 +768,10 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		if (this.autoclose)
-			outPut += "</" + this.tag + ">";
+			outPut += "\t\t</" + this.tag + ">\n";
 
 		if (this.attrs.required === 1) {
-			outPut += `<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
+			outPut += `\t\t<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;
