@@ -564,8 +564,8 @@ class XSDWebFormParserHTMLTags {
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				prepend: "<div class=\"radioclass\">",
-				append: "</div>",
+				itemprepend: "<div class=\"radioclass\">",
+				itemappend: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
@@ -601,8 +601,8 @@ class XSDWebFormParserHTMLTags {
 					'ew-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				prepend: "<div class=\"checkboxclass\">",
-				append: "</div>",
+				itemprepend: "<div class=\"checkboxclass\">",
+				itemappend: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
@@ -761,8 +761,8 @@ class XSDWebFormParserHTMLTags {
 			outPut = `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
 		}
 
-		if (this.prepend) {
-			outPut += this.prepend;
+		if (this.itemprepend) {
+			outPut += this.itemprepend;
 		}
 
 		if (!this.noTag) {
@@ -799,8 +799,8 @@ class XSDWebFormParserHTMLTags {
 			}
 		}
 
-		if (this.append) {
-			outPut += this.append;
+		if (this.itemappend) {
+			outPut += this.itemappend;
 		}
 
 		if (this.autoclose)
