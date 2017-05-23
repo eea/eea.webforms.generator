@@ -612,7 +612,7 @@ select.slanguage:focus {
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: 1.25rem 50%;
-    padding-left: 3.125rem;
+    padding-left: 40px;
     color: #00446a;
     margin: 0;
     transition: background-color 300ms ease-out;
