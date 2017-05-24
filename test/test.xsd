@@ -35,12 +35,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  
   <xs:simpleType name="TransactionYear">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="2013"/>
       <xs:maxInclusive value="2022"/>
     </xs:restriction>
   </xs:simpleType>
+
   <xs:simpleType name="EUCountryName">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Austria"/>

@@ -437,8 +437,7 @@ class XSDWebFormParserHTMLTags {
 			}
 
 			try {
-				XSDWFormItemTypeData = sender.getItemByName(XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type, xsdItem) 
-				|| sender.getItemByName(XSDWFormItem.attr.type, xsdItem) ;
+				XSDWFormItemTypeData = sender.getItemByName( ( XSDWFormItem.attr.type || XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type ), xsdItem);
 			} catch (ex) {
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 			}
