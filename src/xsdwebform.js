@@ -133,8 +133,9 @@ export default class XSDWebForm {
 					xObject.hdata = res;
 					// Parse file content
 					this.parser.parse(xObject);
+					
 					// Create HTML file
-					this.createFile(this.buildPath  + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
+					this.createFile(this.buildPath + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
 						this.getFile(__dirname + "/lng/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
 							let langData = this.parser.getFullTextContent();
@@ -144,6 +145,10 @@ export default class XSDWebForm {
 							});
 						});
 					});
+
+					// Create XSLT output
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xslt", this.parser.getXSLTOutput());
+
 					// Open browser 
 					if (this.autoOpenOutput)
 						openurl.open(`http://localhost:3001/${this.baseFileName}html`);
@@ -161,6 +166,7 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
+					fs.mkdirSync(parent.buildPath+"xslt");
 					ncp(__dirname + "/lng/", parent.buildPath + "lng", function(err) {
 						if (err) {
 							console.error(err);

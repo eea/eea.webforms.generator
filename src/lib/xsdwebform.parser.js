@@ -10,6 +10,7 @@
 import { XmlDocument } from 'xmldoc';
 import XsdTagParser from './xsdwebform.parser.tags.js';
 import HtmlTagParser from './xsdwebform.parser.htmltags.js';
+import XsltGenerator from './xsdwebform.parser.xslt.js';
 import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 
 /**
@@ -25,6 +26,7 @@ class XSDWebFormParser {
 	constructor(showlog = false, verbose = false,  showXSDLog  = true) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
+		this.xsltGenerator = new XsltGenerator();
 
 		this.htmlOutput = {
 			content: '',
@@ -39,6 +41,8 @@ class XSDWebFormParser {
 		this.xsdTagParser.setVerbose((this.showLog && this.verbose));
 		this.htmlTagParser.setLog(this.showLog);
 		this.htmlTagParser.setVerbose((this.showLog && this.verbose));
+		this.xsltGenerator.setLog(this.showLog);
+		this.xsltGenerator.setVerbose((this.showLog && this.verbose));
 	}
 
 	/**
@@ -64,8 +68,13 @@ class XSDWebFormParser {
 		htmlItem.level = 0;
 		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
 		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
+		
+		// Create HTML output
 		this.createHTMLOutput();
 
+		// Create XSLT output
+		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
+		
 		if (this.showLog)
 			XSDWebFormParserLog.showLogs(this);
 	}
@@ -121,6 +130,13 @@ class XSDWebFormParser {
 	 */
 	getHTMLOutput() {
 		return this.htmlOutput.content ;
+	}
+	
+	/**
+	 * getXSLTOutput - Return XSLT Document
+	 */
+	getXSLTOutput() {
+		return this.xslt;
 	}
 
 	/**

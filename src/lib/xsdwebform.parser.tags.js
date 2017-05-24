@@ -110,6 +110,7 @@ class XSDWebFormParserTags {
 	getVerbose() {
 		return this.verbose;
 	}
+	
 	/**
 	 * parseElement- Parse Element Tag
 	 * @param item
