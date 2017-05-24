@@ -79,17 +79,22 @@ export default class XSDWebForm {
 				xsdFile = "./test/test.xsd";
 			}
 
+			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
 			this.baseFileName = path.basename(xsdFile);
 			this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
 			this.basePath = path.dirname(xsdFile);
 			xmlHtmlFile = this.baseFileName + "form.xml";
 
+			// Create (/clean) Build directory and move files
 			this.prepareJSFiles().then((res) => {
 				try {
+					// After Build directory preperation, parse the document
 					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ( (response) => {	
 						var app = express();
 						var parent = this;
 						var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
+
+						// Start test web server in order to view the HTML5 file result.
 						app.use(express.static(filePath))
 							.listen(3001, function () {
 								if (parent.showLog) {
