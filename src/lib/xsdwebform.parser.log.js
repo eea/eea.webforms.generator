@@ -21,6 +21,11 @@ class XSDWebFormParserLog {
 <html>
 <head>
 <style>
+body {
+	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   	font-weight: 300;
+}
+
 li.xsdc {
     box-shadow: 3px 3px 3px #ccc;
     padding:4px 8px;font-size:15px;
@@ -109,7 +114,7 @@ li.xsdc {
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:#fff;background-color:#999;">${xsdItem.attr.name}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:#fff;background-color:#999;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -127,10 +132,10 @@ li.xsdc {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.value}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;"><b>${xsdItem.attr.value}</b></li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">Ref: ${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
