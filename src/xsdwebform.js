@@ -142,7 +142,7 @@ export default class XSDWebForm {
 							langs.CTCodelists.Languages.item.forEach((item) => {
 								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
 								if (this.showLog) {
-									this.createFile(this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
+									this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
 								}
 								resolve();
 							});
@@ -170,6 +170,7 @@ export default class XSDWebForm {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
 					fs.mkdirSync(parent.buildPath+"xslt");
+					fs.mkdirSync(parent.buildPath+"log");
 					ncp(__dirname + "/lng/", parent.buildPath + "lng", function(err) {
 						if (err) {
 							console.error(err);
