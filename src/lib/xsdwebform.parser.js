@@ -23,11 +23,12 @@ class XSDWebFormParser {
 	 * @param showlog
 	 * @param verbose
 	 */
-	constructor(showlog = false, verbose = false,  showXSDLog  = true) {
+	constructor(baseFileName, showlog = false, verbose = false,  showXSDLog  = true) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 		this.xsltGenerator = new XsltGenerator();
 		this.logger = new XSDWebFormParserLog();
+		this.baseFileName = baseFileName;
 
 		this.htmlOutput = {
 			content: '',
@@ -78,6 +79,7 @@ class XSDWebFormParser {
 
 		// Create XSLT output
 		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
+		this.xsltXml = this.xsltGenerator.createXMLOutput(htmlItem, this.baseFileName);
 		
 		if (this.showLog)
 			this.logger.showLogs(this);
@@ -141,6 +143,13 @@ class XSDWebFormParser {
 	 */
 	getXSLTOutput() {
 		return this.xslt;
+	}
+
+	/**
+	 * getXSLTXMLOutput - Return XSLT Document
+	 */
+	getXSLTXMLOutput() {
+		return this.xsltXml;
 	}
 
 	/**
