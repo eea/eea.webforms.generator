@@ -81,13 +81,13 @@ class XSDWebFormParserLog {
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
-						var txmlItem = xsdItem.toString();
+						let txmlItem = xsdItem.toString();
 						txmlItem = txmlItem.split("\n").join("");
 						txmlItem = txmlItem.split("<").join(xspace + `\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m<`);
 
 						let pos1 = txmlItem.indexOf("<xs:documentation>");
 						if (pos1 > 0) {
-							var pos2 = txmlItem.indexOf("</xs:documentation>");
+							let pos2 = txmlItem.indexOf("</xs:documentation>");
 							txmlItem = txmlItem.substring(0, pos1) + "<xs:documentation> ..." + txmlItem.substring(pos2);
 						}
 						process.stdout.write(`\x1b[2m${txmlItem}`);
@@ -102,7 +102,10 @@ class XSDWebFormParserLog {
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
 
 			if (xsdItem.name === "xs:documentation" && xsdItem.xparent.name === "xs:annotation") {
-				process.stdout.write(` \x1b[2m\x1b[37m ${xsdItem.val.toString().trim()}\x1b[0m\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓`);	
+				let txmlItem = xsdItem.val.toString().trim();
+				if (txmlItem.length > 60) 
+					txmlItem = txmlItem.substring(0, 60) + "...";
+				process.stdout.write(` \x1b[2m\x1b[37m ${txmlItem}\x1b[0m\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓`);	
 			}
 
 			if (xsdItem.xparent) {
