@@ -72,10 +72,10 @@ class XSDWebFormParser {
 		var htmlItem = new XmlDocument(xObject.hdata);
 		htmlItem.level = 0;
 		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
-		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
-		
+
 		// Create HTML output
-		this.createHTMLOutput();
+		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
+		this.htmlOutput.content = this.createHTMLOutput();
 
 		// Create XSLT output
 		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
@@ -128,7 +128,7 @@ class XSDWebFormParser {
 
 			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
 		}
-		this.htmlOutput.content = html.join("\n\n");
+		return html.join("\n\n");
 	}
 
 	/**
