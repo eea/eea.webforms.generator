@@ -14,9 +14,15 @@
  */
 class XSDWebFormParserLog {
 	/**
+	 * Class constructor
+	 */
+	constructor() {
+		this.htmlOutput;
+	}
+	/**
 	 * showLog 
 	 */
-	static showLogs(sender) {
+	showLogs(sender) {
 		if (!sender.verbose)
 			console.log("");
 
@@ -43,7 +49,7 @@ class XSDWebFormParserLog {
 	 * logXSD 
 	 * @param xObject
 	 */
-	static logXSD(xObject) {
+	logXSD(xObject) {
 		console.log("\n\n\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
@@ -53,7 +59,7 @@ class XSDWebFormParserLog {
 	 * logHTML 
 	 * @param xObject
 	 */
-	static logHTML(xObject) {
+	logHTML(xObject) {
 		console.log("\n\n\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
@@ -63,8 +69,8 @@ class XSDWebFormParserLog {
 	 * showItemLog - ShowLog
 	 * @param xsdItem
 	 */
-	static showItemLog(xsdItem, verbose) {
-		
+	showItemLog(xsdItem, verbose) {
+
 		let xspace = "  ";
 		for (let i = 0; i < xsdItem.level; i++) {
 			xspace += "\t";
@@ -126,7 +132,7 @@ class XSDWebFormParserLog {
 	 * logXsdTag - Log XSD Element Tag
 	 * @param item
 	 */
-	static logXsdTag(item) {
+	logXsdTag(item) {
 		console.log(`\x1b[0m\x1b[31m⇣\x1b[2m Found Tag \x1b[33m${item}\x1b[0m`);
 	}
 
@@ -134,7 +140,7 @@ class XSDWebFormParserLog {
 	 * logTODO - Log XSD Element Tag
 	 * @param msg
 	 */
-	static logTODO(msg) {
+	logTODO(msg) {
 		console.log(`\x1b[1m\x1b[31mTODO: \x1b[0m${msg}\x1b[0m`);
 	}
 
@@ -142,7 +148,7 @@ class XSDWebFormParserLog {
 	 * logHtmlTag - Log HTML Element Tag
 	 * @param item
 	 */
-	static logHtmlTag(item, sender) {
+	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item}\x1b[0m\n`);
 			// console.log("\x1b[2m" + sender.HTML_TYPES[item].htmlTemplate + "\x1b[0m\n");

@@ -5,7 +5,6 @@
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
-import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
 
 /**
@@ -48,7 +47,7 @@ class XSDWebFormParserTags {
 	 */
 	xsdParse(xsdItem) {
 		if (this.showLog)
-			XSDWebFormParserLog.showItemLog(xsdItem, this.verbose);
+			this.logger.showItemLog(xsdItem, this.verbose);
 		// Loop through Tag's childNodes
 		if (xsdItem.children) {
 			for (let i = 0, l = xsdItem.children.length; i < l; i++) {
@@ -79,6 +78,14 @@ class XSDWebFormParserTags {
 			console.log(`\n\x1b[1m\x1b[31m************* Unknown Tag {${item}} *************\x1b[0m\n`);
 			process.stdout.write('\x07');
 		}
+	}
+
+	/**
+	 * setLogger
+	 * @param logger
+	 */
+	setLogger(logger) {
+		this.logger = logger;
 	}
 
 	/**
@@ -118,7 +125,7 @@ class XSDWebFormParserTags {
 
 	parseElement(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -127,7 +134,7 @@ class XSDWebFormParserTags {
 	 */
 	parseImport(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -136,7 +143,7 @@ class XSDWebFormParserTags {
 	 */
 	parseSimpleType(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 	
 	/**
@@ -145,7 +152,7 @@ class XSDWebFormParserTags {
 	 */
 	parseComplexType(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -154,7 +161,7 @@ class XSDWebFormParserTags {
 	 */
 	parseSequence(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -163,7 +170,7 @@ class XSDWebFormParserTags {
 	 */
 	parseAll(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -172,7 +179,7 @@ class XSDWebFormParserTags {
 	 */
 	parseAttribute(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -181,7 +188,7 @@ class XSDWebFormParserTags {
 	 */
 	parseRestriction(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 	/**
 	 * parseAnnotation - Parse Annotation Tag
@@ -190,7 +197,7 @@ class XSDWebFormParserTags {
 
 	parseAnnotation(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 	/**
 	 * parseDocumentation - Parse Documentation Tag
@@ -199,7 +206,7 @@ class XSDWebFormParserTags {
 
 	parseDocumentation(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -208,7 +215,7 @@ class XSDWebFormParserTags {
 	 */
 	parseEnumeration(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -217,7 +224,7 @@ class XSDWebFormParserTags {
 	 */
 	parseMinInclusive(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -226,7 +233,7 @@ class XSDWebFormParserTags {
 	 */
 	parseMaxInclusive(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -235,7 +242,7 @@ class XSDWebFormParserTags {
 	 */
 	parseUnion(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -244,7 +251,7 @@ class XSDWebFormParserTags {
 	 */
 	parsePattern(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -253,7 +260,7 @@ class XSDWebFormParserTags {
 	 */
 	parseWhiteSpace(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -262,7 +269,7 @@ class XSDWebFormParserTags {
 	 */
 	parseMinLength(item, sender) {
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 	/**
@@ -272,7 +279,7 @@ class XSDWebFormParserTags {
 	parseMaxLength(item, sender) {
 		
 		if (sender.showLog)
-			XSDWebFormParserLog.logXsdTag(item);
+			sender.logger.logXsdTag(item);
 	}
 
 }

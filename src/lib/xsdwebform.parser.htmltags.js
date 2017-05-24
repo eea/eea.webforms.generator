@@ -5,7 +5,6 @@
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 
-import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
 
 /**
@@ -103,7 +102,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parsePage(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 		sender.HTML_FORM_TITLE = "{{'formtitle' | translate}}";
 	}
 
@@ -114,7 +113,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseForm(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		let formEnd = "<button type=\"submit\" class=\"submitbutton btn btn-primary\">{{'submitform' | translate}}</button>";
 		let formNum = sender.HTMLObjects.length + 1;
@@ -147,7 +146,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseGroup(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		let xsdGroupTag, xsdGroupProperties;
 		try {
@@ -268,7 +267,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseInput(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		let name = (item.attr.name) ? item.attr.name : item.attr.element;
@@ -301,7 +300,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseText(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -334,7 +333,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param positive
 	 */
 	parseNumber(item, xsdItem, sender, positive) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -381,7 +380,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseDate(item, xsdItem, sender) {
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -415,7 +414,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseSelect(item, xsdItem, sender) {
 
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
 		
@@ -510,7 +509,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseRadio(item, xsdItem, sender) {
 
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 
 		if (item.attr.element) {
 			
@@ -535,7 +534,7 @@ class XSDWebFormParserHTMLTags {
 			let enumItems = [];
 			XSDWFormItemData.eachChild((enm) => {
 				if (enm.attr.ref) {
-					XSDWebFormParserLog.logTODO("check radio reference : enm.attr.ref : " + enm.attr.ref);
+					sender.logger.logTODO("check radio reference : enm.attr.ref : " + enm.attr.ref);
 				}
 				if (enm.name === "xs:element") {
 					enumItems.push({
@@ -579,7 +578,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseCheckbox(item, xsdItem, sender) {
 
-		XSDWebFormParserLog.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item.name, sender);
 		
 		if (item.attr.element) {
 			
@@ -818,6 +817,14 @@ class XSDWebFormParserHTMLTags {
 	 */
 	reportError(msg, item) {
 		XSDWebFormParserError.reportError(msg, item);
+	}
+
+	/**
+	 * setLogger
+	 * @param logger
+	 */
+	setLogger(logger) {
+		this.logger = logger;
 	}
 
 	/**

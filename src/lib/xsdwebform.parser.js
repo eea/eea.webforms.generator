@@ -27,6 +27,7 @@ class XSDWebFormParser {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 		this.xsltGenerator = new XsltGenerator();
+		this.logger = new XSDWebFormParserLog();
 
 		this.htmlOutput = {
 			content: '',
@@ -37,10 +38,13 @@ class XSDWebFormParser {
 		this.verbose = verbose;
 		this.showXSDLog = showXSDLog;
 
+		this.xsdTagParser.setLogger(this.logger);
 		this.xsdTagParser.setLog(this.showLog);
 		this.xsdTagParser.setVerbose((this.showLog && this.verbose));
+		this.htmlTagParser.setLogger(this.logger);
 		this.htmlTagParser.setLog(this.showLog);
 		this.htmlTagParser.setVerbose((this.showLog && this.verbose));
+		this.xsltGenerator.setLogger(this.logger);
 		this.xsltGenerator.setLog(this.showLog);
 		this.xsltGenerator.setVerbose((this.showLog && this.verbose));
 	}
@@ -51,7 +55,7 @@ class XSDWebFormParser {
 	 */
 	parse(xObject) {
 		if (this.showLog && this.showXSDLog)
-			XSDWebFormParserLog.logXSD(xObject);
+			this.logger.logXSD(xObject);
 
 		// Create XML Document for XSD
 		var xsdItem = new XmlDocument(xObject.xdata);
@@ -61,7 +65,7 @@ class XSDWebFormParser {
 			this.xsdTagParser.xsdParse(xsdItem);
 
 		if (this.showLog)
-			XSDWebFormParserLog.logHTML(xObject);
+			this.logger.logHTML(xObject);
 
 		// Create XML Document for FORM.XML
 		var htmlItem = new XmlDocument(xObject.hdata);
@@ -76,7 +80,7 @@ class XSDWebFormParser {
 		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
 		
 		if (this.showLog)
-			XSDWebFormParserLog.showLogs(this);
+			this.logger.showLogs(this);
 	}
 
 	/**

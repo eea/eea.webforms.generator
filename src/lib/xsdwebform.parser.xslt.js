@@ -60,7 +60,14 @@ ${outputView}    </tr>
 
 	}
 
-
+	/**
+	 * setLogger
+	 * @param logger
+	 */
+	setLogger(logger) {
+		this.logger = logger;
+	}
+	
 	/**
 	 * setLog  - Show Log
 	 * @param bool
