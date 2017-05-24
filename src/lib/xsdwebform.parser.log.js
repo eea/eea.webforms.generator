@@ -23,8 +23,8 @@ class XSDWebFormParserLog {
 <script src="../assets/js/jquery.min.js"></script>
 <script>
 $(function () {
-	$("ul div.clvl").each(function (index) {
-		$(this).prepend($("<div style=\\"margin-top: -20px; position: absolute; background-color: rgba(255, 0, 0, 1); height: 16px; width: 16px;\\"></div>"));
+	$("ul.clvl").each(function (index) {	
+		$(this).prepend($("<div style=\\"margin-top: -16px; position: absolute; background-color: rgba(255, 0, 0, 1); height: 16px; width: 16px;\\"></div>"));
 	});
 });
 </script>
@@ -114,7 +114,7 @@ li.xsdc {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 130}px;"><div lvl="${xsdItem.level}" class="clvl lvl${xsdItem.level}" style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul lvl="${xsdItem.level}" class="clvl lvl${xsdItem.level}" style="margin-left:${xsdItem.level * 130}px;"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
