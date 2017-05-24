@@ -14,7 +14,8 @@ import ncp from 'ncp';
 import rimraf from 'rimraf';
 import openurl from 'openurl';
 import express from 'express';
-// import uglify from "uglify-js";
+import uglify from "uglify-js";
+import uglifycss from "uglifycss";
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
 
@@ -173,14 +174,19 @@ export default class XSDWebForm {
 							reject(err);
 						}
 						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
-							// parent.getFile(__dirname + "/webform.js").then ( (data) => {
-							// 	parent.createFile(parent.buildPath + parent.baseFileName + "webform.min.js", uglify.minify(data).code, false);
-							// });
+							parent.getFile(__dirname + "/webform.js").then ( (data) => {
+								parent.createFile(parent.buildPath + parent.baseFileName + "webform.min.js", uglify.minify(data).code, false);
+							});
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
 							ncp(__dirname + "/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
+								let uglified = uglifycss.processFiles(
+								[ __dirname + "/webform.css" ],
+									{ maxLineLen: 500, expandVars: true }
+								);
+								parent.createFile(parent.buildPath + parent.baseFileName +  "webform.min.css", uglified, false);
 								if (err) {
 									console.error(err);
 									reject(err);
@@ -214,14 +220,14 @@ export default class XSDWebForm {
 
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
-<script src="./${this.baseFileName}webform.js"></script>
+<script src="./${this.baseFileName}webform.min.js"></script>
 <script src="./assets/components/eeaheader.min.js" ></script>
 <script src="./assets/components/eealanguage.min.js" ></script>
 <script src="./assets/components/eeatoolbar.min.js" ></script>
 <script src="./assets/components/eeabuildinfo.min.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
-<link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.css"/>
+<link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.min.css"/>
 
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
