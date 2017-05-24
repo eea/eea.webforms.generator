@@ -17,7 +17,7 @@ class XSDWebFormParserLog {
 	 * Class constructor
 	 */
 	constructor() {
-		this.htmlOutput;
+		this.htmlOutput = '';
 	}
 	/**
 	 * showLog 
@@ -29,19 +29,27 @@ class XSDWebFormParserLog {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
+			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
+
 			console.log("\x1b[0m\x1b[2m");
+			this.htmlOutput  += `<ul>\n`; 
 			sender.htmlOutput.HTMLObjects.forEach( (item) => {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
+						this.htmlOutput  += `<li>${eitem.toString().substring(0, 40) .replace(/</g, '&lt;').replace(/>/g, '&rt;')}..</li>\n`; 
 					});
 				});
 			});
+			this.htmlOutput  += `</ul>\n`; 
 		} else {
 			console.log("");
 		}
 		console.log("\x1b[0m");
 		console.log(new Date());
+		
+		this.htmlOutput  += `<div style="font-size:14px;color:#555">${new Date()}</div>\n`; 
+
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
 
@@ -53,6 +61,8 @@ class XSDWebFormParserLog {
 		console.log("\n\n\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
+
+		this.htmlOutput  += `<h2><span style="font-size:14px;color:#777">XSD File:</span> ${xObject.xfile}</h2>\n`; 
 	}
 
 	/**
@@ -63,6 +73,8 @@ class XSDWebFormParserLog {
 		console.log("\n\n\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m");
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
+
+		this.htmlOutput  += `<h2><span style="font-size:14px;color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
@@ -78,12 +90,15 @@ class XSDWebFormParserLog {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 120};"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
+			this.htmlOutput  += `<li style="width:200px;padding:4px 8px;font-size:15px;color:#fff;background-color:#777;">${xsdItem.name}</li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
+				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#999;">${xsdItem.attr.name}</li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -101,8 +116,10 @@ class XSDWebFormParserLog {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
+				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.value}</li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
+				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
@@ -125,6 +142,8 @@ class XSDWebFormParserLog {
 		if (xsdItem.level === 0)
 			console.log(" ");
 
+		this.htmlOutput  += `</ul>\n`; 
+
 		process.stdout.write(`\x1b[2m${xspace}         ▒▒`);
 	}
 
@@ -134,6 +153,7 @@ class XSDWebFormParserLog {
 	 */
 	logXsdTag(item) {
 		console.log(`\x1b[0m\x1b[31m⇣\x1b[2m Found Tag \x1b[33m${item}\x1b[0m`);
+		this.htmlOutput  += `<div style="width:100%;z-index:-1;padding:4px 8px;font-size:12px;position:absolute;color:#333;background-color:#f5f5f5;">Found Tag >> ${item}</div>\n`; 
 	}
 
 	/**
@@ -153,6 +173,13 @@ class XSDWebFormParserLog {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item}\x1b[0m\n`);
 			// console.log("\x1b[2m" + sender.HTML_TYPES[item].htmlTemplate + "\x1b[0m\n");
 		}
+	}
+
+	/**
+	 * getHtmlLog
+	 */
+	getHtmlLog() {
+		return this.htmlOutput;
 	}
 
 }
