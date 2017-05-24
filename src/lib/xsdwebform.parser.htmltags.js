@@ -102,7 +102,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parsePage(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 		sender.HTML_FORM_TITLE = "{{'formtitle' | translate}}";
 	}
 
@@ -113,7 +113,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseForm(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		let formEnd = "<button type=\"submit\" class=\"submitbutton btn btn-primary\">{{'submitform' | translate}}</button>";
 		let formNum = sender.HTMLObjects.length + 1;
@@ -146,7 +146,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseGroup(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		let xsdGroupTag, xsdGroupProperties;
 		try {
@@ -267,7 +267,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseInput(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		let name = (item.attr.name) ? item.attr.name : item.attr.element;
@@ -300,7 +300,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseText(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -333,7 +333,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param positive
 	 */
 	parseNumber(item, xsdItem, sender, positive) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -380,7 +380,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseDate(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
@@ -414,7 +414,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseSelect(item, xsdItem, sender) {
 
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
 		
@@ -509,7 +509,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseRadio(item, xsdItem, sender) {
 
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
 			
@@ -578,7 +578,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseCheckbox(item, xsdItem, sender) {
 
-		sender.logger.logHtmlTag(item.name, sender);
+		sender.logger.logHtmlTag(item, sender);
 		
 		if (item.attr.element) {
 			

@@ -170,8 +170,8 @@ class XSDWebFormParserLog {
 	 */
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
-			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item}\x1b[0m\n`);
-			// console.log("\x1b[2m" + sender.HTML_TYPES[item].htmlTemplate + "\x1b[0m\n");
+			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
+			this.htmlOutput  += `<div style="width:100%;z-index:-1;padding:4px 8px;font-size:12px;position:relative;color:#333;background-color:#f5f5f5;">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
