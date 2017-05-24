@@ -17,7 +17,17 @@ class XSDWebFormParserLog {
 	 * Class constructor
 	 */
 	constructor() {
-		this.htmlOutput = '';
+		this.htmlOutput = `<!DOCTYPE html>
+<html>
+<head>
+<style>
+li {
+    box-shadow: 3px 3px 3px #ccc;
+}
+</style>
+</head>
+<body>
+`;
 	}
 	/**
 	 * showLog 
@@ -37,7 +47,7 @@ class XSDWebFormParserLog {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
-						this.htmlOutput  += `<li>${eitem.toString().substring(0, 40) .replace(/</g, '&lt;').replace(/>/g, '&rt;')}..</li>\n`; 
+						this.htmlOutput  += `<li style="box-shadow:none;">${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
 					});
 				});
 			});
@@ -90,7 +100,7 @@ class XSDWebFormParserLog {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 120};"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 120}px;"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
@@ -179,7 +189,9 @@ class XSDWebFormParserLog {
 	 * getHtmlLog
 	 */
 	getHtmlLog() {
-		return this.htmlOutput;
+		return this.htmlOutput  + `
+		</body>
+		</html> `;
 	}
 
 }
