@@ -1,5 +1,5 @@
 app.component("eeaFormBuild",{
-	template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago, by {{$ctrl.user}}',
+	template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago<br>by {{$ctrl.user}}',
 	bindings: {
 		date: '@',
 		user: '@'
