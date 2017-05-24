@@ -31,6 +31,27 @@ li.xsdc {
     padding:4px 8px;font-size:15px;
 }
 </style>
+<script src="../assets/js/jquery.min.js"></script>
+<script>
+$(function() {
+	$('ul').each(function(i)
+	{
+	   var pos = $(this).offset();
+	   var lvl = $(this).children('div.lvl').attr("lvl");
+	   var prlvl = $(this).prevAll("ul:first").children('div.lvl');
+	   var plvl = prlvl.attr("lvl");
+	   var th = 16;
+
+// if (lvl !== plvl) {
+// 	if (plvl) {
+// 		th = pos.top - prlvl.offset().top;
+// 		console.log("th", th);
+// 	}
+// }
+	   $(this).prepend($('<div style="background-color:rgba(255, 0, 0, 0.7);height:' + th +'px;width:16px;position:absolute;top:' + (pos.top - 16 ) + 'px;left:' + ( pos.left +100 ) + 'px">&nbsp;</div>'));
+	});
+});
+</script>
 </head>
 <body>
 `;
@@ -106,7 +127,7 @@ li.xsdc {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 120}px;"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 130}px;"><div  lvl="${xsdItem.level}" class="lvl" style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
