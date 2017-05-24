@@ -21,8 +21,9 @@ class XSDWebFormParserLog {
 <html>
 <head>
 <style>
-li {
+li.xsdc {
     box-shadow: 3px 3px 3px #ccc;
+    padding:4px 8px;font-size:15px;
 }
 </style>
 </head>
@@ -47,7 +48,7 @@ li {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
-						this.htmlOutput  += `<li style="box-shadow:none;">${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
+						this.htmlOutput  += `<li>${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
 					});
 				});
 			});
@@ -104,11 +105,11 @@ li {
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li style="width:200px;padding:4px 8px;font-size:15px;color:#fff;background-color:#777;">${xsdItem.name}</li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:#fff;background-color:#777;">${xsdItem.name}</li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#999;">${xsdItem.attr.name}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:#fff;background-color:#999;">${xsdItem.attr.name}</li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -126,10 +127,10 @@ li {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.value}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.value}</li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li style="width:300px;padding:4px 8px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
