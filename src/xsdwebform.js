@@ -14,6 +14,7 @@ import ncp from 'ncp';
 import rimraf from 'rimraf';
 import openurl from 'openurl';
 import express from 'express';
+// import uglify from "uglify-js";
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
 
@@ -172,6 +173,9 @@ export default class XSDWebForm {
 							reject(err);
 						}
 						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
+							// parent.getFile(__dirname + "/webform.js").then ( (data) => {
+							// 	parent.createFile(parent.buildPath + parent.baseFileName + "webform.min.js", uglify.minify(data).code, false);
+							// });
 							if (err) {
 								console.error(err);
 								reject(err);
@@ -301,6 +305,7 @@ var groups = {${
 	 * createFile - Save output file
 	 * @param filename
 	 * @param content
+	 * @param log
 	 */
 	createFile(filename, content, log = true) {
 		var parent = this;
