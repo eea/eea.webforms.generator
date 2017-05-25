@@ -69,12 +69,22 @@ li.xsdc span {
 }
 .ftag {
 	width: 98%;
-	z-index: -1;
+	z-index: -2;
 	padding: 4px 8px;
 	font-size: 13px;
 	position: absolute;
 	color: #eee;
 	background-color: #242424;
+}
+.ftag:after {
+        display: block;
+        width: 92%;
+        height: 1px;
+        content: " ";
+        border-top: 1px dashed #444;
+        margin-left: 120px;
+        margin-top: -8px;
+        position: absolute;
 }
 .phtmlt {
 	width: auto;
@@ -85,9 +95,37 @@ li.xsdc span {
 	color: #fff;
 	/*background-color: rgb(204, 0, 0);*/
 }
+.lvlln {
+	width:150px;
+	min-width:150px;
+	color: #eee;
+}
+.lvlln:after {
+	content: " ";
+	margin-left: 4px;
+	display: block;
+        	height: 100%;
+        	z-index: -1;
+        	min-height: 92%;
+        	position: fixed;
+	border-left: 1px dashed #444;
+}
 </style>
 </head>
 <body>
+<div style="width:auto;display:flex;position:relative;top:0">
+	<div style="width:196px;min-width:196px">&nbsp;</div>
+	<div class="lvlln">0</div>
+	<div class="lvlln">1</div>
+	<div class="lvlln">2</div>
+	<div class="lvlln">3</div>
+	<div class="lvlln">4</div>
+	<div class="lvlln">5</div>
+	<div class="lvlln">6</div>
+	<div class="lvlln">7</div>
+	<div class="lvlln">8</div>
+	<div class="lvlln">9</div>
+</div>
 `;
 	}
 	/**
@@ -251,8 +289,8 @@ li.xsdc span {
 	 */
 	getHtmlLog() {
 		return this.htmlOutput  + `
-		</body>
-		</html> `;
+</body>
+</html> `;
 	}
 
 }
