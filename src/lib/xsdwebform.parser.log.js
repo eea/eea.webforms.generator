@@ -32,12 +32,12 @@ $(function () {
 		
 		var pos = $(this).offset();
 		var parentPos = prlvl.offset();
-		
+		var tbtm = 0;
 		if (parentPos && prlvlP1.attr("lvl") >  lvl) {
-			th = pos.top - parentPos.top - $(this).outerHeight();
+			th = pos.top - parentPos.top - $(prlvl).outerHeight();
 			if (th < 0 ) th = 16;
 		}
-		$(this).prepend($("<div style=\\"margin-top: -" + th + "px; position: absolute; background-color: rgb(206, 220, 50); height: " + th + "px; width: 16px;\\"></div>"));
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(206, 220, 50); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
 </script>
