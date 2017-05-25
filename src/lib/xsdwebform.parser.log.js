@@ -70,7 +70,7 @@ li.xsdc span {
 	width: 98%;
 	z-index: -1;
 	padding: 4px 8px;
-	font-size: 12px;
+	font-size: 13px;
 	position: absolute;
 	color: #eee;
 	background-color: #242424;
@@ -99,7 +99,7 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
+			this.htmlOutput  += `<BR><BR><h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `<div style="/*background-color: rgb(0, 51, 153);*/padding: 8px;font-size:13px;color: #fff;">\n<ul>\n`; 
@@ -144,7 +144,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2><span style="color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `<BR><BR><h2><span style="color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
@@ -160,7 +160,7 @@ li.xsdc span {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
@@ -223,7 +223,7 @@ li.xsdc span {
 	 */
 	logXsdTag(item) {
 		console.log(`\x1b[0m\x1b[31m⇣\x1b[2m Found Tag \x1b[33m${item}\x1b[0m`);
-		this.htmlOutput  += `<div class="ftag">Found Tag >> ${item}</div>\n`; 
+		this.htmlOutput  += `<div class="ftag"># ${item}</div>\n`; 
 	}
 
 	/**
@@ -241,7 +241,7 @@ li.xsdc span {
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
-			this.htmlOutput  += `<div class="phtmlt">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
+			this.htmlOutput  += `<div class="phtmlt"># <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
