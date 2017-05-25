@@ -74,7 +74,7 @@ li.xsdc span {
 	font-size: 13px;
 	position: absolute;
 	color: #eee;
-	background-color: #242424;
+	/* background-color: #242424;*/
 }
 .ftag:after {
         display: block;
@@ -93,7 +93,7 @@ li.xsdc span {
 	font-size: 13px;
 	position: relative;
 	color: #fff;
-	/*background-color: rgb(204, 0, 0);*/
+	background-color: #222;
 }
 .lvlln {
 	width:150px;
@@ -102,19 +102,19 @@ li.xsdc span {
 }
 .lvlln:after {
 	content: " ";
-	margin-left: 4px;
+	margin: 20px 4px 4px 4px;
 	display: block;
-        	height: 100%;
+        	height: 95%;
         	z-index: -1;
-        	min-height: 92%;
+        	min-height: 95%;
         	position: fixed;
-	border-left: 1px dashed #444;
+	border-left: 1px dashed #333;
 }
 </style>
 </head>
 <body>
 <div style="width:auto;display:flex;position:relative;top:0">
-	<div style="width:196px;min-width:196px">&nbsp;</div>
+	<div style="width:194px;min-width:194px">&nbsp;</div>
 	<div class="lvlln">0</div>
 	<div class="lvlln">1</div>
 	<div class="lvlln">2</div>
@@ -138,10 +138,10 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<BR><BR><h2>HTML OBJECTS: </h2>\n`; 
+			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
-			this.htmlOutput  += `<div style="/*background-color: rgb(0, 51, 153);*/padding: 8px;font-size:13px;color: #fff;">\n<ul>\n`; 
+			this.htmlOutput  += `\n<ul style="color: #fff;"">\n`; 
 			sender.htmlOutput.HTMLObjects.forEach( (item) => {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
@@ -157,7 +157,7 @@ li.xsdc span {
 		console.log("\x1b[0m");
 		console.log(new Date());
 		
-		this.htmlOutput  += `\n<BR><BR><div style="font-size:14px;color:#777">${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n<div style="background-color: #222;font-size:14px;color:#777"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
@@ -171,7 +171,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2><span style="color:#777">XSD File:</span> ${xObject.xfile}</h2>\n`; 
+		this.htmlOutput  += `<h2><span style="color:#777;background-color: #222;">XSD File:</span> ${xObject.xfile}</h2>\n`; 
 	}
 
 	/**
@@ -183,7 +183,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<BR><BR><h2><span style="color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `<h2 style="background-color: #222;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
