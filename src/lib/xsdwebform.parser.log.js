@@ -74,18 +74,19 @@ li.xsdc span {
 	font-size: 13px;
 	position: absolute;
 	color: #eee;
-	/* background-color: #242424;*/
+	background-color: #242424;
 }
+/*
 .ftag:after {
         display: block;
         width: 92%;
         height: 1px;
         content: " ";
-        border-top: 1px dashed #2a2a2a;
+        sborder-top: 1px dashed #2a2a2a;
         margin-left: 120px;
         margin-top: -8px;
         position: absolute;
-}
+}*/
 .phtmlt {
 	width: auto;
 	z-index: -1;
