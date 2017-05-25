@@ -26,7 +26,7 @@ $(function () {
 	$("ul.clvl").each(function (index) {
 
 		var lvl = $(this).attr("lvl");
-		var th = 16;			
+		var th = 15;			
 		var prlvl = $(this).prevAll("ul.clvl[lvl="+lvl+"]");
 		var prlvlP1 = $(this).prevAll("ul.clvl:first");
 		
@@ -34,8 +34,8 @@ $(function () {
 		var parentPos = prlvl.offset();
 		var tbtm = 0;
 		if (parentPos && prlvlP1.attr("lvl") >  lvl) {
-			th = pos.top - parentPos.top - $(prlvl).outerHeight();
-			if (th < 0 ) th = 16;
+			th = pos.top - parentPos.top - $(prlvl).outerHeight() - 1;
+			if (th < 0 ) th = 15;
 		}
 		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(204, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
 	});
@@ -43,15 +43,17 @@ $(function () {
 </script>
 <style>
 body {
-	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    	font-weight: 300;
+   	background-color: #222;
+   	color: #777;
 }
 ul {
   list-style-type: none;
 }
 li.xsdc {
-    box-shadow: 3px 3px 3px #ccc;
-    padding:4px 8px;font-size:15px;
+    box-shadow: 2px 1px 1px #ccc;
+    padding: 4px 8px;font-size:15px;
 }
 </style>
 </head>
@@ -68,7 +70,7 @@ li.xsdc {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
+			this.htmlOutput  += `<div style="background-color:#eaeaea;">\n<h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `<ul>\n`; 
@@ -80,7 +82,7 @@ li.xsdc {
 					});
 				});
 			});
-			this.htmlOutput  += `</ul>\n`; 
+			this.htmlOutput  += `</ul>/n</div>\n`; 
 		} else {
 			console.log("");
 		}
@@ -129,11 +131,11 @@ li.xsdc {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 140}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;border:1px solid #e5e5e5;border-bottom:none;">${xsdItem.name}</li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;">${xsdItem.name}</li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
@@ -192,7 +194,7 @@ li.xsdc {
 	 */
 	logXsdTag(item) {
 		console.log(`\x1b[0m\x1b[31m⇣\x1b[2m Found Tag \x1b[33m${item}\x1b[0m`);
-		this.htmlOutput  += `<div style="width:98%;z-index:-1;padding:4px 8px;font-size:12px;position:absolute;color:#333;background-color:#fafafa;">Found Tag >> ${item}</div>\n`; 
+		this.htmlOutput  += `<div style="width:98%;z-index:-1;padding:4px 8px;font-size:12px;position:absolute;color:#eee;background-color:#242424;">Found Tag >> ${item}</div>\n`; 
 	}
 
 	/**
