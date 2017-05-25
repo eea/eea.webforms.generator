@@ -65,6 +65,7 @@ li.xsdc span {
 	color: #999;
 	font-size: 11px;
 	float: right;
+	margin-right: 10px
 }
 .ftag {
 	width: 98%;
