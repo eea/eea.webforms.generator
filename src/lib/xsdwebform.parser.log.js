@@ -79,7 +79,7 @@ li.xsdc span {
 			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
-			this.htmlOutput  += `<div style="background-color:#eaeaea;padding: 8px;font-size:13px;color: #333;">\n<ul>\n`; 
+			this.htmlOutput  += `<div style="padding: 8px;font-size:13px;color: #fff;">\n<ul>\n`; 
 			sender.htmlOutput.HTMLObjects.forEach( (item) => {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
@@ -218,7 +218,7 @@ li.xsdc span {
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
-			this.htmlOutput  += `<div style="width: auto;z-index: -1;padding: 8px 50px;font-size:13px;position: relative;color: #333;background-color: #f5f5f5;">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
+			this.htmlOutput  += `<div style="width: auto;z-index: -1;padding: 8px 50px;font-size:13px;position: relative;color: #fff;background-color: rgb(204, 0, 0);">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
