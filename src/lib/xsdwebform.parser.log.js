@@ -23,8 +23,21 @@ class XSDWebFormParserLog {
 <script src="../assets/js/jquery.min.js"></script>
 <script>
 $(function () {
-	$("ul.clvl").each(function (index) {	
-		$(this).prepend($("<div style=\\"margin-top: -16px; position: absolute; background-color: rgba(255, 0, 0, 1); height: 16px; width: 16px;\\"></div>"));
+	$("ul.clvl").each(function (index) {
+
+		var lvl = $(this).attr("lvl");
+		var th = 16;			
+		var prlvl = $(this).prevAll("ul.clvl[lvl="+lvl+"]");
+		var prlvlP1 = $(this).prevAll("ul.clvl:first");
+		
+		var pos = $(this).offset();
+		var parentPos = prlvl.offset();
+		
+		if (parentPos && prlvlP1.attr("lvl") >  lvl) {
+			th = pos.top - parentPos.top - $(this).outerHeight();
+			if (th < 0 ) th = 16;
+		}
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px; position: absolute; background-color: rgb(206, 220, 50); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
 </script>
@@ -114,7 +127,7 @@ li.xsdc {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 120}px;"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 140}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);

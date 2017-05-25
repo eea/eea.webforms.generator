@@ -151,7 +151,7 @@ export default class XSDWebForm {
 
 					// Create XSLT output
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xslt", this.parser.getXSLTOutput());
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xml", this.parser.getXSLTXMLOutput());
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xml", this.parser.getXSLTXMLOutput(), false);
 
 
 					// Open browser 
