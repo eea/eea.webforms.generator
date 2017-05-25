@@ -81,7 +81,7 @@ li.xsdc span {
         width: 92%;
         height: 1px;
         content: " ";
-        border-top: 1px dashed #444;
+        border-top: 1px dashed #151515;
         margin-left: 120px;
         margin-top: -8px;
         position: absolute;
@@ -108,7 +108,7 @@ li.xsdc span {
         	z-index: -1;
         	min-height: 95%;
         	position: fixed;
-	border-left: 1px dashed #333;
+	border-left: 1px dashed #151515;
 }
 </style>
 </head>
@@ -183,7 +183,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2 style="background-color: #222;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `<h2 style="background-color: #222;margin: 0;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
