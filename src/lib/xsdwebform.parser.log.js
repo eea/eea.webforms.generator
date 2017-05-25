@@ -24,20 +24,22 @@ class XSDWebFormParserLog {
 <script>
 $(function () {
 	var cnt = 0;
-	
-	$("ul.clvl").each(function (index) {
-
-		var lvl = $(this).attr("lvl");
+	var objs = $("ul.clvl");
+	var objsLength = $("ul.clvl").length;
+	objs.each(function (index) {
 		var th = 15;			
-		var prlvl = $(this).prevAll("ul.clvl[lvl="+lvl+"]");
-		var prlvlP1 = $(this).prevAll("ul.clvl:first");
-		
-		var pos = $(this).offset();
-		var parentPos = prlvl.offset();
+		if (objsLength < 1000) {
+			var lvl = $(this).attr("lvl");
+			var prlvl = $(this).prevAll("ul.clvl[lvl="+lvl+"]");
+			var prlvlP1 = $(this).prevAll("ul.clvl:first");
+			
+			var pos = $(this).offset();
+			var parentPos = prlvl.offset();
 
-		if (parentPos && prlvlP1.attr("lvl") >  lvl) {
-			th = pos.top - parentPos.top - $(prlvl).outerHeight() - 1;
-			if (th < 0 ) th = 15;
+			if (parentPos && prlvlP1.attr("lvl") >  lvl) {
+				th = pos.top - parentPos.top - $(prlvl).outerHeight() - 1;
+				if (th < 0 ) th = 15;
+			}
 		}
 		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(204, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
 	});
