@@ -37,7 +37,7 @@ $(function () {
 			th = pos.top - parentPos.top - $(prlvl).outerHeight();
 			if (th < 0 ) th = 16;
 		}
-		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(206, 220, 50); height: " + th + "px; width: 16px;\\"></div>"));
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(255, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
 </script>
