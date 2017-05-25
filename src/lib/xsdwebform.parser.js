@@ -23,11 +23,12 @@ class XSDWebFormParser {
 	 * @param showlog
 	 * @param verbose
 	 */
-	constructor(showlog = false, verbose = false,  showXSDLog  = true) {
+	constructor(baseFileName, showlog = false, verbose = false,  showXSDLog  = true) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 		this.xsltGenerator = new XsltGenerator();
 		this.logger = new XSDWebFormParserLog();
+		this.baseFileName = baseFileName;
 
 		this.htmlOutput = {
 			content: '',
@@ -71,13 +72,14 @@ class XSDWebFormParser {
 		var htmlItem = new XmlDocument(xObject.hdata);
 		htmlItem.level = 0;
 		this.htmlTagParser.htmlParse(htmlItem, xsdItem);
-		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
-		
+
 		// Create HTML output
-		this.createHTMLOutput();
+		this.htmlOutput.HTMLObjects = this.htmlTagParser.HTMLObjects;
+		this.htmlOutput.content = this.createHTMLOutput();
 
 		// Create XSLT output
 		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
+		this.xsltXml = this.xsltGenerator.createXMLOutput(htmlItem, this.baseFileName);
 		
 		if (this.showLog)
 			this.logger.showLogs(this);
@@ -126,7 +128,7 @@ class XSDWebFormParser {
 
 			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
 		}
-		this.htmlOutput.content = html.join("\n\n");
+		return html.join("\n\n");
 	}
 
 	/**
@@ -141,6 +143,13 @@ class XSDWebFormParser {
 	 */
 	getXSLTOutput() {
 		return this.xslt;
+	}
+
+	/**
+	 * getXSLTXMLOutput - Return XSLT Document
+	 */
+	getXSLTXMLOutput() {
+		return this.xsltXml;
 	}
 
 	/**

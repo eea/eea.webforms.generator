@@ -61,6 +61,33 @@ ${outputView}    </tr>
 	}
 
 	/**
+	 * createXMLOutput
+	 */
+	createXMLOutput(htmlItem, xsltname) {
+		var output = `<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="${xsltname}xslt"?>
+<items>
+  <item>
+`;
+		// Loop through Tag's childNodes
+		let forms = htmlItem.childNamed("page").childrenNamed("form");
+		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
+			let groups = forms[fi].childrenNamed("group");
+			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
+				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
+					if (groups[gi].children[i].type === "element") {
+						output += `\t<${groups[gi].children[i].attr.name || groups[gi].children[i].attr.element}>sample data</${groups[gi].children[i].attr.name || groups[gi].children[i].attr.element}>\n`;						
+					}
+				}
+			}
+		}
+
+		return `${output}   </item>
+  </items>`;
+
+	}
+
+	/**
 	 * setLogger
 	 * @param logger
 	 */

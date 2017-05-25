@@ -71,9 +71,6 @@ export default class XSDWebForm {
 					}
 				});
 
-			// XSDWebFormParser    		
-			this.parser = new XSDWebFormParser(this.showLog, this.verbose, this.showXSDLog);
-			
 			// If not file input
 			if (!xsdFile) {
 				xsdFile = "./test/test.xsd";
@@ -84,6 +81,9 @@ export default class XSDWebForm {
 			this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
 			this.basePath = path.dirname(xsdFile);
 			xmlHtmlFile = this.baseFileName + "form.xml";
+
+			// XSDWebFormParser    		
+			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
 
 			// Create (/clean) Build directory and move files
 			this.prepareJSFiles().then((res) => {
@@ -151,6 +151,8 @@ export default class XSDWebForm {
 
 					// Create XSLT output
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xslt", this.parser.getXSLTOutput());
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xml", this.parser.getXSLTXMLOutput());
+
 
 					// Open browser 
 					if (this.autoOpenOutput)
