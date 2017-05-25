@@ -81,7 +81,7 @@ li.xsdc span {
         width: 92%;
         height: 1px;
         content: " ";
-        border-top: 1px dashed #151515;
+        border-top: 1px dashed #2a2a2a;
         margin-left: 120px;
         margin-top: -8px;
         position: absolute;
@@ -108,7 +108,7 @@ li.xsdc span {
         	z-index: -1;
         	min-height: 95%;
         	position: fixed;
-	border-left: 1px dashed #151515;
+	border-left: 1px dashed #2a2a2a;
 }
 </style>
 </head>
