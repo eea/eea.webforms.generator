@@ -82,7 +82,7 @@ li.xsdc span {
 	font-size: 13px;
 	position: relative;
 	color: #fff;
-	background-color: rgb(204, 0, 0);
+	/*background-color: rgb(204, 0, 0);*/
 }
 </style>
 </head>
@@ -102,7 +102,7 @@ li.xsdc span {
 			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
-			this.htmlOutput  += `<div style="padding: 8px;font-size:13px;color: #fff;">\n<ul>\n`; 
+			this.htmlOutput  += `<div style="/*background-color: rgb(0, 51, 153);*/padding: 8px;font-size:13px;color: #fff;">\n<ul>\n`; 
 			sender.htmlOutput.HTMLObjects.forEach( (item) => {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
