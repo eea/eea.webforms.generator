@@ -54,6 +54,12 @@ ul {
 li.xsdc {
     box-shadow: 2px 1px 1px #ccc;
     padding: 4px 8px;font-size:15px;
+    border-radius: 0 50% 50% 0;
+    line-height: 25px;
+}
+li.xsdc span {
+	color: #999;
+	font-size: 11px;
 }
 </style>
 </head>
@@ -70,26 +76,26 @@ li.xsdc {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color:#eaeaea;">\n<h2>HTML OBJECTS: </h2>\n`; 
+			this.htmlOutput  += `<h2>HTML OBJECTS: </h2>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
-			this.htmlOutput  += `<ul>\n`; 
+			this.htmlOutput  += `<div style="background-color:#eaeaea;padding: 8px;font-size:13px;color: #333;">\n<ul>\n`; 
 			sender.htmlOutput.HTMLObjects.forEach( (item) => {
 				item.itemObject.groups.forEach( (gitem) => {
 					gitem.itemObject.items.forEach( (eitem) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
-						this.htmlOutput  += `<li>${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
+						this.htmlOutput  += `<li style="padding: 8px;">${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
 					});
 				});
 			});
-			this.htmlOutput  += `</ul>/n</div>\n`; 
+			this.htmlOutput  += `</ul>\n</div>\n`; 
 		} else {
 			console.log("");
 		}
 		console.log("\x1b[0m");
 		console.log(new Date());
 		
-		this.htmlOutput  += `<div style="font-size:14px;color:#555">${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n<BR><BR><div style="font-size:14px;color:#777">${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
@@ -135,7 +141,7 @@ li.xsdc {
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;">${xsdItem.name}</li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;">${xsdItem.name}\t<span>line ${xsdItem.line}</span></li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
@@ -212,7 +218,7 @@ li.xsdc {
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
-			this.htmlOutput  += `<div style="width:98%;z-index:-1;padding:4px 8px;font-size:12px;position:relative;color:#333;background-color:#f5f5f5;">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
+			this.htmlOutput  += `<div style="width: auto;z-index: -1;padding: 8px 50px;font-size:13px;position: relative;color: #333;background-color: #f5f5f5;">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
