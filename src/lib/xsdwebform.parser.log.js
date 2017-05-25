@@ -23,6 +23,8 @@ class XSDWebFormParserLog {
 <script src="../assets/js/jquery.min.js"></script>
 <script>
 $(function () {
+	var cnt = 0;
+	
 	$("ul.clvl").each(function (index) {
 
 		var lvl = $(this).attr("lvl");
@@ -32,7 +34,7 @@ $(function () {
 		
 		var pos = $(this).offset();
 		var parentPos = prlvl.offset();
-		var tbtm = 0;
+
 		if (parentPos && prlvlP1.attr("lvl") >  lvl) {
 			th = pos.top - parentPos.top - $(prlvl).outerHeight() - 1;
 			if (th < 0 ) th = 15;
@@ -49,17 +51,36 @@ body {
    	color: #777;
 }
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 li.xsdc {
-    box-shadow: 2px 1px 1px #ccc;
-    padding: 4px 8px;font-size:15px;
-    border-radius: 0 50% 50% 0;
-    line-height: 25px;
+	box-shadow: 2px 1px 1px #ccc;
+	padding: 4px 8px;font-size:15px;
+	border-radius: 0 50% 50% 0;
+	line-height: 25px;
 }
 li.xsdc span {
 	color: #999;
 	font-size: 11px;
+	float: right;
+}
+.ftag {
+	width: 98%;
+	z-index: -1;
+	padding: 4px 8px;
+	font-size: 12px;
+	position: absolute;
+	color: #eee;
+	background-color: #242424;
+}
+.phtmlt {
+	width: auto;
+	z-index: -1;
+	padding: 8px 50px;
+	font-size: 13px;
+	position: relative;
+	color: #fff;
+	background-color: rgb(204, 0, 0);
 }
 </style>
 </head>
@@ -145,7 +166,7 @@ li.xsdc span {
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:rgb(204, 0, 0);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:14px;color:rgb(204, 0, 0);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -163,10 +184,10 @@ li.xsdc span {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:12px;color:#333;background-color:#eee;"><b>${xsdItem.attr.value}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:12px;color:#333;background-color:#dee6f7;"><b>${xsdItem.attr.value}</b></li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:12px;color:#333;background-color:#eee;">Ref: ${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:12px;color:#333;background-color:#dee6f7;">Ref: ${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
@@ -200,7 +221,7 @@ li.xsdc span {
 	 */
 	logXsdTag(item) {
 		console.log(`\x1b[0m\x1b[31m⇣\x1b[2m Found Tag \x1b[33m${item}\x1b[0m`);
-		this.htmlOutput  += `<div style="width:98%;z-index:-1;padding:4px 8px;font-size:12px;position:absolute;color:#eee;background-color:#242424;">Found Tag >> ${item}</div>\n`; 
+		this.htmlOutput  += `<div class="ftag">Found Tag >> ${item}</div>\n`; 
 	}
 
 	/**
@@ -218,7 +239,7 @@ li.xsdc span {
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
-			this.htmlOutput  += `<div style="width: auto;z-index: -1;padding: 8px 50px;font-size:13px;position: relative;color: #fff;background-color: rgb(204, 0, 0);">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
+			this.htmlOutput  += `<div class="phtmlt">Parsing HTML Tag >> <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
