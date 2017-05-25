@@ -37,7 +37,7 @@ $(function () {
 			th = pos.top - parentPos.top - $(prlvl).outerHeight();
 			if (th < 0 ) th = 16;
 		}
-		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(255, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(204, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
 </script>
@@ -46,7 +46,9 @@ body {
 	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    	font-weight: 300;
 }
-
+ul {
+  list-style-type: none;
+}
 li.xsdc {
     box-shadow: 3px 3px 3px #ccc;
     padding:4px 8px;font-size:15px;
@@ -127,15 +129,15 @@ li.xsdc {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 140}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:#333;font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${xsdItem.level * 140}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:#fff;background-color:#777;">${xsdItem.name}</li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;border:1px solid #e5e5e5;border-bottom:none;">${xsdItem.name}</li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:#fff;background-color:#999;"><b>${xsdItem.attr.name}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="width:300px;font-size:14px;color:rgb(204, 0, 0);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -153,10 +155,10 @@ li.xsdc {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;"><b>${xsdItem.attr.value}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:12px;color:#333;background-color:#eee;"><b>${xsdItem.attr.value}</b></li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:14px;color:#fff;background-color:#aaa;">Ref: ${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="width:300px;font-size:12px;color:#333;background-color:#eee;">Ref: ${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
