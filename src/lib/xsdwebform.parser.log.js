@@ -109,7 +109,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2><span style="font-size:14px;color:#777">XSD File:</span> ${xObject.xfile}</h2>\n`; 
+		this.htmlOutput  += `<h2><span style="color:#777">XSD File:</span> ${xObject.xfile}</h2>\n`; 
 	}
 
 	/**
@@ -121,7 +121,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2><span style="font-size:14px;color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `<h2><span style="color:#777">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
