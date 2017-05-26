@@ -182,7 +182,7 @@ class XSDWebFormParserHTMLTags {
 			xsdName: xsdGroupTag.name,
 			tag: 'fieldset',
 			attrs: {
-				'ew-map': xsdGroupTag.name + "/" + item.attr.element,
+				'xsd-map': xsdGroupTag.name + "/" + item.attr.element,
 				multi: canAddRows,
 				id: item.attr.element.replace("-", "")
 			},
@@ -316,7 +316,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -350,7 +350,7 @@ class XSDWebFormParserHTMLTags {
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "number",
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -397,7 +397,7 @@ class XSDWebFormParserHTMLTags {
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "date",
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -492,7 +492,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -559,7 +559,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				itemprepend: "<div class=\"radioclass\">",
@@ -596,7 +596,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					type: "checkbox",
-					'ew-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				itemprepend: "<div class=\"checkboxclass\">",
