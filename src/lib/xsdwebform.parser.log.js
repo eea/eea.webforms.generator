@@ -67,6 +67,9 @@ body {
 ul {
 	list-style-type: none;
 }
+ul.clvl {
+	user-select: none;
+}
 li.xsdc {
 	box-shadow: 2px 1px 1px #ccc;
 	padding: 4px 8px;font-size:14px;
