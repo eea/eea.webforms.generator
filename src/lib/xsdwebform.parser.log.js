@@ -118,7 +118,7 @@ li.xsdc span {
 	background-color: rgb(0, 39, 118);
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
-	border: solid 5px rgba(204, 204, 204, 1);
+	border: solid 5px rgba(104, 104, 104, 1);
 	border-bottom: none;
 	padding: 8px;
 	color: #fff; 
@@ -128,30 +128,31 @@ li.xsdc span {
 	background-color: rgb(198, 12, 48);
 	margin: -10px 10px 30px 10px;   
 	border-radius: 0 0 5px 5px;
-	border: solid 5px rgba(204, 204, 204, 1);
+	border: solid 5px rgba(104, 104, 104, 1);
 	border-top: none;
 	color: #fff; 
 }
 .htmlo li.src .srvs {
 	padding: 8px;
 	display: none;
-	border: inset 10px rgba(204, 204, 204, 1);
+	border: solid 20px rgba(104, 104, 104, 1);
 }
 .svcimg {
    	width: 800px;
 	text-align: center;
 	border-radius: 5px;
-	border: solid 5px rgba(204, 204, 204, 1);
-	padding: 1px;
+	border: solid 15px rgba(104, 104, 104, 1);
+	padding: 0;
 	margin: 0 auto;
+    	margin-bottom: 50px;
 }
-
 .svcimg img {
     	width: 800px;
 }
 </style>
 </head>
 <body>
+
 <div style="width:auto;display:flex;position:relative;top:0">
 	<div style="width:194px;min-width:194px">&nbsp;</div>
 	<div class="lvlln">0</div>
@@ -177,7 +178,7 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>DoubleClick for src\n`; 
+			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2><div class="svcimg"><img src="scrnsht.png"></div>\n<BR><BR>DoubleClick for src\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `\n<ul style="color: #fff;" class="htmlo">\n`; 
@@ -190,7 +191,7 @@ li.xsdc span {
 					});
 				});
 			});
-			this.htmlOutput  += `</ul>\n<div class="svcimg"><img src="scrnsht.png"></div>\n</div>\n`; 
+			this.htmlOutput  += `</ul>\n</div>\n`; 
 		} else {
 			console.log("");
 		}

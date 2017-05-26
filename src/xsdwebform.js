@@ -143,8 +143,8 @@ export default class XSDWebForm {
 							langs.CTCodelists.Languages.item.forEach((item) => {
 								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
 								if (this.showLog) {
-									this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
 									webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
+									this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
 								}
 								resolve();
 							});
