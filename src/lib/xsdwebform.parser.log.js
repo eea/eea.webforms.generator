@@ -134,6 +134,7 @@ li.xsdc span {
 	padding: 8px;
 	color: #fff; 
 	cursor: pointer;
+	user-select: none;
 }
 .htmlo li.src {
 	font-family: monospace;
