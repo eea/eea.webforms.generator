@@ -50,7 +50,7 @@ $(function () {
 function toggleTab(obj, did) {
 	$(".tbtn").removeClass("active");
 	$(".tabpanel").hide();
-	$("#" + did).slideToggle();
+	$("#" + did).toggle();
 	$(obj).addClass("active");
 }
 </script>
