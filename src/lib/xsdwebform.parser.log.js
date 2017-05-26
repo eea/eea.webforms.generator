@@ -170,7 +170,7 @@ li.xsdc span {
 	text-align: center;
 	cursor: pointer;
 	width: 200px;
-	background-color: #111;
+	background-color: #1c1c1c;
 	color: #999;
 	padding: 8px;
 	font-weight: 900;
