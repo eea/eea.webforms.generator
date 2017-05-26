@@ -16,6 +16,7 @@ import openurl from 'openurl';
 import express from 'express';
 import uglify from "uglify-js";
 import uglifycss from "uglifycss";
+import webshot from "webshot";
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
 
@@ -143,6 +144,7 @@ export default class XSDWebForm {
 								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
 								if (this.showLog) {
 									this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
+									webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 								}
 								resolve();
 							});
@@ -152,7 +154,6 @@ export default class XSDWebForm {
 					// Create XSLT output
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xslt", this.parser.getXSLTOutput());
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xml", this.parser.getXSLTXMLOutput(), false);
-
 
 					// Open browser 
 					if (this.autoOpenOutput)

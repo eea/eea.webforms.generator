@@ -135,7 +135,19 @@ li.xsdc span {
 .htmlo li.src .srvs {
 	padding: 8px;
 	display: none;
-	border: inset 20px rgba(204, 204, 204, 1);
+	border: inset 10px rgba(204, 204, 204, 1);
+}
+.svcimg {
+   	width: 800px;
+	text-align: center;
+	border-radius: 5px;
+	border: solid 5px rgba(204, 204, 204, 1);
+	padding: 1px;
+	margin: 0 auto;
+}
+
+.svcimg img {
+    	width: 800px;
 }
 </style>
 </head>
@@ -178,7 +190,7 @@ li.xsdc span {
 					});
 				});
 			});
-			this.htmlOutput  += `</ul>\n</div>\n`; 
+			this.htmlOutput  += `</ul>\n<div class="svcimg"><img src="scrnsht.png"></div>\n</div>\n`; 
 		} else {
 			console.log("");
 		}
