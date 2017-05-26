@@ -124,7 +124,7 @@ li.xsdc span {
 	border-left: 1px dashed #2a2a2a;
 }
 .htmlo li.svc {
-	font-size: 12px;
+	font-size: 13px;
 	background-color: #006699;
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
