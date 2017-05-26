@@ -300,10 +300,10 @@ li.xsdc span {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dee6f7;"><b>${xsdItem.attr.value}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dcedf4;"><b>${xsdItem.attr.value}</b></li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dee6f7;">Ref: ${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dcedf4;">Ref: ${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
