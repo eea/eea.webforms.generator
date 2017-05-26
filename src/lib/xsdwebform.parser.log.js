@@ -173,6 +173,7 @@ li.xsdc span {
 	color: #222;
 	padding: 8px;
 	font-weight: 900;
+	user-select: none;
 }
 .tbtn:active {
 	background-color: #777;
