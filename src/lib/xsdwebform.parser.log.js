@@ -258,7 +258,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `\n</div>\n<div id="htmlpanel" class="tabpanel" style="display:none;">\n<h2 style="background-color: #222;margin: 0;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `\n</div>\n<div id="htmlpanel" class="tabpanel" style="display:none;">\n<h2 style="background-color: #222;margin: 0;"><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
