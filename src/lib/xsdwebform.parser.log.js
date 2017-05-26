@@ -20,7 +20,10 @@ class XSDWebFormParserLog {
 		this.htmlOutput = `<!DOCTYPE html>
 <html>
 <head>
-<script src="../assets/js/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 <script>
 $(function () {
 	var cnt = 0;
@@ -41,7 +44,7 @@ $(function () {
 				if (th < 0 ) th = 15;
 			}
 		}
-		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(204, 0, 0); height: " + th + "px; width: 16px;\\"></div>"));
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(198, 12, 48); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
 </script>
@@ -111,6 +114,29 @@ li.xsdc span {
         	position: fixed;
 	border-left: 1px dashed #2a2a2a;
 }
+.htmlo li.svc {
+	background-color: rgb(0, 39, 118);
+	margin: 10px;   
+	border-radius: 5px 5px 0 0;
+	border: solid 5px rgba(204, 204, 204, 1);
+	border-bottom: none;
+	padding: 8px;
+	color: #fff; 
+	cursor: pointer;
+}
+.htmlo li.src {
+	background-color: rgb(198, 12, 48);
+	margin: -10px 10px 30px 10px;   
+	border-radius: 0 0 5px 5px;
+	border: solid 5px rgba(204, 204, 204, 1);
+	border-top: none;
+	color: #fff; 
+}
+.htmlo li.src .srvs {
+	padding: 8px;
+	display: none;
+	border: inset 20px rgba(204, 204, 204, 1);
+}
 </style>
 </head>
 <body>
@@ -139,15 +165,16 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>\n`; 
+			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>DoubleClick for src\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
-			this.htmlOutput  += `\n<ul style="color: #fff;"">\n`; 
-			sender.htmlOutput.HTMLObjects.forEach( (item) => {
-				item.itemObject.groups.forEach( (gitem) => {
-					gitem.itemObject.items.forEach( (eitem) => {
+			this.htmlOutput  += `\n<ul style="color: #fff;" class="htmlo">\n`; 
+			sender.htmlOutput.HTMLObjects.forEach( (item, index1) => {
+				item.itemObject.groups.forEach( (gitem, index2) => {
+					gitem.itemObject.items.forEach( (eitem, index3) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
-						this.htmlOutput  += `<li style="padding: 8px;">${eitem.toString().substring(0, 80) .replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</li>\n`; 
+						this.htmlOutput  += `<li class="svc" ondblclick="$('#src${index1}_${index2}_${index3}').slideToggle()">${eitem}</li>\n`; 
+						this.htmlOutput  += `<li class="src"><span class="srvs" id="src${index1}_${index2}_${index3}" >${eitem.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</span></li>\n`; 
 					});
 				});
 			});
@@ -200,15 +227,15 @@ li.xsdc span {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 51, 153);font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 39, 118);font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 51, 153);background-color:#fff;">${xsdItem.name}\t<span>line ${xsdItem.line}</span></li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 39, 118);background-color:#fff;">${xsdItem.name}\t<span>line ${xsdItem.line}</span></li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:14px;color:rgb(204, 0, 0);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:14px;color:rgb(198, 12, 48);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
