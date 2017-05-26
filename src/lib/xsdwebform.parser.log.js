@@ -166,6 +166,7 @@ li.xsdc span {
     	margin-bottom: -4px;
 }
 .tbtn {
+	text-align: center;
 	cursor: pointer;
 	width: 200px;
 	background-color: #999;
