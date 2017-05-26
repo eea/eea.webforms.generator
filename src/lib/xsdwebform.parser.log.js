@@ -72,6 +72,7 @@ li.xsdc {
 	padding: 4px 8px;font-size:14px;
 	border-radius: 0 50% 50% 0;
 	line-height: 25px;
+	user-select: none;
 }
 li.xsdc span {
 	color: #999;
