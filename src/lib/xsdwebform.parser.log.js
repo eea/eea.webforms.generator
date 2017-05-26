@@ -165,6 +165,7 @@ li.xsdc span {
 	<div class="lvlln">7</div>
 	<div class="lvlln">8</div>
 	<div class="lvlln">9</div>
+	<div class="lvlln">10</div>
 </div>
 `;
 	}
