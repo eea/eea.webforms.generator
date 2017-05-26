@@ -185,6 +185,15 @@ li.xsdc span {
 .tabpanel {
 	margin-left: 20px;
 }
+#xsltpanel {
+	background-color: rgb(128, 128, 128);
+	padding: 8px;
+	display: none;
+	border-radius: 35px;
+	border: solid 20px rgba(154, 154, 154, 1);
+	margin: 10px;
+	color: #fff;
+}
 </style>
 </head>
 <body>
@@ -242,9 +251,9 @@ li.xsdc span {
 		console.log("\x1b[0m");
 		console.log(new Date());
 		
-		this.htmlOutput  += `\n</div>\n<div id="xsltpanel" class="tabpanel" style="display: none;">
+		this.htmlOutput  += `\n</div>\n<div id="xsltpanel" class="tabpanel" style="display: none;"><code>
 ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}
-</div>`;
+</code></div>`;
 		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color:#777;margin: 20px; width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
