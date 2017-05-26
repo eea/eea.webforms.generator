@@ -68,7 +68,7 @@ ul {
 }
 li.xsdc {
 	box-shadow: 2px 1px 1px #ccc;
-	padding: 4px 8px;font-size:15px;
+	padding: 4px 8px;font-size:14px;
 	border-radius: 0 50% 50% 0;
 	line-height: 25px;
 }
@@ -82,7 +82,7 @@ li.xsdc span {
 	width: 98%;
 	z-index: -2;
 	padding: 4px 8px;
-	font-size: 13px;
+	font-size: 12px;
 	position: absolute;
 	color: #eee;
 	background-color: #242424;
@@ -102,7 +102,7 @@ li.xsdc span {
 	width: auto;
 	z-index: -1;
 	padding: 8px 50px;
-	font-size: 13px;
+	font-size: 12px;
 	position: relative;
 	color: #fff;
 	background-color: #222;
@@ -123,6 +123,7 @@ li.xsdc span {
 	border-left: 1px dashed #2a2a2a;
 }
 .htmlo li.svc {
+	font-family: monospace;
 	background-color: rgb(0, 39, 118);
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
@@ -133,17 +134,21 @@ li.xsdc span {
 	cursor: pointer;
 }
 .htmlo li.src {
-	background-color: rgb(198, 12, 48);
+	font-family: monospace;
 	margin: -10px 10px 30px 10px;   
 	border-radius: 0 0 5px 5px;
 	border: solid 5px rgba(104, 104, 104, 1);
 	border-top: none;
 	color: #fff; 
+	background-color: rgb(0, 39, 118);
 }
 .htmlo li.src .srvs {
+	background-color: rgb(128, 128, 128);
 	padding: 8px;
 	display: none;
+	border-radius: 35px;
 	border: solid 20px rgba(104, 104, 104, 1);
+	margin: 10px;
 }
 .svcimg {
    	width: 800px;
@@ -164,6 +169,7 @@ li.xsdc span {
 	background-color: #999;
 	color: #222;
 	padding: 8px;
+	font-weight: 900;
 }
 .tbtn:active {
 	background-color: #777;
@@ -204,7 +210,7 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><BR>DoubleClick for src\n`; 
+			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:12px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><p style="margin-left:50px;">DoubleClick for src</p>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `\n<ul style="color: #fff;" class="htmlo">\n`; 
@@ -212,8 +218,8 @@ li.xsdc span {
 				item.itemObject.groups.forEach( (gitem, index2) => {
 					gitem.itemObject.items.forEach( (eitem, index3) => {
 						console.log(eitem.toString().substring(0, 40) + "...");
-						this.htmlOutput  += `<li class="svc" ondblclick="$('#src${index1}_${index2}_${index3}').slideToggle()">${eitem}</li>\n`; 
-						this.htmlOutput  += `<li class="src"><span class="srvs" id="src${index1}_${index2}_${index3}" >${eitem.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')}..</span></li>\n`; 
+						this.htmlOutput  += `<li class="svc" ondblclick="$('#src${index1}_${index2}_${index3}').slideToggle()"><code>${eitem}</code></li>\n`; 
+						this.htmlOutput  += `<li class="src"><div class="srvs" id="src${index1}_${index2}_${index3}" ><code>${eitem.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}</code></div></li>\n`; 
 					});
 				});
 			});
@@ -224,7 +230,7 @@ li.xsdc span {
 		console.log("\x1b[0m");
 		console.log(new Date());
 		
-		this.htmlOutput  += `\n<div style="background-color: #222;font-size:14px;color:#777"><BR><BR>${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color:#777"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
@@ -266,7 +272,7 @@ li.xsdc span {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:15px;color:#fff;background-color:rgb(0, 39, 118);font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:14px;color:#fff;background-color:rgb(0, 39, 118);font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
@@ -274,7 +280,7 @@ li.xsdc span {
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:14px;color:rgb(198, 12, 48);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:13px;color:rgb(198, 12, 48);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
@@ -292,10 +298,10 @@ li.xsdc span {
 				}
 			} else if (xsdItem.attr.value) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m${xsdItem.attr.value}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:12px;color:#333;background-color:#dee6f7;"><b>${xsdItem.attr.value}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dee6f7;"><b>${xsdItem.attr.value}</b></li>\n`; 
 			} else if (xsdItem.attr.ref) {
 				process.stdout.write(`\n${xspace}\x1b[2m▓▓▓▓▓▓▓▓▓▓▓▓▓  \x1b[2m\x1b[36mRef: \x1b[1m\x1b[36m${xsdItem.attr.ref}\x1b[0m`);
-				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:12px;color:#333;background-color:#dee6f7;">Ref: ${xsdItem.attr.ref}</li>\n`; 
+				this.htmlOutput  += `<li class="xsdc"style="border-radius:0;width:300px;font-size:11px;color:#333;background-color:#dee6f7;">Ref: ${xsdItem.attr.ref}</li>\n`; 
 			}
 
 			process.stdout.write(`\n\x1b[2m${xspace}▓▓▓▓▓▓▓▓▓▓▓▓▓`);
