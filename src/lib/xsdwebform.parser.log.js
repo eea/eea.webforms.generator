@@ -47,6 +47,12 @@ $(function () {
 		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(198, 12, 48); height: " + th + "px; width: 16px;\\"></div>"));
 	});
 });
+function toggleTab(obj, did) {
+	$(".tbtn").removeClass("active");
+	$(".tabpanel").hide();
+	$("#" + did).slideToggle();
+	$(obj).addClass("active");
+}
 </script>
 <style>
 body {
@@ -54,6 +60,8 @@ body {
    	font-weight: 300;
    	background-color: #222;
    	color: #999;
+   	padding: 0;
+   	margin: 0;
 }
 ul {
 	list-style-type: none;
@@ -148,11 +156,28 @@ li.xsdc span {
 }
 .svcimg img {
     	width: 800px;
+    	margin-bottom: -4px;
+}
+.tbtn {
+	cursor: pointer;
+	width: 200px;
+	background-color: #999;
+	color: #222;
+	padding: 8px;
+}
+.tbtn:active {
+	background-color: #777;
+}
+
+.tbtn.active {
+	color: #fff;
 }
 </style>
 </head>
 <body>
+<div style="display: flex;margin-bottom: 30px;background-color:#444;width:auto;padding:2px;"><div onclick="toggleTab(this, 'xsdpanel');" class="tbtn active">XSD</div><div  onclick="toggleTab(this, 'htmlpanel')" class="tbtn">HTML</div></div>
 
+<div id="xsdpanel" class="tabpanel">
 <div style="width:auto;display:flex;position:relative;top:0">
 	<div style="width:194px;min-width:194px">&nbsp;</div>
 	<div class="lvlln">0</div>
@@ -179,7 +204,7 @@ li.xsdc span {
 		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2><div class="svcimg"><img src="scrnsht.png"></div>\n<BR><BR>DoubleClick for src\n`; 
+			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:13px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><BR>DoubleClick for src\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `\n<ul style="color: #fff;" class="htmlo">\n`; 
@@ -225,7 +250,7 @@ li.xsdc span {
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2 style="background-color: #222;margin: 0;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `\n</div>\n<div id="htmlpanel" class="tabpanel" style="display:none;">\n<h2 style="background-color: #222;margin: 0;"><BR><BR><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
@@ -293,7 +318,7 @@ li.xsdc span {
 		if (xsdItem.level === 0)
 			console.log(" ");
 
-		this.htmlOutput  += `</ul>\n`; 
+		this.htmlOutput  += `</ul>`; 
 
 		process.stdout.write(`\x1b[2m${xspace}         ▒▒`);
 	}
