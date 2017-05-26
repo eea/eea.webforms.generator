@@ -46,6 +46,7 @@ $(function () {
 		}
 		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(198, 12, 48); height: " + th + "px; width: 16px;\\"></div>"));
 	});
+	$(".htmlo li.src .srvs:first").show();
 });
 function toggleTab(obj, did) {
 	$(".tbtn").removeClass("active");
@@ -125,7 +126,7 @@ li.xsdc span {
 .htmlo li.svc {
 	font-family: monospace;
 	font-size: 11px;
-	background-color: rgb(0, 39, 118);
+	background-color: rgb(198, 12, 48);
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
 	border: solid 5px rgba(104, 104, 104, 1);
@@ -141,7 +142,7 @@ li.xsdc span {
 	border: solid 5px rgba(104, 104, 104, 1);
 	border-top: none;
 	color: #fff; 
-	background-color: rgb(0, 39, 118);
+	background-color: rgb(198, 12, 48);
 }
 .htmlo li.src .srvs {
 	background-color: rgb(128, 128, 128);
