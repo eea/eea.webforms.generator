@@ -126,7 +126,7 @@ li.xsdc span {
 .htmlo li.svc {
 	font-family: monospace;
 	font-size: 11px;
-	background-color: rgb(198, 12, 48);
+	background-color: #006699;
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
 	border: solid 5px rgba(104, 104, 104, 1);
@@ -142,7 +142,7 @@ li.xsdc span {
 	border: solid 5px rgba(104, 104, 104, 1);
 	border-top: none;
 	color: #fff; 
-	background-color: rgb(198, 12, 48);
+	background-color: #006699;
 }
 .htmlo li.src .srvs {
 	background-color: rgb(128, 128, 128);
@@ -274,11 +274,11 @@ li.xsdc span {
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);
-		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:14px;color:#fff;background-color:rgb(0, 39, 118);font-weight:700;">Level ${xsdItem.level}</div>`; 
+		this.htmlOutput  += `<ul style="margin-left:${(xsdItem.level +1) * 150}px;" class="clvl" lvl="${xsdItem.level}"><div style="width:100px;padding:4px 8px;font-size:14px;color:#fff;background-color:#006699;font-weight:700;">Level ${xsdItem.level}</div>`; 
 
 		if (xsdItem.children) {
 			process.stdout.write(`\x1b[1m${xsdItem.name}`);
-			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:rgb(0, 39, 118);background-color:#fff;">${xsdItem.name}\t<span>line ${xsdItem.line}</span></li>\n`; 
+			this.htmlOutput  += `<li class="xsdc" style="width:200px;color:#006699;background-color:#fff;">${xsdItem.name}\t<span>line ${xsdItem.line}</span></li>\n`; 
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
