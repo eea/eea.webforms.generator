@@ -44,7 +44,7 @@ $(function () {
 				if (th < 0 ) th = 15;
 			}
 		}
-		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: rgb(198, 12, 48); height: " + th + "px; width: 16px;\\"></div>"));
+		$(this).prepend($("<div style=\\"margin-top: -" + th + "px;position: absolute; background-color: #cc0000; height: " + th + "px; width: 16px;\\"></div>"));
 	});
 	$(".htmlo li.src .srvs:first").show();
 });
@@ -282,7 +282,7 @@ li.xsdc span {
 
 			if (xsdItem.attr.name) {
 				process.stdout.write(` - ${xsdItem.attr.name}`);
-				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:13px;color:rgb(198, 12, 48);background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
+				this.htmlOutput  += `<li class="xsdc" style="border-radius:0;width:300px;font-size:13px;color:#cc0000;background-color:#fafafa;"><b>${xsdItem.attr.name}</b></li>\n`; 
 
 				if (verbose) {
 					if (xsdItem.name === "xs:element") {
