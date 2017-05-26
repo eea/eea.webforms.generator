@@ -129,7 +129,7 @@ li.xsdc span {
 	background-color: #006699;
 	margin: 10px;   
 	border-radius: 5px 5px 0 0;
-	border: solid 5px rgba(104, 104, 104, 1);
+	border: solid 5px rgba(154, 154, 154, 1);
 	border-bottom: none;
 	padding: 8px;
 	color: #fff; 
@@ -139,7 +139,7 @@ li.xsdc span {
 	font-family: monospace;
 	margin: -10px 10px 30px 10px;   
 	border-radius: 0 0 5px 5px;
-	border: solid 5px rgba(104, 104, 104, 1);
+	border: solid 5px rgba(154, 154, 154, 1);
 	border-top: none;
 	color: #fff; 
 	background-color: #006699;
@@ -149,14 +149,14 @@ li.xsdc span {
 	padding: 8px;
 	display: none;
 	border-radius: 35px;
-	border: solid 20px rgba(104, 104, 104, 1);
+	border: solid 20px rgba(154, 154, 154, 1);
 	margin: 10px;
 }
 .svcimg {
    	width: 800px;
 	text-align: center;
 	border-radius: 5px;
-	border: solid 15px rgba(104, 104, 104, 1);
+	border: solid 15px rgba(154, 154, 154, 1);
 	padding: 0;
 	margin: 0 auto;
     	margin-bottom: 50px;
