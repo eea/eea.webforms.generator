@@ -28,8 +28,6 @@ app.component("eeaLanguage",{
 				$translate.use(parent.language);
 				$translate.refresh();
 			};
-
-		}
-		
+		}	
 	}
 });

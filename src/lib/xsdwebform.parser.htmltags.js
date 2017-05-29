@@ -539,6 +539,7 @@ class XSDWebFormParserHTMLTags {
 					'lu-value': item.attr['lu-value'],
 					'lu-option': item.attr['lu-option'],
 					'lu-order': item.attr['lu-order'],
+					autoselect: item.attr.autoselect,
 					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
