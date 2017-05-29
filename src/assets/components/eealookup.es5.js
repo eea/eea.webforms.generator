@@ -14,7 +14,7 @@ app.component("lookup", {
 		lookup: '@',
 		luName: '@',
 		name: '@',
-		luValue: '=',
+		luValue: '@',
 		luOption: '@',
 		luOrder: '@',
 		luData: '@',
@@ -25,24 +25,29 @@ app.component("lookup", {
 	controller: function controller($http, $translate, $location) {
 		var parent = this;
 		this.$onInit = function () {
-			(function () {
-				$http.get(parent.lookup).then(function (response) {
-					parent.data = response.data[parent.luData];
-					if (parent.autoselect) {
-						var qs = $location.search()['countrycode'];
-						var fdata = parent.data.filter(function (item) {
-							if (item[parent.luValue] == qs) return true;
-						});
-						if (fdata.length > 0) {
-							parent.ngModel = qs;
-							if (parent.hideonautoselect == 1 && $location.search()['countrycode']) {
-								parent.scp['h_' + parent.name] = 1;
-							}
+			if (!parent.luOption.toString().startsWith('[')) {
+				parent.luOption = '.' + parent.luOption;
+			}
+			if (!parent.luValue.toString().startsWith('[')) {
+				parent.luValue = '.' + parent.luValue;
+			}
+
+			$http.get(parent.lookup).then(function (response) {
+				parent.data = response.data[parent.luData];
+				if (parent.autoselect) {
+					var qs = $location.search()['countrycode'];
+					var fdata = parent.data.filter(function (item) {
+						if (item[parent.luValue] == qs) return true;
+					});
+					if (fdata.length > 0) {
+						parent.ngModel = qs;
+						if (parent.hideonautoselect == 1 && $location.search()['countrycode']) {
+							parent.scp['h_' + parent.name] = 1;
 						}
 					}
-				});
-			})();
-			this.updateLookup = function () {};
+				}
+			});
 		};
+		this.updateLookup = function () {};
 	}
 });

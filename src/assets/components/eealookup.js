@@ -12,7 +12,7 @@ app.component("lookup",{
 		lookup: '@',
 		luName: '@',
 		name: '@',
-		luValue : '=' ,
+		luValue : '@' ,
 		luOption : '@' ,
 		luOrder : '@' ,
 		luData: '@',
@@ -23,7 +23,13 @@ app.component("lookup",{
 	controller: function($http, $translate, $location) {
 		var parent = this;
 		this.$onInit = function() {
-			(function() {
+				if (!parent.luOption.toString().startsWith('[')) {
+					parent.luOption = '.' + parent.luOption;
+				}
+				if (!parent.luValue.toString().startsWith('[')) {
+					parent.luValue = '.' + parent.luValue;
+				}
+				
 				$http.get(parent.lookup).then( function(response) {
 					parent.data = response.data[parent.luData];
 					if (parent.autoselect) {
@@ -39,10 +45,8 @@ app.component("lookup",{
 						}
 					}
 				});
-			})();
-			this.updateLookup = function() {
+		};
+		this.updateLookup = function() {
 			};
-
-		}
 	}
 });
