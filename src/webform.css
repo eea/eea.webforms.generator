@@ -180,6 +180,10 @@ fieldset {
     padding: 5px 10px;
 }
 
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, .submitted input.ng-invalid, .submitted select.ng-invalid, .submitted textarea.ng-invalid, .invalidTab input.ng-invalid {
+    background-color: #faa085;
+}
+
 input[type=checkbox] {
     transform: scale(1.3)
 }

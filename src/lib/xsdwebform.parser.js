@@ -211,7 +211,7 @@ class XSDWebFormParser {
 	"greeting" 		: "Welcome" ,
 	"pagetitle"		: "Page Title",
 	"formtitle"		: "Form Title",
-	"isrequired"		: "is required",
+	"isrequired"		: "is mandatory",
 	"addrow"		: "Add Row",
 	"deleterow"		: "Delete Row",
 	"number" 		: "#",
