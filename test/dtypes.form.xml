@@ -3,8 +3,24 @@
 	<page>
 		<form action="/api/testasdasd">
 			<group element="DestinationTypes"> 	
-				<item element="isoCountryCode"/>
+				<item element="isoCountryCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/regions/json" lu-data="concepts" lu-value="['@id']" lu-option=".prefLabel[0]['@value']" lu-order="prefLabel[0][\'@value\']" autoselect="countrycode" hideonautoselect="1"/>
+				<item element="isoEntityCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/regions/json" lu-data="concepts" lu-value="['@id']" lu-option=".prefLabel[0]['@value']" lu-order="prefLabel[0][\'@value\']" autoselect="countrycode" hideonautoselect="1"/>
+				<item element="designationCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/DesignatedTypeCodeValue/json" lu-data="concepts" lu-value="['@id']" lu-option=".prefLabel[0]['@value']" lu-order="prefLabel[0][\'@value\']"/>
+				<item element="category" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/designationtypecategory/json" lu-data="concepts" lu-value="['@id']" lu-option=".prefLabel[0]['@value']" lu-order="prefLabel[0][\'@value\']"/>
+				<item element="designationName"/>
+				<item element="designationNameEnglish"/>
 				<item element="creatingSites"/>
+				<item element="legalReferenceName"/>
+				<item element="legalReferencePublicationDate"/>
+				<item element="legalReferenceLink"/>
+				<item element="legalReferenceLevel"/>
+				<item element="legalReferenceOfficialJournalIdentification"/>
+				<item element="competentAuthorityOrganisationName"/>
+				<item element="competentAuthorityWebsite"/>
+				<item element="remark"/>
+				<item element="remarkSource"/>
+				<item element="designationPeriodBegin"/>
+				<item element="designationPeriodEnd"/>
 			</group>
 		</form>
 	</page>

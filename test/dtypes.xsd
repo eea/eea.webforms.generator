@@ -48,9 +48,3480 @@
         <xs:documentation>Albania</xs:documentation>
       </xs:annotation>
     </xs:enumeration>
+    <xs:enumeration value="AND">
+      <xs:annotation>
+        <xs:documentation>Andorra</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ANT">
+      <xs:annotation>
+        <xs:documentation>Netherlands Antilles</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ARM">
+      <xs:annotation>
+        <xs:documentation>Armenia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ATF">
+      <xs:annotation>
+        <xs:documentation>French Southern &amp; Antarctic Lands</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AUT">
+      <xs:annotation>
+        <xs:documentation>Austria</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AZE">
+      <xs:annotation>
+        <xs:documentation>Azerbaijan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BEL">
+      <xs:annotation>
+        <xs:documentation>Belgium</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BGR">
+      <xs:annotation>
+        <xs:documentation>Bulgaria</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BIH">
+      <xs:annotation>
+        <xs:documentation>Bosnia &amp; Herzegovina</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BLM">
+      <xs:annotation>
+        <xs:documentation>Saint BarthÃ©lemy</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BLR">
+      <xs:annotation>
+        <xs:documentation>Belarus</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BMU">
+      <xs:annotation>
+        <xs:documentation>Bermuda</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BVT">
+      <xs:annotation>
+        <xs:documentation>Bouvet I.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CHE">
+      <xs:annotation>
+        <xs:documentation>Switzerland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CYM">
+      <xs:annotation>
+        <xs:documentation>Cayman Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CYP">
+      <xs:annotation>
+        <xs:documentation>Cyprus</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZE">
+      <xs:annotation>
+        <xs:documentation>Czech Republic</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DEU">
+      <xs:annotation>
+        <xs:documentation>Germany</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DNK">
+      <xs:annotation>
+        <xs:documentation>Denmark</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DZA">
+      <xs:annotation>
+        <xs:documentation>Algeria</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EGY">
+      <xs:annotation>
+        <xs:documentation>Egypt</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ESP">
+      <xs:annotation>
+        <xs:documentation>Spain</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EST">
+      <xs:annotation>
+        <xs:documentation>Estonia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FIN">
+      <xs:annotation>
+        <xs:documentation>Finland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FLK">
+      <xs:annotation>
+        <xs:documentation>Falkland Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FRA">
+      <xs:annotation>
+        <xs:documentation>France</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FRO">
+      <xs:annotation>
+        <xs:documentation>Faroe Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GBR">
+      <xs:annotation>
+        <xs:documentation>United Kingdom</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GEO">
+      <xs:annotation>
+        <xs:documentation>Georgia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GIB">
+      <xs:annotation>
+        <xs:documentation>Gibraltar</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GLP">
+      <xs:annotation>
+        <xs:documentation>Guadeloupe</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GRC">
+      <xs:annotation>
+        <xs:documentation>Greece</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GRL">
+      <xs:annotation>
+        <xs:documentation>Greenland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GUF">
+      <xs:annotation>
+        <xs:documentation>French Guiana</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HRV">
+      <xs:annotation>
+        <xs:documentation>Croatia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HUN">
+      <xs:annotation>
+        <xs:documentation>Hungary</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IOT">
+      <xs:annotation>
+        <xs:documentation>British Indian Ocean Territory</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IRL">
+      <xs:annotation>
+        <xs:documentation>Ireland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ISL">
+      <xs:annotation>
+        <xs:documentation>Iceland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ITA">
+      <xs:annotation>
+        <xs:documentation>Italy</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="KAZ">
+      <xs:annotation>
+        <xs:documentation>Kazakhstan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="KGZ">
+      <xs:annotation>
+        <xs:documentation>Kyrgyzstan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LBY">
+      <xs:annotation>
+        <xs:documentation>Libya</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LIE">
+      <xs:annotation>
+        <xs:documentation>Liechtenstein</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LTU">
+      <xs:annotation>
+        <xs:documentation>Lithuania</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LUX">
+      <xs:annotation>
+        <xs:documentation>Luxembourg</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LVA">
+      <xs:annotation>
+        <xs:documentation>Latvia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MAF">
+      <xs:annotation>
+        <xs:documentation>Saint Martin (French part)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MAR">
+      <xs:annotation>
+        <xs:documentation>Morocco</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MCO">
+      <xs:annotation>
+        <xs:documentation>Monaco</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MDA">
+      <xs:annotation>
+        <xs:documentation>Moldova</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MKD">
+      <xs:annotation>
+        <xs:documentation>Macedonia (FYR)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MLT">
+      <xs:annotation>
+        <xs:documentation>Malta</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MNE">
+      <xs:annotation>
+        <xs:documentation>Montenegro</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MNG">
+      <xs:annotation>
+        <xs:documentation>Mongolia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MSR">
+      <xs:annotation>
+        <xs:documentation>Montserrat</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MTQ">
+      <xs:annotation>
+        <xs:documentation>Martinique</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MYT">
+      <xs:annotation>
+        <xs:documentation>Mayotte</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NCL">
+      <xs:annotation>
+        <xs:documentation>New Caledonia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NLD">
+      <xs:annotation>
+        <xs:documentation>Netherlands</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NOR">
+      <xs:annotation>
+        <xs:documentation>Norway</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PCN">
+      <xs:annotation>
+        <xs:documentation>Pitcairn Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="POL">
+      <xs:annotation>
+        <xs:documentation>Poland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PRT">
+      <xs:annotation>
+        <xs:documentation>Portugal</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PYF">
+      <xs:annotation>
+        <xs:documentation>French Polynesia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="REU">
+      <xs:annotation>
+        <xs:documentation>Reunion</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ROU">
+      <xs:annotation>
+        <xs:documentation>Romania</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RUS">
+      <xs:annotation>
+        <xs:documentation>Russia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SGS">
+      <xs:annotation>
+        <xs:documentation>South Georgia &amp; the South Sandwich Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SHN">
+      <xs:annotation>
+        <xs:documentation>St. Helena</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SJM">
+      <xs:annotation>
+        <xs:documentation>Svalbard &amp; Jan Mayen</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SMR">
+      <xs:annotation>
+        <xs:documentation>San Marino</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SPM">
+      <xs:annotation>
+        <xs:documentation>St. Pierre &amp; Miquelon</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SRB">
+      <xs:annotation>
+        <xs:documentation>Serbia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SVK">
+      <xs:annotation>
+        <xs:documentation>Slovakia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SVN">
+      <xs:annotation>
+        <xs:documentation>Slovenia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SWE">
+      <xs:annotation>
+        <xs:documentation>Sweden</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TCA">
+      <xs:annotation>
+        <xs:documentation>Turks &amp; Caicos Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TJK">
+      <xs:annotation>
+        <xs:documentation>Tajikistan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TKM">
+      <xs:annotation>
+        <xs:documentation>Turkmenistan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TUN">
+      <xs:annotation>
+        <xs:documentation>Tunisia</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TUR">
+      <xs:annotation>
+        <xs:documentation>Turkey</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="UKR">
+      <xs:annotation>
+        <xs:documentation>Ukraine</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="UZB">
+      <xs:annotation>
+        <xs:documentation>Uzbekistan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="VGB">
+      <xs:annotation>
+        <xs:documentation>British Virgin Is.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="WLF">
+      <xs:annotation>
+        <xs:documentation>Wallis &amp; Futuna</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XKX">
+      <xs:annotation>
+        <xs:documentation>Kosovo (UNSCR 1244/99) it is not official ISO 3166-1 alpha-3 code XKX</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
   </xs:restriction>
 </xs:simpleType>
 
+<xs:simpleType name="DesignationCode">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="AL00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL01">
+      <xs:annotation>
+        <xs:documentation>National Park (category II)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL02">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve (category I)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL03">
+      <xs:annotation>
+        <xs:documentation>Managed Nature Reserve (category IV IUCN)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL05">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape (category V IUCN)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL06">
+      <xs:annotation>
+        <xs:documentation>Nature Monument (Category III IUCN)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL09">
+      <xs:annotation>
+        <xs:documentation>Resource Reserve (category VI)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AL99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT02">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT03">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT04">
+      <xs:annotation>
+        <xs:documentation>Landscape Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT05">
+      <xs:annotation>
+        <xs:documentation>Rest Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT06">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Section</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT08">
+      <xs:annotation>
+        <xs:documentation>Protected Natural Objects of local importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT10">
+      <xs:annotation>
+        <xs:documentation>Natural Monument or Site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT23">
+      <xs:annotation>
+        <xs:documentation>Protected Habitat</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT25">
+      <xs:annotation>
+        <xs:documentation>Flora Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT29">
+      <xs:annotation>
+        <xs:documentation>Biosphere Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT39">
+      <xs:annotation>
+        <xs:documentation>landscape and nature protection area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT40">
+      <xs:annotation>
+        <xs:documentation>protected biotopes</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT51">
+      <xs:annotation>
+        <xs:documentation>Ecological Development Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT52">
+      <xs:annotation>
+        <xs:documentation>ex-lege landscape protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT54">
+      <xs:annotation>
+        <xs:documentation>special conservation areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT55">
+      <xs:annotation>
+        <xs:documentation>townscape protected area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="AT56">
+      <xs:annotation>
+        <xs:documentation>regional protected areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve (former RBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA02">
+      <xs:annotation>
+        <xs:documentation>Managed Nature Reserve (former RBIH law</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA03">
+      <xs:annotation>
+        <xs:documentation>National Park (former RBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA04">
+      <xs:annotation>
+        <xs:documentation>Special Reserve (former RBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA05">
+      <xs:annotation>
+        <xs:documentation>Reserve of Natural Landscape (former RBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA06">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (FBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA07">
+      <xs:annotation>
+        <xs:documentation>National Park (FBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA08">
+      <xs:annotation>
+        <xs:documentation>Nature Monument (former RBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA09">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape (FBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA10">
+      <xs:annotation>
+        <xs:documentation>Nature Monument (FBIH law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA11">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape (RS law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA12">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (RS law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA13">
+      <xs:annotation>
+        <xs:documentation>National Park (RS law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA14">
+      <xs:annotation>
+        <xs:documentation>Nature Monument (RS law)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BA99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE01">
+      <xs:annotation>
+        <xs:documentation>State Nature Reserve (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE02">
+      <xs:annotation>
+        <xs:documentation>Certified Nature Reserve (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE03">
+      <xs:annotation>
+        <xs:documentation>Forest Reserve (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE04">
+      <xs:annotation>
+        <xs:documentation>Forest Reserve (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE05">
+      <xs:annotation>
+        <xs:documentation>Nature Park (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE06">
+      <xs:annotation>
+        <xs:documentation>Certified Forest (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE07">
+      <xs:annotation>
+        <xs:documentation>Regional Nature Reserve (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE08">
+      <xs:annotation>
+        <xs:documentation>Certified Nature Reserve (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE09">
+      <xs:annotation>
+        <xs:documentation>Certified Forest Reserve (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE10">
+      <xs:annotation>
+        <xs:documentation>Military zones (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE11">
+      <xs:annotation>
+        <xs:documentation>Protected Dunes (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE13">
+      <xs:annotation>
+        <xs:documentation>Public Forest (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE14">
+      <xs:annotation>
+        <xs:documentation>Scientific Interest Site (Wallone Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE16">
+      <xs:annotation>
+        <xs:documentation>Flemish Ecological Network (Flemish Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE30">
+      <xs:annotation>
+        <xs:documentation>Regional nature reserve (Brussels Capital Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE31">
+      <xs:annotation>
+        <xs:documentation>Certified Nature Reserve (Brussels Capital Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE32">
+      <xs:annotation>
+        <xs:documentation>Forest Reserve (Brussels Capital Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE33">
+      <xs:annotation>
+        <xs:documentation>Protected zone in the forest (Brussels Capital Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE34">
+      <xs:annotation>
+        <xs:documentation>Green zones of high biological value (Brussels Capital Region)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BE99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG02">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG04">
+      <xs:annotation>
+        <xs:documentation>Managed Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG05">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG06">
+      <xs:annotation>
+        <xs:documentation>Protected Site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG08">
+      <xs:annotation>
+        <xs:documentation>Protected Zone in accordance with the Bird Directive</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG09">
+      <xs:annotation>
+        <xs:documentation>Protected Zone in accordance with the Habitat Directive</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG21">
+      <xs:annotation>
+        <xs:documentation>State Game Husbandries</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG22">
+      <xs:annotation>
+        <xs:documentation>Protected Forests</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG23">
+      <xs:annotation>
+        <xs:documentation>Recreation Forests</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG31">
+      <xs:annotation>
+        <xs:documentation>Fish Farm</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="BG99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH01">
+      <xs:annotation>
+        <xs:documentation>Swiss National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH02">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Raised and Transitional Mires of National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH03">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Alluvial Zones of National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH04">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Fenlands of National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH05">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Amphibian Spawning Areas of National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH06">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Dry Grasslands and Pastures of National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH09">
+      <xs:annotation>
+        <xs:documentation>Federal Inventory of Reserves for Waterbirds and Migratory Birds of International and National Imp.</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH10">
+      <xs:annotation>
+        <xs:documentation>Federal Hunting Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH13">
+      <xs:annotation>
+        <xs:documentation>RAMSAR Sites</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH14">
+      <xs:annotation>
+        <xs:documentation>Emerald Sites</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH21">
+      <xs:annotation>
+        <xs:documentation>Cantonal Nature Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH22">
+      <xs:annotation>
+        <xs:documentation>Communal Nature Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH23">
+      <xs:annotation>
+        <xs:documentation>Contracts of Management for Compensating Areas in Agriculture</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH24">
+      <xs:annotation>
+        <xs:documentation>Cantonal Hunting Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH32">
+      <xs:annotation>
+        <xs:documentation>Waterside Vegetation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH33">
+      <xs:annotation>
+        <xs:documentation>Protection of Hedges</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH34">
+      <xs:annotation>
+        <xs:documentation>Private Nature Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH51">
+      <xs:annotation>
+        <xs:documentation>Geoparks</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CH52">
+      <xs:annotation>
+        <xs:documentation>Forest Reserves</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY01">
+      <xs:annotation>
+        <xs:documentation>State Forest Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY02">
+      <xs:annotation>
+        <xs:documentation>Permanent Forest Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY03">
+      <xs:annotation>
+        <xs:documentation>National Forest Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY04">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY05">
+      <xs:annotation>
+        <xs:documentation>Game Reserve ("Hunting Preserve")</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY06">
+      <xs:annotation>
+        <xs:documentation>Turtle Nesting Beach</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY07">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY08">
+      <xs:annotation>
+        <xs:documentation>Marine Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CY99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ01">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ03">
+      <xs:annotation>
+        <xs:documentation>National Nature Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ04">
+      <xs:annotation>
+        <xs:documentation>Nature Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ07">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ09">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CZ13">
+      <xs:annotation>
+        <xs:documentation>Cave</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE04">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Component</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE06">
+      <xs:annotation>
+        <xs:documentation>Species Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE07">
+      <xs:annotation>
+        <xs:documentation>Landscape Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE08">
+      <xs:annotation>
+        <xs:documentation>Nature monuments</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE11">
+      <xs:annotation>
+        <xs:documentation>Forest Protection Area - No exploitation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE12">
+      <xs:annotation>
+        <xs:documentation>Forest Protection Area - Limited exploitation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE13">
+      <xs:annotation>
+        <xs:documentation>Protection Forest (Soil, Erosion, Avalanche)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE21">
+      <xs:annotation>
+        <xs:documentation>Nature Conservation Organisation Property</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE22">
+      <xs:annotation>
+        <xs:documentation>Private statue (contracts) providing durable protection for fauna, flora and habitats</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE23">
+      <xs:annotation>
+        <xs:documentation>Agreements on nature conservation on military used estates</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DE99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK01">
+      <xs:annotation>
+        <xs:documentation>Protected by conservation order, excl. Church surroundings</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK03">
+      <xs:annotation>
+        <xs:documentation>Â§3 protected habitats (all lakes, bogs, streams, heaths and meadows etc.)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK04">
+      <xs:annotation>
+        <xs:documentation>Ancient monument surroundings</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK05">
+      <xs:annotation>
+        <xs:documentation>Nature and Wildlife reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK06">
+      <xs:annotation>
+        <xs:documentation>EU Habitats Directive area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK07">
+      <xs:annotation>
+        <xs:documentation>EU Birds Directive area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK08">
+      <xs:annotation>
+        <xs:documentation>Ramsar area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK11">
+      <xs:annotation>
+        <xs:documentation>State Forest with untouched or biodiversity managed forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK21">
+      <xs:annotation>
+        <xs:documentation>Owned by foundation with Nature protection Aims</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK22">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK91">
+      <xs:annotation>
+        <xs:documentation>Coast protection line</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK92">
+      <xs:annotation>
+        <xs:documentation>River and lake protection line</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK93">
+      <xs:annotation>
+        <xs:documentation>Forest protection line</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK94">
+      <xs:annotation>
+        <xs:documentation>Forest reserves - multiple use forestry areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK95">
+      <xs:annotation>
+        <xs:documentation>Oak scrub protected by law</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK96">
+      <xs:annotation>
+        <xs:documentation>Indigenous/semi-natural forest protected in State Forests</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK97">
+      <xs:annotation>
+        <xs:documentation>Forest untouched or biodiversity managed, protected by statute</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="DK98">
+      <xs:annotation>
+        <xs:documentation>Protected dune areas (Â§8)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE01">
+      <xs:annotation>
+        <xs:documentation>Strict nature reserve of nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE02">
+      <xs:annotation>
+        <xs:documentation>Wilderness conservation zone of nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE03">
+      <xs:annotation>
+        <xs:documentation>Managed conservation zone of nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE04">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE05">
+      <xs:annotation>
+        <xs:documentation>Nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE06">
+      <xs:annotation>
+        <xs:documentation>Strict nature reserve of national park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE07">
+      <xs:annotation>
+        <xs:documentation>Wilderness conservation zone of national park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE08">
+      <xs:annotation>
+        <xs:documentation>Managed conservation zone of national park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE09">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of national park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE10">
+      <xs:annotation>
+        <xs:documentation>National park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE11">
+      <xs:annotation>
+        <xs:documentation>Wilderness conservation zone of protected landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE12">
+      <xs:annotation>
+        <xs:documentation>Managed conservation zone of protected landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE13">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of protected landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE14">
+      <xs:annotation>
+        <xs:documentation>Protected landscape (nature park)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE15">
+      <xs:annotation>
+        <xs:documentation>Unzoned protected area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE16">
+      <xs:annotation>
+        <xs:documentation>Species' protection site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE17">
+      <xs:annotation>
+        <xs:documentation>Limited-conservation area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE18">
+      <xs:annotation>
+        <xs:documentation>Protected nature monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE20">
+      <xs:annotation>
+        <xs:documentation>Spawning area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE23">
+      <xs:annotation>
+        <xs:documentation>Woodland key habitat</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE24">
+      <xs:annotation>
+        <xs:documentation>Heritage conservation area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE25">
+      <xs:annotation>
+        <xs:documentation>Cultural monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE27">
+      <xs:annotation>
+        <xs:documentation>Environmental monitoring station or site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE28">
+      <xs:annotation>
+        <xs:documentation>No-construction zone of shore or bank</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE29">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of shore or bank</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE30">
+      <xs:annotation>
+        <xs:documentation>Water protection zone of shore or bank</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE33">
+      <xs:annotation>
+        <xs:documentation>Sanitary protection zone of water intake</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE34">
+      <xs:annotation>
+        <xs:documentation>Nitrate sensitive area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE41">
+      <xs:annotation>
+        <xs:documentation>Natural object protected at municipal level</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE42">
+      <xs:annotation>
+        <xs:documentation>Habitat/species management zone of species' protection site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE43">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of species' protection site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="EE44">
+      <xs:annotation>
+        <xs:documentation>Limited management zone of natural object protected at municipal level</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES01">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Special )</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES02">
+      <xs:annotation>
+        <xs:documentation>Integral Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES03">
+      <xs:annotation>
+        <xs:documentation>Marine Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES04">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES05">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Wildlife)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES06">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Parcial)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES07">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Integral)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES08">
+      <xs:annotation>
+        <xs:documentation>Nacional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES09">
+      <xs:annotation>
+        <xs:documentation>Periurban Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES10">
+      <xs:annotation>
+        <xs:documentation>Natural Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES11">
+      <xs:annotation>
+        <xs:documentation>Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES12">
+      <xs:annotation>
+        <xs:documentation>Periurban Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES13">
+      <xs:annotation>
+        <xs:documentation>Nature Place</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES14">
+      <xs:annotation>
+        <xs:documentation>Nature Place (National Interest)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES15">
+      <xs:annotation>
+        <xs:documentation>Nature Place (Local Interest)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES16">
+      <xs:annotation>
+        <xs:documentation>Site of national interest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES17">
+      <xs:annotation>
+        <xs:documentation>Site of scientific interest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES18">
+      <xs:annotation>
+        <xs:documentation>Nature enclave</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES19">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES20">
+      <xs:annotation>
+        <xs:documentation>Natural Monument (National Interest)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES21">
+      <xs:annotation>
+        <xs:documentation>Singular tree</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES24">
+      <xs:annotation>
+        <xs:documentation>Natural Area (recreational)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES25">
+      <xs:annotation>
+        <xs:documentation>Nature Place (picturesque)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES30">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES31">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Management)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES32">
+      <xs:annotation>
+        <xs:documentation>Microreserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES33">
+      <xs:annotation>
+        <xs:documentation>Biosphere Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES34">
+      <xs:annotation>
+        <xs:documentation>Protected Wetland</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES40">
+      <xs:annotation>
+        <xs:documentation>Natural Area (singular)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES43">
+      <xs:annotation>
+        <xs:documentation>Protection Plan</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES44">
+      <xs:annotation>
+        <xs:documentation>Wild Fauna Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES46">
+      <xs:annotation>
+        <xs:documentation>Special Areas of Conservation (SAC)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES47">
+      <xs:annotation>
+        <xs:documentation>Area of regional interest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES48">
+      <xs:annotation>
+        <xs:documentation>Special Areas of Conservation (SAC)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES50">
+      <xs:annotation>
+        <xs:documentation>Wetland Site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES51">
+      <xs:annotation>
+        <xs:documentation>Cave</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES88">
+      <xs:annotation>
+        <xs:documentation>Marine Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES89">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Marine)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES90">
+      <xs:annotation>
+        <xs:documentation>Protected Biotop</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES91">
+      <xs:annotation>
+        <xs:documentation>Fluvial Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES92">
+      <xs:annotation>
+        <xs:documentation>Rural Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES93">
+      <xs:annotation>
+        <xs:documentation>Site of scientific interest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES94">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES96">
+      <xs:annotation>
+        <xs:documentation>Special Areas of Conservation (SAC)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES97">
+      <xs:annotation>
+        <xs:documentation>Ecological corridor</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ES98">
+      <xs:annotation>
+        <xs:documentation>Animal Refuge</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI02">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI03">
+      <xs:annotation>
+        <xs:documentation>State Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI04">
+      <xs:annotation>
+        <xs:documentation>Natural Monument on State Owned Land</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI11">
+      <xs:annotation>
+        <xs:documentation>Wilderness Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI12">
+      <xs:annotation>
+        <xs:documentation>State Hiking Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI13">
+      <xs:annotation>
+        <xs:documentation>State Forest Protected by Decision of the Forest and Park Service</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI14">
+      <xs:annotation>
+        <xs:documentation>Esker or Rock Area Protected by the Land Extraction Act</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI15">
+      <xs:annotation>
+        <xs:documentation>Watersystem protected by the Act on Protection of Rapids</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI16">
+      <xs:annotation>
+        <xs:documentation>Private Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI17">
+      <xs:annotation>
+        <xs:documentation>Natural Monument on Private Land</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI18">
+      <xs:annotation>
+        <xs:documentation>Private Nature Reserve administrated by MetsÃ¤hallitus</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI92">
+      <xs:annotation>
+        <xs:documentation>Temporary Protection Order</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI93">
+      <xs:annotation>
+        <xs:documentation>Site of Species Under Strict Protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI94">
+      <xs:annotation>
+        <xs:documentation>Protected Habitat Type</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI95">
+      <xs:annotation>
+        <xs:documentation>Grey Seal Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI96">
+      <xs:annotation>
+        <xs:documentation>Old Growth Forest Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI97">
+      <xs:annotation>
+        <xs:documentation>Herb Rich Forest Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FI98">
+      <xs:annotation>
+        <xs:documentation>Protected Mire</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR01">
+      <xs:annotation>
+        <xs:documentation>National Park - Core Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR02">
+      <xs:annotation>
+        <xs:documentation>National Park - Integrale Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR03">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR05">
+      <xs:annotation>
+        <xs:documentation>Biotope Protection Order</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR06">
+      <xs:annotation>
+        <xs:documentation>Forest Biological Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR07">
+      <xs:annotation>
+        <xs:documentation>Forest Managed Biological Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR08">
+      <xs:annotation>
+        <xs:documentation>Forest Integral Biological Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR11">
+      <xs:annotation>
+        <xs:documentation>Protection Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR12">
+      <xs:annotation>
+        <xs:documentation>Registered natural monument/site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR13">
+      <xs:annotation>
+        <xs:documentation>Classified natural monument/site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR14">
+      <xs:annotation>
+        <xs:documentation>Land acquired by Conservatoire du Littoral (national seaside and lakeside conservancy)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR15">
+      <xs:annotation>
+        <xs:documentation>Regional Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR16">
+      <xs:annotation>
+        <xs:documentation>National Park - Buffer zone/Area of adhesion</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR17">
+      <xs:annotation>
+        <xs:documentation>National Hunting and Wildlife Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR18">
+      <xs:annotation>
+        <xs:documentation>National Marine Hunting Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR19">
+      <xs:annotation>
+        <xs:documentation>National River Hunting Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR20">
+      <xs:annotation>
+        <xs:documentation>ACCA Hunting Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR21">
+      <xs:annotation>
+        <xs:documentation>State Riverine Fishing Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR22">
+      <xs:annotation>
+        <xs:documentation>Conventional Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR23">
+      <xs:annotation>
+        <xs:documentation>State Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR24">
+      <xs:annotation>
+        <xs:documentation>Community Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR31">
+      <xs:annotation>
+        <xs:documentation>Land acquired by a regional conservatory of natural areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR32">
+      <xs:annotation>
+        <xs:documentation>Land acquired by territorial duty on sensitive natural areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR34">
+      <xs:annotation>
+        <xs:documentation>Marine Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR35">
+      <xs:annotation>
+        <xs:documentation>Regional Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR36">
+      <xs:annotation>
+        <xs:documentation>Corsican Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR37">
+      <xs:annotation>
+        <xs:documentation>Protected perimeter around a national nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR38">
+      <xs:annotation>
+        <xs:documentation>Protected perimeter around a regional nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FR99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB01">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB04">
+      <xs:annotation>
+        <xs:documentation>Site of Special Scientific Interest (GB)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB05">
+      <xs:annotation>
+        <xs:documentation>Marine Conservation Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB06">
+      <xs:annotation>
+        <xs:documentation>Nature Conservation Marine Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB30">
+      <xs:annotation>
+        <xs:documentation>Fisheries Management Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB83">
+      <xs:annotation>
+        <xs:documentation>Area of Outstanding Natural Beauty (NI)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB85">
+      <xs:annotation>
+        <xs:documentation>Area of Outstanding Natural Beauty</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB87">
+      <xs:annotation>
+        <xs:documentation>Voluntary Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB88">
+      <xs:annotation>
+        <xs:documentation>Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB91">
+      <xs:annotation>
+        <xs:documentation>National Scenic Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB92">
+      <xs:annotation>
+        <xs:documentation>Heritage Coast</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB96">
+      <xs:annotation>
+        <xs:documentation>Local Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB97">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GB98">
+      <xs:annotation>
+        <xs:documentation>Area of Special Scientific Interest (NI)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GL01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GL02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR01">
+      <xs:annotation>
+        <xs:documentation>Absolute Nature Reserve area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR02">
+      <xs:annotation>
+        <xs:documentation>Absolute nature reserve zone in National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR03">
+      <xs:annotation>
+        <xs:documentation>Absolute nature reserve zone in National Marine Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR05">
+      <xs:annotation>
+        <xs:documentation>Core zone in National (Woodland) Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR06">
+      <xs:annotation>
+        <xs:documentation>Natural Monuments and landmarks (protected as strict nature reserve)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR07">
+      <xs:annotation>
+        <xs:documentation>Nature reserve area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR08">
+      <xs:annotation>
+        <xs:documentation>Nature reserve zone in National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR09">
+      <xs:annotation>
+        <xs:documentation>Nature reserve zone in National Marine Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR11">
+      <xs:annotation>
+        <xs:documentation>National (Woodland) Park - Peripheral zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR12">
+      <xs:annotation>
+        <xs:documentation>Aesthetic Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR21">
+      <xs:annotation>
+        <xs:documentation>Game breeding station</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR23">
+      <xs:annotation>
+        <xs:documentation>Controlled hunting area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR24">
+      <xs:annotation>
+        <xs:documentation>Protected Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR28">
+      <xs:annotation>
+        <xs:documentation>Protected significant natural formation, protected landscape and landscape elements</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR84">
+      <xs:annotation>
+        <xs:documentation>Nature reserve zone in Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR85">
+      <xs:annotation>
+        <xs:documentation>Absolute nature reserve zone in Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR86">
+      <xs:annotation>
+        <xs:documentation>Absolute nature reserve zone in Nature Reserve Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR87">
+      <xs:annotation>
+        <xs:documentation>Protected Natural Formation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR88">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape /Seascape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR89">
+      <xs:annotation>
+        <xs:documentation>Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR90">
+      <xs:annotation>
+        <xs:documentation>Nature reserve area - Peripheral zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR91">
+      <xs:annotation>
+        <xs:documentation>National Marine Park - Peripheral zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR92">
+      <xs:annotation>
+        <xs:documentation>National Park - Peripheral zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR95">
+      <xs:annotation>
+        <xs:documentation>Wildlife Refugee</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR96">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR97">
+      <xs:annotation>
+        <xs:documentation>National Marine Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR98">
+      <xs:annotation>
+        <xs:documentation>Protected area not yet classified</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="GR99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR01">
+      <xs:annotation>
+        <xs:documentation>Strict Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR02">
+      <xs:annotation>
+        <xs:documentation>Special Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR03">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR04">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR05">
+      <xs:annotation>
+        <xs:documentation>Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR06">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR07">
+      <xs:annotation>
+        <xs:documentation>Significant Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR08">
+      <xs:annotation>
+        <xs:documentation>Forest Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR09">
+      <xs:annotation>
+        <xs:documentation>Horticultural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HR99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU02">
+      <xs:annotation>
+        <xs:documentation>Landscape Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU03">
+      <xs:annotation>
+        <xs:documentation>Nature Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU04">
+      <xs:annotation>
+        <xs:documentation>Local Nature Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU05">
+      <xs:annotation>
+        <xs:documentation>Forest Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU06">
+      <xs:annotation>
+        <xs:documentation>Ex lege Protected Mire</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU07">
+      <xs:annotation>
+        <xs:documentation>Ex lege Protected Sodic Lake</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU08">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU09">
+      <xs:annotation>
+        <xs:documentation>Cave</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU10">
+      <xs:annotation>
+        <xs:documentation>Environmentally Sensitive Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU11">
+      <xs:annotation>
+        <xs:documentation>Naturpark</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="HU99">
+      <xs:annotation>
+        <xs:documentation>Other</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE01">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve (state ownership)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE02">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve (private ownership)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE03">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE04">
+      <xs:annotation>
+        <xs:documentation>Refuge for Fauna</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE05">
+      <xs:annotation>
+        <xs:documentation>No shooting area (Wildfowl Sanctuary)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE11">
+      <xs:annotation>
+        <xs:documentation>Fresh waters designated under terms of Directive 87/659/EEC - S.I. 293 of 1988</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE12">
+      <xs:annotation>
+        <xs:documentation>Tree preservation order</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE13">
+      <xs:annotation>
+        <xs:documentation>Special amenity area order</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE21">
+      <xs:annotation>
+        <xs:documentation>Land owned by a non-governmental organisation for nature conservation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE97">
+      <xs:annotation>
+        <xs:documentation>Refuge for Flora</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IE98">
+      <xs:annotation>
+        <xs:documentation>Natural Heritage Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS04">
+      <xs:annotation>
+        <xs:documentation>Public Recreation Area or Country Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS05">
+      <xs:annotation>
+        <xs:documentation>Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS06">
+      <xs:annotation>
+        <xs:documentation>Habitat protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IS99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT02">
+      <xs:annotation>
+        <xs:documentation>State Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT03">
+      <xs:annotation>
+        <xs:documentation>Interregional Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT04">
+      <xs:annotation>
+        <xs:documentation>Regional/Provincial Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT05">
+      <xs:annotation>
+        <xs:documentation>Regional/Provincial Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT06">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT07">
+      <xs:annotation>
+        <xs:documentation>Fauna Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT11">
+      <xs:annotation>
+        <xs:documentation>Natural Beauties</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT13">
+      <xs:annotation>
+        <xs:documentation>Hydrogeological Obbligation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT14">
+      <xs:annotation>
+        <xs:documentation>Spring and Water-Bearing Stratum Protection Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT30">
+      <xs:annotation>
+        <xs:documentation>Other Protected Natural Regional Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT31">
+      <xs:annotation>
+        <xs:documentation>Biogenetic forest reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT32">
+      <xs:annotation>
+        <xs:documentation>Protection Area for Lanes of Migratory Birds</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT33">
+      <xs:annotation>
+        <xs:documentation>Catch and Release Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT34">
+      <xs:annotation>
+        <xs:documentation>Bordering Areas of Protected Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT35">
+      <xs:annotation>
+        <xs:documentation>Environmental assets</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT36">
+      <xs:annotation>
+        <xs:documentation>Sensible Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT37">
+      <xs:annotation>
+        <xs:documentation>International significance Natural Marine Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT41">
+      <xs:annotation>
+        <xs:documentation>Site of Community importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT42">
+      <xs:annotation>
+        <xs:documentation>Special Area of Conservation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT43">
+      <xs:annotation>
+        <xs:documentation>Nitrate vulnerable zones</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT44">
+      <xs:annotation>
+        <xs:documentation>Fresh waters needing protection or improvement in order to support fish life</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT45">
+      <xs:annotation>
+        <xs:documentation>Shellfish waters</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT90">
+      <xs:annotation>
+        <xs:documentation>Natural Marine Reserve and Natural Protected Marine Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT94">
+      <xs:annotation>
+        <xs:documentation>Biological Protection Marine Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT95">
+      <xs:annotation>
+        <xs:documentation>Hunting and Fauna Management Farm</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="IT99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LI01">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LI02">
+      <xs:annotation>
+        <xs:documentation>Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LI03">
+      <xs:annotation>
+        <xs:documentation>Forest Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LI04">
+      <xs:annotation>
+        <xs:documentation>Protected Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT01">
+      <xs:annotation>
+        <xs:documentation>State Strict Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT03">
+      <xs:annotation>
+        <xs:documentation>State Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT04">
+      <xs:annotation>
+        <xs:documentation>Biosphere Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT05">
+      <xs:annotation>
+        <xs:documentation>Recuperational plot</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT06">
+      <xs:annotation>
+        <xs:documentation>Biosphere polygon</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LT99">
+      <xs:annotation>
+        <xs:documentation>Other</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU01">
+      <xs:annotation>
+        <xs:documentation>RAMSAR</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU02">
+      <xs:annotation>
+        <xs:documentation>Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU03">
+      <xs:annotation>
+        <xs:documentation>Integral forest protection area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU04">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU05">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU06">
+      <xs:annotation>
+        <xs:documentation>ZSC - Natura 2000</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU07">
+      <xs:annotation>
+        <xs:documentation>ZPS - Natura 2000</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU08">
+      <xs:annotation>
+        <xs:documentation>ZPIC</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LU99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV02">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV03">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV04">
+      <xs:annotation>
+        <xs:documentation>Nature Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV05">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV06">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV07">
+      <xs:annotation>
+        <xs:documentation>Biosphere Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV08">
+      <xs:annotation>
+        <xs:documentation>Micro-reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="LV09">
+      <xs:annotation>
+        <xs:documentation>Protected Marine Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME02">
+      <xs:annotation>
+        <xs:documentation>Special Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME03">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME04">
+      <xs:annotation>
+        <xs:documentation>Regional Park and Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME05">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME06">
+      <xs:annotation>
+        <xs:documentation>Protected habitat</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME07">
+      <xs:annotation>
+        <xs:documentation>Landscape with special features</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME08">
+      <xs:annotation>
+        <xs:documentation>Protected species of plants, animals and fungi - strictly protected and protected wild species</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME09">
+      <xs:annotation>
+        <xs:documentation>Protected geological and paleontological objects</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="ME99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK01">
+      <xs:annotation>
+        <xs:documentation>Strict Natural Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK02">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK04">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK05">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK06">
+      <xs:annotation>
+        <xs:documentation>Multipurpose Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MK98">
+      <xs:annotation>
+        <xs:documentation>Designated area not yet reviewed</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT01">
+      <xs:annotation>
+        <xs:documentation>Area of Ecological Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT02">
+      <xs:annotation>
+        <xs:documentation>Area of Ecological Importance/Site of Scientific Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT03">
+      <xs:annotation>
+        <xs:documentation>Bird Sanctuary</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT04">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Islands)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT05">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Filfla)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT06">
+      <xs:annotation>
+        <xs:documentation>Tree Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT07">
+      <xs:annotation>
+        <xs:documentation>Site of Scientific Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT08">
+      <xs:annotation>
+        <xs:documentation>List of Historical Trees Having an Antiquarian Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT09">
+      <xs:annotation>
+        <xs:documentation>No Berthing Zone/No Entry Zone except for Fisheries</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT10">
+      <xs:annotation>
+        <xs:documentation>Special Areas of Conservation - National Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT11">
+      <xs:annotation>
+        <xs:documentation>Special Areas of Conservation - International Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT12">
+      <xs:annotation>
+        <xs:documentation>Protected Beaches</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT13">
+      <xs:annotation>
+        <xs:documentation>Special Protection Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="MT99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL01">
+      <xs:annotation>
+        <xs:documentation>Nature Conservation Act</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL21">
+      <xs:annotation>
+        <xs:documentation>Nature Reserves owned by professional nature management organizations</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL22">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL92">
+      <xs:annotation>
+        <xs:documentation>National Park to be established</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NL99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO02">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO03">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO04">
+      <xs:annotation>
+        <xs:documentation>Habitat management area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO05">
+      <xs:annotation>
+        <xs:documentation>Marine Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO11">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO13">
+      <xs:annotation>
+        <xs:documentation>Botanical Protection of Species</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO15">
+      <xs:annotation>
+        <xs:documentation>Zoological Protection of Species</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO16">
+      <xs:annotation>
+        <xs:documentation>Botanical/Zoological Protection of Species</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO17">
+      <xs:annotation>
+        <xs:documentation>Wildlife Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO19">
+      <xs:annotation>
+        <xs:documentation>Botanical Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO21">
+      <xs:annotation>
+        <xs:documentation>Wildlife/Botanical Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO22">
+      <xs:annotation>
+        <xs:documentation>Areas or Trees Protected by the local Government</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO23">
+      <xs:annotation>
+        <xs:documentation>Wildlife Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO31">
+      <xs:annotation>
+        <xs:documentation>National Park (Svalbard)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO33">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Svalbard)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO34">
+      <xs:annotation>
+        <xs:documentation>Protected Geotope (Svalbard)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO39">
+      <xs:annotation>
+        <xs:documentation>Protected Biotope (Svalbard)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO43">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Antarctic)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO53">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve (Jan Mayen)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="NO99">
+      <xs:annotation>
+        <xs:documentation>Temporary Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL03">
+      <xs:annotation>
+        <xs:documentation>Landscape Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL04">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PL99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT01">
+      <xs:annotation>
+        <xs:documentation>Integral Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT03">
+      <xs:annotation>
+        <xs:documentation>Botanical Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT06">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT07">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT08">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT09">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT11">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT12">
+      <xs:annotation>
+        <xs:documentation>Leisure and Mountain Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT13">
+      <xs:annotation>
+        <xs:documentation>Geological and High Altitude Vegetation Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT14">
+      <xs:annotation>
+        <xs:documentation>Silence and Tranquility Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT15">
+      <xs:annotation>
+        <xs:documentation>Habitats or Species Management Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT16">
+      <xs:annotation>
+        <xs:documentation>Resource Management Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT17">
+      <xs:annotation>
+        <xs:documentation>Microreserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT18">
+      <xs:annotation>
+        <xs:documentation>Marine Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT19">
+      <xs:annotation>
+        <xs:documentation>Marine Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT21">
+      <xs:annotation>
+        <xs:documentation>National Ecological Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT22">
+      <xs:annotation>
+        <xs:documentation>Public Hydrological Territory</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT23">
+      <xs:annotation>
+        <xs:documentation>National Agricultural Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT28">
+      <xs:annotation>
+        <xs:documentation>Hunting Prohibited Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT29">
+      <xs:annotation>
+        <xs:documentation>Hunting Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT30">
+      <xs:annotation>
+        <xs:documentation>National Hunting Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT31">
+      <xs:annotation>
+        <xs:documentation>Fishing Prohibited Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT37">
+      <xs:annotation>
+        <xs:documentation>Professional Fishing Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT38">
+      <xs:annotation>
+        <xs:documentation>Recreational Fishing Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT42">
+      <xs:annotation>
+        <xs:documentation>Private Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT43">
+      <xs:annotation>
+        <xs:documentation>Hunting Prohibited Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT44">
+      <xs:annotation>
+        <xs:documentation>Integral Natural Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT45">
+      <xs:annotation>
+        <xs:documentation>Partial Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT46">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT50">
+      <xs:annotation>
+        <xs:documentation>Forest Perimeter</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT53">
+      <xs:annotation>
+        <xs:documentation>Municipal Hunting Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT54">
+      <xs:annotation>
+        <xs:documentation>Touristic Hunting Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT55">
+      <xs:annotation>
+        <xs:documentation>Corporate Hunting Zone</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT56">
+      <xs:annotation>
+        <xs:documentation>No Hunting Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT57">
+      <xs:annotation>
+        <xs:documentation>Regional Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT58">
+      <xs:annotation>
+        <xs:documentation>Regional Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT59">
+      <xs:annotation>
+        <xs:documentation>Regional Natural Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT60">
+      <xs:annotation>
+        <xs:documentation>Regional Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT61">
+      <xs:annotation>
+        <xs:documentation>Local Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT62">
+      <xs:annotation>
+        <xs:documentation>Local Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT63">
+      <xs:annotation>
+        <xs:documentation>Local Natural Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT64">
+      <xs:annotation>
+        <xs:documentation>Local Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT65">
+      <xs:annotation>
+        <xs:documentation>Partial Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="PT99">
+      <xs:annotation>
+        <xs:documentation>Other</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO00">
+      <xs:annotation>
+        <xs:documentation>Unprotected area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO01">
+      <xs:annotation>
+        <xs:documentation>Scientific reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO02">
+      <xs:annotation>
+        <xs:documentation>National park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO03">
+      <xs:annotation>
+        <xs:documentation>Natural monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO04">
+      <xs:annotation>
+        <xs:documentation>Nature reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO05">
+      <xs:annotation>
+        <xs:documentation>Natural park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RO08">
+      <xs:annotation>
+        <xs:documentation>Biosphere Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS04">
+      <xs:annotation>
+        <xs:documentation>Landscape of Outstanding Qualities</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS05">
+      <xs:annotation>
+        <xs:documentation>Area of Cultural and Historical Importance</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS06">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS07">
+      <xs:annotation>
+        <xs:documentation>Regional Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS10">
+      <xs:annotation>
+        <xs:documentation>Protected habitat</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="RS99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE03">
+      <xs:annotation>
+        <xs:documentation>Nature Conservation Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE04">
+      <xs:annotation>
+        <xs:documentation>Habitat Protection Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE06">
+      <xs:annotation>
+        <xs:documentation>Wildlife and Plant Sanctuary</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE98">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SE99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI00">
+      <xs:annotation>
+        <xs:documentation>Unprotected</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI01">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI04">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI05">
+      <xs:annotation>
+        <xs:documentation>Regional Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI06">
+      <xs:annotation>
+        <xs:documentation>Landscape Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI07">
+      <xs:annotation>
+        <xs:documentation>Ecological Important Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI08">
+      <xs:annotation>
+        <xs:documentation>Specialy Protected Area</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI10">
+      <xs:annotation>
+        <xs:documentation>Protection Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI11">
+      <xs:annotation>
+        <xs:documentation>Special Purpose Forest</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI12">
+      <xs:annotation>
+        <xs:documentation>Special-purpose Hunting District</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI13">
+      <xs:annotation>
+        <xs:documentation>Fishing Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI14">
+      <xs:annotation>
+        <xs:documentation>Horticultural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SI99">
+      <xs:annotation>
+        <xs:documentation>Others</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK01">
+      <xs:annotation>
+        <xs:documentation>National Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK02">
+      <xs:annotation>
+        <xs:documentation>Nature Reserve / Private Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK03">
+      <xs:annotation>
+        <xs:documentation>National Nature Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK04">
+      <xs:annotation>
+        <xs:documentation>Nature Monument / Private Nature Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK05">
+      <xs:annotation>
+        <xs:documentation>Protected Site / Private Protected Site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK06">
+      <xs:annotation>
+        <xs:documentation>Buffer Zone of a National Nature Reserve, Nature Reserve, National Nature Monument, Nature Monument;</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK07">
+      <xs:annotation>
+        <xs:documentation>Buffer Zone of a Protected Site</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK08">
+      <xs:annotation>
+        <xs:documentation>National Park; third level of protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK09">
+      <xs:annotation>
+        <xs:documentation>Buffer Zone of the National Park; second level/grade of protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK10">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape Area; second level of protection</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="SK13">
+      <xs:annotation>
+        <xs:documentation>Protected feature</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR02">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR03">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR04">
+      <xs:annotation>
+        <xs:documentation>Nature Protection Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR05">
+      <xs:annotation>
+        <xs:documentation>Special Environmental Protection Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR14">
+      <xs:annotation>
+        <xs:documentation>Wildlife Conservation Areas</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR15">
+      <xs:annotation>
+        <xs:documentation>Wildanimal Breeding Station</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR16">
+      <xs:annotation>
+        <xs:documentation>Protected Forests</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR17">
+      <xs:annotation>
+        <xs:documentation>Gene Conservation Forests (in situ)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR18">
+      <xs:annotation>
+        <xs:documentation>Seed Stands</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="TR21">
+      <xs:annotation>
+        <xs:documentation>Seed Orchard (ex situ)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK00">
+      <xs:annotation>
+        <xs:documentation>No Protection Status</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK01">
+      <xs:annotation>
+        <xs:documentation>National Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK02">
+      <xs:annotation>
+        <xs:documentation>Strict Nature Reserve</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK04">
+      <xs:annotation>
+        <xs:documentation>Nature Park</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK05">
+      <xs:annotation>
+        <xs:documentation>Protected Landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK06">
+      <xs:annotation>
+        <xs:documentation>Natural Monument</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK07">
+      <xs:annotation>
+        <xs:documentation>Wetlands</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="XK08">
+      <xs:annotation>
+        <xs:documentation>Elements of agricultural landscape</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="DesignationTypeCategory">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="A">
+      <xs:annotation>
+        <xs:documentation>Category A - Designation types used with the intention to protect fauna, flora, habitats and landscapes (the latter as far as relevant for fauna, flora and for habitat protection)</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+      <xs:enumeration value="B">
+      <xs:annotation>
+        <xs:documentation>Category B - Statutes under sectorial, particularly forestry, legislative and administrative acts providing an adequate protection relevant for fauna, flora and habitat conservation</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+      <xs:enumeration value="C">
+      <xs:annotation>
+        <xs:documentation>Category C - Private statute providing durable protection for fauna, flora or habitats</xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="DesignationPeriod">
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="2013"/>
+    <xs:maxInclusive value="2022"/>
+  </xs:restriction>
+</xs:simpleType>
 <!-- /CUSTOM TYPES -->
 
 <!-- ELEMENTS REFERENCES -->
@@ -58,10 +3529,65 @@
   <xs:simpleType>
     <xs:annotation>
       <xs:documentation>
-	ISO 3 character code for the reporting country .
+  ISO 3 character code for the reporting country .
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="IsoCountryCode"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="isoEntityCode">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+  ISO 3 character code for the reporting entity, being country, autonomous or overseas region or community, or other territory (e.g. overseas entities as Outermost Regions or Overseas Countries and Territories). 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="IsoCountryCode"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="designationCode">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    National designation type code / The designation type code list is a sequential list of the relevant nature conservation designation types which have statutory protection with their definition from the national/regional level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="DesignationCode"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="category">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    National designation type category / The designation type category (A, B or C) is a categorisation of national designation types deriving from CDDA reporting. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="DesignationTypeCategory"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="designationName">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Title in original Language of the official title of the designation.  designationName needs a 'locale' attribute to distinguish the language variants.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="designationNameEnglish">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    English translation Language of the official title of the designation.  designationName needs a 'locale' attribute to distinguish the language variants.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
   </xs:simpleType>
 </xs:element>
 
@@ -76,6 +3602,126 @@
   </xs:simpleType>
 </xs:element>
 
+<xs:element name="legalReferenceName">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to legal text, including reference to the publication in Official Journal, URL and other information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="legalReferencePublicationDate">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to legal text, including reference to the publication in Official Journal, URL and other information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="legalReferenceLink">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to legal text, including reference to the publication in Official Journal, URL and other information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="legalReferenceLevel">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to legal text, including reference to the publication in Official Journal, URL and other information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="legalReferenceOfficialJournalIdentification">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to the location within the official journal within which the legislative instrument was published.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="competentAuthorityOrganisationName">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Title and address of the administrative authority / INSPIRE: An organisation or a person with a role related to a resource.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="competentAuthorityWebsite">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Title and address of the administrative authority / INSPIRE: An organisation or a person with a role related to a resource.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="remark">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Any useful remark to understand what this designation is about may be entered in this field.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="remarkSource">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+    Reference to source of information for the remark.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="designationPeriodBegin">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+  Draft: Time period defining when the designation was legally designated / valid or became effective in the real world. (based on INSPIRE AM)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="DesignationPeriod"/>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="designationPeriodEnd">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+  Draft: Time period defining when the designation was legally ended/retired in the real world. (based on INSPIRE AM)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="DesignationPeriod"/>
+  </xs:simpleType>
+</xs:element>
 <!-- /ELEMENTS REFERENCES -->
 
 <!-- ELEMENTS -->
@@ -83,8 +3729,24 @@
     <xs:complexType>
       <xs:all>
         <xs:element ref="isoCountryCode"/>
+        <xs:element ref="isoEntityCode"/>
+        <xs:element ref="designationCode"/>
+        <xs:element ref="category"/>
+        <xs:element ref="designationName"/>
+        <xs:element ref="designationNameEnglish"/>
         <xs:element ref="creatingSites"/>
-        </xs:all>
+        <xs:element ref="legalReferenceName"/>
+        <xs:element ref="legalReferencePublicationDate"/>
+        <xs:element ref="legalReferenceLink"/>
+        <xs:element ref="legalReferenceLevel"/>
+        <xs:element ref="legalReferenceOfficialJournalIdentification"/>
+        <xs:element ref="competentAuthorityOrganisationName"/>
+        <xs:element ref="competentAuthorityWebsite"/>
+        <xs:element ref="remark"/>
+        <xs:element ref="remarkSource"/>
+        <xs:element ref="designationPeriodBegin"/>
+        <xs:element ref="designationPeriodEnd"/>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 <!-- /ELEMENTS -->

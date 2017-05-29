@@ -285,7 +285,6 @@ class XSDWebFormParserHTMLTags {
 		var htmlItem = {
 			name: name,
 			tag: 'input',
-			tagclose: false,
 			autoclose: false,
 			hasLabel: true,
 			formModel: itemFormModel,
@@ -316,7 +315,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element.replace("-", ""),
 				tag: 'textarea',
-				tagclose: false,
 				autoclose: true,
 				hasLabel: true,
 				formModel: itemFormModel,
@@ -349,7 +347,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'input',
-				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
 				formModel: itemFormModel,
@@ -396,7 +393,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element.replace("-", ""),
 				tag: 'input',
-				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
 				formModel: itemFormModel,
@@ -491,7 +487,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'select',
-				tagclose: false,
 				autoclose: true,
 				hasLabel: true,
 				options: enumItems,
@@ -526,7 +521,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'lookup',
-				tagclose: false,
 				autoclose: true,
 				hasLabel: true,
 				hide: '!h__' + item.attr.element + '${{$index + 1}}',
@@ -602,7 +596,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'radio',
-				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
 				noTag: true,
@@ -641,7 +634,6 @@ class XSDWebFormParserHTMLTags {
 			var htmlItem = {
 				name: item.attr.element,
 				tag: 'input',
-				tagclose: false,
 				autoclose: false,
 				hasLabel: true,
 				formModel: itemFormModel,
