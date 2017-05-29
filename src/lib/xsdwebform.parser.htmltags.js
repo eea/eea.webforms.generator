@@ -28,6 +28,7 @@ class XSDWebFormParserHTMLTags {
 			"positivenumber": this.parseNumberP,
 			"date": this.parseDate,
 			"select": this.parseSelect,
+			"lookup": this.parseLookup,
 			"radio": this.parseRadio,
 			"checkbox": this.parseCheckbox,
 			"radioorselect" : this.decideRadioCheck
@@ -206,6 +207,13 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseItem(item, xsdItem, sender) {
 		
+		if (item.attr.lookup) {
+			item.name = "lookup";
+			sender.parseHTMLItem(item, xsdItem);
+			return;
+		}
+
+
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		
 		let XSDWFormItem, XSDWFormItemType;
@@ -500,6 +508,45 @@ class XSDWebFormParserHTMLTags {
 			sender.addItemToGroup(htmlItem, itemInfo, sender);
 		}
 	}
+
+	/**
+	 * parseLookup - Parse  Lookup Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	parseLookup(item, xsdItem, sender) {
+		
+		sender.logger.logHtmlTag(item, sender);
+		
+		if (item.attr.lookup) {
+			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+		
+			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
+			var htmlItem = {
+				name: item.attr.element,
+				tag: 'lookup',
+				tagclose: false,
+				autoclose: true,
+				hasLabel: true,
+				formModel: itemFormModel,
+				attrs: {
+					name: item.attr.element + '${{$index + 1}}',
+					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					required: 1,
+					lookup: item.attr.lookup,
+					'lu-data': item.attr['lu-data'],
+					'lu-value': item.attr['lu-value'],
+					'lu-option': item.attr['lu-option'],
+					'xsd-map': sender.getEwMap(item, itemInfo),
+					'ng-model': 'field.' + itemFormModel
+				},
+				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
+			};
+			sender.addItemToGroup(htmlItem, itemInfo, sender);
+		}
+
+	}
 	
 	/**
 	 * parseRadio - Parse  Radio Tag
@@ -769,6 +816,11 @@ class XSDWebFormParserHTMLTags {
 				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
 			}
 			outPut += ">\n";
+		}
+
+		if (this.tag === 'lookup') {
+			console.log("this.tag", this.tag);
+			
 		}
 
 		if (this.options) {

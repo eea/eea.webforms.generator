@@ -62,8 +62,8 @@ class XSDWebFormParser {
 		var xsdItem = new XmlDocument(xObject.xdata);
 		xsdItem.level = 0;
 
-		if (this.showLog && this.showXSDLog) 
-			this.xsdTagParser.xsdParse(xsdItem);
+		//// if (this.showLog && this.showXSDLog) 
+			//// this.xsdTagParser.xsdParse(xsdItem);
 
 		if (this.showLog)
 			this.logger.logHTML(xObject);
