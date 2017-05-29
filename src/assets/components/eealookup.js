@@ -28,7 +28,7 @@ app.component("lookup",{
 					if (parent.autoselect) {
 						parent.ngModel = $location.search()['countrycode'];	
 					}
-					if (parent.hideonautoselect == 1) {
+					if (parent.hideonautoselect == 1 && $location.search()['countrycode']){
 						parent.scp['h_' + parent.name] = 1;
 					}
 				});
