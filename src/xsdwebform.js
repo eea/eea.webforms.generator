@@ -248,6 +248,8 @@ export default class XSDWebForm {
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.min.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/handheld.css" media="handheld" />
   
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
