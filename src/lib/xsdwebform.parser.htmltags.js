@@ -182,9 +182,9 @@ class XSDWebFormParserHTMLTags {
 			name: item.attr.element.replace("-", ""),
 			xsdName: xsdGroupTag.name,
 			tag: 'fieldset',
+			multi: canAddRows,
 			attrs: {
 				'xsd-map': xsdGroupTag.name + "/" + item.attr.element,
-				multi: canAddRows,
 				id: item.attr.element.replace("-", "")
 			},
 			prepend: groupStart,
