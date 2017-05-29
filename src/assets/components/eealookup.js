@@ -29,7 +29,9 @@ app.component("lookup",{
 				if (!parent.luValue.toString().startsWith('[')) {
 					parent.luValue = '.' + parent.luValue;
 				}
-				
+				if (parent.luOrder) {
+					parent.luOrder = parent.luOrder.toString().replace(/'/g, "\\\'");
+				}
 				$http.get(parent.lookup).then( function(response) {
 					parent.data = response.data[parent.luData];
 					if (parent.autoselect) {
