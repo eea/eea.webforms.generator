@@ -20,7 +20,7 @@ app.component("eeaLanguage", {
 	controller: function controller($http, $translate) {
 		var parent = this;
 		this.$onInit = function () {
-			(this.getCodeList = function () {
+			(function () {
 				$http.get('lng/ct-codelists-en.json').then(function (response) {
 					parent.codeLists = response.data;
 					parent.language = parent.lang;

@@ -243,6 +243,7 @@ export default class XSDWebForm {
 <script src="./assets/components/eealanguage.min.js" ></script>
 <script src="./assets/components/eeatoolbar.min.js" ></script>
 <script src="./assets/components/eeabuildinfo.min.js" ></script>
+<script src="./assets/components/eealookup.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.min.css"/>

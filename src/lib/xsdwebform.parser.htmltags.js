@@ -818,11 +818,6 @@ class XSDWebFormParserHTMLTags {
 			outPut += ">\n";
 		}
 
-		if (this.tag === 'lookup') {
-			console.log("this.tag", this.tag);
-			
-		}
-
 		if (this.options) {
 			if (this.tag === 'select') {
 				outPut += "\t\t\t<option value=\"\">-----</option>\n";
