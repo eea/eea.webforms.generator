@@ -111,7 +111,6 @@ class XSDWebFormParser {
 				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					let ngshow = '';
-					console.log("groups[i].itemObject.items[i2].", groups[i].itemObject.items[i2].hide);
 					if (groups[i].itemObject.items[i2].hide && groups[i].itemObject.items[i2].attrs.hideonautoselect == 1) {
 						ngshow = 'ng-show="' + groups[i].itemObject.items[i2].hide + '"';
 					} 
