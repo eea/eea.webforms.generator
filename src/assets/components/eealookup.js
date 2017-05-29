@@ -19,7 +19,6 @@ app.component("lookup",{
 				});
 			})();
 			this.updateLookup = function() {
-				console.log("IN");
 			};
 
 		}
