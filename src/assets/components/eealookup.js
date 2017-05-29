@@ -11,7 +11,7 @@ app.component("lookup",{
 		ngModel: '@',
 		lookup: '@',
 		name: '@',
-		luValue : '@' ,
+		luValue : '=' ,
 		luOption : '@' ,
 		luOrder : '@' ,
 		luData: '@',
@@ -28,7 +28,7 @@ app.component("lookup",{
 					if (parent.autoselect) {
 						let qs = $location.search()['countrycode'];
 						let fdata = parent.data.filter(function (item) {
-							if (item[eval(parent.luValue)] == qs) return true;
+							if (item[parent.luValue] == qs) return true;
 						});
 						if (fdata.length > 0) {
 							parent.ngModel = qs;	
