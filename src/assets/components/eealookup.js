@@ -1,5 +1,5 @@
 app.component("lookup",{
-	template: '{{$ctrl.luOption}}<select ng-model="$ctrl.ngModel" ng-change="$ctrl.updateLookup()" name="$ctrl.name" ng-options="option{{$ctrl.luOption}} for option in $ctrl.data" class="slookup"  style="box-shadow: 0px!imporant;" required></select>',
+	template: '{{$ctrl.luOption}}<select ng-model="$ctrl.ngModel" ng-change="$ctrl.updateLookup()" name="$ctrl.name" ng-options="option.{{$ctrl.luOption}} for option in $ctrl.data" class="slookup"  style="box-shadow: 0px!imporant;" required></select>',
 	bindings: {
 		ngModel: '@',
 		lookup: '@',
