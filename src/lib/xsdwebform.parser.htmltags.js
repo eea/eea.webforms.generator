@@ -529,17 +529,20 @@ class XSDWebFormParserHTMLTags {
 				tagclose: false,
 				autoclose: true,
 				hasLabel: true,
+				hide: '!h_' + item.attr.element + '${{$index + 1}}',
 				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					lookup: item.attr.lookup,
+					scp: "this",
 					'lu-data': item.attr['lu-data'],
 					'lu-value': item.attr['lu-value'],
 					'lu-option': item.attr['lu-option'],
 					'lu-order': item.attr['lu-order'],
 					autoselect: item.attr.autoselect,
+					hideonautoselect: item.attr.hideonautoselect,
 					'xsd-map': sender.getEwMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
@@ -791,7 +794,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	addItemToGroup(htmlItem, itemInfo, sender) {
-		itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem.tagToHtml(sender));
+		itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem);
 	}
 
 	/**
@@ -805,7 +808,7 @@ class XSDWebFormParserHTMLTags {
 				label: this.name.replace("-", ""),
 				text: this.name
 			});
-			outPut = `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
+			outPut += `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
 		}
 
 		if (this.itemprepend) {

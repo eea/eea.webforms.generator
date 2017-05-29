@@ -16,6 +16,7 @@ app.component("lookup",{
 		luOrder : '@' ,
 		luData: '@',
 		autoselect: '@',
+		hideonautoselect: '@',
 		scp: '='
 	},
 	controller: function($http, $translate, $location) {
@@ -26,6 +27,9 @@ app.component("lookup",{
 					parent.data = response.data[parent.luData];
 					if (parent.autoselect) {
 						parent.ngModel = $location.search()['countrycode'];	
+					}
+					if (parent.hideonautoselect == 1) {
+						parent.scp['h_' + parent.name] = 1;
 					}
 				});
 			})();
