@@ -28,10 +28,16 @@ app.component("lookup", {
 				$http.get(parent.lookup).then(function (response) {
 					parent.data = response.data[parent.luData];
 					if (parent.autoselect) {
-						parent.ngModel = $location.search()['countrycode'];
-					}
-					if (parent.hideonautoselect == 1 && $location.search()['countrycode']) {
-						parent.scp['h_' + parent.name] = 1;
+						var qs = $location.search()['countrycode'];
+						var fdata = parent.data.filter(function (item) {
+							if (item[eval(parent.luValue)] == qs) return true;
+						});
+						if (fdata.length > 0) {
+							parent.ngModel = qs;
+							if (parent.hideonautoselect == 1 && $location.search()['countrycode']) {
+								parent.scp['h_' + parent.name] = 1;
+							}
+						}
 					}
 				});
 			})();
