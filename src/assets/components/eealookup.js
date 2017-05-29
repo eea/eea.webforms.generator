@@ -1,20 +1,21 @@
-app.component("ssslookup",{
-	template: '<select ng-model="$ctrl.ngModel" ng-change="$ctrl.updateLookup()" name="$ctrl.name" ng-options="$ctrl.option as item.label for item in $ctrl.data" class="slookup"  style="box-shadow: 0px!imporant;" required></select>',
+app.component("lookup",{
+	template: '{{$ctrl.luOption}}<select ng-model="$ctrl.ngModel" ng-change="$ctrl.updateLookup()" name="$ctrl.name" ng-options="option{{$ctrl.luOption}} for option in $ctrl.data" class="slookup"  style="box-shadow: 0px!imporant;" required></select>',
 	bindings: {
 		ngModel: '@',
 		lookup: '@',
 		name: '@',
 		luValue : '@' ,
 		luOption : '@' ,
-		data: '@',
+		luData: '@',
 		scp: '='
 	},
 	controller: function($http, $translate) {
 		var parent = this;
 		this.$onInit = function() {
-			(this.getCodeList = function() {
-				$http.get(parent.ookup).then( function(response) {
-					parent.data = response.data;
+			(function() {
+				$http.get(parent.lookup).then( function(response) {
+					parent.data = response.data[parent.luData];
+					// parent.luOption = "option." + parent.luOption;
 				});
 			})();
 			this.updateLookup = function() {
