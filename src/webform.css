@@ -174,9 +174,9 @@ fieldset {
 }
 
 .checkboxclass {
-    border: inset 1px rgba(100, 100, 100, 0.1);
+    /*border: inset 1px rgba(100, 100, 100, 0.1);
     background-color: rgba(100, 100, 100, 0.01);
-    border-radius: 0 15px;
+    border-radius: 0 15px;*/
     padding: 5px 10px;
 }
 
