@@ -298,7 +298,7 @@ class XSDWebFormParserHTMLTags {
 			},
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 		};
-		sender.addItemToGroup(htmlItem, itemInfo, sender);
+		sender.addItemToGroup(htmlItem, itemInfo);
 	}
 
 	/**
@@ -329,7 +329,7 @@ class XSDWebFormParserHTMLTags {
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
 
@@ -368,7 +368,7 @@ class XSDWebFormParserHTMLTags {
 				htmlItem.attrs.min = 0;
 			}
 
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
 	/**
@@ -410,7 +410,7 @@ class XSDWebFormParserHTMLTags {
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
 
@@ -505,7 +505,7 @@ class XSDWebFormParserHTMLTags {
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
 
@@ -548,7 +548,7 @@ class XSDWebFormParserHTMLTags {
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 
 	}
@@ -618,7 +618,7 @@ class XSDWebFormParserHTMLTags {
 				itemappend: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
 
@@ -655,7 +655,7 @@ class XSDWebFormParserHTMLTags {
 				itemappend: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
-			sender.addItemToGroup(htmlItem, itemInfo, sender);
+			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 
 	}
@@ -793,7 +793,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param itemInfo
 	 * @param sender
 	 */
-	addItemToGroup(htmlItem, itemInfo, sender) {
+	addItemToGroup(htmlItem, itemInfo) {
 		itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem);
 	}
 

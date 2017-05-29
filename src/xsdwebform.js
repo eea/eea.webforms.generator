@@ -231,9 +231,10 @@ export default class XSDWebForm {
 <html lang="en" ng-app="WebFormApp">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="Publisher" content="EEA, The European Environment Agency" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>{{'pagetitle' | translate}}</title>
 
 <script src="./assets/js/jquery.min.js"></script>
@@ -247,7 +248,7 @@ export default class XSDWebForm {
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.min.css"/>
-
+  
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
 var langFile = '${this.baseFileName}';
@@ -274,7 +275,7 @@ var groups = {${
 	<eea-language scp="this" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
 </div>
 
-<div id="workarea" class="row col-lg-8">
+<div id="formworkarea" class="row col-lg-12">
 	
 	<div class="row">
 		<div class="top-form-left col-md-1"><span class="index">#</span></div>
