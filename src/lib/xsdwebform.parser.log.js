@@ -20,10 +20,7 @@ class XSDWebFormParserLog {
 		this.htmlOutput = `<!DOCTYPE html>
 <html>
 <head>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+<script src="../assets/js/jquery.min.js"></script>
 <script>
 $(function () {
 	var cnt = 0;
@@ -62,7 +59,7 @@ body {
    	background-color: #222;
    	color: #999;
    	padding: 0;
-   	margin: 0;
+   	margin:  80px 0 0 0;
 }
 ul {
 	list-style-type: none;
@@ -173,23 +170,38 @@ li.xsdc span {
 	text-align: center;
 	cursor: pointer;
 	width: 200px;
-	background-color: #999;
-	color: #222;
+	background-color: #1c1c1c;
+	color: #999;
 	padding: 8px;
 	font-weight: 900;
 	user-select: none;
 }
 .tbtn:active {
-	background-color: #777;
+	background-color: rgba(255, 255, 255, 0.8);
 }
-
 .tbtn.active {
+	color: #fff;
+}
+.tabpanel {
+	margin-left: 20px;
+}
+#xsltpanel {
+	background-color: rgb(128, 128, 128);
+	padding: 8px;
+	display: none;
+	border-radius: 35px;
+	border: solid 20px rgba(154, 154, 154, 1);
+	margin: 10px;
 	color: #fff;
 }
 </style>
 </head>
 <body>
-<div style="display: flex;margin-bottom: 30px;background-color:#444;width:auto;padding:2px;"><div onclick="toggleTab(this, 'xsdpanel');" class="tbtn active">XSD</div><div  onclick="toggleTab(this, 'htmlpanel')" class="tbtn">HTML</div></div>
+<div style="display: flex;margin-bottom: 30px;position: fixed; top: 0px;z-index: 999; background-color: #444;width: 100%;padding: 2px;">
+	<div onclick="toggleTab(this, 'xsdpanel');" class="tbtn active">XSD</div>
+	<div  onclick="toggleTab(this, 'xsltpanel')" class="tbtn">XSLT</div>
+	<div  onclick="toggleTab(this, 'htmlpanel')" class="tbtn">HTML</div>
+</div>
 
 <div id="xsdpanel" class="tabpanel">
 <div style="width:auto;display:flex;position:relative;top:0">
@@ -206,6 +218,8 @@ li.xsdc span {
 	<div class="lvlln">9</div>
 	<div class="lvlln">10</div>
 </div>
+
+
 `;
 	}
 	/**
@@ -215,7 +229,6 @@ li.xsdc span {
 		if (!sender.verbose)
 			console.log("");
 
-		// process.stdout.write(sender.htmlOutput.HTMLObjects[0]);
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
 			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:12px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><p style="margin-left:50px;">DoubleClick for src</p>\n`; 
@@ -238,7 +251,10 @@ li.xsdc span {
 		console.log("\x1b[0m");
 		console.log(new Date());
 		
-		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color:#777"><BR><BR>${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n</div>\n<div id="xsltpanel" class="tabpanel" style="display: none;"><code>
+${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}
+</code></div>`;
+		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color:#777;margin: 20px; width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
