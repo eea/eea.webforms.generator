@@ -8,9 +8,9 @@ app.config([ '$locationProvider', function($locationProvider) {
 }]);
 
 app.component("lookup",{
-	template: '<select ng-model="$ctrl.ngModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
+	template: '<select ng-model="$ctrl.parentNgModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
 	bindings: {
-		ngModel: '=',
+		parentNgModel: '=',
 		lookup: '@',
 		luName: '@',
 		name: '@',
@@ -29,6 +29,7 @@ app.component("lookup",{
 					parent.luOption = '.' + parent.luOption;
 				}
 				if (!parent.luValue.toString().startsWith('[')) {
+					parent.luValueStr = parent.luValue.replace(/(\[|\'|\])/g, "");
 					parent.luValue = '.' + parent.luValue;
 				}
 				if (parent.luOrder) {
@@ -39,10 +40,11 @@ app.component("lookup",{
 					if (parent.autoselect) {
 						let qs = $location.search()['countrycode'];
 						let fdata = parent.data.filter(function (item) {
-							if (item[parent.luValue] == qs) return true;
+							if (item[parent.luValueStr] === qs) return true;
 						});
+
 						if (fdata.length > 0) {
-							parent.ngModel = qs;	
+							parent.parentNgModel = qs;	
 							if (parent.hideonautoselect == 1 && $location.search()['countrycode']){
 								parent.scp['h_' + parent.name] = 1;
 							}

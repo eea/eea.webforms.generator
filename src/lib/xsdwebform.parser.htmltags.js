@@ -540,7 +540,7 @@ class XSDWebFormParserHTMLTags {
 					autoselect: item.attr.autoselect,
 					hideonautoselect: item.attr.hideonautoselect,
 					'xsd-map': sender.getEwMap(item, itemInfo),
-					'ng-model': 'field.' + itemFormModel
+					'parent-ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
