@@ -27,6 +27,7 @@
     "request-mocha": "^0.2.0",
     "uglify-js": "^3.0.11",
     "uglifycss": "0.0.27",
+    "wcag": "^0.3.0",
     "webshot": "^0.18.0"
   },
   "scripts": {
