@@ -831,13 +831,17 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	getLabel(item, xsdItem, sender) {
-		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:annotation");			
+		
+		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
 		if (XSDWFormItemLabel) {
-			XSDWFormItemLabel = XSDWFormItemLabel.childNamed("xs:documentation");
+			XSDWFormItemLabel  = XSDWFormItemLabel.childNamed("xs:annotation");			
 			if (XSDWFormItemLabel) {
-				XSDWFormItemLabel = sender.getItemByNameRegex("(.*?):Name", XSDWFormItemLabel);
+				XSDWFormItemLabel = XSDWFormItemLabel.childNamed("xs:documentation");
 				if (XSDWFormItemLabel) {
-					item.label = XSDWFormItemLabel.val;
+					XSDWFormItemLabel = sender.getItemByNameRegex("(.*?):Name", XSDWFormItemLabel);
+					if (XSDWFormItemLabel) {
+						item.label = XSDWFormItemLabel.val;
+					}
 				}
 			}
 		}
