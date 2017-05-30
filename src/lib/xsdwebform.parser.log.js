@@ -374,7 +374,7 @@ ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n
 	logHtmlTag(item, sender) {
 		if (sender.verbose) {
 			console.log(`\x1b[0m\x1b[31m⇣\n\x1b[2mParsing HTML Tag ⇢ \x1b[33m${item.name}\x1b[0m\n`);
-			this.htmlOutput  += `<div class="phtmlt"># <b>${item.name}</b> :: <b>${item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
+			this.htmlOutput  += `<div class="phtmlt"># <b>${item.name}</b> :: <b>${item.label  || item.attr.element  || item.attr.name || ' '}</b></div>\n`; 
 		}
 	}
 
