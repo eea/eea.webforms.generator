@@ -235,8 +235,8 @@ li.xsdc span {
 			sender.htmlOutput.HTMLObjects.forEach( (item, index1) => {
 				item.itemObject.groups.forEach( (gitem, index2) => {
 					gitem.itemObject.items.forEach( (eitem, index3) => {
-						console.log(eitem.tag + "\t=>\t" + eitem.name);
-						this.htmlOutput  += `<li class="svc" ondblclick="$('#src${index1}_${index2}_${index3}').slideToggle()">${eitem.name}</li>\n`; 
+						console.log(eitem.tag + "\t=>\t" + eitem.label);
+						this.htmlOutput  += `<li class="svc" ondblclick="$('#src${index1}_${index2}_${index3}').slideToggle()">${eitem.label}</li>\n`; 
 						this.htmlOutput  += `<li class="src"><div class="srvs" id="src${index1}_${index2}_${index3}" ><code>${eitem.tagToHtml(sender.htmlTagParser).toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}</code></div></li>\n`; 
 					});
 				});
