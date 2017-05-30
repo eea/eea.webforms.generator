@@ -528,7 +528,7 @@ class XSDWebFormParserHTMLTags {
 				formModel: itemFormModel,
 				attrs: {
 					name: "_" + item.attr.element + '${{$index + 1}}',
-					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
+					id: "_" + item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					lookup: item.attr.lookup,
 					scp: "this",
