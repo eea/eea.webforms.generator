@@ -764,18 +764,21 @@ class XSDWebFormParserHTMLTags {
 	getXSDGroupProperties(xsdItemName, xsdItem, sender) {
 		var xsdGroupProperties;
 
-		try {
-			xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
-						|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
-						).childWithAttribute("type", xsdItemName, xsdItem);
-		} catch (ex) {
-			// console.log("No Group Type description in root")
+		xsdGroupProperties =  xsdItem.childWithAttribute("name", xsdItemName);
+		if (!xsdGroupProperties)  {
+			try {
+				xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
+							|| xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:all") 
+							).childWithAttribute("type", xsdItemName, xsdItem);
+			} catch (ex) {
+				// console.log("No Group Type description in root")
+			}
 		}
-
+	
 		if (!xsdGroupProperties) 
 			xsdGroupProperties = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
-		
+
 		if (!xsdGroupProperties) return "";
 
 		return xsdGroupProperties;
