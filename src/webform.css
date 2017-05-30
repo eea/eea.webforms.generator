@@ -418,6 +418,7 @@ select.slanguage:focus {
     min-width: 250px;
     max-width: 250px;
     color: #333;
+    margin-right: 4px;
     user-select: none;
 }
 
