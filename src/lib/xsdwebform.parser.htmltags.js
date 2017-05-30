@@ -45,6 +45,13 @@ class XSDWebFormParserHTMLTags {
 			"xs:boolean": "radioorselect"
 		};
 
+		this.XSD_PROPERTIES = {
+			"xs:minInclusive": this.parseXsdMinInclusive,
+			"xs:maxInclusive": this.parseXsdMaxInclusive,
+			"xs:minLength": this.parseXsdMinLength,
+			"xs:maxLength": this.parseXsdMaxLength
+		};
+
 		this.HTMLObjects = [];
 		this.LabelContentObjects = [];
 		this.TextContentObjects = [];
