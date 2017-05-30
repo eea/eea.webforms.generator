@@ -208,6 +208,9 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseItem(item, xsdItem, sender) {
 		
+		// Check for and get Label
+		sender.getLabel(item, xsdItem, sender);
+
 		if (item.attr.lookup) {
 			item.name = "lookup";
 			sender.parseHTMLItem(item, xsdItem);
@@ -260,9 +263,6 @@ class XSDWebFormParserHTMLTags {
 				}
 			}
 			
-			// Check for and get Label
-			sender.getLabel(item, xsdItem, sender);
-
 			sender.parseHTMLItem(item, xsdItem);
 		} catch (ex) {
 			console.log("ex", ex);
@@ -289,6 +289,7 @@ class XSDWebFormParserHTMLTags {
 			tag: 'input',
 			autoclose: false,
 			hasLabel: true,
+			label: item.label, 
 			formModel: itemFormModel,
 			attrs: {
 				name:name + '${{$index + 1}}',
@@ -319,6 +320,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'textarea',
 				autoclose: true,
 				hasLabel: true,
+				label: item.label, 
 				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
@@ -351,6 +353,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'input',
 				autoclose: false,
 				hasLabel: true,
+				label: item.label, 
 				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
@@ -397,6 +400,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'input',
 				autoclose: false,
 				hasLabel: true,
+				label: item.label, 
 				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element + '${{$index + 1}}',
@@ -491,6 +495,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'select',
 				autoclose: true,
 				hasLabel: true,
+				label: item.label, 
 				options: enumItems,
 				formModel: itemFormModel,
 				attrs: {
@@ -525,6 +530,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'lookup',
 				autoclose: true,
 				hasLabel: true,
+				label: item.label, 
 				hide: '!h__' + item.attr.element + '${{$index + 1}}',
 				formModel: itemFormModel,
 				attrs: {
@@ -600,6 +606,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'radio',
 				autoclose: false,
 				hasLabel: true,
+				label: item.label, 
 				noTag: true,
 				options: enumItems,
 				formModel: itemFormModel,
@@ -638,6 +645,7 @@ class XSDWebFormParserHTMLTags {
 				tag: 'input',
 				autoclose: false,
 				hasLabel: true,
+				label: item.label, 
 				formModel: itemFormModel,
 				attrs: {
 					name: item.attr.element + '${{$index + 1}}',
@@ -701,6 +709,20 @@ class XSDWebFormParserHTMLTags {
 	 */
 	getItemByRef(itemref, xsdItem) {
 		return xsdItem.childWithAttribute("ref", itemref);
+	}
+
+	/**
+	 * getItemByNameRegex 
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getItemByNameRegex(itemname, xsdItem) {
+		for (var i = 0, l = xsdItem.children.length; i < l; i++) {
+			var child = xsdItem.children[i];
+			if (child.type === "element")
+				if (child.name.match(itemname)) return child;
+		}
+		return undefined;
 	}
 
 	/**
@@ -805,7 +827,12 @@ class XSDWebFormParserHTMLTags {
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:annotation");			
 		if (XSDWFormItemLabel) {
 			XSDWFormItemLabel = XSDWFormItemLabel.childNamed("xs:documentation");
-			console.log("item", XSDWFormItemLabel);
+			if (XSDWFormItemLabel) {
+				XSDWFormItemLabel = sender.getItemByNameRegex("(.*?):Name", XSDWFormItemLabel);
+				if (XSDWFormItemLabel) {
+					item.label = XSDWFormItemLabel.val;
+				}
+			}
 		}
 	}
 
@@ -818,7 +845,7 @@ class XSDWebFormParserHTMLTags {
 		if (this.hasLabel) {
 			sender.LabelContentObjects.push({
 				label: this.name.replace("-", ""),
-				text: this.name
+				text: this.label || this.name
 			});
 			outPut += `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
 		}
