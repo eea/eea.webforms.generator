@@ -1,3 +1,5 @@
+'use strict';
+
 app.config(function($translateProvider, $translatePartialLoaderProvider) {
 	$translatePartialLoaderProvider.addPart(langFile);
 	$translateProvider.useLoader('$translatePartialLoader', {

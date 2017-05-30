@@ -1,3 +1,4 @@
+'use strict';
 
 app.component("eeaToolbar", {
 	template: `<style></style><div id="pagefoot" class="row">

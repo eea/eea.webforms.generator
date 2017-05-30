@@ -1,3 +1,5 @@
+'use strict';
+
 app.config([ '$locationProvider', function($locationProvider) {
 	$locationProvider.html5Mode( {
 	  enabled: true,
@@ -49,6 +51,6 @@ app.component("lookup",{
 				});
 		};
 		this.updateLookup = function() {
-			};
+		};
 	}
 });

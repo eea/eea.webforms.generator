@@ -1,3 +1,5 @@
+'use strict';
+
 app.component("eeaHeader", {
 	template: `<div id="head" class="top-bar sticky tplarge">
 
