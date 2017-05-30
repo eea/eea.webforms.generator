@@ -214,9 +214,8 @@ class XSDWebFormParserHTMLTags {
 			return;
 		}
 
-
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		
+
 		let XSDWFormItem, XSDWFormItemType;
 		try {
 			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
@@ -260,7 +259,9 @@ class XSDWebFormParserHTMLTags {
 					item.name = "select";
 				}
 			}
-
+			
+			// Check for and get Label
+			sender.getLabel(item, xsdItem, sender);
 
 			sender.parseHTMLItem(item, xsdItem);
 		} catch (ex) {
@@ -792,6 +793,20 @@ class XSDWebFormParserHTMLTags {
 	 */
 	addItemToGroup(htmlItem, itemInfo) {
 		itemInfo.htmlBase.itemObject.groups[itemInfo.htmlBase.itemObject.groups.length - 1].itemObject.items.push(htmlItem);
+	}
+
+	/**
+	 * getLabel - Check for and get Label
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	getLabel(item, xsdItem, sender) {
+		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem).childNamed("xs:annotation");			
+		if (XSDWFormItemLabel) {
+			XSDWFormItemLabel = XSDWFormItemLabel.childNamed("xs:documentation");
+			console.log("item", XSDWFormItemLabel);
+		}
 	}
 
 	/**
