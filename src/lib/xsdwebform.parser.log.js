@@ -4,7 +4,6 @@
  * @author George Bouris <gb@eworx.gr>
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
-
 'use strict';
 
 /**

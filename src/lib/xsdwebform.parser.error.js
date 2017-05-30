@@ -11,6 +11,8 @@
  * Error log for XSD Schema Tags
  * Static
  */
+'use strict';
+
 class XSDWebFormParserError {
 
 	static reportError(error, item, dontex = false) {
