@@ -87,6 +87,9 @@ export default class XSDWebForm {
 			// XSDWebFormParser    		
 			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
 
+			// XSDWebFormTest  		
+			this.tester = new XSDWebFormParserTest(this.baseFileName, this.showLog, this.verbose);
+
 			// Create (/clean) Build directory and move files
 			this.prepareJSFiles().then((res) => {
 				try {
@@ -148,6 +151,21 @@ export default class XSDWebForm {
 								this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
 								webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
+							this.tester.test().then ( (res) => {
+								let cres = "\x1b[32m ✓\x1b[2m ";
+								let cresPlus = "";
+								if (res.status !== 'PASS') {
+									cres = "\x1b[31mx ";
+									cresPlus += "\n\x1b[37m\x1b[1mErrors: \x1b[2m" + res.errors.map((item) => {
+										return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.solution}\n\x1b[2m`
+									}).join("");
+									cresPlus += "\n\x1b[37m\x1b[1m\nPotential Problems: \x1b[2m" + res.potentialProblems.map((item) => {
+										return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.source}\n\x1b[2m`
+									}).join("");
+								}
+								console.log(`\x1b[0m\x1b[37mWcag Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n`);
+							});
+							
 							resolve();
 						});
 					});
