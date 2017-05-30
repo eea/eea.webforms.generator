@@ -35,12 +35,15 @@ export default class XSDWebForm {
 		return new Promise ( (resolve, reject) => {		
 
 			//Version	
-			this.Vesrion="0.1";
+			this.Vesrion="0.2";
 
 			//logging
 			this.showLog = true;
 			this.verbose = true;
 			this.showXSDLog = true;
+
+			//Test Server	
+			this.serverPort =3001;
 
 			//Build directory
 			this.buildPath = "build/";
@@ -88,7 +91,7 @@ export default class XSDWebForm {
 			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
 
 			// XSDWebFormTest  		
-			this.tester = new XSDWebFormParserTest(this.baseFileName, this.showLog, this.verbose);
+			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
 
 			// Create (/clean) Build directory and move files
 			this.prepareJSFiles().then((res) => {
@@ -101,10 +104,10 @@ export default class XSDWebForm {
 
 						// Start test web server in order to view the HTML5 file result.
 						app.use(express.static(filePath))
-							.listen(3001, function () {
+							.listen(parent.serverPort, function () {
 								if (parent.showLog) {
-									console.log("\x1b[1m\x1b[37mTest web server is listening on port 3001\x1b[0m");
-									console.log(`http://localhost:3001/${parent.baseFileName}html\n\n`);
+									console.log(`\x1b[1m\x1b[37mTest web server is listening on port ${parent.serverPort}\x1b[0m`);
+									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}html\n\n`);
 								}
 								resolve(parent);
 							});

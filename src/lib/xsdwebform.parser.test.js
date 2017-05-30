@@ -16,11 +16,13 @@ import wcag from 'wcag';
 class XSDWebFormParserTest {
 	/**
 	 * Class constructor
+	 * @param serverPort
 	 * @param baseFileName
 	 * @param showLog
 	 * @param verbose
 	 */
-	constructor(baseFileName, showLog, verbose) {
+	constructor(serverPort, baseFileName, showLog, verbose) {
+		this.serverPort = serverPort;
 		this.baseFileName = baseFileName;
 		this.showLog = showLog;
 		this.verbose = verbose;
@@ -28,7 +30,7 @@ class XSDWebFormParserTest {
 		this.acblt = { 
 			options : {
 				id: 'cb8b45b1bf19ff2d3c5a7f270e571e7acc055084',
-				uri: 'http://localhost:3001/' + this.baseFileName,
+				uri: 'http://localhost:' + this.serverPort + "/" + this.baseFileName,
 				guide: 'WCAG2-AA'
 			}
 		};
