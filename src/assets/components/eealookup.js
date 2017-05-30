@@ -29,8 +29,9 @@ app.component("lookup",{
 					parent.luOption = '.' + parent.luOption;
 				}
 				if (!parent.luValue.toString().startsWith('[')) {
-					parent.luValueStr = parent.luValue.replace(/(\[|\'|\])/g, "");
 					parent.luValue = '.' + parent.luValue;
+				} else {
+					parent.luValueStr = parent.luValue.replace(/(\[|\'|\])/g, "");
 				}
 				if (parent.luOrder) {
 					parent.luOrder = parent.luOrder.toString().replace(/'/g, "\\\'");
@@ -42,7 +43,6 @@ app.component("lookup",{
 						let fdata = parent.data.filter(function (item) {
 							if (item[parent.luValueStr] === qs) return true;
 						});
-
 						if (fdata.length > 0) {
 							parent.parentNgModel = qs;	
 							if (parent.hideonautoselect == 1 && $location.search()['countrycode']){
