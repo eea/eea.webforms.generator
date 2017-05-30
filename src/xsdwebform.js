@@ -19,6 +19,7 @@ import uglifycss from "uglifycss";
 import webshot from "webshot";
 import XSDWebFormParser from './lib/xsdwebform.parser.js'
 import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
+import XSDWebFormParserTest from './lib/xsdwebform.parser.test.js'
 
 /**
  * Class XSDWebForm
@@ -142,12 +143,12 @@ export default class XSDWebForm {
 							let langData = this.parser.getFullTextContent();
 							langs.CTCodelists.Languages.item.forEach((item) => {
 								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
-								if (this.showLog) {
-									this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
-									// webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
-								}
-								resolve();
 							});
+							if (this.showLog) {
+								this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
+								webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
+							}
+							resolve();
 						});
 					});
 
