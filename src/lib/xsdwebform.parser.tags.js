@@ -35,7 +35,8 @@ class XSDWebFormParserTags {
 			"xs:pattern": this.parsePattern,
 			"xs:whiteSpace": this.parseWhiteSpace,
 			"xs:minLength": this.parseMinLength,
-			"xs:maxLength": this.parseMaxLength
+			"xs:maxLength": this.parseMaxLength,
+			"dd:multiValueDelim": this.multiValueDelim
 		};
 		this.showLog = false;
 		this.verbose = false;
@@ -81,6 +82,199 @@ class XSDWebFormParserTags {
 	}
 
 	/**
+	 * parseElement- Parse Element Tag
+	 * @param item
+	 * @param sender
+	 */
+
+	parseElement(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseImport- Parse Import Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseImport(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseSimpleType - Parse SimpleType Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseSimpleType(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+	
+	/**
+	 * parseComplexType - Parse ComplexType Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseComplexType(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseSequence - Parse Sequence Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseSequence(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseAll - Parse All Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseAll(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseAttribute - Parse Attribute Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseAttribute(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseRestriction - Parse Restriction Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseRestriction(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+	/**
+	 * parseAnnotation - Parse Annotation Tag
+	 * @param item
+	 * @param sender
+	 */
+
+	parseAnnotation(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+	/**
+	 * parseDocumentation - Parse Documentation Tag
+	 * @param item
+	 * @param sender
+	 */
+
+	parseDocumentation(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseEnumeration - Parse Enumeration Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseEnumeration(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMinInclusive - Parse MinInclusive Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMinInclusive(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMaxInclusive - Parse MaxInclusive Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMaxInclusive(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseUnion - Parse Union Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseUnion(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parsePattern - Parse Pattern Tag
+	 * @param item
+	 * @param sender
+	 */
+	parsePattern(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseWhiteSpace - Parse WhiteSpace Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseWhiteSpace(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMinLength - Parse MinLength Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMinLength(item, sender) {
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMaxLength - Parse MaxLength Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMaxLength(item, sender) {
+		
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMultiValueDelim - Parse MaxLength Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMultiValueDelim(item, sender) {
+		
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
 	 * setLogger
 	 * @param logger
 	 */
@@ -118,169 +312,6 @@ class XSDWebFormParserTags {
 		return this.verbose;
 	}
 	
-	/**
-	 * parseElement- Parse Element Tag
-	 * @param item
-	 */
-
-	parseElement(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseImport- Parse Import Tag
-	 * @param item
-	 */
-	parseImport(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseSimpleType - Parse SimpleType Tag
-	 * @param item
-	 */
-	parseSimpleType(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-	
-	/**
-	 * parseComplexType - Parse ComplexType Tag
-	 * @param item
-	 */
-	parseComplexType(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseSequence - Parse Sequence Tag
-	 * @param item
-	 */
-	parseSequence(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseAll - Parse All Tag
-	 * @param item
-	 */
-	parseAll(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseAttribute - Parse Attribute Tag
-	 * @param item
-	 */
-	parseAttribute(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseRestriction - Parse Restriction Tag
-	 * @param item
-	 */
-	parseRestriction(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-	/**
-	 * parseAnnotation - Parse Annotation Tag
-	 * @param item
-	 */
-
-	parseAnnotation(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-	/**
-	 * parseDocumentation - Parse Documentation Tag
-	 * @param item
-	 */
-
-	parseDocumentation(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseEnumeration - Parse Enumeration Tag
-	 * @param item
-	 */
-	parseEnumeration(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseMinInclusive - Parse MinInclusive Tag
-	 * @param item
-	 */
-	parseMinInclusive(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseMaxInclusive - Parse MaxInclusive Tag
-	 * @param item
-	 */
-	parseMaxInclusive(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseUnion - Parse Union Tag
-	 * @param item
-	 */
-	parseUnion(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parsePattern - Parse Pattern Tag
-	 * @param item
-	 */
-	parsePattern(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseWhiteSpace - Parse WhiteSpace Tag
-	 * @param item
-	 */
-	parseWhiteSpace(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseMinLength - Parse MinLength Tag
-	 * @param item
-	 */
-	parseMinLength(item, sender) {
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
-
-	/**
-	 * parseMaxLength - Parse MaxLength Tag
-	 * @param item
-	 */
-	parseMaxLength(item, sender) {
-		
-		if (sender.showLog)
-			sender.logger.logXsdTag(item);
-	}
 
 }
 
