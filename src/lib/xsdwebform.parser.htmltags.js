@@ -116,20 +116,23 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseXSDProperties(item, xsdItem, xsdsimpletype, sender) {
+
+		// Create an XML element attributes/properties placeholder object
+		item.xsdAttrs = { };
+
 		// Get XSD Element properties in group root
 		let XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem) || sender.getItemByRef(item.attr.element, xsdItem) ;
 		for (let attr in XSDWFormItem.attr) {
-			if (attr in this.XSD_PROPERTIES) {
-				item["xs_" + attr] = XSDWFormItem.attr[attr];
-			}
+			if (attr in this.XSD_PROPERTIES) 
+				item.xsdAttrs[attr] = XSDWFormItem.attr[attr];
 		}
-
 		// Get XSD Element properties in simpleType
-		xsdsimpletype.eachChild( (item) =>  {
-			if (item.name in this.XSD_PROPERTIES) {
-				item["xs_" + item.name.split(":")[1]] = item.attr.value;
-			}
+		xsdsimpletype.eachChild( (el) =>  {
+			if (el.name in this.XSD_PROPERTIES) 
+				item.xsdAttrs[el.name] = el.attr.value;
 		});
+
+		console.log("item", item.xsdAttrs);
 	}
 
 	/**
@@ -307,7 +310,7 @@ class XSDWebFormParserHTMLTags {
 		} catch (ex) {
 			console.log("ex", ex);
 			sender.reportError(`Can not find "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
-		}
+		}		
 	}
 
 	/**
@@ -864,7 +867,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	getLabel(item, xsdItem, sender) {
-		
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
 		if (XSDWFormItemLabel) {
 			XSDWFormItemLabel  = XSDWFormItemLabel.childNamed("xs:annotation");			
