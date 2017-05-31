@@ -49,7 +49,11 @@ class XSDWebFormParserHTMLTags {
 			"xs:minInclusive": this.parseXsdMinInclusive,
 			"xs:maxInclusive": this.parseXsdMaxInclusive,
 			"xs:minLength": this.parseXsdMinLength,
-			"xs:maxLength": this.parseXsdMaxLength
+			"xs:maxLength": this.parseXsdMaxLength,
+			"dd:multiValueDelim": this.parseXsdMultiValueDelim,
+			"xs:minOccurs": this.parseXsdMinOccurs,
+			"xs:maxOccurs": this.parseXsdMaxOccurs,
+			"xs:totalDigits": this.parseXsdTotalDigits,
 		};
 
 		this.HTMLObjects = [];
@@ -102,6 +106,30 @@ class XSDWebFormParserHTMLTags {
 			console.log(`\n************* Unknown HTML Tag {${item.name}} *************\n`);
 			process.stdout.write('\x07');
 		}
+	}
+
+	/**
+	 * parseXSDProperties - Parse XSD Properties
+	 * @param item
+	 * @param xsdItem
+	 * @param xsdsimpletype
+	 * @param sender
+	 */
+	parseXSDProperties(item, xsdItem, xsdsimpletype, sender) {
+		// Get XSD Element properties in group root
+		let XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem) || sender.getItemByRef(item.attr.element, xsdItem) ;
+		for (let attr in XSDWFormItem.attr) {
+			if (attr in this.XSD_PROPERTIES) {
+				item["xs_" + attr] = XSDWFormItem.attr[attr];
+			}
+		}
+
+		// Get XSD Element properties in simpleType
+		xsdsimpletype.eachChild( (item) =>  {
+			if (item.name in this.XSD_PROPERTIES) {
+				item["xs_" + item.name.split(":")[1]] = item.attr.value;
+			}
+		});
 	}
 
 	/**
@@ -215,15 +243,6 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseItem(item, xsdItem, sender) {
 		
-		// Check for and get Label
-		sender.getLabel(item, xsdItem, sender);
-
-		if (item.attr.lookup) {
-			item.name = "lookup";
-			sender.parseHTMLItem(item, xsdItem);
-			return;
-		}
-
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 
 		let XSDWFormItem, XSDWFormItemType;
@@ -246,6 +265,20 @@ class XSDWebFormParserHTMLTags {
 					sender.reportError(`Can not find name or ref "${item.attr.element}" element in XSD`, itemInfo.groupBase.itemObject.xsdXML);
 				}
 			}
+			
+			// Check for properties
+			sender.parseXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, sender);
+							
+			// Check for and get Label
+			sender.getLabel(item, xsdItem, sender);
+
+			// Check if Lookup
+			if (item.attr.lookup) {
+				item.name = "lookup";
+				sender.parseHTMLItem(item, xsdItem);
+				return;
+			}
+
 			XSDWFormItemType = XSDWFormItem.attr.type;
 							
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
