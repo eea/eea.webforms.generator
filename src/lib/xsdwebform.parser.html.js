@@ -57,8 +57,8 @@ class XSDWebFormParserHTMLTags {
 		};
 
 		this.XSD_DD_PROPERTIES = {
-			"Methodology": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; },
-			"Definition": (inp) => { return `title="${inp.replace(/\"/g, "&quot;")}"`; }
+			"Methodology": (inp) => { return `title="${inp.replace(/\"/g, "&quot;")}"`; },
+			"Definition": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; }
 		};
 
 		this.HTMLObjects = [];
@@ -316,7 +316,6 @@ class XSDWebFormParserHTMLTags {
 
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
-				item.src = XSDWFormItem;
 			} else {
 				let subXSDWFormItem = sender.getItemByName(XSDWFormItemType, xsdItem).childNamed("xs:simpleContent");
 				if (subXSDWFormItem) {
@@ -325,7 +324,6 @@ class XSDWebFormParserHTMLTags {
 					if (subXSDWFormItem.attr.base) {
 						XSDWFormItemType = subXSDWFormItem.attr.base;
 						item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
-						item.src = XSDWFormItem;
 					}
 				}
 				
