@@ -46,14 +46,14 @@ class XSDWebFormParserHTMLTags {
 		};
 
 		this.XSD_PROPERTIES = {
-			"minInclusive": this.parseXsdMinInclusive,
-			"maxInclusive": this.parseXsdMaxInclusive,
-			"minLength": this.parseXsdMinLength,
-			"maxLength": this.parseXsdMaxLength,
-			"ultiValueDelim": this.parseXsdMultiValueDelim,
-			"minOccurs": this.parseXsdMinOccurs,
-			"maxOccurs": this.parseXsdMaxOccurs,
-			"totalDigits": this.parseXsdTotalDigits,
+			"minInclusive": () => {},
+			"maxInclusive": () => {},
+			"minLength": (inp) => { return `minlength="${inp}"`; },
+			"maxLength": (inp) => { return `maxlength="${inp}"`; },
+			"multiValueDelim":  () => {},
+			"minOccurs": () => {},
+			"maxOccurs": () => {},
+			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; }
 		};
 
 		this.HTMLObjects = [];
@@ -117,20 +117,25 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseXSDProperties(item, xsdItem, xsdsimpletype, sender) {
 		// Create an XML element attributes/properties placeholder object
-		item.xsdAttrs = { };
+		item.xsdAttrs = { src : {}, html : [] };
 
 		// Get XSD Element properties in group root
 		let XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem) || sender.getItemByRef(item.attr.element, xsdItem) ;
 		
 		for (let attr in XSDWFormItem.attr) {
-			if (attr in this.XSD_PROPERTIES) 
-				item.xsdAttrs[attr] = XSDWFormItem.attr[attr];
+			if (attr in this.XSD_PROPERTIES) {
+				console.log("attr", attr);
+				item.xsdAttrs.src[attr] = XSDWFormItem.attr[attr];
+				let htmlVal = (this.XSD_PROPERTIES[attr])(XSDWFormItem.attr[attr]);
+				if (htmlVal)
+					item.xsdAttrs.html.push(htmlVal);
+			}
 		}
 		// Get XSD Element properties in simpleType
 		xsdsimpletype.eachChild( (el) =>  {
 			let rname = el.name.split(':')[1];
 			if (rname in this.XSD_PROPERTIES) 
-				item.xsdAttrs[rname] = el.attr.value;
+				item.xsdAttrs.src[rname] = el.attr.value;
 		});
 
 		console.log("item", item.xsdAttrs);
