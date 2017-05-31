@@ -1113,7 +1113,6 @@ This value is required.]]></dd3:Methodology>
 		<xs:restriction base="xs:integer">
 			<xs:totalDigits value="4"/>
 			<xs:minInclusive value="1800"/>
-			<xs:maxInclusive value="1900"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:element>
