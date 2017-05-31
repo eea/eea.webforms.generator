@@ -419,7 +419,6 @@ select.slanguage:focus {
     max-width: 250px;
     color: #333;
     margin-right: 4px;
-    user-select: none;
 }
 
 .field-caption::after {
