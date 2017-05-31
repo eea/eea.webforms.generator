@@ -1,5 +1,5 @@
 /**
- * @file xsdwebform.parser.tags.js
+ * @file xsdwebform.parser.xsd.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
