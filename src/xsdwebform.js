@@ -78,14 +78,16 @@ export default class XSDWebForm {
 
 			// If not file input
 			if (!xsdFile) {
-				xsdFile = "./test/test.xsd";
+				xsdFile = "./test/test";
 			}
 
 			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
-			this.baseFileName = path.basename(xsdFile);
-			this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 3);
+			this.baseFileName = path.basename(xsdFile) ;
 			this.basePath = path.dirname(xsdFile);
-			xmlHtmlFile = this.baseFileName + "form.xml";
+			if (!xsdFile.endsWith(".xsd"))
+				xsdFile += ".xsd";
+			
+			xmlHtmlFile = this.baseFileName + ".form.xml";
 
 			// XSDWebFormParser    		
 			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
@@ -107,7 +109,7 @@ export default class XSDWebForm {
 							.listen(parent.serverPort, function () {
 								if (parent.showLog) {
 									console.log(`\x1b[1m\x1b[37mTest web server is listening on port ${parent.serverPort}\x1b[0m`);
-									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}html\n\n`);
+									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}.html\n\n`);
 								}
 								resolve(parent);
 							});
@@ -143,16 +145,16 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					
 					// Create HTML file
-					this.createFile(this.buildPath + this.baseFileName + "html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
+					this.createFile(this.buildPath + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
 						this.getFile(__dirname + "/lng/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
 							let langData = this.parser.getFullTextContent();
 							langs.CTCodelists.Languages.item.forEach((item) => {
-								this.createFile(this.buildPath + "lng/" + this.baseFileName + item.code + ".lang.json", langData, false);
+								this.createFile(this.buildPath + "lng/" + this.baseFileName + "." + item.code + ".lang.json", langData, false);
 							});
 							if (this.showLog) {
-								this.createFile(this.buildPath + "log/" + this.baseFileName + "log.html", this.parser.logger.getHtmlLog(), false);
-								webshot(`http://localhost:3001/${this.baseFileName}html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
+								this.createFile(this.buildPath + "log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
+								webshot(`http://localhost:3001/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
 							this.tester.test().then ( (res) => {
 								let cres = "\x1b[32m ✓\x1b[2m ";
@@ -174,12 +176,12 @@ export default class XSDWebForm {
 					});
 
 					// Create XSLT output
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xslt", this.parser.getXSLTOutput());
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + "xml", this.parser.getXSLTXMLOutput(), false);
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput());
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
 
 					// Open browser 
 					if (this.autoOpenOutput)
-						openurl.open(`http://localhost:3001/${this.baseFileName}html`);
+						openurl.open(`http://localhost:3001/${this.baseFileName}.html`);
 				});
 			});
 		});
@@ -213,20 +215,20 @@ export default class XSDWebForm {
 							console.error(err);
 							reject(err);
 						}
-						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + "webform.js", function(err) {
+						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + ".webform.js", function(err) {
 							parent.getFile(__dirname + "/webform.js").then ( (data) => {
-								parent.createFile(parent.buildPath + parent.baseFileName + "webform.min.js", uglify.minify(data).code, false);
+								parent.createFile(parent.buildPath + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
-							ncp(__dirname + "/webform.css", parent. buildPath + parent.baseFileName + "webform.css", function(err) {
+							ncp(__dirname + "/webform.css", parent. buildPath + parent.baseFileName + ".webform.css", function(err) {
 								let uglified = uglifycss.processFiles(
 								[ __dirname + "/webform.css" ],
 									{ maxLineLen: 500, expandVars: true }
 								);
-								parent.createFile(parent.buildPath + parent.baseFileName +  "webform.min.css", uglified, false);
+								parent.createFile(parent.buildPath + parent.baseFileName +  ".webform.min.css", uglified, false);
 								if (err) {
 									console.error(err);
 									reject(err);
@@ -261,7 +263,7 @@ export default class XSDWebForm {
 
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
-<script src="./${this.baseFileName}webform.min.js"></script>
+<script src="./${this.baseFileName}.webform.min.js"></script>
 <script src="./assets/components/eeaheader.min.js" ></script>
 <script src="./assets/components/eealanguage.min.js" ></script>
 <script src="./assets/components/eeatoolbar.min.js" ></script>
@@ -269,7 +271,7 @@ export default class XSDWebForm {
 <script src="./assets/components/eealookup.min.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
-<link rel="stylesheet" type="text/css" href="./${this.baseFileName}webform.min.css"/>
+<link rel="stylesheet" type="text/css" href="./${this.baseFileName}.webform.min.css"/>
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/handheld.css" media="handheld" />
   

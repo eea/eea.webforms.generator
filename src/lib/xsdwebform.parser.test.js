@@ -30,7 +30,7 @@ class XSDWebFormParserTest {
 		this.acblt = { 
 			options : {
 				id: 'cb8b45b1bf19ff2d3c5a7f270e571e7acc055084',
-				uri: 'http://localhost:' + this.serverPort + "/" + this.baseFileName,
+				uri: 'http://localhost:' + this.serverPort + "/" + this.baseFileName + '.html',
 				guide: 'WCAG2-AA'
 			}
 		};

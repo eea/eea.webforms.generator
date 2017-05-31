@@ -66,7 +66,7 @@ ${outputView}    </tr>
 	 */
 	createXMLOutput(htmlItem, xsltname) {
 		var output = `<?xml version='1.0' encoding='UTF-8'?>
-<?xml-stylesheet type="text/xsl" href="${xsltname}xslt"?>
+<?xml-stylesheet type="text/xsl" href="${xsltname}.xslt"?>
 <items>
   <item>
 `;
