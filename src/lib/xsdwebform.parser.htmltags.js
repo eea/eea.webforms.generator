@@ -46,14 +46,14 @@ class XSDWebFormParserHTMLTags {
 		};
 
 		this.XSD_PROPERTIES = {
-			"xs:minInclusive": this.parseXsdMinInclusive,
-			"xs:maxInclusive": this.parseXsdMaxInclusive,
-			"xs:minLength": this.parseXsdMinLength,
-			"xs:maxLength": this.parseXsdMaxLength,
-			"dd:multiValueDelim": this.parseXsdMultiValueDelim,
-			"xs:minOccurs": this.parseXsdMinOccurs,
-			"xs:maxOccurs": this.parseXsdMaxOccurs,
-			"xs:totalDigits": this.parseXsdTotalDigits,
+			"minInclusive": this.parseXsdMinInclusive,
+			"maxInclusive": this.parseXsdMaxInclusive,
+			"minLength": this.parseXsdMinLength,
+			"maxLength": this.parseXsdMaxLength,
+			"ultiValueDelim": this.parseXsdMultiValueDelim,
+			"minOccurs": this.parseXsdMinOccurs,
+			"maxOccurs": this.parseXsdMaxOccurs,
+			"totalDigits": this.parseXsdTotalDigits,
 		};
 
 		this.HTMLObjects = [];
@@ -116,20 +116,21 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseXSDProperties(item, xsdItem, xsdsimpletype, sender) {
-
 		// Create an XML element attributes/properties placeholder object
 		item.xsdAttrs = { };
 
 		// Get XSD Element properties in group root
 		let XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem) || sender.getItemByRef(item.attr.element, xsdItem) ;
+		
 		for (let attr in XSDWFormItem.attr) {
 			if (attr in this.XSD_PROPERTIES) 
 				item.xsdAttrs[attr] = XSDWFormItem.attr[attr];
 		}
 		// Get XSD Element properties in simpleType
 		xsdsimpletype.eachChild( (el) =>  {
-			if (el.name in this.XSD_PROPERTIES) 
-				item.xsdAttrs[el.name] = el.attr.value;
+			let rname = el.name.split(':')[1];
+			if (rname in this.XSD_PROPERTIES) 
+				item.xsdAttrs[rname] = el.attr.value;
 		});
 
 		console.log("item", item.xsdAttrs);
@@ -245,13 +246,11 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseItem(item, xsdItem, sender) {
-		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 
 		let XSDWFormItem, XSDWFormItemType;
 		try {
 			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
-			
 			if (!XSDWFormItem) {
 				if (sender.getItemByRef(item.attr.element, itemInfo.groupBase.itemObject.xsdXML)) {
 					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
@@ -288,9 +287,7 @@ class XSDWebFormParserHTMLTags {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
 				item.src = XSDWFormItem;
 			} else {
-
 				let subXSDWFormItem = sender.getItemByName(XSDWFormItemType, xsdItem).childNamed("xs:simpleContent");
-				
 				if (subXSDWFormItem) {
 					subXSDWFormItem= subXSDWFormItem.childNamed("xs:extension");
 
