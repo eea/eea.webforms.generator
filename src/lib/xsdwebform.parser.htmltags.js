@@ -124,7 +124,6 @@ class XSDWebFormParserHTMLTags {
 		
 		for (let attr in XSDWFormItem.attr) {
 			if (attr in this.XSD_PROPERTIES) {
-				console.log("attr", attr);
 				item.xsdAttrs.src[attr] = XSDWFormItem.attr[attr];
 				let htmlVal = (this.XSD_PROPERTIES[attr])(XSDWFormItem.attr[attr]);
 				if (htmlVal)
@@ -134,11 +133,13 @@ class XSDWebFormParserHTMLTags {
 		// Get XSD Element properties in simpleType
 		xsdsimpletype.eachChild( (el) =>  {
 			let rname = el.name.split(':')[1];
-			if (rname in this.XSD_PROPERTIES) 
+			if (rname in this.XSD_PROPERTIES)  {
 				item.xsdAttrs.src[rname] = el.attr.value;
+				let htmlVal = (this.XSD_PROPERTIES[rname])(el.attr.value);
+				if (htmlVal)
+					item.xsdAttrs.html.push(htmlVal);
+			}
 		});
-
-		console.log("item", item.xsdAttrs);
 	}
 
 	/**
@@ -333,6 +334,7 @@ class XSDWebFormParserHTMLTags {
 			name: name,
 			tag: 'input',
 			autoclose: false,
+			xsdAttrs: item.xsdAttrs.html,
 			hasLabel: true,
 			label: item.label, 
 			formModel: itemFormModel,
@@ -364,6 +366,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element.replace("-", ""),
 				tag: 'textarea',
 				autoclose: true,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -397,6 +400,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'input',
 				autoclose: false,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -444,6 +448,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element.replace("-", ""),
 				tag: 'input',
 				autoclose: false,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -539,6 +544,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'select',
 				autoclose: true,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				options: enumItems,
@@ -574,6 +580,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'lookup',
 				autoclose: true,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				hide: '!h__' + item.attr.element + '${{$index + 1}}',
@@ -650,6 +657,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'radio',
 				autoclose: false,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				noTag: true,
@@ -689,6 +697,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'input',
 				autoclose: false,
+				xsdAttrs: item.xsdAttrs.html,
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -906,6 +915,11 @@ class XSDWebFormParserHTMLTags {
 			outPut += "\n\t\t<" + this.tag;
 			for (let key in this.attrs) {
 				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
+			}
+			if (this.xsdAttrs) {
+				this.xsdAttrs.forEach((item) => {
+					outPut += " " + item;
+				});
 			}
 			outPut += ">\n";
 		}
