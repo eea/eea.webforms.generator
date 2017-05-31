@@ -26,12 +26,12 @@ describe('Creating Class', function() {
 
 				describe('Form.xml Filename:', function() {
 					it('should return test.', function() {
-						expect(data.baseFileName).to.be.equal('test.');
+						expect(data.baseFileName).to.be.equal('test');
 					});
 				});
 
 				describe("Test web server:", function() {
-					new httpUtils(request).save('http://localhost:3001/' + data.baseFileName + 'html');
+					new httpUtils(request).save('http://localhost:3001/' + data.baseFileName + '.html');
 					it("Return Status: 200", function() {
 						expect(this.err).to.equal(null);
 						expect(this.res.statusCode).to.equal(200);
