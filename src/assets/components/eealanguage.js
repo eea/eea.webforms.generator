@@ -3,7 +3,7 @@
 app.config(function($translateProvider, $translatePartialLoaderProvider) {
 	$translatePartialLoaderProvider.addPart(langFile);
 	$translateProvider.useLoader('$translatePartialLoader', {
-		urlTemplate: 'lng/{part}{lang}.lang.json'
+		urlTemplate: 'lng/{part}.{lang}.lang.json'
 	});
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
 	$translateProvider.fallbackLanguage('en');
