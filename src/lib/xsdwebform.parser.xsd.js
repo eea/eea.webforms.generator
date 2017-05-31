@@ -36,7 +36,8 @@ class XSDWebFormParserTags {
 			"xs:whiteSpace": this.parseWhiteSpace,
 			"xs:minLength": this.parseMinLength,
 			"xs:maxLength": this.parseMaxLength,
-			"dd:multiValueDelim": this.multiValueDelim
+			"xs:totalDigits": this.parseTotalDigits,
+			"dd:multiValueDelim": this.parseMultiValueDelim
 		};
 		this.showLog = false;
 		this.verbose = false;
@@ -264,7 +265,18 @@ class XSDWebFormParserTags {
 	}
 
 	/**
-	 * parseMultiValueDelim - Parse MaxLength Tag
+	 * parseTotalDigits - Parse TotalDigits Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseTotalDigits(item, sender) {
+		
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseMultiValueDelim - Parse MultivalueDelim Tag
 	 * @param item
 	 * @param sender
 	 */
