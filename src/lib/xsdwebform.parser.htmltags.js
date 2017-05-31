@@ -289,7 +289,7 @@ class XSDWebFormParserHTMLTags {
 			}
 
 			XSDWFormItemType = XSDWFormItem.attr.type;
-							
+
 			if ((XSDWFormItemType in sender.XSD_HTML_TYPES)) {
 				item.name = sender.XSD_HTML_TYPES[XSDWFormItemType];
 				item.src = XSDWFormItem;
@@ -310,6 +310,10 @@ class XSDWebFormParserHTMLTags {
 				}
 			}
 			
+			if (XSDWFormItemType === "xs:integer" && item.xsdAttrs.src.minInclusive && item.xsdAttrs.src.maxInclusive) {
+				item.name = "select";
+			}
+
 			sender.parseHTMLItem(item, xsdItem);
 		} catch (ex) {
 			console.log("ex", ex);
@@ -474,7 +478,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseSelect(item, xsdItem, sender) {
-
+		
 		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
@@ -497,17 +501,18 @@ class XSDWebFormParserHTMLTags {
 			}
 
 			try {
-				XSDWFormItemTypeData = sender.getItemByName( ( XSDWFormItem.attr.type || XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type ), xsdItem);
+				XSDWFormItemTypeData = XSDWFormItem.childNamed("xs:simpleType") || sender.getItemByName( ( XSDWFormItem.attr.type || XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type), xsdItem);
 			} catch (ex) {
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
-			}
+			}			
 
-			if (!XSDWFormItemTypeData)
+			if (!XSDWFormItemTypeData) 
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 
 			let enums = XSDWFormItemTypeData.childNamed("xs:restriction");
 			if (!enums)
 				sender.reportError(`Can not find xs:restriction for "${XSDWFormItem.attr.type}" element in XSD`, XSDWFormItemTypeData);
+
 
 			let enumItems = [];
 			enums.eachChild((enm) => {
