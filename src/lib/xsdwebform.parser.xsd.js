@@ -311,7 +311,6 @@ class XSDWebFormParserTags {
 			sender.logger.logXsdTag(item);
 	}
 
-
 	/**
 	 * parseMethodology - Parse Methodology Tag
 	 * @param item

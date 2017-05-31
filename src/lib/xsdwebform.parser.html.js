@@ -53,7 +53,12 @@ class XSDWebFormParserHTMLTags {
 			"multiValueDelim":  (inp) => { return `placeholder="use ${inp} separator (e.g. text${inp}text${inp})"`; },
 			"minOccurs": () => {},
 			"maxOccurs": () => {},
-			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; }
+			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; },
+		};
+
+		this.XSD_DD_PROPERTIES = {
+			"Methodology": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; },
+			"Definition": (inp) => { return `title="${inp.replace(/\"/g, "&quot;")}"`; }
 		};
 
 		this.HTMLObjects = [];
@@ -111,16 +116,17 @@ class XSDWebFormParserHTMLTags {
 	/**
 	 * parseXSDProperties - Parse XSD Properties
 	 * @param item
-	 * @param xsdItem
+	 * @param groupxsdItem
 	 * @param xsdsimpletype
+	 * @param xsdItem
 	 * @param sender
 	 */
-	parseXSDProperties(item, xsdItem, xsdsimpletype, sender) {
+	parseXSDProperties(item, groupxsdItem, xsdsimpletype, xsdItem, sender) {
 		// Create an XML element attributes/properties placeholder object
 		item.xsdAttrs = { src : {}, html : [] };
 
 		// Get XSD Element properties in group root
-		let XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem) || sender.getItemByRef(item.attr.element, xsdItem) ;
+		let XSDWFormItem = sender.getItemByName(item.attr.element, groupxsdItem) || sender.getItemByRef(item.attr.element, groupxsdItem) ;
 		
 		for (let attr in XSDWFormItem.attr) {
 			let rattr = attr.split(':')[1] || attr;
@@ -131,6 +137,7 @@ class XSDWebFormParserHTMLTags {
 					item.xsdAttrs.html.push(htmlVal);
 			}
 		}
+		
 		// Get XSD Element properties in simpleType
 		xsdsimpletype.eachChild((el) =>  {
 			let rname = el.name.split(':')[1] || el;
@@ -141,6 +148,23 @@ class XSDWebFormParserHTMLTags {
 					item.xsdAttrs.html.push(htmlVal);
 			}
 		});
+
+		let XSDWFormItemInfo = sender.getItemByName(item.attr.element, xsdItem);
+		if (XSDWFormItemInfo) {
+			XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:annotation");
+			if (XSDWFormItemInfo) {
+				XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:documentation");
+				XSDWFormItemInfo.eachChild((el) =>  {
+					let rname = el.name.split(':')[1] || el;
+					if (rname in this.XSD_DD_PROPERTIES)  {
+						item.xsdAttrs.src[rname] = el.val;
+						let htmlVal = (this.XSD_DD_PROPERTIES[rname])(el.val);
+						if (htmlVal)
+							item.xsdAttrs.html.push(htmlVal);
+					}
+				});
+			}
+		}
 	}
 
 	/**
@@ -276,7 +300,7 @@ class XSDWebFormParserHTMLTags {
 			}
 			
 			// Check for properties
-			sender.parseXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, sender);
+			sender.parseXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, xsdItem, sender);
 							
 			// Check for and get Label
 			sender.getLabel(item, xsdItem, sender);
@@ -339,7 +363,7 @@ class XSDWebFormParserHTMLTags {
 			name: name,
 			tag: 'input',
 			autoclose: false,
-			xsdAttrs: item.xsdAttrs.html,
+			xsdAttrs: [],
 			hasLabel: true,
 			label: item.label, 
 			formModel: itemFormModel,
@@ -834,7 +858,7 @@ class XSDWebFormParserHTMLTags {
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence")
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 		
-		if (!XSDWFormComplexItems) return "";
+		if (!XSDWFormComplexItems) return undefined;
 
 		return XSDWFormComplexItems;
 	}
@@ -862,7 +886,7 @@ class XSDWebFormParserHTMLTags {
 			xsdGroupProperties = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 
-		if (!xsdGroupProperties) return "";
+		if (!xsdGroupProperties) return undefined;
 
 		return xsdGroupProperties;
 	}
