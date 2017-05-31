@@ -261,7 +261,7 @@ export default class XSDWebForm {
 <meta name="Publisher" content="EEA, The European Environment Agency" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{'pagetitle' | translate}}</title>
+<title>{{('labels.pagetitle' || 'pagetitle') | translate}}</title>
 
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>

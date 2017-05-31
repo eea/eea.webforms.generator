@@ -121,7 +121,11 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parsePage(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
-		sender.HTML_FORM_TITLE = "{{'formtitle' | translate}}";
+		sender.LabelContentObjects.push({
+			label: "pagetitle",
+			text: item.attr.title || ""
+		});
+		
 	}
 
 	/**

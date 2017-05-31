@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page>
+	<page title="Test Page">
 		<form action="/api/testasdasd">
 			<group element="Row"> 	
 				<item element="cddaCountryCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/regions/json" lu-data="concepts" lu-value="['@id']" lu-option="prefLabel[0]['@value']" lu-order="prefLabel[0]['@value']" autoselect="countrycode" hideonautoselect="1"/>
