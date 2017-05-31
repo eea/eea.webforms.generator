@@ -81,11 +81,13 @@ export default class XSDWebForm {
 				xsdFile = "./test/test";
 			}
 
-			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
-			this.baseFileName = path.basename(xsdFile) ;
-			this.basePath = path.dirname(xsdFile);
 			if (!xsdFile.endsWith(".xsd"))
 				xsdFile += ".xsd";
+			
+			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
+			this.baseFileName = path.basename(xsdFile);
+			this.baseFileName = this.baseFileName.substring(0, this.baseFileName.length - 4);
+			this.basePath = path.dirname(xsdFile);
 			
 			xmlHtmlFile = this.baseFileName + ".form.xml";
 
