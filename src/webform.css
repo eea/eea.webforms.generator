@@ -172,7 +172,7 @@ fieldset {
 }
 
 input[type=checkbox] {
-    transform: scale(1.5)
+    transform: scale(1.5);
 }
 
 input.ng-invalid.ng-touched,
