@@ -49,12 +49,6 @@ li {
     user-select: none;
 }
 
-input,
-textarea,
-select {
-    border-radius: 3px;
-}
-
 :focus,
 .btn:active.focus,
 .btn:focus {
@@ -75,6 +69,7 @@ textarea {
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    display: inline-block;
 }
 
 input:focus,
@@ -397,6 +392,8 @@ select.slanguage:focus {
     color: rgb(255, 255, 255);
     width: 33.3%;
     min-width: 33.3%;
+    height: 80px;
+    max-height: 150px;
     padding: 22px;
     margin: auto;
     margin-bottom: 12px;
@@ -410,6 +407,7 @@ select.slanguage:focus {
 }
 
 .field-caption {
+    display: inline-block;
     font-size: 14px;
     height: 34px;
     font-weight: 700;
@@ -422,6 +420,7 @@ select.slanguage:focus {
 }
 
 .field-caption::after {
+    display: inline-block;
     content: ":";
     margin-right: 10px;
 }
