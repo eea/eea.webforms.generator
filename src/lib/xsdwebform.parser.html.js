@@ -114,60 +114,6 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * parseXSDProperties - Parse XSD Properties
-	 * @param item
-	 * @param groupxsdItem
-	 * @param xsdsimpletype
-	 * @param xsdItem
-	 * @param sender
-	 */
-	parseXSDProperties(item, groupxsdItem, xsdsimpletype, xsdItem, sender) {
-		// Create an XML element attributes/properties placeholder object
-		item.xsdAttrs = { src : {}, html : [] };
-
-		// Get XSD Element properties in group root
-		let XSDWFormItem = sender.getItemByName(item.attr.element, groupxsdItem) || sender.getItemByRef(item.attr.element, groupxsdItem) ;
-		
-		for (let attr in XSDWFormItem.attr) {
-			let rattr = attr.split(':')[1] || attr;
-			if (rattr in this.XSD_PROPERTIES) {
-				item.xsdAttrs.src[rattr] = XSDWFormItem.attr[rattr];
-				let htmlVal = (this.XSD_PROPERTIES[rattr])(XSDWFormItem.attr[attr]);
-				if (htmlVal)
-					item.xsdAttrs.html.push(htmlVal);
-			}
-		}
-		
-		// Get XSD Element properties in simpleType
-		xsdsimpletype.eachChild((el) =>  {
-			let rname = el.name.split(':')[1] || el;
-			if (rname in this.XSD_PROPERTIES)  {
-				item.xsdAttrs.src[rname] = el.attr.value;
-				let htmlVal = (this.XSD_PROPERTIES[rname])(el.attr.value);
-				if (htmlVal)
-					item.xsdAttrs.html.push(htmlVal);
-			}
-		});
-
-		let XSDWFormItemInfo = sender.getItemByName(item.attr.element, xsdItem);
-		if (XSDWFormItemInfo) {
-			XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:annotation");
-			if (XSDWFormItemInfo) {
-				XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:documentation");
-				XSDWFormItemInfo.eachChild((el) =>  {
-					let rname = el.name.split(':')[1] || el;
-					if (rname in this.XSD_DD_PROPERTIES)  {
-						item.xsdAttrs.src[rname] = el.val;
-						let htmlVal = (this.XSD_DD_PROPERTIES[rname])(el.val);
-						if (htmlVal)
-							item.xsdAttrs.html.push(htmlVal);
-					}
-				});
-			}
-		}
-	}
-
-	/**
 	 * parsePage - Parse Page Info
 	 * @param item
 	 * @param xsdItem
@@ -300,7 +246,7 @@ class XSDWebFormParserHTMLTags {
 			}
 			
 			// Check for properties
-			sender.parseXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, xsdItem, sender);
+			sender.getXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, xsdItem, sender);
 							
 			// Check for and get Label
 			sender.getLabel(item, xsdItem, sender);
@@ -805,6 +751,60 @@ class XSDWebFormParserHTMLTags {
 				if (child.name.match(itemname)) return child;
 		}
 		return undefined;
+	}
+
+	/**
+	 * getXSDProperties - Parse XSD Properties
+	 * @param item
+	 * @param groupxsdItem
+	 * @param xsdsimpletype
+	 * @param xsdItem
+	 * @param sender
+	 */
+	getXSDProperties(item, groupxsdItem, xsdsimpletype, xsdItem, sender) {
+		// Create an XML element attributes/properties placeholder object
+		item.xsdAttrs = { src : {}, html : [] };
+
+		// Get XSD Element properties in group root
+		let XSDWFormItem = sender.getItemByName(item.attr.element, groupxsdItem) || sender.getItemByRef(item.attr.element, groupxsdItem) ;
+		
+		for (let attr in XSDWFormItem.attr) {
+			let rattr = attr.split(':')[1] || attr;
+			if (rattr in this.XSD_PROPERTIES) {
+				item.xsdAttrs.src[rattr] = XSDWFormItem.attr[rattr];
+				let htmlVal = (this.XSD_PROPERTIES[rattr])(XSDWFormItem.attr[attr]);
+				if (htmlVal)
+					item.xsdAttrs.html.push(htmlVal);
+			}
+		}
+		
+		// Get XSD Element properties in simpleType
+		xsdsimpletype.eachChild((el) =>  {
+			let rname = el.name.split(':')[1] || el;
+			if (rname in this.XSD_PROPERTIES)  {
+				item.xsdAttrs.src[rname] = el.attr.value;
+				let htmlVal = (this.XSD_PROPERTIES[rname])(el.attr.value);
+				if (htmlVal)
+					item.xsdAttrs.html.push(htmlVal);
+			}
+		});
+
+		let XSDWFormItemInfo = sender.getItemByName(item.attr.element, xsdItem);
+		if (XSDWFormItemInfo) {
+			XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:annotation");
+			if (XSDWFormItemInfo) {
+				XSDWFormItemInfo = XSDWFormItemInfo.childNamed("xs:documentation");
+				XSDWFormItemInfo.eachChild((el) =>  {
+					let rname = el.name.split(':')[1] || el;
+					if (rname in this.XSD_DD_PROPERTIES)  {
+						item.xsdAttrs.src[rname] = el.val;
+						let htmlVal = (this.XSD_DD_PROPERTIES[rname])(el.val);
+						if (htmlVal)
+							item.xsdAttrs.html.push(htmlVal);
+					}
+				});
+			}
+		}
 	}
 
 	/**
