@@ -46,8 +46,8 @@ class XSDWebFormParserHTMLTags {
 		};
 
 		this.XSD_PROPERTIES = {
-			"minInclusive": () => {},
-			"maxInclusive": () => {},
+			"minInclusive": (inp) => { return `min="${inp}"`; },
+			"maxInclusive": (inp) => { return `max="${inp}"`; },
 			"minLength": (inp) => { return `minlength="${inp}"`; },
 			"maxLength": (inp) => { return `maxlength="${inp}"`; },
 			"multiValueDelim":  (inp) => { return `placeholder="use ${inp} separator | e.g. text${inp}text${inp}"`; },
