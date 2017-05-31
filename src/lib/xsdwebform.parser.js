@@ -8,7 +8,7 @@
 
 import { XmlDocument } from 'xmldoc';
 import XsdTagParser from './xsdwebform.parser.tags.js';
-import HtmlTagParser from './xsdwebform.parser.htmltags.js';
+import HtmlTagParser from './xsdwebform.parser.html.js';
 import XsltGenerator from './xsdwebform.parser.xslt.js';
 import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 
