@@ -38,7 +38,9 @@ class XSDWebFormParserTags {
 			"xs:maxLength": this.parseMaxLength,
 			"xs:totalDigits": this.parseTotalDigits,
 			"dd:multiValueDelim": this.parseMultiValueDelim,
-			"dd:Keyword": this.parseKeyword
+			"dd2:Keyword": this.parseKeyword,
+			"dd2:Definition": this.parseDefinition,
+			"dd3:Methodology": this.parseMethodology
 		};
 		this.showLog = false;
 		this.verbose = false;
@@ -293,6 +295,29 @@ class XSDWebFormParserTags {
 	 * @param sender
 	 */
 	parseKeyword(item, sender) {
+		
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * parseDefinition - Parse Definition Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseDefinition(item, sender) {
+		
+		if (sender.showLog)
+			sender.logger.logXsdTag(item);
+	}
+
+
+	/**
+	 * parseMethodology - Parse Methodology Tag
+	 * @param item
+	 * @param sender
+	 */
+	parseMethodology(item, sender) {
 		
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
