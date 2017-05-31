@@ -158,7 +158,7 @@ export default class XSDWebForm {
 								this.createFile(this.buildPath + "log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
 								webshot(`http://localhost:3001/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", {  shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
-							this.tester.test().then ( (res) => {
+							this.tester.test().then ((res) => {
 								let cres = "\x1b[32m ✓\x1b[2m ";
 								let cresPlus = "";
 								if (res.status !== 'PASS') {

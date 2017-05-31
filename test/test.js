@@ -39,16 +39,29 @@ describe('Creating Class', function() {
 				});
 
 				describe("Custom Error:", function() {
-					it("Returs: 'test'", function() {
+					it("Returns: 'test'", function() {
 						expect(XSDWebFormParserError.reportError('test', null, true)).to.equal(true);
 					});
 				});
+
 
 				after(function() {
 					if (showCoverageHTML)
 						openurl.open(`file:///${__dirname}/../coverage/lcov-report/index.html`);
 				});
+				
+				return data.tester.test()
+					.then(function(res) {
 
-			});
+						describe("Build WCAG 2-AA Accessibility Checker:", function() {
+							
+							it("Returns: 'PASS'", function() {
+									expect(res.status).to.equal("PASS");
+							});
+							
+						});
+
+					});
+		});
 	});
 });
