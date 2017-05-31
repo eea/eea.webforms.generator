@@ -23,5 +23,16 @@ app.component("eeaHeader", {
 		<div id="network-title">Eionet</div>
 		<div id="site-title">European Environment Information and Observation Network</div>
 	</div>
-</div>`
+</div>`, controller: function($http, $translate) {
+		var parent = this;
+		this.$onInit = function() {				
+			$(document).on("scroll", function () {
+				if ($(document).scrollTop() > 40) {
+					$("#head").removeClass("tplarge").addClass("tpsmall");
+				} else {
+					$("#head").removeClass("tpsmall").addClass("tplarge");
+				}
+			});
+		}
+	}
 });
