@@ -44,12 +44,11 @@ describe('Creating Class', function() {
 					});
 				});
 
-
 				after(function() {
 					if (showCoverageHTML)
 						openurl.open(`file:///${__dirname}/../coverage/lcov-report/index.html`);
 				});
-				
+
 				return data.tester.test()
 					.then(function(res) {
 

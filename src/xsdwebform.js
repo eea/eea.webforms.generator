@@ -78,7 +78,7 @@ export default class XSDWebForm {
 
 			// If not file input
 			if (!xsdFile) {
-				xsdFile = "./test/test";
+				xsdFile = "./test/dstype";
 			}
 
 			if (!xsdFile.endsWith(".xsd"))
