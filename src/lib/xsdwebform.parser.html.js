@@ -184,6 +184,7 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		let groupStart= '', groupEnd = '', canAddRows = 0;
+		console.log("xsdGroupProperties", xsdGroupProperties.attr);
 		if (xsdGroupProperties.attr.maxOccurs) {
 			let maxOccurs = '';
 			if (isNaN(xsdGroupProperties.attr.maxOccurs))  {
@@ -873,7 +874,6 @@ class XSDWebFormParserHTMLTags {
 	getXSDGroupProperties(xsdItemName, xsdItem, sender) {
 		var xsdGroupProperties;
 
-		xsdGroupProperties =  xsdItem.childWithAttribute("name", xsdItemName);
 		if (!xsdGroupProperties)  {
 			try {
 				xsdGroupProperties = ( xsdItem.childNamed("xs:element").childNamed("xs:complexType").childNamed("xs:sequence") 
@@ -883,10 +883,14 @@ class XSDWebFormParserHTMLTags {
 				// console.log("No Group Type description in root")
 			}
 		}
-	
+		
 		if (!xsdGroupProperties) 
 			xsdGroupProperties = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
+		
+		if (!xsdGroupProperties.attr.maxOccurs) 
+			xsdGroupProperties =  xsdItem.childWithAttribute("name", xsdItemName);
+		
 
 		if (!xsdGroupProperties) return undefined;
 
