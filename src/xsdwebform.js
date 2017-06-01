@@ -168,7 +168,7 @@ export default class XSDWebForm {
 										return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.source}\n\x1b[2m`
 									}).join("");
 								}
-								console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\n\x1b[0m\x1b[37mcheck http://localhost:${this.serverPort}/${this.baseFileName}.html Form Testing Component for more onsite testing results`);
+								console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\x1b[0m\x1b[37mcheck http://localhost:${this.serverPort}/${this.baseFileName}.html Form Testing Component for Onsite testing results`);
 							});
 							
 							resolve();
