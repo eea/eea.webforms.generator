@@ -58,6 +58,7 @@ body {
    	color: #999;
    	padding: 0;
    	margin:  80px 0 0 0;
+   	overflow-x: hidden;
 }
 ul {
 	list-style-type: none;
@@ -203,7 +204,6 @@ li.xsdc span {
 	<div class="lvlln">5</div>
 	<div class="lvlln">6</div>
 	<div class="lvlln">7</div>
-	<div class="lvlln">8</div>
 </div>
 
 
