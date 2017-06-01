@@ -17,7 +17,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 	$scope.groups = groups;
 
 	$scope.submit = function (frm) {
-		console.log($scope.field);
 		 for (var form in $scope.field) {
 			var frmObj = $scope.field[form];
 			for (var element in frmObj) {
