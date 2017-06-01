@@ -889,8 +889,7 @@ class XSDWebFormParserHTMLTags {
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
 		
 		if (!xsdGroupProperties.attr.maxOccurs) 
-			xsdGroupProperties =  xsdItem.childWithAttribute("name", xsdItemName);
-		
+			xsdGroupProperties.attr.maxOccurs =  xsdItem.childWithAttribute("name", xsdItemName).attr.maxOccurs;
 
 		if (!xsdGroupProperties) return undefined;
 
