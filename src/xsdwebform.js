@@ -154,10 +154,10 @@ export default class XSDWebForm {
 							});
 							if (this.showLog) {
 								this.createFile(this.buildPath + "log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
-								webshot(`http://localhost:3001/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", { shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
+								webshot(`http://localhost:${this.serverPort}/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", { shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
 							this.tester.test().then ((res) => {
-								let cres = "\x1b[32m ✓\x1b[2m ";
+								let cres = "\x1b[32m ✓\x1b[1m ";
 								let cresPlus = "";
 								if (res.status !== 'PASS') {
 									cres = "\x1b[31mx ";
@@ -168,7 +168,7 @@ export default class XSDWebForm {
 										return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.source}\n\x1b[2m`
 									}).join("");
 								}
-								console.log(`\x1b[0m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n`);
+								console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\n\x1b[0m\x1b[37mcheck http://localhost:${this.serverPort}/${this.baseFileName}.html Form Testing Component for more onsite testing results`);
 							});
 							
 							resolve();
