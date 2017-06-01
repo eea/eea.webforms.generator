@@ -407,7 +407,7 @@ select.slanguage:focus {
 .formitem input,
 .formitem textarea,
 .formitem select {
-    border-radius: 0 5px 5px 5px!important
+    border-radius: 5px!important
 }
 
 .field-caption {
