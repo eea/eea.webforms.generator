@@ -175,6 +175,7 @@ li.xsdc span {
 	margin-left: 20px;
 }
 #xsltpanel {
+	font-size: 12px;
 	background-color: rgb(128, 128, 128);
 	padding: 8px;
 	display: none;
