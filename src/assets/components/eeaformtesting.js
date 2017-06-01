@@ -29,21 +29,21 @@ app.component("eeaFormTesting",{
 			mocha.setup('bdd');
 			var expect = chai.expect;
 			
-			describe("eea form js library", function() {
+			describe("Testing eea form js library", function() {
 				it('selected langauge should be "en"', function(done) {
 				   expect(parent.scp.selectedLanguage).to.equal("en");
 				    done();
 				});
 			});
 
-			describe("angular", function() {
+			describe("Testing angular", function() {
 				it('document should have a $scope', function(done) {
 				   expect(parent.scp).to.not.be.undefined;
 				    done();
 				});
 			});
 			
-			describe("jquery", function() {
+			describe("Testing jquery", function() {
 				it('document should acknowledge the variable $', function(done) {
 				   expect($).to.not.be.undefined;
 				    done();
