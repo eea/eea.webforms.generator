@@ -141,7 +141,6 @@ li.xsdc span {
 	border-radius: 35px;
 	border: solid 20px rgba(154, 154, 154, 1);
 	margin: 10px;
-	text-shadow: 0px 1px 0px #555;
 }
 .svcimg {
    	width: 800px;
@@ -184,7 +183,6 @@ li.xsdc span {
 	border: solid 20px rgba(154, 154, 154, 1);
 	margin: 10px;
 	color: #fff;
-	text-shadow: 0px 1px 0px #555;
 }
 </style>
 </head>
