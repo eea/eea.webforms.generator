@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page>
-		<form action="/api/testasdasd">
+	<page title="Page Title">
+		<form title="Form title" action="/api/testasdasd">
 			<group element="ConcludedTransferRecord"> 	
 				<item element="AEA"/>	
 				<item element="TransferringMemberState"/>

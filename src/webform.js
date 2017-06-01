@@ -11,7 +11,6 @@ app.controller('WebFormAppCtrl', ['$scope', '$http', '$timeout', '$window', '$tr
 function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) {
 
 	$scope.field = {};
-	$scope.doc = $window.document;
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
