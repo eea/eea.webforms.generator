@@ -11,13 +11,14 @@ app.controller('WebFormAppCtrl', ['$scope', '$http', '$timeout', '$window', '$tr
 function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) {
 
 	$scope.field = {};
+	$scope.doc = $window.document;
 	$scope.multipleIndex = 1;
 	$scope.ValidationDisabled = false;
 	$scope.selectedLanguage = "en";
 	$scope.groups = groups;
 
 	$scope.submit = function (frm) {
-		 for (var form in $scope.field) {
+		for (var form in $scope.field) {
 			var frmObj = $scope.field[form];
 			for (var element in frmObj) {
 				console.log("Element: ", element, frmObj[element]);
