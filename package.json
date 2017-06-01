@@ -11,11 +11,11 @@
     "openurl": "^1.1.1",
     "path": "^0.12.7",
     "rimraf": "^2.6.1",
-    "xmldoc": "^1.0.0",
     "uglify-js": "^3.0.11",
     "uglifycss": "0.0.27",
     "wcag": "^0.3.0",
-    "webshot": "^0.18.0"
+    "webshot": "^0.18.0",
+    "xmldoc": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

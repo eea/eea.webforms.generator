@@ -269,6 +269,7 @@ export default class XSDWebForm {
 <script src="./assets/components/eeatoolbar.min.js" ></script>
 <script src="./assets/components/eeabuildinfo.min.js" ></script>
 <script src="./assets/components/eealookup.min.js" ></script>
+<script src="./assets/components/eeaformtesting.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}.webform.min.css"/>
@@ -302,13 +303,13 @@ var groups = {${
 </div>
 
 <div id="formworkarea" class="row col-lg-12">
-	
 	<div class="row">
 		<div class="top-form-left col-md-1"><span class="index">#</span></div>
 		<div class="top-form-right col-md-11"><h2>{{'labels.formtitle' | translate}}</h2></div>
 	</div>
 	
 	<div class="row"> 
+	<eea-form-testing scp="this"></eea-form-testing>
 	`;
 	}
 
