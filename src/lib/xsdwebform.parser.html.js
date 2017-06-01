@@ -125,7 +125,6 @@ class XSDWebFormParserHTMLTags {
 			label: "pagetitle",
 			text: item.attr.title || ""
 		});
-		
 	}
 
 	/**
@@ -136,7 +135,10 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseForm(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
-
+		sender.LabelContentObjects.push({
+			label: "formtitle",
+			text: item.attr.title || ""
+		});
 		let formEnd = "<button type=\"submit\" class=\"submitbutton btn btn-primary\">{{'submitform' | translate}}</button>";
 		let formNum = sender.HTMLObjects.length + 1;
 		var formObject = {

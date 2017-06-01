@@ -207,7 +207,6 @@ class XSDWebFormParser {
 		let textContent = this.getLanguageContent();
 		var fullTextContent = `{
 	"language" 		: "Selected Language English",
-	"formtitle"		: "Form Title",
 	"isrequired"		: "is mandatory",
 	"addrow"		: "Add Row",
 	"deleterow"		: "Delete Row",

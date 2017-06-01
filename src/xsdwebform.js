@@ -305,7 +305,7 @@ var groups = {${
 	
 	<div class="row">
 		<div class="top-form-left col-md-1"><span class="index">#</span></div>
-		<div class="top-form-right col-md-11"><h2>{{'formtitle' | translate}}</h2></div>
+		<div class="top-form-right col-md-11"><h2>{{'labels.formtitle' | translate}}</h2></div>
 	</div>
 	
 	<div class="row"> 
