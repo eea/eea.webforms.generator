@@ -104,12 +104,12 @@ li.xsdc span {
 }
 .lvlln:after {
 	content: " ";
-	margin: 20px 4px 4px 4px;
+	margin: 4px;
 	display: block;
-        	height: 95%;
-        	z-index: -1;
-        	min-height: 95%;
-        	position: fixed;
+	height: 95%;
+	z-index: -1;
+	min-height: 95%;
+	position: fixed;
 	border-left: 1px dashed #cacaca;
 }
 .htmlo li.svc {
@@ -141,6 +141,7 @@ li.xsdc span {
 	border-radius: 35px;
 	border: solid 20px rgba(154, 154, 154, 1);
 	margin: 10px;
+	0px 1px 0px #333;
 }
 .svcimg {
    	width: 800px;
@@ -181,7 +182,7 @@ li.xsdc span {
 	display: none;
 	border-radius: 35px;
 	border: solid 20px rgba(154, 154, 154, 1);
-	margin: 10px 10px 40px 10px;
+	margin: 10px;
 	color: #fff;
 }
 </style>
@@ -242,7 +243,7 @@ li.xsdc span {
 		this.htmlOutput  += `\n</div>\n<div id="xsltpanel" class="tabpanel" style="display: none;"><code>
 ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}
 </code></div>`;
-		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color: #777;padding-bottom: 20px;width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color: #777;padding-bottom: 20px;margin-top: 50px;height: 50px;width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
