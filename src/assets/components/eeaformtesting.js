@@ -27,6 +27,13 @@ app.component("eeaFormTesting",{
 			mocha.setup('bdd');
 			var expect = chai.expect;
 			
+			describe("Testing eea form js library", function() {
+				it('selected langauge should be "en"', function(done) {
+				   expect(parent.scp.selectedLanguage).to.equal("en");
+				    done();
+				});
+			});
+
 			describe("Testing angular", function() {
 				it('should have a $scope', function(done) {
 				   expect(parent.scp).to.not.be.undefined;
@@ -37,13 +44,6 @@ app.component("eeaFormTesting",{
 			describe("Testing jquery", function() {
 				it('should acknowledge the variable $', function(done) {
 				   expect($).to.not.be.undefined;
-				    done();
-				});
-			});
-
-			describe("Testing eea form js library", function() {
-				it('selected langauge should be "en"', function(done) {
-				   expect(parent.scp.selectedLanguage).to.equal("en");
 				    done();
 				});
 			});
