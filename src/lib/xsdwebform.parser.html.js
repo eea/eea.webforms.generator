@@ -121,6 +121,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parsePage(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
+
 		sender.LabelContentObjects.push({
 			label: "pagetitle",
 			text: item.attr.title || ""
@@ -135,6 +136,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseForm(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
+
 		sender.LabelContentObjects.push({
 			label: "formtitle",
 			text: item.attr.title || ""
@@ -253,7 +255,6 @@ class XSDWebFormParserHTMLTags {
 			
 			// Check for properties
 			sender.getXSDProperties(item,  itemInfo.groupBase.itemObject.xsdXML, XSDWFormItem, xsdItem, sender);
-							
 			// Check for and get Label
 			sender.getLabel(item, xsdItem, sender);
 
@@ -460,26 +461,13 @@ class XSDWebFormParserHTMLTags {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let XSDWFormItem, XSDWFormItemTypeData;
 
-			try {
-				XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML);
-			} catch (ex) {
-				sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, itemInfo.groupBase.itemObject.xsdXML);
-			}
-
-			if (!XSDWFormItem) {
-				try {
-					XSDWFormItem = sender.getItemByName(item.attr.element, xsdItem);
-				} catch (ex) {
-					sender.reportError(`Can not find "${item.attr.element}" element in group XSD`, xsdItem);
-				}
-			}
-
+			XSDWFormItem = sender.getItemByName(item.attr.element, itemInfo.groupBase.itemObject.xsdXML) || sender.getItemByName(item.attr.element, xsdItem);
 			try {
 				XSDWFormItemTypeData = XSDWFormItem.childNamed("xs:simpleType") || sender.getItemByName( ( XSDWFormItem.attr.type || XSDWFormItem.childNamed("xs:simpleType").childNamed("xs:restriction").attr.type), xsdItem);
 			} catch (ex) {
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 			}			
-
+			
 			if (!XSDWFormItemTypeData) 
 				sender.reportError(`Can not find "${XSDWFormItem.attr.type}" element in XSD`);
 
