@@ -9,7 +9,6 @@
 /**
  * Class XSDWebFormParserXSLT
  * Parser for XSD to XSLT
- * Static
  */
 class XSDWebFormParserXSLT {
 	/**

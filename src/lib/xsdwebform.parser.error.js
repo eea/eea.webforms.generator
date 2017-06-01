@@ -9,7 +9,6 @@
 /**
  * Class XSDWebFormParserError
  * Error log for XSD Schema Tags
- * Static
  */
 'use strict';
 

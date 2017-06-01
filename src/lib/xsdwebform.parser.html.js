@@ -11,7 +11,6 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
 /**
  * Class XSDWebFormParserHTMLTags
  * Parser for XSD Schema Tags 
- * Static
  */
 class XSDWebFormParserHTMLTags {
 	/**

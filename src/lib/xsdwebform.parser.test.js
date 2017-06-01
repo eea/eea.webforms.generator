@@ -11,7 +11,6 @@ import wcag from 'wcag';
 /**
  * Class XSDWebFormParserTest
  * Parser Result Testing
- * Static
  */
 class XSDWebFormParserTest {
 	/**
@@ -35,7 +34,7 @@ class XSDWebFormParserTest {
 	 * @param logger
 	 */
 	test() {
-		return new Promise( (resolve) => {
+		return new Promise((resolve) => {
 			this.wcagTester.test().then((res) => {
 				resolve(res);
 			});
@@ -86,7 +85,6 @@ class XSDWebFormParserTest {
 /**
  * Class XSDWebFormParserTestAccessibility
  * Web Accessibility Testing
- * Static
  */
 class XSDWebFormParserTestAccessibility {
 	/**

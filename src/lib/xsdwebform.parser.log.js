@@ -9,7 +9,6 @@
 /**
  * Class XSDWebFormParserLog
  * Parser for XSD Schema Tags
- * Static
  */
 class XSDWebFormParserLog {
 	/**
