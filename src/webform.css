@@ -185,6 +185,12 @@ textarea.ng-invalid.ng-touched,
     background-color: #faa085;
 }
 
+::placeholder {
+  color: rgb(206, 220, 50);
+  font-size: 12px;  
+  font-weight: 400;
+}
+
 #tool-ribbon {
     background-color: #ffffff;
     border-bottom: 4px solid #6f7072;
