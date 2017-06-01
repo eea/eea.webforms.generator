@@ -55,7 +55,7 @@ function toggleTab(obj, did) {
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    	font-weight: 300;
-   	background-color: #222;
+   	background-color: #fafafa;
    	color: #999;
    	padding: 0;
    	margin:  80px 0 0 0;
@@ -67,8 +67,9 @@ ul.clvl {
 	user-select: none;
 }
 li.xsdc {
-	box-shadow: 2px 1px 1px #ccc;
-	padding: 4px 8px;font-size:14px;
+	box-shadow: 3px 3px 3px #aaa;
+	padding: 4px 8px;
+	font-size:14px;
 	border-radius: 0 50% 50% 0;
 	line-height: 25px;
 	user-select: none;
@@ -85,33 +86,21 @@ li.xsdc span {
 	padding: 4px 8px;
 	font-size: 12px;
 	position: absolute;
-	color: #eee;
-	background-color: #242424;
+	color: #333;
+	background-color: #eee;
 }
-/*
-.ftag:after {
-        display: block;
-        width: 92%;
-        height: 1px;
-        content: " ";
-        sborder-top: 1px dashed #2a2a2a;
-        margin-left: 120px;
-        margin-top: -8px;
-        position: absolute;
-}*/
 .phtmlt {
 	width: auto;
 	z-index: -1;
 	padding: 8px 50px;
 	font-size: 12px;
 	position: relative;
-	color: #fff;
-	background-color: #222;
+	color: #333;
 }
 .lvlln {
 	width:150px;
 	min-width:150px;
-	color: #eee;
+	color: #aaa;
 }
 .lvlln:after {
 	content: " ";
@@ -121,7 +110,7 @@ li.xsdc span {
         	z-index: -1;
         	min-height: 95%;
         	position: fixed;
-	border-left: 1px dashed #2a2a2a;
+	border-left: 1px dashed #cacaca;
 }
 .htmlo li.svc {
 	font-size: 13px;
@@ -191,7 +180,7 @@ li.xsdc span {
 	display: none;
 	border-radius: 35px;
 	border: solid 20px rgba(154, 154, 154, 1);
-	margin: 10px;
+	margin: 10px 10px 40px 10px;
 	color: #fff;
 }
 </style>
@@ -229,7 +218,7 @@ li.xsdc span {
 
 		if (sender.verbose) {
 			console.log("\n\n\x1b[0m\x1b[32mHTML OBJECTS: \x1b[0m\x1b[36m");
-			this.htmlOutput  += `<div style="background-color: #222;padding: 8px;font-size:12px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><p style="margin-left:50px;">DoubleClick for src</p>\n`; 
+			this.htmlOutput  += `<div style="padding: 8px;font-size:12px;"><BR><BR><h2>HTML OBJECTS: </h2>\n\n<div class="svcimg"><img src="scrnsht.png"></div>\n<BR><p style="margin-left:50px;">DoubleClick for src</p>\n`; 
 
 			console.log("\x1b[0m\x1b[2m");
 			this.htmlOutput  += `\n<ul style="color: #fff;" class="htmlo">\n`; 
@@ -252,7 +241,7 @@ li.xsdc span {
 		this.htmlOutput  += `\n</div>\n<div id="xsltpanel" class="tabpanel" style="display: none;"><code>
 ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<BR>').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')}
 </code></div>`;
-		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color:#777;margin: 20px; width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
+		this.htmlOutput  += `\n<div style="background-color: #222;font-size:12px;color: #777;padding-bottom: 20px;width: auto; text-align: center;"><BR><BR>${new Date()}</div>\n`; 
 
 		console.log("\n\x1b[2m\x1b[33m==================================================================================================================================================\n\x1b[0m");
 	}
@@ -266,7 +255,7 @@ ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n
 		console.log(`                                                             \x1b[1m\x1b[36mFILE : ${xObject.xfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[36m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `<h2><span style="color:#777;background-color: #222;">XSD File:</span> ${xObject.xfile}</h2>\n`; 
+		this.htmlOutput  += `<h2><span style="color:#777;">XSD File:</span> ${xObject.xfile}</h2>\n`; 
 	}
 
 	/**
@@ -278,7 +267,7 @@ ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n
 		console.log(`                                                             \x1b[1m\x1b[33mFILE : ${xObject.hfile} \x1b[0m\n`);
 		console.log("\x1b[2m\x1b[33m__________________________________________________________________________________________________________________________________________________\n\x1b[0m\n\n");
 
-		this.htmlOutput  += `\n</div>\n<div id="htmlpanel" class="tabpanel" style="display:none;">\n<h2 style="background-color: #222;margin: 0;"><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
+		this.htmlOutput  += `\n</div>\n<div id="htmlpanel" class="tabpanel" style="display:none;">\n<h2 style="margin: 0;"><span style="color:#777;">XML File:</span> ${xObject.hfile}</h2>\n`; 
 	}
 
 	/**
