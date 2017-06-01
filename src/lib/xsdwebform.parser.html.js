@@ -184,7 +184,6 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		let groupStart= '', groupEnd = '', canAddRows = 0;
-		console.log("xsdGroupProperties", xsdGroupProperties.attr);
 		if (xsdGroupProperties.attr.maxOccurs) {
 			let maxOccurs = '';
 			if (isNaN(xsdGroupProperties.attr.maxOccurs))  {
@@ -961,7 +960,7 @@ class XSDWebFormParserHTMLTags {
 
 		if (this.options) {
 			if (this.tag === 'select') {
-				outPut += "\t\t\t<option value=\"\">-----</option>\n";
+				outPut += "\t\t\t<option value=\"\"></option>\n";
 				outPut += this.options.map((option) => {
 					let lbl = option.option.toString().toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
