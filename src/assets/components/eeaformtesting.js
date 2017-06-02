@@ -39,7 +39,7 @@ app.component("eeaFormTesting",{
 				$("#teststartingmsg").hide();
 							
 				describe("Testing eea form js library", function() {
-					it('selected langauge should be "en"', function(done) {
+					it('selected language should be "en"', function(done) {
 						expect(parent.scp.selectedLanguage).to.equal("en");
 						done();
 					});
@@ -53,7 +53,7 @@ app.component("eeaFormTesting",{
 				});
 				
 				describe("Testing jquery", function() {
-					it('document should acknowledge the variable $', function(done) {
+					it('variable $ should be defined', function(done) {
 						expect($).to.not.be.undefined;
 						done();
 					});
