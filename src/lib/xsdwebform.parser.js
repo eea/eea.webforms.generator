@@ -218,7 +218,7 @@ class XSDWebFormParser {
 	"off" 			: "Off",
 	"save" 			: "Save",
 	"printpreview" 		: "Print Preview",
-	"close" 			: "Close",
+	"close" 		: "Close",
 	"labels"		: {
 ${textContent}
 				}
