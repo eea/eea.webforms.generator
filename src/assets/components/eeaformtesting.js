@@ -26,7 +26,7 @@ app.component("eeaFormTesting",{
 		scp: '='
 	},
 	controller: function() {
-		this.timecnt = 2000;
+		this.timecnt = 3000;
 		var parent = this;
 		this.$onInit = function() {
 			$.getScript("./assets/js/test/mocha.min.js");
