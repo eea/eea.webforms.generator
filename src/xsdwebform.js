@@ -86,7 +86,6 @@ export default class XSDWebForm {
 			this.basePath = path.dirname(xsdFile);
 			xsdFile += ".xsd";
 			
-			
 			xmlHtmlFile = this.baseFileName + ".form.xml";
 
 			// XSDWebFormParser    		

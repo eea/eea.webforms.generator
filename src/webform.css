@@ -78,6 +78,7 @@ textarea:focus {
     border-color: #66afe9;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     outline: 0 none !important;
+    color: #333!important;
 }
 
 input.ng-invalid:focus,
@@ -111,7 +112,7 @@ textarea {
     height: 36px;
     min-height: 36px;
     padding: 5px 4px;
-    color: #333;
+    color: #777;
 }
 
 [type=button],

@@ -7,7 +7,7 @@ app.component("eeaFormTesting",{
 <link rel="stylesheet" type="text/css" href="./assets/js/test/mocha.min.css"/>
 <style>
 #mocha {
-	margin: 20px 50px;
+	margin: 20px;
 }
 #mocha-stats {
 	position: absolute;
@@ -32,13 +32,7 @@ app.component("eeaFormTesting",{
 				
 		this.$onInit = function() {
 			$(function() {
-			
-				$("form").each(function(){
-				   $(this).find(':input').each(function(index, item){
-				   	console.log(item.name);
-				   });
-				});
-			
+			setTimeout( function() {
 				mocha.setup('bdd');
 				var expect = chai.expect;
 				
@@ -63,27 +57,75 @@ app.component("eeaFormTesting",{
 					});
 				});
 
-				// // TODO
-				// describe("Testing form. Performing autosubmit...", function() {
-				// 	var formsCollection = parent.scp.doc.getElementsByTagName("form");
-				// 	for(var i=0, l = formsCollection.length; i < l; i++) {
-				// 		var lala =  $('#'+formsCollection[i].name).serialize();
-				// 		it('parsing form [' + formsCollection[i].name + ']', function(done) {
-				// 			expect(lala).to.not.be.equal(11);
-				// 			done();
-				// 		});
+				describe("Testing form. performing autofill...", function() {
+					$("form").each(function(){
+						$(this).find(':input').each(function(index, item){
+							var itype = item.type;
+							if (!itype) return;
+							
+							item = $(item);
+							
+							var iname = item.attr("name");
+							console.log("iname", iname);
+							if (!iname) return;
+							if (iname.indexOf('$')  > -1) {
+								iname = iname.split('$')[0];
+							}
 
-				// 		// for (var form in parent.scp.field) {
-				// 		// 	var frmObj = parent.scp.field[form];
-				// 		// 	consoleOutput(frmObj);
-				// 		// 	for (var element in frmObj) {
-				// 		// 		consoleOutput("Element: ", element, frmObj[element]);
-				// 		// 	}
-				// 		// };
-				// 	}
-				// });
+							var valToEnter;
+							switch(itype) {
+							case "text" :
+								valToEnter = "eea-form-testing : autofilled";
+								item.val(valToEnter);
+								break;
+							case "number" :
+								valToEnter = item.attr("min") || item.attr("max") || 1;
+								item.val(valToEnter);
+								break;
+							case "date" :
+								valToEnter = (function() {
+										var today = new Date();
+										var dd = today.getDate();
+										var mm = today.getMonth()+1; 
+										var yyyy = today.getFullYear();
+										if(dd < 10)  dd = '0' + dd;
+										if(mm < 10) mm = '0' + mm;
+										return  yyyy +'-' + mm + '-' + dd;
+									})();
+								item.val(valToEnter);
+								break;
+							case "select-one":
+								var options = item.find('option');
+								var sopt = options[Math.floor(Math.random() * options.length)];
+								sopt.selected = true
+								valToEnter = $(sopt).text();
+								break;
+							case "checkbox":
+								valToEnter = "on";
+								item.prop("checked", true);
+								break;
+							default:
+								
+							}
+
+							it(itype + ' field ' + iname + '  should be "' +  valToEnter + '"', function(done) {
+								item.trigger("input"); 
+								item.trigger("change"); 
+								var itemv
+								if (itype === 'select-one')
+									itemv = $(item).find("option:selected").text();
+								else
+									itemv = item.val();	
+								expect(itemv).to.equal(valToEnter);
+								console.log(item.attr("name"), itemv, item.attr("type"));
+								done();
+							});
+						});
+					});
+				});
 
 				mocha.run();
+			}, 1000);
 			});
 		}
 	}
