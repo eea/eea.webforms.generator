@@ -139,7 +139,11 @@ app.component("eeaFormTesting",{
 						for (var form in objs) {
 							var frmObj = objs[form];
 							for (var element in frmObj) {
-								objsStr += element + " = " + frmObj[element] + "<BR>";
+								var elname = element;
+								if (elname.indexOf('$')  > -1) {
+									elname = elname.split('$')[0];
+								}
+								objsStr += elname + " = " + frmObj[element] + "<BR>";
 							}
 						};
 						var pdiv = $("<div style=\"position:relative;background-color:gold;color:#333;padding:20px;font-size:10px;\">" + objsStr + "</div>").appendTo('#mocha');
