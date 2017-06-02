@@ -2,6 +2,62 @@
 
 app.component("eeaHeader", {
 	template: `<style>
+	.top-bar {
+	    position: fixed;
+	    display: block;
+	    margin: 0;
+	    padding: 0;
+	    width: 100%;
+	    top: 0;
+	    z-index: 9999;
+	    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
+	    will-change: all;
+	    transition: all 0.3s ease-out;
+	}
+	.top-bar,
+	.top-bar ul {
+	    background-color: #E6E6E6;
+	}
+	.top-bar,
+	.top-bar a {
+	    color: #fff;
+	    font-size: 14px;
+	}
+	#tool-ribbon {
+	    background-color: #ffffff;
+	    border-bottom: 4px solid #6f7072;
+	    color: #315076;
+	    font-size: 80%;
+	    height: 30px;
+	    width: 100%;
+	}
+	#left-tools {
+	    float: left;
+	    height: 20px;
+	    padding: 4px 0.5em;
+	    text-align: left;
+	    vertical-align: middle;
+	}
+	a#eealink {
+	    background: url("http://www.eionet.europa.eu/styles/eionet2007/eeaicon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+	    padding-left: 18px;
+	}
+	#right-tools {
+	    float: right;
+	    text-align: right;
+	    width: 60%;
+	    font-size: 0.75rem;
+	}
+	a#printlink {
+	    background: url("http://www.eionet.europa.eu/styles/eionet2007/print_icon.gif") no-repeat scroll left center rgba(0, 0, 0, 0);
+	    padding: 3px 0.5em 1px 16px;
+	    display: inline-block;
+	    margin-left: 1.25rem;
+	}
+	#page-head {
+	    border-top: 1px solid #4b5257;
+	    clear: both;
+	}
 	.tplarge {
 	    height: 132px;
 	}
