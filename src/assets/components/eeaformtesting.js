@@ -96,10 +96,15 @@ app.component("eeaFormTesting",{
 								item.val(valToEnter);
 								break;
 							case "select-one":
-								var options = item.find('option');
-								var sopt = options[Math.floor(Math.random() * options.length)];
-								sopt.selected = true
-								valToEnter = $(sopt).text();
+								if (!item.val()) {
+									var options = item.find('option');
+									var sopt = options[Math.floor(Math.random() * options.length)];
+									sopt.selected = true;
+									valToEnter = $(sopt).text();
+								} else{ 
+									valToEnter = item.find(":selected").text();
+								}
+								
 								break;
 							case "checkbox":
 								valToEnter = "on";
