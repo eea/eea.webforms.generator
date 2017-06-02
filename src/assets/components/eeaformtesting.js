@@ -2,8 +2,6 @@
 
 app.component("eeaFormTesting",{
 	template: `
-<script src="./assets/js/test/mocha.min.js"></script>
-<script src="./assets/js/test/chai.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./assets/js/test/mocha.min.css"/>
 <style>
 #mocha {
@@ -31,6 +29,8 @@ app.component("eeaFormTesting",{
 		this.timecnt = 3000;
 		var parent = this;
 		this.$onInit = function() {
+			$.getScript("./assets/js/test/mocha.min.js");
+			$.getScript("./assets/js/test/chai.min.js");
 			$(function() {
 			setTimeout( function() {
 				mocha.setup('bdd');
