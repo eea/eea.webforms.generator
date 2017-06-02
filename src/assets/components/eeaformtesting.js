@@ -106,7 +106,7 @@ app.component("eeaFormTesting",{
 								
 							}
 
-							it(itype + ' field ' + iname + '  should be "' +  valToEnter + '"', function(done) {
+							it(iname + '  should be "' +  valToEnter + '"', function(done) {
 								item.trigger("input"); 
 								item.trigger("change"); 
 								var itemv
