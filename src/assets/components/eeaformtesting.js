@@ -140,11 +140,11 @@ app.component("eeaFormTesting",{
 					});
 				}
 
-				describe("Performing form submition emulation", function() {
+				describe("Performing form submission emulation", function() {
 					it('should log form elements below', function(done) {
 						var fnc = parent.scp.submit(null, true);
 						var objs = parent.scp.field;
-						var objsStr = "<b>Form submition emulation data:</b><BR><BR>";
+						var objsStr = "<b>Form submission emulation data:</b><BR><BR>";
 						for (var form in objs) {
 							var frmObj = objs[form];
 							for (var element in frmObj) {
