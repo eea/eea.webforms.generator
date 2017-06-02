@@ -153,7 +153,7 @@ app.component("eeaFormTesting",{
 								objsStr += "<b>" + elname + "</b> = " + elvalue + "<BR>";
 							}
 						};
-						var pdiv = $("<div style=\"position:relative;background-color:gold;color:#333;padding:20px;font-size:11px;\">" + objsStr + "</div>").appendTo('#mocha');
+						var pdiv = $("<div style=\"position:relative;background-color:#FFD700;color:#333;padding:20px;font-size:11px;\">" + objsStr + "</div>").appendTo('#mocha');
 						expect(fnc).to.equal(false);
 						done();
 					});
