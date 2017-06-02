@@ -16,13 +16,16 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 	$scope.selectedLanguage = "en";
 	$scope.groups = groups;
 
-	$scope.submit = function (frm) {
+	$scope.submit = function (frm, test) {
 		for (var form in $scope.field) {
 			var frmObj = $scope.field[form];
 			for (var element in frmObj) {
 				console.log("Element: ", element, frmObj[element]);
 			}
 		};
+		if (test) return false;
+		
+		//tmp
 		return false;
 	};
 

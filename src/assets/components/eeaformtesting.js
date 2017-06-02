@@ -29,7 +29,6 @@ app.component("eeaFormTesting",{
 	},
 	controller: function() {
 		var parent = this;
-				
 		this.$onInit = function() {
 			$(function() {
 			setTimeout( function() {
@@ -66,7 +65,6 @@ app.component("eeaFormTesting",{
 							item = $(item);
 							
 							var iname = item.attr("name");
-							console.log("iname", iname);
 							if (!iname) return;
 							if (iname.indexOf('$')  > -1) {
 								iname = iname.split('$')[0];
@@ -117,15 +115,43 @@ app.component("eeaFormTesting",{
 								else
 									itemv = item.val();	
 								expect(itemv).to.equal(valToEnter);
-								console.log(item.attr("name"), itemv, item.attr("type"));
 								done();
 							});
 						});
 					});
 				});
 
+				if ($('#Row').attr("multi") == 1) {
+					describe("Multirow detected... Testing new row", function() {
+						it('form should have two rows', function(done) {
+							var fnc = parent.scp.addRow('form1', 'Row');
+							expect(parent.scp.groups.form1.Row.length).to.equal(2);
+							done();
+						});
+					});
+				}
+
+				describe("Performing form submition emulation", function() {
+					it('should log form elements below', function(done) {
+						var fnc = parent.scp.submit(null, true);
+						var objs = parent.scp.field;
+						var objsStr = "<b>Form submition emulation data:</b><BR><BR>";
+						for (var form in objs) {
+							var frmObj = objs[form];
+							for (var element in frmObj) {
+								objsStr += element + " = " + frmObj[element] + "<BR>";
+							}
+						};
+						var pdiv = $("<div style=\"position:relative;background-color:gold;color:#333;padding:20px;font-size:10px;\">" + objsStr + "</div>").appendTo('#mocha');
+						expect(fnc).to.equal(false);
+						done();
+					});
+				});
+
+				
+
 				mocha.run();
-			}, 1000);
+			}, 1500);
 			});
 		}
 	}
