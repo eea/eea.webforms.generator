@@ -20,7 +20,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 		for (var form in $scope.field) {
 			var frmObj = $scope.field[form];
 			for (var element in frmObj) {
-				console.log("Element: ", element, frmObj[element]);
+				// console.log("Element: ", element, frmObj[element]);
 			}
 		};
 		if (test) return false;

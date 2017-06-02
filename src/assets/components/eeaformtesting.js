@@ -35,7 +35,7 @@ app.component("eeaFormTesting",{
 			setTimeout( function() {
 				mocha.setup('bdd');
 				var expect = chai.expect;
-				var aflabel = "(eea-form-testing : autofilled)";
+				var aflabel = " (eea-form-testing : autofilled)";
 				$("#teststartingmsg").hide();
 							
 				describe("Testing eea form js library", function() {
@@ -76,7 +76,7 @@ app.component("eeaFormTesting",{
 							var valToEnter;
 							switch(itype) {
 							case "text" :
-								valToEnter = Math.random().toString(36).replace(/[^a-z]+/g, '') + " " + aflabel;
+								valToEnter = Math.random().toString(36).replace(/[^a-z]+/g, '') + aflabel;
 								item.val(valToEnter);
 								break;
 							case "number" :
