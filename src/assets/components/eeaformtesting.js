@@ -59,7 +59,7 @@ app.component("eeaFormTesting",{
 					});
 				});
 
-				describe("Testing form. performing autofill...", function() {
+				describe("Testing form. Performing autofill...", function() {
 					$("form").each(function(){
 						$(this).find(':input').each(function(index, item){
 							var itype = item.type;
