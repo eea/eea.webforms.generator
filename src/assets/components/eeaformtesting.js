@@ -98,7 +98,7 @@ app.component("eeaFormTesting",{
 							case "select-one":
 								if (!item.val()) {
 									var options = item.find('option');
-									var sopt = options[Math.floor(Math.random() * options.length)];
+									var sopt = options[Math.floor(Math.random() * (options.length - 1)) + 1];
 									sopt.selected = true;
 									valToEnter = $(sopt).text();
 								} else{ 
