@@ -9,7 +9,6 @@ app.config(function($translateProvider, $translatePartialLoaderProvider) {
 	$translateProvider.preferredLanguage('en');	
 });
 
-
 app.component("eeaLanguage", {
 	template: '<select ng-model="$ctrl.language" ng-change="$ctrl.updateTranslations()" name="form-language" data-placeholder="{{$ctrl.chooselanguage}}" ng-options="item.code as item.label for item in $ctrl.codeLists.CTCodelists.Languages.item" class="slanguage"  style="box-shadow: 0px!imporant;" required></select>',
 	bindings: {
