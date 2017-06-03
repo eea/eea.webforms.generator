@@ -6,6 +6,7 @@ app.component("eeaFormTesting",{
 <style>
 #mocha {
 	margin: 20px;
+	font-family: inherit;
 }
 #mocha-stats {
 	position: absolute;
