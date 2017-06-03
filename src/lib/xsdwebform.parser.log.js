@@ -276,10 +276,7 @@ ${sender.xslt.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n
 	 */
 	showItemLog(xsdItem, verbose) {
 
-		let xspace = "  ";
-		for (let i = 0; i < xsdItem.level; i++) {
-			xspace += "\t";
-		}
+		let xspace = Array(xsdItem.level + 1).join("\t");
 
 		console.log(`${xspace}\x1b[0m\x1b[31m▓▓▓▓▓▓▓▓▓▓▓▓▓\x1b[0m`);
 		process.stdout.write(`${xspace}\x1b[2m▓▓▓▓ \x1b[0m\x1b[2mL:${xsdItem.level} \x1b[2m▓▓▓▓\x1b[0m\x1b[31m⇢\x1b[0m `);

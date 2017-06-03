@@ -919,8 +919,9 @@ class XSDWebFormParserHTMLTags {
 	/**
 	 * tagToHtml
 	 */
-	static tagToHtml(sender) {
+	static tagToHtml(sender, tabs = 4) {
 		let outPut = '';
+		let tabspace = Array(tabs + 1).join("\t");
 
 		if (this.hasLabel) {
 			sender.LabelContentObjects.push({
@@ -935,7 +936,7 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		if (!this.noTag) {
-			outPut += "\n\t\t<" + this.tag;
+			outPut +=  "\n" + tabspace + "<" + this.tag;
 			for (let key in this.attrs) {
 				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
 			}
@@ -949,14 +950,14 @@ class XSDWebFormParserHTMLTags {
 
 		if (this.options) {
 			if (this.tag === 'select') {
-				outPut += "\t\t\t<option value=\"\"></option>\n";
+				outPut += tabspace + "\t<option value=\"\"></option>\n";
 				outPut += this.options.map((option) => {
 					let lbl = option.option.toString().toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.option
 					});
-					return `\t\t\t<option value="${option.value}">{{'labels.text.${lbl}' | translate}}</option>\n`;
+					return `${tabspace}\t<option value="${option.value}">{{'labels.text.${lbl}' | translate}}</option>\n`;
 				}).join("");
 			} else {
 				outPut += this.options.map((option) => {
@@ -978,10 +979,10 @@ class XSDWebFormParserHTMLTags {
 		}
 
 		if (this.autoclose)
-			outPut += "\t\t</" + this.tag + ">\n";
+			outPut += tabspace + "</" + this.tag + ">\n";
 
 		if (this.attrs.required === 1) {
-			outPut += `\t\t<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
+			outPut += `${tabspace}<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;

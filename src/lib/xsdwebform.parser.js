@@ -94,7 +94,7 @@ class XSDWebFormParser {
 			let form = this.htmlOutput.HTMLObjects[f];
 			let formHtml = [];
 
-			html.splice(html.length + 1, 0, "\t\t" + form.itemObject.tagToHtml());
+			html.splice(html.length + 1, 0, "\t\t" + form.itemObject.tagToHtml(this, 1));
 			let groups = this.htmlOutput.HTMLObjects[f].itemObject.groups;
 			html.splice(groups.length + html.length + 1, 0, "\t\t</" + form.itemObject.tag + ">");
 
@@ -105,21 +105,21 @@ class XSDWebFormParser {
 				formHtml.push(`\t\t<div id="group-area-{{$index + 1}}-${group.itemObject.name}" class="group-area" ng-repeat="grouprow in groups.${form.itemObject.name}.${group.itemObject.name} track by $index" ng-show="grouprow > 0">`);
 
 				if (group.itemObject.prepend)
-					formHtml.push("\t\t\t" + group.itemObject.prepend);
+					formHtml.push("\t\t" + group.itemObject.prepend);
 
-				formHtml.push("\t\t\t" + group.itemObject.tagToHtml());
+				formHtml.push("\t\t\t\t" + group.itemObject.tagToHtml(this, 3));
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					let ngshow = '';
 					if (groups[i].itemObject.items[i2].hide && groups[i].itemObject.items[i2].attrs.hideonautoselect == 1) {
 						ngshow = 'ng-show="' + groups[i].itemObject.items[i2].hide + '"';
 					} 
-					formHtml.push("\t\t<div class=\"formitem\" " + ngshow + ">" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "</div>");
+					formHtml.push("\t\t\t<div class=\"formitem\" " + ngshow + ">\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t</div>");
 				}
 
-				formHtml.push("\t\t\t</" + group.itemObject.tag + ">");
+				formHtml.push("\t\t</" + group.itemObject.tag + ">");
 
-				formHtml.push('\t\t\t</div>');
 				formHtml.push('\t\t</div>');
+				formHtml.push('\t</div>');
 
 				if (group.itemObject.append)
 					formHtml.push("\t\t\t" + group.itemObject.append);
