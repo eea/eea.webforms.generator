@@ -124,7 +124,7 @@ app.component("eeaFormTesting",{
 									itemv = $(item).find("option:selected").text();
 								else
 									itemv = item.val();	
-								expect(itemv).to.equal(valToEnter);
+								expect(itemv).to.equal(valToEnter.toString());
 								done();
 							});
 						});
