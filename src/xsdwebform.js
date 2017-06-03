@@ -277,7 +277,6 @@ export default class XSDWebForm {
   
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
-var langFile = '${this.baseFileName}';
 var groups = {${
 	this.parser.htmlTagParser.HTMLObjects.map( (frm) => { 
 		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {
@@ -298,7 +297,7 @@ var groups = {${
 		<h1>EEA</h1>
 		<h2 class="subheader">Web Form</h2>
 	</div>
-	<eea-language scp="this" lang="{{selectedLanguage}}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
+	<eea-language scp="this" lang="{{selectedLanguage}}" langfile="${this.baseFileName}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
 </div>
 
 <div id="formworkarea" class="row col-lg-12">
