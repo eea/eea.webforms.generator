@@ -134,7 +134,7 @@ app.component("eeaFormTesting",{
 				if ($('#Row').attr("multi") == 1) {
 					describe("Multirow detected... Testing new row", function() {
 						it('form should have two rows', function(done) {
-							$('.rowbutton').trigger('click');
+							parent.scp.addRow('form1', 'Row');
 							expect(parent.scp.groups.form1.Row.length).to.equal(2);
 							done();
 						});
