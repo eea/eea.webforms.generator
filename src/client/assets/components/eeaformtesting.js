@@ -8,6 +8,10 @@ app.component("eeaFormTesting",{
 	margin: 20px;
 	font-family: inherit;
 }
+#mocha h1 a { 
+	font-size: 13px; 
+	font-weight: 900;
+}
 #mocha-stats {
 	position: absolute;
 	top: 4px;
