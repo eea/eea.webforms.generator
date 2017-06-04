@@ -203,7 +203,7 @@ export default class XSDWebForm {
 							reject(err);
 						}
 					});
-					ncp(__dirname + "/test/", parent.buildPath + "test", function(err) {
+					ncp(__dirname + "/dev/", parent.buildPath + "dev", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
