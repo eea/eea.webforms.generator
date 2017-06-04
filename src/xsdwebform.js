@@ -145,7 +145,7 @@ export default class XSDWebForm {
 					
 					// Create HTML file
 					this.createFile(this.buildPath + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
-						this.getFile(__dirname + "/lng/ct-codelists-en.json").then((langs) => {
+						this.getFile(__dirname + "/client/lng/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
 							let langData = this.parser.getFullTextContent();
 							langs.CTCodelists.Languages.item.forEach((item) => {
@@ -197,19 +197,19 @@ export default class XSDWebForm {
 					fs.mkdirSync(parent.buildPath);
 					fs.mkdirSync(parent.buildPath+"xslt");
 					fs.mkdirSync(parent.buildPath+"log");
-					ncp(__dirname + "/lng/", parent.buildPath + "lng", function(err) {
+					ncp(__dirname + "/client/lng/", parent.buildPath + "lng", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
 					});
-					ncp(__dirname + "/dev/", parent.buildPath + "dev", function(err) {
+					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
 					});
-					ncp(__dirname + "/assets/", parent.buildPath + "assets", function(err) {
+					ncp(__dirname + "/client/assets/", parent.buildPath + "assets", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
