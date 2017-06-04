@@ -204,6 +204,9 @@ export default class XSDWebForm {
 						}
 					});
 					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
+						parent.getFile(__dirname + "/client/dev/package.json").then ((data) => {
+							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
+						});
 						if (err) {
 							console.error(err);
 							reject(err);
@@ -215,7 +218,7 @@ export default class XSDWebForm {
 							reject(err);
 						}
 						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + ".webform.js", function(err) {
-							parent.getFile(__dirname + "/webform.js").then ( (data) => {
+							parent.getFile(__dirname + "/webform.js").then ((data) => {
 								parent.createFile(parent.buildPath + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
 							if (err) {

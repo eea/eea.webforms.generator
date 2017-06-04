@@ -2,9 +2,8 @@
   "name": "eea-webform",
   "version": "1.0.0",
   "description": "",
-  "main": "../webform.js",
-  "dependencies": {
-  },
+  "main": "../*.js",
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -16,12 +15,19 @@
     "mocha": "^3.3.0",
     "request": "^2.81.0",
     "request-mocha": "^0.2.0",
+    "uglify-js": "^3.0.11",
+    "uglifyjs-folder": "^1.1.0",
+    "uglifycss": "0.0.27",
     "wcag": "^0.3.0"
   },
   "scripts": {
-    "lint": "eslint ",
-    "test": "mocha",
-    "testc": "istanbul cover _mocha"
+    "lint": "eslint ../*.js",
+    "test": "mocha --compilers js:babel-register",
+    "testc": "istanbul cover _mocha -- --compilers js:babel-register",
+    "build": "babel ../assets/components/*.js -d ./dist/components --no-babelrc --presets=es2015 --ignore *.min.js && npm run minjs  && npm run mincom  && npm run mincss",
+    "minjs": "babel ../$FNM$.webform.js | uglifyjs -o ./dist/$FNM$.webform.min.js",
+    "mincom": "uglifyjs-folder ./dist/assets/components -e -o ./dist/assets/components-min",
+    "mincss": "uglifycss ../$FNM$.webform.css --output ./dist/$FNM$.webform.min.css "
   },
   "author": "EEA aurthor",
   "license": "ISC"
