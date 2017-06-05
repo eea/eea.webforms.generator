@@ -51,16 +51,14 @@ describe('Creating Class', function() {
 
 				return data.tester.test()
 					.then(function(res) {
-
 						describe("Build WCAG 2-AA Accessibility Checker:", function() {
-							
 							it("Returns: 'PASS'", function() {
-									expect(res.status).to.equal("PASS");
+								expect(res.status).to.equal("PASS");
 							});
-							
 						});
 
 					});
+				done();
 		});
 	});
 });
