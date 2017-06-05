@@ -12,6 +12,7 @@
     "path": "^0.12.7",
     "rimraf": "^2.6.1",
     "uglify-js": "^3.0.11",
+    "uglifyjs-folder": "^1.1.0",
     "uglifycss": "0.0.27",
     "wcag": "^0.3.0",
     "webshot": "^0.18.0",
@@ -37,7 +38,8 @@
     "testh": "istanbul cover _mocha -- --compilers js:babel-register -c --timeout 5000",
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "deva": "nodemon ./src/xsdwebform.js -a --exec babel-node --presets es2015,stage-2",
-    "build": "babel ./src -d dist --presets es2015,stage-2"
+    "build": "babel ./src -d dist --presets es2015,stage-2",
+    "buildcom": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components -e -o ./"
   },
   "author": "George Bouris",
   "license": "ISC"
