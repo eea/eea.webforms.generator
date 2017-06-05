@@ -266,12 +266,12 @@ export default class XSDWebForm {
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
-<script src="./assets/components/eeaheader.min.js" ></script>
-<script src="./assets/components/eealanguage.min.js" ></script>
-<script src="./assets/components/eeatoolbar.min.js" ></script>
-<script src="./assets/components/eealookup.min.js" ></script>
-<script src="./assets/components/eeaformtesting.min.js" ></script>
-<script src="./assets/components/eeabuildinfo.min.js" ></script>
+<script src="./assets/components/eeaheader.min.js"></script>
+<script src="./assets/components/eealanguage.min.js"></script>
+<script src="./assets/components/eeatoolbar.min.js"></script>
+<script src="./assets/components/eealookup.min.js"></script>
+<script src="./assets/components/eeaformtesting.min.js"></script>
+<script src="./assets/components/eeabuildinfo.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="./${this.baseFileName}.webform.min.css"/>
