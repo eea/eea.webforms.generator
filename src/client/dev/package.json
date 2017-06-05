@@ -28,7 +28,7 @@
     "build": "npm run minjs  && npm run mincss",
     "minjs": "babel ../$FNM$.webform.js | uglifyjs -o ./dist/$FNM$.webform.min.js",
     "mincss": "uglifycss ../$FNM$.webform.css --output ./dist/$FNM$.webform.min.css ",
-    "mincom": "uglifyjs-folder ./dist/assets/components -e -o -y ./dist/assets/components-min",
+    "mincom": "uglifyjs-folder ./dist/assets/components -e -y -o ./dist/assets/components-min",
     "deploy": "babel ../$FNM$.webform.js | uglifyjs -o ../$FNM$.webform.min.js && uglifycss ../$FNM$.webform.css --output ../$FNM$.webform.min.css",
     "deployall": "babel ../assets/components/*.js -d ./dist/components --no-babelrc --presets=es2015,stage-2 --ignore *.min.js && npm run deploy"
   },
