@@ -332,8 +332,9 @@ var groups = {${
 
 <footer class="footer">
 	<div class="footer-wrapper">
+		<br>
 		<eea-footer></eea-footer>
-		<br><br>
+		<br><br><br>
 		<!--eea-form-build date="${new Date()}" user="${process.env.USER}"></eea-form-build-->
 	</div>
 </footer>
