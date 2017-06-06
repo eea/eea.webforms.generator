@@ -27,8 +27,9 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 			for (var element in frmObj) {
 				postContent += "&" + encodeURIComponent(element) + "=" + encodeURI(frmObj[element]);
 			}
-			console.log("postContent", postContent);	
 
+			if (test) return false;
+		
 			var url = $("#" + form).attr("action");
 			$http({
 				method: 'POST',
@@ -46,8 +47,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 				});
 		}
 
-		if (test) return false;
-		
 		//tmp
 		return false;
 	};
