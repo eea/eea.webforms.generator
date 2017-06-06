@@ -20,9 +20,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 
 		for (var form in $scope.field) {
 			if (frm) {
-			// 	$timeout(function () {
-			// 	$("#" + frm.$name).submit();
-			// },10);
 				if (frm.$name !== form) continue;
 			}
 			var frmObj = $scope.field[form];
