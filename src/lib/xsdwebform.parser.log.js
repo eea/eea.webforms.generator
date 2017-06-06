@@ -181,7 +181,7 @@ li.xsdc span {
 	display: none;
 	border-radius: 35px;
 	border: solid 20px rgba(154, 154, 154, 1);
-	margin: 20px;
+	margin: 100px 20px 80px 20px;
 	color: #fff;
 }
 </style>
