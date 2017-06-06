@@ -65,6 +65,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 
 	$scope.deleteRow = function (frm, group, id) {
 		$scope.groups[frm][group][$scope.groups[frm][group].indexOf(id)] = -1;
+		$("#group-area-" + id + "-" + group).html("");
 	};
 }
 
