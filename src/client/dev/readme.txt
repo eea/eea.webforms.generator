@@ -21,7 +21,7 @@ Lint test
 WCAG-2 accessibility test
 ---------------------------------
 - *(once only) edit URL_TO_TEST variable in dev/test.js file  
-- npm test
+- npm test 
 
 
 *********************************

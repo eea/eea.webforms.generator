@@ -22,8 +22,8 @@
   },
   "scripts": {
     "lint": "eslint ../*.js",
-    "test": "mocha --compilers js:babel-register --timeout 15000",
-    "testc": "istanbul cover _mocha -- --compilers js:babel-register --timeout 15000",
+    "test": "TEST_URL=https://www.eea.europa.eu/help/contact-info mocha --compilers js:babel-register --timeout 15000 -- ",
+    "testc": "TEST_URL=https://www.eea.europa.eu/help/contact-info istanbul cover _mocha -- --compilers js:babel-register --timeout 15000 -- ",
     "buildall": "babel ../assets/components/*.js -d ./dist/components --no-babelrc --presets=es2015 --ignore *.min.js && npm run minjs  && npm run mincom  && npm run mincss",
     "build": "npm run minjs  && npm run mincss",
     "minjs": "babel ../$FNM$.webform.js | uglifyjs -o ./dist/$FNM$.webform.min.js",
