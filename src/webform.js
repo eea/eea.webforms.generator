@@ -45,6 +45,8 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 				function(error) {
 					console.log("error", error.status);
 				});
+			
+			if (frm) { break; }
 		}
 
 		//tmp
