@@ -23,13 +23,6 @@ WCAG-2 accessibility test
 - *(once only) edit URL_TO_TEST variable in dev/test.js file  
 - npm test
 
----------------------------------
-WCAG-2 accessibility test and Cover report
----------------------------------
-- *(once only) edit URL_TO_TEST variable in dev/test.js file  
-- npm run testc
-
-
 
 *********************************
  BUILD Info
