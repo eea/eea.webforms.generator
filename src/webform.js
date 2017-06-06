@@ -17,12 +17,35 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 	$scope.groups = groups;
 
 	$scope.submit = function (frm, test) {
+
 		for (var form in $scope.field) {
-			var frmObj = $scope.field[form];
-			for (var element in frmObj) {
-				// console.log("Element: ", element, frmObj[element]);
+			if (frm) {
+				if (frm.$name !== form) continue;
 			}
+			var frmObj = $scope.field[form];
+			var postContent = '';
+			for (var element in frmObj) {
+				postContent += "&" + encodeURIComponent(element) + "=" + encodeURI(frmObj[element]);
+			}
+			console.log("postContent", postContent);	
+
+			var url = $("#" + form).attr("action");
+			$http({
+				method: 'POST',
+				url: url,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data: postContent
+			}).then(			
+				function(response) {
+					console.log("response", response.status);
+				},
+				function(error) {
+					console.log("error", error.status);
+				});
 		}
+
 		if (test) return false;
 		
 		//tmp
