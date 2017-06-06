@@ -5,6 +5,8 @@ import request from 'request';
 import httpUtils from 'request-mocha';
 import wcag from 'wcag';
 
+var URL_TO_TEST = "https://www.google.com";
+
 describe('Testing Form', function() {
 
 	before(function() {
@@ -27,8 +29,7 @@ describe('Testing Form', function() {
 
 function test() {
 	return new Promise( (resolve, reject) => {
-		var url = "https://www.google.com";
-		var tester = new XSDWebFormParserTestAccessibility(url);
+		var tester = new XSDWebFormParserTestAccessibility(URL_TO_TEST);
 		tester.test().then ((res) => {
 			let cres = "\x1b[32m ✓\x1b[1m ";
 			let cresPlus = "";
@@ -41,16 +42,12 @@ function test() {
 					return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.source}\n\x1b[2m`
 				}).join("");
 			}
-			console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\x1b[0m\x1b[37mcheck ${url} Form Testing Component for Onsite testing results\n\n`);
+			console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\x1b[0m\x1b[37mcheck ${URL_TO_TEST} Form Testing Component for Onsite testing results\n\n`);
 			resolve();
 		});
 	});
 }
 
-/**
- * Class XSDWebFormParserTestAccessibility
- * Web Accessibility Testing
- */
 class XSDWebFormParserTestAccessibility {
 	constructor(url) {
 		this.url = url;

@@ -5,7 +5,7 @@ EEA Web Form Build Info
 Getting Started / Setup
 ---------------------------------
 - cd /dev directory
-- (once only) npm install
+- *(once only) npm install
 
 
 
@@ -20,7 +20,8 @@ Lint test
 ---------------------------------
 WCAG-2 accessibility test
 ---------------------------------
-- npm run wcag 
+- *(once only) edit URL_TO_TEST variable in dev/test.js file  
+- npm test
   
 
 
