@@ -33,9 +33,9 @@
   },
   "scripts": {
     "lint": "eslint src/**/*webform*",
-    "test": "mocha --compilers js:babel-register --timeout 15000",
-    "testc": "istanbul cover _mocha -- --compilers js:babel-register --timeout 15000",
-    "testh": "istanbul cover _mocha -- --compilers js:babel-register -c --timeout 15000",
+    "test": "mocha --compilers js:babel-register --timeout 5000",
+    "testc": "istanbul cover _mocha -- --compilers js:babel-register --timeout 5000",
+    "testh": "istanbul cover _mocha -- --compilers js:babel-register -c --timeout 5000",
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "deva": "nodemon ./src/xsdwebform.js -a --exec babel-node --presets es2015,stage-2",
     "build": "babel ./src -d dist --presets es2015,stage-2",
