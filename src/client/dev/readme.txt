@@ -8,6 +8,25 @@ Getting Started / Setup
 - (once only) npm install
 
 
+
+*********************************
+ Test Info
+**********************************
+---------------------------------
+Lint test
+---------------------------------
+- npm run lint 
+
+---------------------------------
+WCAG-2 accessibility test
+---------------------------------
+- npm run wcag 
+  
+
+
+*********************************
+ BUILD Info
+**********************************
 ---------------------------------
 Repackage .js ([webFormName].webform.js) and .css ([webFormName].webform.css)  files
 ---------------------------------

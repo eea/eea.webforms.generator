@@ -22,7 +22,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 			for (var element in frmObj) {
 				// console.log("Element: ", element, frmObj[element]);
 			}
-		};
+		}
 		if (test) return false;
 		
 		//tmp

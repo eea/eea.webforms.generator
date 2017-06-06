@@ -3,7 +3,7 @@
 import { expect } from 'chai';
 import request from 'request';
 import httpUtils from 'request-mocha';
-import { xsdWebForm } from '..xsdwebform';
+import wcag from 'wcag';
 
 describe('Testing Form', function() {
 
@@ -11,20 +11,68 @@ describe('Testing Form', function() {
 		
 	});
 
-	it('Test', function() {
+	describe('WCAG 2-AA Accessibility Checker', function() {
 		
-		describe('[1]:', function() {
-			return data.tester.test()
-					.then(function(res) {
-						describe("Build WCAG 2-AA Accessibility Checker:", function() {
-							it("Returns: 'PASS'", function() {
-								expect(res.status).to.equal("PASS");
-							});
-						});
-
-					});
-				done();
+		it('Test', function() {
+			return test().then(function(res) {
+				it("Returns: 'PASS'", function() {
+					expect(res.status).to.equal("PASS");
+					done();
+				});
+			});
 		});
 
 	});
 });
+
+function test() {
+	return new Promise( (resolve, reject) => {
+		var url = "https://www.google.com";
+		var tester = new XSDWebFormParserTestAccessibility(url);
+		tester.test().then ((res) => {
+			let cres = "\x1b[32m ✓\x1b[1m ";
+			let cresPlus = "";
+			if (res.status !== 'PASS') {
+				cres = "\x1b[31mx ";
+				cresPlus += "\n\x1b[37m\x1b[1mErrors: \x1b[2m" + res.errors.map((item) => {
+					return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.solution}\n\x1b[2m`
+				}).join("");
+				cresPlus += "\n\x1b[37m\x1b[1m\nPotential Problems: \x1b[2m" + res.potentialProblems.map((item) => {
+					return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.source}\n\x1b[2m`
+				}).join("");
+			}
+			console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status} ${cresPlus}\n\x1b[0m\x1b[37mcheck ${url} Form Testing Component for Onsite testing results\n\n`);
+			resolve();
+		});
+	});
+}
+
+/**
+ * Class XSDWebFormParserTestAccessibility
+ * Web Accessibility Testing
+ */
+class XSDWebFormParserTestAccessibility {
+	constructor(url) {
+		this.url = url;
+		this.acblt = { 
+			options : {
+				id: 'cb8b45b1bf19ff2d3c5a7f270e571e7acc055084',
+				uri: url,
+				guide: 'WCAG2-AA'
+			}
+		};
+	}
+
+	test() {
+		return new Promise( (resolve, reject) => {
+			wcag(this.acblt.options, function(error, data) {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(data);
+				}
+			});
+		});
+	}
+}
+
