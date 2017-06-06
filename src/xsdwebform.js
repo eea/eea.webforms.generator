@@ -108,7 +108,8 @@ export default class XSDWebForm {
 							.listen(parent.serverPort, function () {
 								if (parent.showLog) {
 									console.log(`\x1b[1m\x1b[37mTest web server is listening on port ${parent.serverPort}\x1b[0m`);
-									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}.html\n\n`);
+									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}.html`);
+									console.log(`\x1b[0m\x1b[37mLog: \x1b[2mhttp://localhost:${parent.serverPort}/log/${parent.baseFileName}.log.html \n\n`);
 								}
 								resolve(parent);
 							});
