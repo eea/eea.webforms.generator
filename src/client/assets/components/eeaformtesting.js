@@ -1,12 +1,13 @@
 'use strict';
 
-app.component("eeaFormTesting",{
+app.component("eeaFormTesting", {
 	template: `
 <link rel="stylesheet" type="text/css" href="./assets/js/test/mocha.min.css"/>
 <style>
 #mocha {
 	margin: 20px;
 	font-family: inherit;
+	z-index: 999;
 }
 #mocha h1 a { 
 	font-size: 13px; 
@@ -30,7 +31,7 @@ app.component("eeaFormTesting",{
 	bindings: {
 		scp: '='
 	},
-	controller: function() {
+	controller: [function() {
 		this.timecnt = 3000;
 		var parent = this;
 		this.$onInit = function() {
@@ -173,5 +174,5 @@ app.component("eeaFormTesting",{
 			}, parent.timecnt);
 			});
 		}
-	}
+	}]
 });

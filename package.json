@@ -28,6 +28,7 @@
     "heapdump": "^0.3.9",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.3.0",
+    "recursive-uglifyjs": "^1.0.0",
     "request": "^2.81.0",
     "request-mocha": "^0.2.0"
   },
@@ -39,7 +40,7 @@
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "deva": "nodemon ./src/xsdwebform.js -a --exec babel-node --presets es2015,stage-2",
     "build": "babel ./src -d dist --presets es2015,stage-2",
-    "buildcomDO-NOT-RUN": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/assets/components -y -eo ./src/client/assets/components"
+    "buildcom": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/assets/components -eo ./src/client/assets/components "
   },
   "author": "George Bouris",
   "license": "ISC"

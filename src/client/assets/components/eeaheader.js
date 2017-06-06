@@ -139,7 +139,7 @@ app.component("eeaHeader", {
 		<div id="network-title">Eionet</div>
 		<div id="site-title">European Environment Information and Observation Network</div>
 	</div>
-</div>`, controller: function($http, $translate) {
+</div>`, controller: ['$http', '$translate', function($http, $translate) {
 		var parent = this;
 		this.$onInit = function() {				
 			$(document).on("scroll", function () {
@@ -150,5 +150,5 @@ app.component("eeaHeader", {
 				}
 			});
 		}
-	}
+	}]
 });

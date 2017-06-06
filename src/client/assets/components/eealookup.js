@@ -7,7 +7,7 @@ app.config([ '$locationProvider', function($locationProvider) {
 	});
 }]);
 
-app.component("lookup",{
+app.component("lookup", {
 	template: '<select ng-model="$ctrl.parentNgModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
 	bindings: {
 		parentNgModel: '=',
@@ -22,7 +22,7 @@ app.component("lookup",{
 		hideonautoselect: '@',
 		scp: '='
 	},
-	controller: function($http, $translate, $location) {
+	controller: ['$http', '$translate', '$location', function($http, $translate, $location) {
 		var parent = this;
 		this.$onInit = function() {
 				if (!parent.luOption.toString().startsWith('[')) {
@@ -54,5 +54,5 @@ app.component("lookup",{
 		};
 		this.updateLookup = function() {
 		};
-	}
+	}]
 });
