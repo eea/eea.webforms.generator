@@ -5,7 +5,7 @@ import request from 'request';
 import httpUtils from 'request-mocha';
 import wcag from 'wcag';
 
-var URL_TO_TEST = "https://www.google.com";
+var URL_TO_TEST = "http://webq2test.eionet.europa.eu/";
 
 describe('Testing Form', function() {
 
@@ -13,7 +13,7 @@ describe('Testing Form', function() {
 		
 	});
 
-	describe('WCAG 2-AA Accessibility Checker', function() {
+	describe('WCAG 2-AA Accessibility Checker ' + URL_TO_TEST, function() {
 		
 		it('Test', function() {
 			return test().then(function(res) {
@@ -28,7 +28,7 @@ describe('Testing Form', function() {
 });
 
 function test() {
-	return new Promise( (resolve, reject) => {
+	return new Promise((resolve, reject) => {
 		var tester = new XSDWebFormParserTestAccessibility(URL_TO_TEST);
 		tester.test().then ((res) => {
 			let cres = "\x1b[32m ✓\x1b[1m ";

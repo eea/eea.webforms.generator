@@ -160,7 +160,7 @@ export default class XSDWebForm {
 								let cresPlus = "";
 								if (res.status !== 'PASS') {
 									cres = "\x1b[31mx ";
-									cresPlus += "\n\x1b[37m\x1b[1mErrors: \x1b[2m" + res.errors.map((item) => {
+									cresPlus += "\n\n\x1b[37m\x1b[1mErrors: \x1b[2m" + res.errors.map((item) => {
 										return `\n\tLine: ${item.line}, Column: ${item.column}\n\t\x1b[31m\x1b[1m${item.message}\n\t\x1b[0m\x1b[37m${item.solution}\n\x1b[2m`
 									}).join("");
 									cresPlus += "\n\x1b[37m\x1b[1m\nPotential Problems: \x1b[2m" + res.potentialProblems.map((item) => {
