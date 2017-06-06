@@ -25,3 +25,5 @@ Repackage all including Components
 ---------------------------------
 - npm run buildall 
   look in directory dev/dist for minified versions of [webFormName].webform.js and [webFormName].webform.css and in dev/dist/assets for Components
+
+  
