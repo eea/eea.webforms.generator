@@ -15,8 +15,8 @@
     "mocha": "^3.3.0",
     "request": "^2.81.0",
     "request-mocha": "^0.2.0",
+    "minify-all": "^1.2.2",
     "uglify-js": "^3.0.11",
-    "uglifyjs-folder": "^1.1.0",
     "uglifycss": "0.0.27",
     "wcag": "^0.3.0"
   },
@@ -28,9 +28,8 @@
     "build": "npm run minjs  && npm run mincss",
     "minjs": "babel ../$FNM$.webform.js | uglifyjs -o ./dist/$FNM$.webform.min.js",
     "mincss": "uglifycss ../$FNM$.webform.css --output ./dist/$FNM$.webform.min.css ",
-    "mincomDO_NOT_RUN": "uglifyjs-folder ./dist/assets/components -e -o ./dist/assets/components-min",
-    "deploy": "babel ../$FNM$.webform.js | uglifyjs -o ../$FNM$.webform.min.js && uglifycss ../$FNM$.webform.css --output ../$FNM$.webform.min.css",
-    "deployall": "babel ../assets/components/*.js -d ./dist/components --no-babelrc --presets=es2015,stage-2 --ignore *.min.js && npm run deploy"
+    "mincom": "minify-all ./dist/assets/components",
+    "deploy": "babel ../$FNM$.webform.js | uglifyjs -o ../$FNM$.webform.min.js && uglifycss ../$FNM$.webform.css --output ../$FNM$.webform.min.css"
   },
   "author": "EEA aurthor",
   "license": "ISC"
