@@ -20,23 +20,23 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 
 		for (var form in $scope.field) {
 			if (frm) {
+			// 	$timeout(function () {
+			// 	$("#" + frm.$name).submit();
+			// },10);
 				if (frm.$name !== form) continue;
 			}
 			var frmObj = $scope.field[form];
 			var postContent = '';
 			for (var element in frmObj) {
-				postContent += "&" + encodeURIComponent(element) + "=" + encodeURI(frmObj[element]);
+				postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
 			}
 
 			if (test) return false;
 		
-			var url = $("#" + form).attr("action");
 			$http({
 				method: 'POST',
-				url: url,
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				},
+				url: $("#" + form).attr("eea-action"),
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				data: postContent
 			}).then(			
 				function(response) {
@@ -45,7 +45,7 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 				function(error) {
 					console.log("error", error.status);
 				});
-			
+
 			if (frm) { break; }
 		}
 

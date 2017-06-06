@@ -141,7 +141,7 @@ class XSDWebFormParserHTMLTags {
 			text: item.attr.title || ""
 		});
 		let formNum = sender.HTMLObjects.length + 1;
-		let formEnd = `<button type="button" ng-click="submit(form${formNum})" class="submitbutton btn btn-primary">{{'submitform' | translate}}</button>`;
+		let formEnd = `<button type="submit" class="submitbutton btn btn-primary">{{'submitform' | translate}}</button>`;
 		var formObject = {
 			name: 'form' + formNum ,
 			action: item.attr.action,
@@ -150,7 +150,7 @@ class XSDWebFormParserHTMLTags {
 			attrs: {
 				name: 'form' + formNum,
 				id: 'form' + formNum,
-				'action': item.attr.action,
+				'eea-action': item.attr.action,
 				method: 'post',
 				class: 'ewform medium-12',
 				'ng-submit': `submit(form${formNum})`
