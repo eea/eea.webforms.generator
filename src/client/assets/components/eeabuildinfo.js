@@ -1,7 +1,7 @@
 'use strict';
 
 app.component("eeaFormBuild", {
-	template: 'Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago<br>by {{$ctrl.user}}',
+	template: '<div style="line-height: 10px;color: #f0f0f0;">Build date:  {{$ctrl.date}}<br>{{$ctrl.diff}} ago<br>by {{$ctrl.user}}</div>',
 	bindings: {
 		date: '@',
 		user: '@'
