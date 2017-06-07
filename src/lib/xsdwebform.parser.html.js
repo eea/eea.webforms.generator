@@ -353,7 +353,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -388,7 +388,7 @@ class XSDWebFormParserHTMLTags {
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "number",
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -436,7 +436,7 @@ class XSDWebFormParserHTMLTags {
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
 					type: "date",
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -520,7 +520,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -565,7 +565,7 @@ class XSDWebFormParserHTMLTags {
 					'lu-order': item.attr['lu-order'],
 					autoselect: item.attr.autoselect,
 					hideonautoselect: item.attr.hideonautoselect,
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'parent-ng-model': 'field.' + itemFormModel
 				},
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
@@ -634,7 +634,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					required: 1,
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				itemprepend: "<div class=\"radioclass\">",
@@ -672,7 +672,7 @@ class XSDWebFormParserHTMLTags {
 					name: item.attr.element + '${{$index + 1}}',
 					id: item.attr.element.replace("-", "") + '${{$index + 1}}',
 					type: "checkbox",
-					'xsd-map': sender.getEwMap(item, itemInfo),
+					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
 				itemprepend: "<div class=\"checkboxclass\">",
@@ -821,11 +821,11 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * getEwMap
+	 * getXsdMap
 	 * @param item
 	 * @param itemInfo
 	 */
-	getEwMap(item, itemInfo) {
+	getXsdMap(item, itemInfo) {
 		return itemInfo.groupBase.itemObject.name + "::" + itemInfo.groupBase.itemObject.xsdName + "/" + itemInfo.parentXsdName + "/" + item.attr.element ;
 	}
 
