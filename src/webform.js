@@ -10,44 +10,10 @@ app.controller('WebFormAppCtrl', ['$$', '$scope', '$http', '$timeout', '$window'
 */
 function WebFormAppCtrl($$, $scope, $http, $timeout, $window, $translate, $compile) {
 
-	$scope.field = {};
-	$scope.multipleIndex = 1;
-	$scope.ValidationDisabled = false;
-	$scope.selectedLanguage = "en";
-	$scope.groups = groups;
+	$$.init($scope);
 
 	$scope.submit = function (frm, test) {
-
-		for (var form in $scope.field) {
-			if (frm) {
-				if (frm.$name !== form) continue;
-			}
-
-			if (test) return false;
-		
-			var frmObj = $scope.field[form];
-			var postContent = '';
-			for (var element in frmObj) {
-				postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
-			}
-
-			$http({
-				method: 'POST',
-				url: $("#" + form).attr("eea-action"),
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				data: postContent
-			}).then(			
-				function(response) {
-					console.log("response", response.status);
-				},
-				function(error) {
-					console.log("error", error.status);
-				});
-
-			if (frm) { break; }
-		}
-
-		return false;
+		return $$.form.submit(frm, test, $scope);
 	};
 
 	$scope.addRow = function (frm, group) {

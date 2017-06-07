@@ -295,7 +295,7 @@ var groups = {${
 </script>
 </head>
 <body  ng-controller="WebFormAppCtrl">
-
+<eea-form-testing scp="this"></eea-form-testing>
 <eea-web-header></eea-web-header>
 
 <div id="container">
@@ -312,7 +312,6 @@ var groups = {${
 	</div>
 	
 	<div class="row"> 
-	<eea-form-testing scp="this"></eea-form-testing>
 	`;
 	}
 

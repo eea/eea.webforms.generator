@@ -3,6 +3,13 @@ app.service('$$', function() {
 		test: function($scope) {
 			return 'test' + $scope;
 		},
+		init: function($scope) {
+			$scope.field = {};
+			$scope.multipleIndex = 1;
+			$scope.ValidationDisabled = false;
+			$scope.selectedLanguage = "en";
+			$scope.groups = groups;
+		},
 		group: {
 			addRow: function(frm, group, $scope, $compile) {
 				$scope.multipleIndex = $scope.groups[frm][group].length;
@@ -16,6 +23,41 @@ app.service('$$', function() {
 			deleteRow: function(frm, group, id, $scope) {
 				$scope.groups[frm][group][$scope.groups[frm][group].indexOf(id)] = -1;
 				$("#group-area-" + id + "-" + group).html("");
+			}
+		},
+		form: {
+			submit : function (frm, test, $scope) {
+
+				for (var form in $scope.field) {
+					if (frm) {
+						if (frm.$name !== form) continue;
+					}
+
+					if (test) return false;
+				
+					var frmObj = $scope.field[form];
+					var postContent = '';
+					for (var element in frmObj) {
+						postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
+					}
+
+					$http({
+						method: 'POST',
+						url: $("#" + form).attr("eea-action"),
+						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+						data: postContent
+					}).then(			
+						function(response) {
+							console.log("response", response.status);
+						},
+						function(error) {
+							console.log("error", error.status);
+						});
+
+					if (frm) { break; }
+				}
+
+				return false;
 			}
 		}
 	}
