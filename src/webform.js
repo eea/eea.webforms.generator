@@ -51,18 +51,11 @@ function WebFormAppCtrl($$, $scope, $http, $timeout, $window, $translate, $compi
 	};
 
 	$scope.addRow = function (frm, group) {
-		$scope.multipleIndex = $scope.groups[frm][group].length;
-		var id = ++$scope.multipleIndex;
-		$scope.groups[frm][group].push(id);
-		$timeout(function () {
-			$scope.$apply();
-			$('#group-area-' + $scope.multipleIndex + '-' + group).prepend($compile('<div class="row"><button type="button"  title="{{\'deleterow\' | translate}}"class="deleterowbutton" ng-click="deleteRow(\'' + frm + '\', \'' + group + '\', ' + id + ')"></button></div>')($scope));
-		}, 10);
+		$$.ui.addRow(frm, group, $scope, $compile);
 	};
 
 	$scope.deleteRow = function (frm, group, id) {
-		$scope.groups[frm][group][$scope.groups[frm][group].indexOf(id)] = -1;
-		$("#group-area-" + id + "-" + group).html("");
+		$$.ui.deleteRow(frm, group, id, $scope);
 	};
 }
 

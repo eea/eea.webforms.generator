@@ -40,7 +40,8 @@
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "deva": "nodemon ./src/xsdwebform.js -a --exec babel-node --presets es2015,stage-2",
     "build": "babel ./src -d dist --presets es2015,stage-2",
-    "buildcom": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/assets/components -eo ./src/client/assets/components "
+    "buildcom": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/assets/components -eo ./src/client/assets/components ",
+    "buildser": "babel ./src/client/assets/services/*.js -d /tmp/services --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/services/src/client/assets/services -eo ./src/client/assets/services "
   },
   "author": "George Bouris",
   "license": "ISC"

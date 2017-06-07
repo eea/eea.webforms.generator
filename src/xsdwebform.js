@@ -267,7 +267,7 @@ export default class XSDWebForm {
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
-<script src="./assets/services/eeawebformcore.js"></script>
+<script src="./assets/services/eeawebformcore.min.js"></script>
 <script src="./assets/components/eeawebheader.min.js"></script>
 <script src="./assets/components/eeafooter.min.js"></script>
 <script src="./assets/components/eeabuildinfo.min.js"></script>
