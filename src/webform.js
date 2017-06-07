@@ -3,25 +3,26 @@
 //var Vesrion="0.2";
 
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
-app.controller('WebFormAppCtrl', ['$$', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
+app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
 
 /**
 * WebFormAppCtrl: Main controller
 */
-function WebFormAppCtrl($$, $scope, $http, $timeout, $window, $translate, $compile) {
+function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $compile) {
 
-	$$.init($scope);
-
+	$eea.init($scope);
+	
 	$scope.submit = function (frm, test) {
-		return $$.form.submit(frm, test, $scope);
+		return $eea.form.submit(frm, test, $scope);
 	};
-
+	
 	$scope.addRow = function (frm, group) {
-		$$.group.addRow(frm, group, $scope, $compile);
+		$eea.group.addRow(frm, group, $scope);
+	};
+	
+	$scope.deleteRow = function (frm, group, id) {
+		$eea.group.deleteRow(frm, group, id, $scope);
 	};
 
-	$scope.deleteRow = function (frm, group, id) {
-		$$.group.deleteRow(frm, group, id, $scope);
-	};
 }
 

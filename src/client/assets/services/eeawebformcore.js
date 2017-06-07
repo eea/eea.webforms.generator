@@ -1,5 +1,6 @@
-app.service('$$', function() {
-	return {
+// TODO: transfer Save, Print, Close functions from older forms. *needs server access
+app.service('$eea', ['$http', '$compile', function($http, $compile) {
+    	return {
 		test: function($scope) {
 			return 'test' + $scope;
 		},
@@ -11,7 +12,7 @@ app.service('$$', function() {
 			$scope.groups = groups;
 		},
 		group: {
-			addRow: function(frm, group, $scope, $compile) {
+			addRow: function(frm, group, $scope) {
 				$scope.multipleIndex = $scope.groups[frm][group].length;
 				var id = ++$scope.multipleIndex;
 				$scope.groups[frm][group].push(id);
@@ -26,7 +27,7 @@ app.service('$$', function() {
 			}
 		},
 		form: {
-			submit : function (frm, test, $scope) {
+			submit : function (frm, test, $scope,) {
 
 				for (var form in $scope.field) {
 					if (frm) {
@@ -61,4 +62,4 @@ app.service('$$', function() {
 			}
 		}
 	}
-});
+}]);
