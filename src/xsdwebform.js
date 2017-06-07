@@ -270,11 +270,11 @@ export default class XSDWebForm {
 <script src="./assets/services/eeawebformcore.min.js"></script>
 <script src="./assets/components/eeawebheader.min.js"></script>
 <script src="./assets/components/eeafooter.min.js"></script>
-<script src="./assets/components/eeabuildinfo.min.js"></script>
+<script src="./assets/components/eeaformtesting.min.js"></script>
 <script src="./assets/components/eealanguage.min.js"></script>
 <script src="./assets/components/eeatoolbar.min.js"></script>
 <script src="./assets/components/eealookup.min.js"></script>
-<script src="./assets/components/eeaformtesting.min.js"></script>
+<script src="./assets/components/eeabuildinfo.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link type="text/css" rel="stylesheet" media="screen" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" title="Eionet 2007 style" />
@@ -332,7 +332,7 @@ var groups = {${
 
 <footer class="footer">
 	<div class="footer-wrapper">
-	       	<br>
+		<br>
 		<eea-footer></eea-footer>
 		<br><br><br>
 		<!--eea-form-build date="${new Date()}" user="${process.env.USER}"></eea-form-build-->

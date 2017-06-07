@@ -119,7 +119,7 @@ class XSDWebFormParser {
 				formHtml.push("\t\t</" + group.itemObject.tag + ">");
 
 				formHtml.push('\t\t</div>');
-				formHtml.push('\t</div>');
+				formHtml.push('\t\t</div>');
 
 				if (group.itemObject.append)
 					formHtml.push("\t\t\t" + group.itemObject.append);

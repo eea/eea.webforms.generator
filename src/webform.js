@@ -51,11 +51,11 @@ function WebFormAppCtrl($$, $scope, $http, $timeout, $window, $translate, $compi
 	};
 
 	$scope.addRow = function (frm, group) {
-		$$.ui.addRow(frm, group, $scope, $compile);
+		$$.group.addRow(frm, group, $scope, $compile);
 	};
 
 	$scope.deleteRow = function (frm, group, id) {
-		$$.ui.deleteRow(frm, group, id, $scope);
+		$$.group.deleteRow(frm, group, id, $scope);
 	};
 }
 

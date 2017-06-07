@@ -3,7 +3,7 @@ app.service('$$', function() {
 		test: function($scope) {
 			return 'test' + $scope;
 		},
-		ui: {
+		group: {
 			addRow: function(frm, group, $scope, $compile) {
 				$scope.multipleIndex = $scope.groups[frm][group].length;
 				var id = ++$scope.multipleIndex;
