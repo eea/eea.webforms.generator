@@ -32,7 +32,7 @@ export default class XSDWebForm {
 	 * Check for arguments
 	 */
 	constructor(args) {
-		return new Promise ( (resolve, reject) => {		
+		return new Promise ((resolve, reject) => {		
 
 			//Version	
 			this.Version="0.2";
