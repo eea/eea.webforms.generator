@@ -43,7 +43,7 @@ export default class XSDWebForm {
 			this.showXSDLog = true;
 
 			//Test Server	
-			this.serverPort =3001;
+			this.serverPort = 3001;
 
 			//Build directory
 			this.buildPath = "build/";
