@@ -1,6 +1,6 @@
 'use strict';
 
-//var Vesrion="0.2";
+//var Version="0.2";
 
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
