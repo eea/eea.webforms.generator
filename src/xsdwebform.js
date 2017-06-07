@@ -284,7 +284,7 @@ export default class XSDWebForm {
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
 var groups = {${
-	this.parser.htmlTagParser.HTMLObjects.map( (frm) => { 
+	this.parser.htmlTagParser.HTMLObjects.map((frm) => { 
 		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {
 			return '\n\t\t\t' + grp.itemObject.name + ' : [1]';
 		}) + ' \n\t\t}';
