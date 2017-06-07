@@ -22,14 +22,15 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 			if (frm) {
 				if (frm.$name !== form) continue;
 			}
+
+			if (test) return false;
+		
 			var frmObj = $scope.field[form];
 			var postContent = '';
 			for (var element in frmObj) {
 				postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
 			}
 
-			if (test) return false;
-		
 			$http({
 				method: 'POST',
 				url: $("#" + form).attr("eea-action"),
@@ -46,7 +47,6 @@ function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) 
 			if (frm) { break; }
 		}
 
-		//tmp
 		return false;
 	};
 

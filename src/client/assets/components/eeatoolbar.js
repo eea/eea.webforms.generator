@@ -182,14 +182,14 @@ app.component("eeaToolbar", {
 		}
 
 		this.save = function(){
-			dataRepository.saveInstance($scope.Webform);
+				//TODO
 		}
 
 		this.close = function(){
 			if (urlProperties.baseURI == ''){
 					urlProperties.baseURI = "/";
 			};
-			 	var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
+			 var windowLocation = (urlProperties.envelope && urlProperties.envelope.length > 0) ? urlProperties.envelope : urlProperties.baseURI;
 		    	if (parent.scp.Webform.$dirty){
 			        	if ($window.confirm('You have made changes in the questionnaire! \\n\\n Do you want to leave without saving the data?')){
 			 	           	window.location = windowLocation;
@@ -202,5 +202,5 @@ app.component("eeaToolbar", {
 
 	}
     }]
-    
+
 });

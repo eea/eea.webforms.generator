@@ -267,7 +267,8 @@ export default class XSDWebForm {
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
-<script src="./assets/components/eeaheader.min.js"></script>
+<script src="./assets/services/eeawebformcore.js"></script>
+<script src="./assets/components/eeawebheader.min.js"></script>
 <script src="./assets/components/eeafooter.min.js"></script>
 <script src="./assets/components/eeabuildinfo.min.js"></script>
 <script src="./assets/components/eealanguage.min.js"></script>
@@ -276,9 +277,10 @@ export default class XSDWebForm {
 <script src="./assets/components/eeaformtesting.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
-<link rel="stylesheet" type="text/css" href="./${this.baseFileName}.webform.min.css"/>
+<link type="text/css" rel="stylesheet" media="screen" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" title="Eionet 2007 style" />
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/handheld.css" media="handheld" />
+<link rel="stylesheet" type="text/css" href="./${this.baseFileName}.webform.min.css"/>
   
 <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico"/>
 <script>
@@ -294,21 +296,19 @@ var groups = {${
 </head>
 <body  ng-controller="WebFormAppCtrl">
 
-<eea-header></eea-header>
+<eea-web-header></eea-web-header>
 
 <div id="container">
-<div class="callout small primary">
-	<div class="text-center">
-		<h1>EEA</h1>
-		<h2 class="subheader">Web Form</h2>
-	</div>
-	<eea-language scp="this" lang="{{selectedLanguage}}" langfile="${this.baseFileName}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
-</div>
 
 <div id="formworkarea" class="row col-lg-12">
+
 	<div class="row">
-		<div class="top-form-left col-md-1"><span class="index">#</span></div>
-		<div class="top-form-right col-md-11"><h2>{{'labels.formtitle' | translate}}</h2></div>
+		<div style="margin-top: 50px;">
+			<eea-language scp="this" lang="{{selectedLanguage}}" langfile="${this.baseFileName}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
+		</div>
+	</div>
+	<div class="row">
+		<div class="top-form-right col-md-12"><h2>{{'labels.formtitle' | translate}}</h2></div>
 	</div>
 	
 	<div class="row"> 
@@ -332,7 +332,7 @@ var groups = {${
 
 <footer class="footer">
 	<div class="footer-wrapper">
-		<br>
+	       	<br>
 		<eea-footer></eea-footer>
 		<br><br><br>
 		<!--eea-form-build date="${new Date()}" user="${process.env.USER}"></eea-form-build-->
