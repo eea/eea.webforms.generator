@@ -107,7 +107,6 @@ class XSDWebFormParserTestAccessibility {
 
 	/**
 	 * test
-	 * @param logger
 	 */
 	test() {
 		return new Promise( (resolve, reject) => {

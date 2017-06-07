@@ -152,7 +152,7 @@ class XSDWebFormParserHTMLTags {
 				id: 'form' + formNum,
 				'eea-action': item.attr.action,
 				method: 'post',
-				class: 'ewform medium-12',
+				class: 'eeaform medium-12',
 				'ng-submit': `submit(form${formNum})`
 			},
 			groups: [],
