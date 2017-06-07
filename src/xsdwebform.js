@@ -35,7 +35,7 @@ export default class XSDWebForm {
 		return new Promise ( (resolve, reject) => {		
 
 			//Version	
-			this.Vesrion="0.2";
+			this.Version="0.2";
 
 			//logging
 			this.showLog = true;
