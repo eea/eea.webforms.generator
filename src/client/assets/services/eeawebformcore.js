@@ -27,7 +27,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 			}
 		},
 		form: {
-			submit : function (frm, test, $scope,) {
+			submit : function (frm, test, $scope) {
 
 				for (var form in $scope.field) {
 					if (frm) {
