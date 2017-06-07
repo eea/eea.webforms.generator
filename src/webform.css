@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,400,300,600,700&subset=latin,greek);
-@import url(https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 html {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -401,14 +401,14 @@ select.slanguage:focus {
     margin: 0 8px 0 -16px;
     width: 30px;
     height: 30px;
-    line-height: 12px;
+    line-height: 14px;
     background-color: #fff;
     color: rgba(138, 156, 58, 1);
     padding: 10px;
     font-size: 12px;
     border-radius: 50%;
-    font-family: "foundation-icons";
-    content: '\f199';
+    font-family: FontAwesome;
+    content: '\f067';
 }
 
 .rowbutton {
@@ -458,8 +458,8 @@ select.slanguage:focus {
     padding: 10px;
     font-size: 12px;
     border-radius: 50%;
-    font-family: "foundation-icons";
-    content: '\f204';
+    font-family: FontAwesome;
+    content: '\f1f8';
 }
 
 .footer {
