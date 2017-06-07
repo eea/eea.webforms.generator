@@ -253,8 +253,7 @@ export default class XSDWebForm {
 
 	getHeader() {
 
-		return `
-<!DOCTYPE html>
+		return `<!DOCTYPE html>
 <html lang="en" ng-app="WebFormApp">
 <head>
 <meta charset="UTF-8">
