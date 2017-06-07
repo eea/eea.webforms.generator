@@ -3,12 +3,12 @@
 //var Vesrion="0.2";
 
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
-app.controller('WebFormAppCtrl', ['$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
+app.controller('WebFormAppCtrl', ['$$', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
 
 /**
 * WebFormAppCtrl: Main controller
 */
-function WebFormAppCtrl($scope, $http, $timeout, $window, $translate, $compile) {
+function WebFormAppCtrl($$, $scope, $http, $timeout, $window, $translate, $compile) {
 
 	$scope.field = {};
 	$scope.multipleIndex = 1;

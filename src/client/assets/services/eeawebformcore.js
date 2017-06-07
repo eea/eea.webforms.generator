@@ -1,7 +1,7 @@
-app.service('eeaWebFormCore', function() {
+app.service('$$', function() {
 	return {
 		test: function() {
-			console.log('test');
+			return 'test';
 		}
 	}
 });
