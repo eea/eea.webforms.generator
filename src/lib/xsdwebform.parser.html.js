@@ -692,7 +692,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	decideRadioCheck(item, xsdItem, sender) {
 		if (item.attr.element) {
-			if (!sender.geTypeByName(item.attr.element, xsdItem)) 
+			if (!sender.getTypeByName(item.attr.element, xsdItem)) 
 				item.name = "checkbox";
 			else 
 				item.name = "radio";
@@ -701,11 +701,11 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * geTypeByName
+	 * getTypeByName
 	 * @param itemname
 	 * @param xsdItem
 	 */
-	geTypeByName(itemname, xsdItem) {
+	getTypeByName(itemname, xsdItem) {
 		let elements = xsdItem.childrenNamed("xs:simpleType");
 		for (let i = 0, l = elements.length; i  < l; i++) {
 			if (elements[i].attr.name === itemname) {
