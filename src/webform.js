@@ -11,6 +11,14 @@ app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$windo
 function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $compile) {
 
 	$eea.init($scope);
+
+	//examples
+	
+	// js libraries
+	//$eea.libraries.$.2.2
+	//$eea.libraries.angular.1.6
+	
+	//$eea.data.destinations.json
 	
 	$scope.submit = function (frm, test) {
 		return $eea.form.submit(frm, test, $scope);
