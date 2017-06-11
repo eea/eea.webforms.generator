@@ -12,7 +12,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 
 	$eea.init($scope);
 
-	//examples
+	//examples - active js rest
 	
 	// js libraries
 	//$eea.libraries.$.2.2
