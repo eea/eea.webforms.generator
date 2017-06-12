@@ -690,8 +690,8 @@ class XSDWebFormParserHTMLTags {
 					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				itemprepend: "<div class=\"checkboxclass\">",
-				itemappend: "</div>",
+				itemprepend: "\n\t\t\t\t<div class=\"checkboxclass\">",
+				itemappend: "\t\t\t\t</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo);
