@@ -416,7 +416,7 @@ class XSDWebFormParserHTMLTags {
 			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
-	
+
 	/**
 	 * parseNumberP - Parse Positive Number Tag
 	 * @param item
@@ -968,7 +968,7 @@ class XSDWebFormParserHTMLTags {
 			if (this.tag === 'select') {
 				outPut += tabspace + "\t<option value=\"\"></option>\n";
 				outPut += this.options.map((option) => {
-					let lbl = option.option.toString().toString().replace(/\W+/g, "");
+					let lbl = option.option.toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.option
@@ -977,7 +977,7 @@ class XSDWebFormParserHTMLTags {
 				}).join("");
 			} else {
 				outPut += this.options.map((option) => {
-					let lbl = option.label.toString().toString().replace(/\W+/g, "");
+					let lbl = option.label.toString().replace(/\W+/g, "");
 					sender.TextContentObjects.push({
 						label: lbl,
 						text: option.label

@@ -10,11 +10,13 @@
 				<item element="designationTypeName"/>
 				<item element="designationTypeNameEnglish"/>
 				<item element="creatingSites"/>
-				<item element="legalReferenceName"/>
-				<item element="legalReferencePublicationDate"/>
-				<item element="legalReferenceLink"/>
-				<item element="legalReferenceLevel"/>
-				<item element="legalReferenceOfficialJournalIdentification"/>
+				<subgroup>
+					<item element="legalReferenceName"/>
+					<item element="legalReferencePublicationDate"/>
+					<item element="legalReferenceLink"/>
+					<item element="legalReferenceLevel"/>
+					<item element="legalReferenceOfficialJournalIdentification"/>
+				</subgroup>
 				<item element="competentAuthorityOrganisationName"/>
 				<item element="competentAuthorityWebsite"/>
 				<item element="remark"/>
