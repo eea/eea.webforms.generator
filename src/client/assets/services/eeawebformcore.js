@@ -55,7 +55,6 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 							console.log("error", error.status);
 						});
 
-					if (frm) { break; }
 				}
 
 				return false;
