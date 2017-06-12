@@ -955,7 +955,7 @@ class XSDWebFormParserHTMLTags {
 		if (!this.noTag) {
 			outPut +=  "\n" + tabspace + "<" + this.tag;
 			for (let key in this.attrs) {
-				outPut += " " + key + "=\"" + this.attrs[key] + "\"";
+				if (this.attrs[key])  outPut += " " + key + "=\"" + this.attrs[key] + "\"";
 			}
 			if (this.xsdAttrs) {
 				this.xsdAttrs.forEach((item) => {
