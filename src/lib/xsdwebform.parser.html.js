@@ -7,7 +7,7 @@
 'use strict';
 
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
-import crc from 'crc';
+
 /**
  * Class XSDWebFormParserHTMLTags
  * Parser for XSD Schema Tags 
@@ -63,16 +63,18 @@ class XSDWebFormParserHTMLTags {
 
 		//DD Custom Properties
 		this.XSD_DD_PROPERTIES = {
-			"Methodology": (inp) => { 
-				let lbl = crc.crc32(inp).toString(16);
+			"Methodology": (item, inp) => { 
+				let lbl = item.attr.element || item.attr.name;
+				lbl = lbl + "_title";
 				this.TextContentObjects.push({
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
 				});
 				return `title="{{ 'labels.text.${lbl}' | translate }}"`; 
 			},
-			"Definition": (inp) => {
-				let lbl = crc.crc32(inp).toString(16);
+			"Definition": (item, inp) => {
+				let lbl = item.attr.element || item.attr.name;
+				lbl = lbl + "_alt";
 				this.TextContentObjects.push({
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
@@ -772,7 +774,7 @@ class XSDWebFormParserHTMLTags {
 	getXSDProperties(item, groupxsdItem, xsdsimpletype, xsdItem, sender) {
 		// Create an XML element attributes/properties placeholder object
 		item.xsdAttrs = { src : {}, html : [] };
-
+		
 		// Get XSD Element properties in group root
 		let XSDWFormItem = sender.getItemByName(item.attr.element, groupxsdItem) || sender.getItemByRef(item.attr.element, groupxsdItem) ;
 		
@@ -806,7 +808,7 @@ class XSDWebFormParserHTMLTags {
 					let rname = el.name.split(':')[1] || el;
 					if (rname in this.XSD_DD_PROPERTIES)  {
 						item.xsdAttrs.src[rname] = el.val;
-						let htmlVal = (this.XSD_DD_PROPERTIES[rname])(el.val);
+						let htmlVal = (this.XSD_DD_PROPERTIES[rname])(item, el.val);
 						if (htmlVal)
 							item.xsdAttrs.html.push(htmlVal);
 					}
