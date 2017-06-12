@@ -242,7 +242,7 @@ textarea.ng-invalid.ng-touched,
     position: absolute;
     right: 10px;
     width: auto;
-    margin-top: -40px;
+    margin: -40px 4px;
 }
 
 select.slanguage:focus {
