@@ -159,7 +159,6 @@ app.component("eeaFormTesting", {
 								elvalue = elvalue.toString().replace(aflabel, "");
 								if (elname.indexOf('$')  > -1) {
 									elname = elname.split('$')[0];
-									aflabel
 								}
 								objsStr += "<b>" + elname + "</b> = " + elvalue + "<BR>";
 							}
