@@ -17,7 +17,6 @@ class XSDWebFormParserHTMLTags {
 	 * Class constructor
 	 */
 	constructor() {
-
 		this.HTMLObjects = [];
 		this.LabelContentObjects = [];
 		this.TextContentObjects = [];
@@ -417,6 +416,7 @@ class XSDWebFormParserHTMLTags {
 			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
+	
 	/**
 	 * parseNumberP - Parse Positive Number Tag
 	 * @param item
@@ -653,8 +653,8 @@ class XSDWebFormParserHTMLTags {
 					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				itemprepend: "<div class=\"radioclass\">",
-				itemappend: "</div>",
+				itemPrepend: "<div class=\"radioclass\">",
+				itemAppend: "</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo);
@@ -691,8 +691,8 @@ class XSDWebFormParserHTMLTags {
 					'xsd-map': sender.getXsdMap(item, itemInfo),
 					'ng-model': 'field.' + itemFormModel
 				},
-				itemprepend: "\n\t\t\t\t<div class=\"checkboxclass\">",
-				itemappend: "\t\t\t\t</div>",
+				itemPrepend: "\n\t\t\t\t<div class=\"checkboxclass\">",
+				itemAppend: "\t\t\t\t</div>",
 				tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 			};
 			sender.addItemToGroup(htmlItem, itemInfo);
@@ -947,8 +947,8 @@ class XSDWebFormParserHTMLTags {
 			outPut += `<label ng-bind="'labels.${this.name.replace("-", "")}' | translate" class="field-caption ng-binding"></label>`;
 		}
 
-		if (this.itemprepend) {
-			outPut += this.itemprepend;
+		if (this.itemPrepend) {
+			outPut += this.itemPrepend;
 		}
 
 		if (!this.noTag) {
@@ -990,8 +990,8 @@ class XSDWebFormParserHTMLTags {
 			}
 		}
 
-		if (this.itemappend) {
-			outPut += this.itemappend;
+		if (this.itemAppend) {
+			outPut += this.itemAppend;
 		}
 
 		if (this.autoclose)
