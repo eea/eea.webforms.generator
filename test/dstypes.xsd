@@ -850,7 +850,7 @@ This value is required.]]></dd3:Methodology>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:element>
-<xs:element name="designationName">
+<xs:element name="designationTypeName">
 	<xs:annotation>
 		<xs:documentation xml:lang="en">
 			<dd2:Keyword><![CDATA[Designation]]></dd2:Keyword>
@@ -860,7 +860,7 @@ This value is required.]]></dd3:Methodology>
 			<dd3:Methodology><![CDATA[This value is required.]]></dd3:Methodology>
 			<ddnull:languageUsed><![CDATA[Yes]]></ddnull:languageUsed>
 			<dd2:Definition><![CDATA[Title in original Language.]]></dd2:Definition>
-			<dd2:Name><![CDATA[Designation name]]></dd2:Name>
+			<dd2:Name><![CDATA[Designation type name]]></dd2:Name>
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType>
@@ -870,7 +870,7 @@ This value is required.]]></dd3:Methodology>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:element>
-<xs:element name="designationNameEnglish">
+<xs:element name="designationTypeNameEnglish">
 	<xs:annotation>
 		<xs:documentation xml:lang="en">
 			<dd2:Keyword><![CDATA[Designation]]></dd2:Keyword>
@@ -880,7 +880,7 @@ This value is required.]]></dd3:Methodology>
 			<dd3:Methodology><![CDATA[This value is required.]]></dd3:Methodology>
 			<ddnull:languageUsed><![CDATA[No]]></ddnull:languageUsed>
 			<dd2:Definition><![CDATA[English translation of the official title of the designation.]]></dd2:Definition>
-			<dd2:Name><![CDATA[Designation name English]]></dd2:Name>
+			<dd2:Name><![CDATA[Designation type name English]]></dd2:Name>
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType>
@@ -944,7 +944,7 @@ This value is required.]]></dd3:Methodology>
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType>
-		<xs:restriction base="xs:date">
+		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
 </xs:element>
@@ -1147,8 +1147,8 @@ If a value is provided it indicates the designation is terminated.]]></dd3:Metho
           <xs:element ref="cddaRegionCode" minOccurs="0" maxOccurs="1"/>
           <xs:element ref="designationTypeCode" minOccurs="0" maxOccurs="1"/>
           <xs:element ref="category" minOccurs="0" maxOccurs="1"/>
-          <xs:element ref="designationName" minOccurs="0" maxOccurs="1"/>
-          <xs:element ref="designationNameEnglish" minOccurs="0" maxOccurs="1"/>
+          <xs:element ref="designationTypeName" minOccurs="0" maxOccurs="1"/>
+          <xs:element ref="designationTypeNameEnglish" minOccurs="0" maxOccurs="1"/>
           <xs:element ref="creatingSites" minOccurs="0" maxOccurs="1"/>
           <xs:element ref="legalReferenceName" minOccurs="0" maxOccurs="1"/>
           <xs:element ref="legalReferencePublicationDate" minOccurs="0" maxOccurs="1"/>

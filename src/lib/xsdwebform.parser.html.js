@@ -7,7 +7,7 @@
 'use strict';
 
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
-
+import crc from 'crc';
 /**
  * Class XSDWebFormParserHTMLTags
  * Parser for XSD Schema Tags 
@@ -55,16 +55,23 @@ class XSDWebFormParserHTMLTags {
 			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; },
 		};
 
-		this.XSD_DD_PROPERTIES = {
-			"Methodology": (inp) => { return `title="${inp.replace(/\"/g, "&quot;")}"`; },
-			"Definition": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; }
-		};
-
 		this.HTMLObjects = [];
 		this.LabelContentObjects = [];
 		this.TextContentObjects = [];
 		this.showLog = false;
 		this.verbose = false;
+
+		//DD Custom Properties
+		this.XSD_DD_PROPERTIES = {
+			"Methodology": (inp) => { 
+				this.TextContentObjects.push({
+					label: crc.crc32(inp).toString(16),
+					text: inp
+				});
+				return `title="${inp.replace(/\"/g, "&quot;")}"`; 
+			},
+			"Definition": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; }
+		};
 	}
 
 	/**
