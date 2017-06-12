@@ -17,6 +17,7 @@ class XSDWebFormParserHTMLTags {
 	 * Class constructor
 	 */
 	constructor() {
+
 		this.HTMLObjects = [];
 		this.LabelContentObjects = [];
 		this.TextContentObjects = [];
@@ -286,7 +287,7 @@ class XSDWebFormParserHTMLTags {
 			} else {
 				let subXSDWFormItem = sender.getItemByName(XSDWFormItemType, xsdItem).childNamed("xs:simpleContent");
 				if (subXSDWFormItem) {
-					subXSDWFormItem= subXSDWFormItem.childNamed("xs:extension");
+					subXSDWFormItem = subXSDWFormItem.childNamed("xs:extension");
 
 					if (subXSDWFormItem.attr.base) {
 						XSDWFormItemType = subXSDWFormItem.attr.base;
