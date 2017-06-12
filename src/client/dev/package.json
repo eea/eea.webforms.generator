@@ -15,7 +15,6 @@
     "mocha": "^3.3.0",
     "request": "^2.81.0",
     "request-mocha": "^0.2.0",
-    "minify-all": "^1.2.2",
     "uglify-js": "^3.0.11",
     "uglifyjs-folder": "^1.1.0",
     "uglifycss": "0.0.27",
@@ -29,7 +28,6 @@
     "build": "npm run minjs  && npm run mincss",
     "minjs": "babel ../$FNM$.webform.js | uglifyjs -o ./dist/$FNM$.webform.min.js",
     "mincss": "uglifycss ../$FNM$.webform.css --output ./dist/$FNM$.webform.min.css ",
-    "mincom": "minify-all ./dist/assets/components",
     "deploy": "babel ../$FNM$.webform.js | uglifyjs -o ../$FNM$.webform.min.js && uglifycss ../$FNM$.webform.css --output ../$FNM$.webform.min.css"
   },
   "author": "EEA aurthor",
