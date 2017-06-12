@@ -64,11 +64,12 @@ class XSDWebFormParserHTMLTags {
 		//DD Custom Properties
 		this.XSD_DD_PROPERTIES = {
 			"Methodology": (inp) => { 
+				let lbl = crc.crc32(inp).toString(16);
 				this.TextContentObjects.push({
-					label: crc.crc32(inp).toString(16),
-					text: inp
+					label: lbl,
+					text: inp.replace(/\"/g, "&quot;")
 				});
-				return `title="${inp.replace(/\"/g, "&quot;")}"`; 
+				return `title="{{ 'labels.text.${lbl}' | translate }}"`; 
 			},
 			"Definition": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; }
 		};
