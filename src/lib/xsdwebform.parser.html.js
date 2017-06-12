@@ -71,7 +71,14 @@ class XSDWebFormParserHTMLTags {
 				});
 				return `title="{{ 'labels.text.${lbl}' | translate }}"`; 
 			},
-			"Definition": (inp) => { return `alt="${inp.replace(/\"/g, "&quot;")}"`; }
+			"Definition": (inp) => {
+				let lbl = crc.crc32(inp).toString(16);
+				this.TextContentObjects.push({
+					label: lbl,
+					text: inp.replace(/\"/g, "&quot;")
+				});
+				return `alt="{{ 'labels.text.${lbl}' | translate }}"`; 
+			}
 		};
 	}
 
