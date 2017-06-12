@@ -17,6 +17,12 @@ class XSDWebFormParserHTMLTags {
 	 * Class constructor
 	 */
 	constructor() {
+		this.HTMLObjects = [];
+		this.LabelContentObjects = [];
+		this.TextContentObjects = [];
+		this.showLog = false;
+		this.verbose = false;
+
 		this.HTML_TYPES = {
 			"page": this.parsePage,
 			"form": this.parseForm,
@@ -54,32 +60,24 @@ class XSDWebFormParserHTMLTags {
 			"maxOccurs": () => {},
 			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; },
 		};
-
-		this.HTMLObjects = [];
-		this.LabelContentObjects = [];
-		this.TextContentObjects = [];
-		this.showLog = false;
-		this.verbose = false;
-
+		
 		//DD Custom Properties
 		this.XSD_DD_PROPERTIES = {
 			"Methodology": (item, inp) => { 
-				let lbl = item.attr.element || item.attr.name;
-				lbl = lbl + "_title";
+				let lbl = (item.attr.element || item.attr.name) + "_title";
 				this.TextContentObjects.push({
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
 				});
-				return `title="{{ 'labels.text.${lbl}' | translate }}"`; 
+				return `title="{{'labels.text.${lbl}' | translate}}"`; 
 			},
 			"Definition": (item, inp) => {
-				let lbl = item.attr.element || item.attr.name;
-				lbl = lbl + "_alt";
+				let lbl = (item.attr.element || item.attr.name) + "_alt";
 				this.TextContentObjects.push({
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
 				});
-				return `alt="{{ 'labels.text.${lbl}' | translate }}"`; 
+				return `alt="{{'labels.text.${lbl}' | translate}}"`; 
 			}
 		};
 	}
@@ -955,7 +953,7 @@ class XSDWebFormParserHTMLTags {
 		if (!this.noTag) {
 			outPut +=  "\n" + tabspace + "<" + this.tag;
 			for (let key in this.attrs) {
-				if (this.attrs[key])  outPut += " " + key + "=\"" + this.attrs[key] + "\"";
+				if (this.attrs[key]) outPut += " " + key + "=\"" + this.attrs[key] + "\"";
 			}
 			if (this.xsdAttrs) {
 				this.xsdAttrs.forEach((item) => {
