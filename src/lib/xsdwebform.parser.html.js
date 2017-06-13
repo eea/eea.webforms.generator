@@ -27,6 +27,7 @@ class XSDWebFormParserHTMLTags {
 			"page": this.parsePage,
 			"form": this.parseForm,
 			"group": this.parseGroup,
+			"subgroup": this.parseSubGroup,
 			"item": this.parseItem,
 			"input": this.parseInput,
 			"text": this.parseText,
@@ -236,6 +237,28 @@ class XSDWebFormParserHTMLTags {
 			type: "group",
 			itemObject: groupObject
 		});
+	}
+
+	/**
+	 * parseSubGroup - Parse SubGroup Tag
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	parseSubGroup(item, xsdItem, sender) {
+		sender.logger.logHtmlTag(item, sender);
+		
+		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+		
+		var subGroupObject = {
+			name: '',
+			tag: 'fieldset',
+			closeAfter: item.childrenNamed("item").length,
+			attrs: {
+			},
+			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
+		};
+		sender.addItemToGroup(subGroupObject, itemInfo);
 	}
 
 	/**

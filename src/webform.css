@@ -259,6 +259,11 @@ select.slanguage:focus {
     margin-bottom: 30px;
 }
 
+.subgroup {
+    border-radius: 5px;
+    margin: 20px 10px;    
+}
+
 .formitem {
     float: left;
     display: flex;
