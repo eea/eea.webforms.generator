@@ -78,7 +78,7 @@ class XSDWebFormParserHTMLTags {
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
 				});
-				return `alt="{{'labels.text.${lbl}' | translate}}"`; 
+				return `def="{{'labels.text.${lbl}' | translate}}"`; 
 			}
 		};
 	}
@@ -1027,7 +1027,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += tabspace + "</" + this.tag + ">\n";
 
 		if (this.attrs.required === 1) {
-			outPut += `${tabspace}<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><b>{{'${this.name.replace("-", "")}' | translate}}</b> {{'isrequired' | translate}}</span>`;
+			outPut += `${tabspace}<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><em>{{'${this.name.replace("-", "")}' | translate}}</em> {{'isrequired' | translate}}</span>`;
 		}
 
 		return outPut;
