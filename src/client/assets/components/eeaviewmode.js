@@ -14,8 +14,8 @@ app.component("eeaViewMode", {
 								var valToEnter = $(item).val();
 								if (!valToEnter) return;
 								var itype = item.type;
-								$(this).attr("readonly" , true);
-								$(this).hide();
+								$(item).attr("readonly" , true);
+								$(item).hide();
 
 								var tb = $("<button class=\"formitemedit\"><i class=\"fa fa-pencil-square-o\"></i></button>");
 								tb.inp =  $(this);
