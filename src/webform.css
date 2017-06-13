@@ -188,9 +188,13 @@ textarea.ng-invalid.ng-touched,
 }
 
 ::placeholder {
-  color: #999;
+  color: rgb(206, 220, 50);
   font-size: 12px;  
   font-weight: 400;
+}
+
+.ng-invalid::placeholder{
+  color: #333!important;
 }
 
 .callout {
