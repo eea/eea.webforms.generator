@@ -298,7 +298,7 @@ var groups = {${
 <body  ng-controller="WebFormAppCtrl">
 
 <eea-form-testing scp="this"></eea-form-testing>
-<!--eea-view-mode scp="this"></eea-view-mode-->
+<eea-view-mode scp="this"></eea-view-mode>
 
 <div id="container">
 

@@ -11,6 +11,8 @@ app.component("eeaViewMode", {
 					setTimeout( function() {
 						$("form").each(function(){
 							$(this).find('.formitem :input').each(function(index, item){
+								var valToEnter = $(item).val();
+								if (!valToEnter) return;
 								var itype = item.type;
 								$(this).attr("readonly" , true);
 								$(this).hide();
@@ -25,12 +27,10 @@ app.component("eeaViewMode", {
 								});
 
 								$(this).before(tb);
-								var valToEnter;
+								
 								 if (itype === "select-one") {
 									valToEnter = $(this).find(":selected").text();
-								} else {
-									valToEnter = $(this).val();
-								}
+								} 
 								$(this).after("<span class=\"formitemval\">" + valToEnter + "</span>");
 							});
 						});
