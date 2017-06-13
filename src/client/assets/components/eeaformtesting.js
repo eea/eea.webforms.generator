@@ -66,7 +66,7 @@ app.component("eeaFormTesting", {
 				});
 
 				describe("Testing form. Performing autofill...", function() {
-					$("form").each(function(){
+					$("form.eeaform").each(function(){
 						$(this).find('.formitem :input').each(function(index, item){
 							var itype = item.type;
 							if (!itype) return;

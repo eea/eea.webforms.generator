@@ -9,7 +9,7 @@ app.component("eeaViewMode", {
 		this.$onInit = function() {
 				$(function() {
 					setTimeout( function() {
-						$("form").each(function(){
+						$("form.eeaform").each(function(){
 							$(this).find('.formitem :input').each(function(index, item){
 								var valToEnter = $(item).val();
 								 
