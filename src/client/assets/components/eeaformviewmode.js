@@ -23,6 +23,7 @@ app.component("eeaFormViewmode", {
 								tb.click(function(event) {
 									event.preventDefault();
 									$(item).show();
+									$(item).attr("readonly" , false);
 									$(this).hide();
 									$(item).next(".formitemval").hide();
 								});
