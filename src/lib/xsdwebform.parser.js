@@ -123,11 +123,11 @@ class XSDWebFormParser {
 					if (!groups[i].itemObject.items[i2].noDiv) 
 						formHtml.push("\t\t\t<div class=\"formitem\"" + ngshow + ">\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t</div>");
 					else
-						formHtml.push("\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t");
+						formHtml.push(groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser, 3));
 
 					groupPlaceholders.forEach((item) =>{
 						if (item.pos === i2) {
-							formHtml.push(item.content);
+							formHtml.push("\n\t\t\t" + item.content);
 						}
 						
 					});
