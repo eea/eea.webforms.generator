@@ -1,6 +1,6 @@
 'use strict';
 
-app.component("eeaViewMode", {
+app.component("eeaFormViewmode", {
 	bindings: {
 		scp: '='
 	},

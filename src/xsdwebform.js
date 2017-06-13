@@ -275,7 +275,7 @@ export default class XSDWebForm {
 <script src="./assets/components/eeatoolbar.min.js"></script>
 <script src="./assets/components/eealookup.min.js"></script>
 <script src="./assets/components/eeabuildinfo.min.js"></script>
-<script src="./assets/components/eeaviewmode.min.js"></script>
+<script src="./assets/components/eeaformviewmode.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link type="text/css" rel="stylesheet" media="screen" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" title="Eionet 2007 style" />
@@ -298,7 +298,7 @@ var groups = {${
 <body  ng-controller="WebFormAppCtrl">
 
 <eea-form-testing scp="this"></eea-form-testing>
-<eea-view-mode scp="this"></eea-view-mode>
+<eea-form-viewmode scp="this"></eea-form-viewmode>
 
 <div id="container">
 
