@@ -273,6 +273,23 @@ select.slanguage:focus {
     border-radius: 5px!important
 }
 
+.formitemval {
+    color: #333;
+}
+
+button.formitemedit {
+    width: 24px;
+    height: 24px;
+    min-width: auto;
+    background-color: #ddd;
+    padding: 1px;
+    margin: 0 4px 0 0;
+}
+
+.checkboxclass .formitemedit {
+    margin-left: -10px;
+}
+
 .field-caption {
     display: inline-block;
     font-size: 14px;

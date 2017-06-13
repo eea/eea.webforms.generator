@@ -212,6 +212,7 @@ class XSDWebFormParser {
 	"deleterow"		: "Delete Row",
 	"number" 		: "#",
 	"submitform" 		: "Submit",
+	"edit" 		: "Edit",
 	"chooselanguage" 	: "Choose Language",
 	"validation" 		: "Validation",
 	"on" 			: "On",
