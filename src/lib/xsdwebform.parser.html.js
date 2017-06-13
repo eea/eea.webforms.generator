@@ -230,6 +230,7 @@ class XSDWebFormParserHTMLTags {
 			prepend: groupStart,
 			append: groupEnd,
 			xsdXML: xsdGroupTag,
+			subgroups: [],
 			items: [],
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 		};
@@ -249,15 +250,19 @@ class XSDWebFormParserHTMLTags {
 		sender.logger.logHtmlTag(item, sender);
 		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		
 		var subGroupObject = {
-			name: '',
+			name: 'subgroup',
 			tag: 'fieldset',
-			closeAfter: item.childrenNamed("item").length,
+			autoclose: false,
+			hasLabel: false,
+			appendAfter: item.childrenNamed("item").length,
+			appendAfterContent: "</fieldset>",
 			attrs: {
+				class: "subgroup"
 			},
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 		};
+
 		sender.addItemToGroup(subGroupObject, itemInfo);
 	}
 

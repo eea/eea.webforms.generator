@@ -13,8 +13,11 @@
 				<subgroup>
 					<item element="legalReferenceName"/>
 					<item element="legalReferencePublicationDate"/>
+					<subgroup>
 					<item element="legalReferenceLink"/>
+
 					<item element="legalReferenceLevel"/>
+				</subgroup>
 					<item element="legalReferenceOfficialJournalIdentification"/>
 				</subgroup>
 				<item element="competentAuthorityOrganisationName"/>

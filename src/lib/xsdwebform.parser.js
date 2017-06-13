@@ -108,34 +108,28 @@ class XSDWebFormParser {
 					formHtml.push("\t\t" + group.itemObject.prepend);
 
 				formHtml.push("\t\t\t\t" + group.itemObject.tagToHtml(this.htmlTagParser, 3));
-				let closeAfter = 0;
-				let closeAfterA = false;
-				let closeAfterTag;
+				
+				let groupPlaceHolders = [];
+
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					let ngshow = '';
 					if (groups[i].itemObject.items[i2].hide && groups[i].itemObject.items[i2].attrs.hideonautoselect == 1) {
 						ngshow = ' ng-show="' + groups[i].itemObject.items[i2].hide + '"';
 					} 
-					if (groups[i].itemObject.items[i2].tag === "fieldset"){
-						closeAfter = groups[i].itemObject.items[i2].closeAfter;
-						closeAfterA = true;
-						closeAfterTag = "fieldset";
-						formHtml.push("\t\t\t<fieldset class=\"subgroup\">");	
-						continue;
-					}
+					
+					if (groups[i].itemObject.items[i2].appendAfter) 
+						groupPlaceHolders.push({ pos: i2 + groups[i].itemObject.items[i2].appendAfter, content: groups[i].itemObject.items[i2].appendAfterContent  });
 
 					formHtml.push("\t\t\t<div class=\"formitem\"" + ngshow + ">\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t</div>");
 
-					if (closeAfterA) { 
-						closeAfter--;
-						if (closeAfter === 0) {
-							closeAfter = false;
-							closeAfter = 0;
-							formHtml.push("\t\t\t</" + closeAfterTag + ">");
+					groupPlaceHolders.forEach((item, index) =>{
+						if (item.pos == i2) {
+							formHtml.push(	item.content);
+							groupPlaceHolders.splice(index, 0);
 						}
-					}
-
-					}
+						
+					});
+				}
 
 				formHtml.push("\t\t</" + group.itemObject.tag + ">");
 
