@@ -188,7 +188,7 @@ textarea.ng-invalid.ng-touched,
 }
 
 ::placeholder {
-  color: rgb(206, 220, 50);
+  color: #999;
   font-size: 12px;  
   font-weight: 400;
 }
