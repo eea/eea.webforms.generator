@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<page title="Test Page">
-		<form action="/api/eeaformtest" title="This is the form title">
+	<page title="Designation types of designated areas">
+		<form action="/api/eeaformtest" title="Designation types of designated areas">
 			<group element="Row"> 	
 				<item element="cddaCountryCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/regions/json" lu-data="concepts" lu-value="['@id']" lu-option="prefLabel[0]['@value']" lu-order="prefLabel[0]['@value']" autoselect="countrycode" hideonautoselect="1"/>
 				<item element="cddaRegionCode" lookup="http://dd.eionet.europa.eu/vocabulary/cdda/regions/json" lu-data="concepts" lu-value="['@id']" lu-option="prefLabel[0]['@value']" lu-order="prefLabel[0]['@value']" autoselect="countrycode" hideonautoselect="1"/>

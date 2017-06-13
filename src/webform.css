@@ -188,7 +188,7 @@ textarea.ng-invalid.ng-touched,
 }
 
 ::placeholder {
-  color: rgb(206, 220, 50);
+  color: #999;
   font-size: 12px;  
   font-weight: 400;
 }
@@ -280,6 +280,7 @@ select.slanguage:focus {
 button.formitemedit {
     width: 24px;
     height: 24px;
+    line-height: 24px;
     min-width: auto;
     background-color: #ddd;
     padding: 1px;
