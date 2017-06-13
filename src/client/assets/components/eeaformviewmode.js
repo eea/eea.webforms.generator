@@ -8,11 +8,12 @@ app.component("eeaFormViewmode", {
 		var parent = this;
 		this.$onInit = function() {
 				$(function() {
+					var ctimeout = ($('eea-form-testing')) ? 3000 : 10;
+ 
 					setTimeout( function() {
 						$("form.eeaform").each(function(){
 							$(this).find('.formitem :input').each(function(index, item){
 								var valToEnter = $(item).val();
-
 								if (!valToEnter ||  (item.type == "checkbox" && !$(item).prop("checked")))
 									return;
 								
@@ -39,7 +40,7 @@ app.component("eeaFormViewmode", {
 								$(this).after("<span class=\"formitemval\">" + valToEnter + "</span>");
 							});
 						});
-					}, 10);
+					}, ctimeout);
 				});
 		};
 		this.updateLookup = function() {
