@@ -12,9 +12,10 @@ app.component("eeaFormViewmode", {
 						$("form.eeaform").each(function(){
 							$(this).find('.formitem :input').each(function(index, item){
 								var valToEnter = $(item).val();
-								 
-								if (!valToEnter || (item.type === "checkbox" && valToEnter === "on")) return;
 
+								if (!valToEnter ||  (item.type == "checkbox" && !$(item).prop("checked")))
+									return;
+								
 								$(item).attr("readonly" , true);
 								$(item).hide();
 
@@ -33,6 +34,8 @@ app.component("eeaFormViewmode", {
 								 if (item.type === "select-one") {
 									valToEnter = $(this).find(":selected").text();
 								} 
+								valToEnter
+								
 								$(this).after("<span class=\"formitemval\">" + valToEnter + "</span>");
 							});
 						});
