@@ -1,9 +1,7 @@
 'use strict';
 
 app.component("eeaMenu", {
-  template: `<div id="menuribbon">
-    <!-- Last updated: 2013-02-26T07:55:25Z
-     To update download http://www.eionet.europa.eu/dropdownmenus.txt -->
+  template: `<div id="menuribbon" style="height: 1.6em;padding: 2px;">
         <ul id="dropdowns">
          <li><a href="http://www.eionet.europa.eu/services">Services</a>
           <ul>

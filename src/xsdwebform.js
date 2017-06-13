@@ -296,14 +296,14 @@ var groups = {${
 </head>
 <body  ng-controller="WebFormAppCtrl">
 
-<eea-form-testing scp="this"></eea-form-testing>
+<!--eea-form-testing scp="this"></eea-form-testing-->
+
 <div id="container">
 
 <eea-header></eea-header>
 <eea-menu></eea-menu>
 
-
-<div id="formworkarea" class="row col-lg-12">
+<div id="formworkarea">
 
 	<div class="row">
 		<div style="margin-top: 50px;">
@@ -328,18 +328,14 @@ var groups = {${
 	</div>
 </div>
 
-</div>
-
-<eea-toolbar scp="this" off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
+<!--eea-toolbar scp="this" off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar-->
 
 <footer class="footer">
-	<div class="footer-wrapper">
-		<br>
 		<eea-footer></eea-footer>
-		<br><br><br>
 		<!--eea-form-build date="${new Date()}" user="${process.env.USER}"></eea-form-build-->
-	</div>
 </footer>
+
+</div>
 
 </body>
 </html>

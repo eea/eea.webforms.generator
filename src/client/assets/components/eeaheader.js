@@ -17,4 +17,5 @@ app.component("eeaHeader", {
             <div id="sitetitle">European Environment Information and Observation Network</div>
             <div id="sitetagline">Web questionnaires</div>
         </div>
+        `
 });
