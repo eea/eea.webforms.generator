@@ -261,7 +261,8 @@ select.slanguage:focus {
 
 .subgroup {
     border-radius: 5px;
-    margin: 20px 10px;   
+    margin: 20px 10px; 
+    padding: 20px;
 }
 
 .formitem {
