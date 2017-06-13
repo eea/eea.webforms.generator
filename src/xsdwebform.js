@@ -328,7 +328,7 @@ var groups = {${
 	</div>
 </div>
 
-<!--eea-toolbar scp="this" off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar-->
+<eea-toolbar scp="this" off="{{'off' | translate}}" on="{{'on' | translate}}" save="{{'save' | translate}}" printpreview="{{'printpreview' | translate}}" close="{{'close' | translate}}" validation="{{'validation' | translate}}"></eea-toolbar>
 
 <footer class="footer">
 		<eea-footer></eea-footer>
