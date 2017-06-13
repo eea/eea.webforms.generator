@@ -193,7 +193,7 @@ textarea.ng-invalid.ng-touched,
   font-weight: 400;
 }
 
-.ng-invalid::placeholder{
+.ng-touched.ng-invalid::placeholder{
   color: #333!important;
 }
 
