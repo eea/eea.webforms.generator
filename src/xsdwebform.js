@@ -267,7 +267,8 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
 <script src="./assets/services/eeawebformcore.min.js"></script>
-<script src="./assets/components/eeawebheader.min.js"></script>
+<script src="./assets/components/eeaheader.min.js"></script>
+<script src="./assets/components/eeamenu.min.js"></script>
 <script src="./assets/components/eeafooter.min.js"></script>
 <script src="./assets/components/eeaformtesting.min.js"></script>
 <script src="./assets/components/eealanguage.min.js"></script>
@@ -296,9 +297,11 @@ var groups = {${
 <body  ng-controller="WebFormAppCtrl">
 
 <eea-form-testing scp="this"></eea-form-testing>
-<eea-web-header></eea-web-header>
-
 <div id="container">
+
+<eea-header></eea-header>
+<eea-menu></eea-menu>
+
 
 <div id="formworkarea" class="row col-lg-12">
 

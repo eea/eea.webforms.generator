@@ -26,7 +26,7 @@ body {
     background-color: none;
     padding-bottom: 100px;
     height: auto;
-    padding: 0;
+    padding: 0 1em;
 }
 
 a,
@@ -232,9 +232,6 @@ textarea.ng-invalid.ng-touched,
 }
 
 #container {
-    /*background-color: #F7F8F8;*/
-    box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.3);
-    /*margin-top: 132px;*/
     max-width: 100%!important;
 }
 
