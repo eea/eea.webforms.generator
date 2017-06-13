@@ -109,7 +109,7 @@ class XSDWebFormParser {
 
 				formHtml.push("\t\t\t\t" + group.itemObject.tagToHtml(this.htmlTagParser, 3));
 				
-				let groupPlaceHolders = [];
+				let groupPlaceholders = [];
 
 				for (let i2 = 0, l2 = groups[i].itemObject.items.length; i2 < l2; i2++) {
 					let ngshow = '';
@@ -118,14 +118,16 @@ class XSDWebFormParser {
 					} 
 					
 					if (groups[i].itemObject.items[i2].appendAfter) 
-						groupPlaceHolders.push({ pos: i2 + groups[i].itemObject.items[i2].appendAfter, content: groups[i].itemObject.items[i2].appendAfterContent  });
+						groupPlaceholders.push({ pos: i2 + groups[i].itemObject.items[i2].appendAfter, content: groups[i].itemObject.items[i2].appendAfterContent  });
 
-					formHtml.push("\t\t\t<div class=\"formitem\"" + ngshow + ">\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t</div>");
+					if (!groups[i].itemObject.items[i2].noDiv) 
+						formHtml.push("\t\t\t<div class=\"formitem\"" + ngshow + ">\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t</div>");
+					else
+						formHtml.push("\n\t\t\t\t" + groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser) + "\n\t\t\t");
 
-					groupPlaceHolders.forEach((item, index) =>{
-						if (item.pos == i2) {
-							formHtml.push(	item.content);
-							groupPlaceHolders.splice(index, 0);
+					groupPlaceholders.forEach((item) =>{
+						if (item.pos === i2) {
+							formHtml.push(item.content);
 						}
 						
 					});

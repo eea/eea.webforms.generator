@@ -255,6 +255,7 @@ class XSDWebFormParserHTMLTags {
 			tag: 'fieldset',
 			autoclose: false,
 			hasLabel: false,
+			noDiv: true,
 			appendAfter: item.childrenNamed("item").length,
 			appendAfterContent: "</fieldset>",
 			attrs: {
