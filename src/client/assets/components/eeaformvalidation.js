@@ -12,16 +12,17 @@ app.component("eeaFormValidation", {
 		this.validate = function() {
 			$("form.eeaform").each(function(){
 				$(this).find('.formitem :input').each(function(index, item){
-					//filter: only empty fields
+					// filter: only empty fields
 
-					//get element's title
+					// get element's title
+					// get element's type (numeric, date etc)
 					// get def="" attribute content and translate it (instructions)
 					// $(item).attr("def"));					
 
 					// append row to #eeavalidation div
 				});
 			});
-		}
+		};
 		this.updateLookup = function() {
 		};
 	}]
