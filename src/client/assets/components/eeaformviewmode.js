@@ -42,7 +42,5 @@ app.component("eeaFormViewmode", {
 					}, ctimeout);
 				});
 		};
-		this.updateLookup = function() {
-		};
 	}]
 });

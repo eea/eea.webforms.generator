@@ -23,7 +23,5 @@ app.component("eeaFormValidation", {
 				});
 			});
 		};
-		this.updateLookup = function() {
-		};
 	}]
 });
