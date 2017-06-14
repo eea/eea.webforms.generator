@@ -9,10 +9,6 @@ app.component("eeaFormTesting", {
 	font-family: inherit;
 	z-index: 999;
 }
-#mocha-stats canvas {
-    width: 40px;
-    height: 35px;
-}
 #mocha h1 a { 
 	font-size: 13px; 
 	font-weight: 900;
