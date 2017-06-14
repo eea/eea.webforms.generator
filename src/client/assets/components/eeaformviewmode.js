@@ -35,8 +35,7 @@ app.component("eeaFormViewmode", {
 								 if (item.type === "select-one") {
 									valToEnter = $(this).find(":selected").text();
 								} 
-								valToEnter
-								
+																
 								$(this).after("<span class=\"formitemval\">" + valToEnter + "</span>");
 							});
 						});
