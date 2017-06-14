@@ -5,11 +5,11 @@ app.component("eeaFormValidation", {
 	bindings: {
 		scp: '='
 	},
-	controller: [function() {
+	controller: ['$translate', function($translate) {
 		var parent = this;
 		this.$onInit = function() {
 		};
-		this.validate = function() {
+		this.validate = function($translate) {
 			$("form.eeaform").each(function(){
 				$(this).find('.formitem :input').each(function(index, item){
 					// filter: only empty fields
@@ -17,7 +17,7 @@ app.component("eeaFormValidation", {
 					// get element's title
 					// get element's type (numeric, date etc)
 					// get def="" attribute content and translate it (instructions)
-					// $(item).attr("def"));					
+					// $translate.instant($(item).attr("def"))
 
 					// append row to #eeavalidation div
 				});

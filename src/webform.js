@@ -11,7 +11,7 @@ app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$windo
 function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $compile) {
 
 	$eea.init($scope);
-
+	
 	//examples - active js rest
 	
 	// js libraries
