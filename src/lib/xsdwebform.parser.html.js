@@ -255,6 +255,7 @@ class XSDWebFormParserHTMLTags {
 			tag: 'fieldset',
 			autoclose: false,
 			hasLabel: false,
+			hideFromLog: true,
 			noDiv: true,
 			appendAfter: item.childrenNamed("item").length + (item.childrenNamed("subgroup").length * 2),
 			appendAfterContent: "</fieldset>",
