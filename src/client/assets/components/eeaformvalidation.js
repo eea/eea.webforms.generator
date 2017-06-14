@@ -11,7 +11,7 @@ app.component("eeaFormValidation", {
 		};
 		this.validate = function($translate) {
 			$("form.eeaform").each(function(){
-				$(this).find('.formitem :input').each(function(index, item){
+				$(this).find('.formitem :input').each(function(index, item) {
 					// filter: only empty fields
 
 					// get element's title
