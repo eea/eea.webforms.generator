@@ -4,7 +4,7 @@ app.component("eeaFormViewmode", {
 	bindings: {
 		scp: '='
 	},
-	controller: [function($http, $translate, $location) {
+	controller: [function() {
 		var parent = this;
 		this.$onInit = function() {
 				$(function() {

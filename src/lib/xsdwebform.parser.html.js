@@ -73,7 +73,7 @@ class XSDWebFormParserHTMLTags {
 				return `title="{{'labels.text.${lbl}' | translate}}"`; 
 			},
 			"Definition": (item, inp) => {
-				let lbl = (item.attr.element || item.attr.name) + "_alt";
+				let lbl = (item.attr.element || item.attr.name) + "_def";
 				this.TextContentObjects.push({
 					label: lbl,
 					text: inp.replace(/\"/g, "&quot;")
