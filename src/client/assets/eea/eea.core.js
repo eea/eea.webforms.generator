@@ -9,6 +9,8 @@ var eea = {
 		service_ext : ".min.js",
 		component_path : "./assets/components/",
 		component_ext : ".min.js",
+		js_path : "./assets/js/",
+		js_ext : ".min.js",
 		css_path : "./assets/css/",
 		css_ext : ".min.css"
 	},	
@@ -26,6 +28,14 @@ var eea = {
 		},
 		getAll : function(scripts) {
 			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
+		},
+	},
+	JS : {
+		get : function(js, freeurl) {
+			eea.Loader.getJS(js, eea.settings.js_path, eea.settings.js_ext, freeurl);
+		},
+		getAll : function(jss, freeurl) {
+			eea.Loader.getAllJS(jss, eea.settings.js_path, eea.settings.js_ext, freeurl);
 		},
 	},
 	CSS : {
@@ -49,15 +59,16 @@ var eea = {
 				}
 			}
 			
-			oXmlHttp.open('GET', path+ script + ext, false);
+			var url = (freeurl) ? script : path+ script + ext ;
+			oXmlHttp.open('GET', url, false);
 			oXmlHttp.send(null);
 		},
-		getAllJS : function(scripts, path, ext) {
+		getAllJS : function(scripts, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
 			
 			scripts.forEach(function(script) {
-				eea.Loader.getJS(script, path, ext);
+				eea.Loader.getJS(script, path, ext, freeurl);
 			})
 		},
 		includeJS : function (fileUrl, source) {
@@ -87,7 +98,7 @@ var eea = {
 		getAllCSS : function(csss, path, ext) {
 			var path  = path || "";
 			var ext  = ext || "";
-			var type  = type || "";
+
 			csss.forEach(function(css) {
 				eea.Loader.getCSS(css, path, ext);
 			})
