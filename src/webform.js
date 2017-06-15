@@ -23,6 +23,8 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	// eea.italy.rome.somewhere.getSomethingElse()
 	// call $1.$2.$8.$3.ring()
 	// eea.denmark.eea.getFunctionList()
+	// eea.denmark.eea.streamChannel(120)
+	// eea.denmark.eea.joinVideoConference("test")
 	
 	//$eea.data.destinations.json
 
