@@ -33,17 +33,17 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
+eea.Loader.getJS("../assets/services/eeawebformcore.min.js");
 eea.Components.getAll([
-	"./assets/services/eeawebformcore.min.js", 
-	"./assets/components/eeaheader.min.js", 
-	"./assets/components/eeamenu.min.js", 
-	"./assets/components/eeafooter.min.js", 
-	"./assets/components/eeaformtesting.min.js", 
-	"./assets/components/eealanguage.min.js", 
-	"./assets/components/eeatoolbar.min.js", 
-	"./assets/components/eealookup.min.js", 
-	"./assets/components/eeaformviewmode.min.js", 
-	"./assets/components/eeabuildinfo.min.js"
+	"eeaheader", 
+	"eeamenu", 
+	"eeafooter", 
+	"eeaformtesting", 
+	"eealanguage", 
+	"eeatoolbar", 
+	"eealookup", 
+	"eeaformviewmode", 
+	"eeabuildinfo"
 ]);
 
 

@@ -5,18 +5,21 @@
 */
 var eea = {
 	settings: {
-		component_path : "./assets/components/"
+		component_path : "./assets/components/",
+		component_ext : ".min.js"
 	},
 	Components : {
 		getAll : function(scripts) {
-			eea.Loader.getAllJS(scripts, this.component_path);
+			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
 		},
 	},
 	Loader  : {
-		getAllJS : function(scripts, path) {
+		getAllJS : function(scripts, path, ext) {
 			var path  = path || "";
+			var ext  = ext || "";
+			console.log("path", path);
 			scripts.forEach(function(script) {
-				eea.Loader.getJS(path + script);
+				eea.Loader.getJS(path + script + ext);
 			})
 		},
 		getJS : function(script) {
