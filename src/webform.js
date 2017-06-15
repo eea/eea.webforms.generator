@@ -1,6 +1,5 @@
 'use strict';
 
-
 //var Version="0.2";
 
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
@@ -35,35 +34,47 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
-getJS("./assets/services/eeawebformcore.min.js");
-getJS("./assets/components/eeaheader.min.js");
-getJS("./assets/components/eeamenu.min.js");
-getJS("./assets/components/eeafooter.min.js");
-getJS("./assets/components/eeaformtesting.min.js");
-getJS("./assets/components/eealanguage.min.js");
-getJS("./assets/components/eeatoolbar.min.js");
-getJS("./assets/components/eealookup.min.js");
-getJS("./assets/components/eeaformviewmode.min.js");
-getJS("./assets/components/eeabuildinfo.min.js");
-
-function getJS(url) {
-	var oXmlHttp = new XMLHttpRequest();
-	oXmlHttp.onreadystatechange = function() {
-		if (oXmlHttp.readyState == 4) {
-			if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
-				IncludeJS(url, oXmlHttp.responseText);
+/**
+/ eeaLoader
+*/
+var eeaLoader  = {
+	getAllJS : function(scripts) {
+		scripts.forEach(function(script) {
+			eeaLoader.getJS(script);
+		})
+	},
+	getJS : function(script) {
+		var oXmlHttp = new XMLHttpRequest();
+		oXmlHttp.onreadystatechange = function() {
+			if (oXmlHttp.readyState == 4) {
+				if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
+					eeaLoader.includeJS(script, oXmlHttp.responseText);
+			}
 		}
+		oXmlHttp.open('GET', script, false);
+		oXmlHttp.send(null);
+	},
+	includeJS : function (fileUrl, source) {
+		var script = document.createElement("script");
+		script.language = "javascript";
+		script.type = "text/javascript";
+		script.defer = true;
+		script.text = source;
+		document.getElementsByTagName('HEAD').item(0).appendChild(script);
 	}
-	oXmlHttp.open('GET', url, false);
-	oXmlHttp.send(null);
 }
 
-function IncludeJS(fileUrl, source) {
-	var script = document.createElement("script");
-	script.language = "javascript";
-	script.type = "text/javascript";
-	script.defer = true;
-	script.text = source;
-	document.getElementsByTagName('HEAD').item(0).appendChild(script);
-}
+eeaLoader.getAllJS([
+	"./assets/services/eeawebformcore.min.js", 
+	"./assets/components/eeaheader.min.js", 
+	"./assets/components/eeamenu.min.js", 
+	"./assets/components/eeafooter.min.js", 
+	"./assets/components/eeaformtesting.min.js", 
+	"./assets/components/eealanguage.min.js", 
+	"./assets/components/eeatoolbar.min.js", 
+	"./assets/components/eealookup.min.js", 
+	"./assets/components/eeaformviewmode.min.js", 
+	"./assets/components/eeabuildinfo.min.js"
+]);
+
 
