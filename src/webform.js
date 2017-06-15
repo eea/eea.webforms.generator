@@ -17,6 +17,10 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	// js libraries
 	//$eea.libraries.$.2.2
 	//$eea.libraries.angular.1.6
+
+	//try dynamic loading in object - chain
+	// eea.greece.athens.chalandri.getSomething()
+	// eea.italy.rome.somewhere.getSomethingElse()
 	
 	//$eea.data.destinations.json
 
