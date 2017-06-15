@@ -15,39 +15,39 @@ var eea = {
 		css_path : "./assets/css/",
 		css_ext : ".min.css"
 	},	
-	Services : {
+	services : {
 		get : function(script) {
-			eea.Loader.getJS(script, eea.settings.service_path, eea.settings.service_ext);
+			eea.loader.getJS(script, eea.settings.service_path, eea.settings.service_ext);
 		},
 		getAll : function(scripts) {
-			eea.Loader.getAllJS(scripts, eea.settings.service_path, eea.settings.service_ext);
+			eea.loader.getAllJS(scripts, eea.settings.service_path, eea.settings.service_ext);
 		},
 	},
-	Components : {
+	components : {
 		get : function(script) {
-			eea.Loader.getJS(script, eea.settings.component_path, eea.settings.component_ext);
+			eea.loader.getJS(script, eea.settings.component_path, eea.settings.component_ext);
 		},
 		getAll : function(scripts) {
-			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
+			eea.loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
 		},
 	},
-	JS : {
+	js : {
 		get : function(js, freeurl) {
-			eea.Loader.getJS(js, eea.settings.js_path, eea.settings.js_ext, freeurl);
+			eea.loader.getJS(js, eea.settings.js_path, eea.settings.js_ext, freeurl);
 		},
 		getAll : function(jss, freeurl) {
-			eea.Loader.getAllJS(jss, eea.settings.js_path, eea.settings.js_ext, freeurl);
+			eea.loader.getAllJS(jss, eea.settings.js_path, eea.settings.js_ext, freeurl);
 		},
 	},
-	CSS : {
+	css : {
 		get : function(css, freeurl) {
-			eea.Loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
+			eea.loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
 		},
 		getAll : function(csss, freeurl) {
-			eea.Loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
+			eea.loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
 		},
 	},
-	Loader : {
+	loader : {
 		getJS : function(script, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
@@ -56,7 +56,7 @@ var eea = {
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
 					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
-						eea.Loader.includeJS(script, oXmlHttp.responseText);
+						eea.loader.includeJS(script, oXmlHttp.responseText);
 				}
 			}
 			
@@ -69,7 +69,7 @@ var eea = {
 			var ext  = ext || "";
 			
 			scripts.forEach(function(script) {
-				eea.Loader.getJS(script, path, ext, freeurl);
+				eea.loader.getJS(script, path, ext, freeurl);
 			})
 		},
 		includeJS : function (fileUrl, source) {
@@ -88,7 +88,7 @@ var eea = {
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
 					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
-						eea.Loader.includeCSS(css, oXmlHttp.responseText);
+						eea.loader.includeCSS(css, oXmlHttp.responseText);
 				}
 			}
 			
@@ -101,7 +101,7 @@ var eea = {
 			var ext  = ext || "";
 
 			csss.forEach(function(css) {
-				eea.Loader.getCSS(css, path, ext);
+				eea.loader.getCSS(css, path, ext);
 			})
 		},
 		includeCSS : function (fileUrl, source) {
