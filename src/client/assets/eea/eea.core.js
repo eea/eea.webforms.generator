@@ -40,8 +40,7 @@ var eea = {
 		getJS : function(script, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
-			var type  = type || "";
-
+			
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
@@ -56,7 +55,7 @@ var eea = {
 		getAllJS : function(scripts, path, ext) {
 			var path  = path || "";
 			var ext  = ext || "";
-			var type  = type || "";
+			
 			scripts.forEach(function(script) {
 				eea.Loader.getJS(script, path, ext);
 			})
@@ -72,8 +71,7 @@ var eea = {
 		getCSS : function(css, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
-			var type  = type || "";
-
+			
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
