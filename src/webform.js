@@ -21,6 +21,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	//try dynamic loading in object - chain
 	// eea.greece.athens.chalandri.getSomething()
 	// eea.italy.rome.somewhere.getSomethingElse()
+	// call $1.$2.$8.$3.ring()
 	
 	//$eea.data.destinations.json
 
