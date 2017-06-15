@@ -267,7 +267,6 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular.all.min.js" ></script>
 
 <script src="./${this.baseFileName}.webform.min.js"></script>
-<script src="./assets/services/eeawebformcore.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link type="text/css" rel="stylesheet" media="screen" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" title="Eionet 2007 style" />

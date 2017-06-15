@@ -35,6 +35,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
+getJS("./assets/services/eeawebformcore.min.js");
 getJS("./assets/components/eeaheader.min.js");
 getJS("./assets/components/eeamenu.min.js");
 getJS("./assets/components/eeafooter.min.js");
