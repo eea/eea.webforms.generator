@@ -25,6 +25,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	// eea.denmark.eea.getFunctionList()
 	// eea.denmark.eea.streamChannel(120)
 	// eea.denmark.eea.joinVideoConference("test")
+	// eea.iot.api.client.connect()
 	
 	//$eea.data.destinations.json
 
