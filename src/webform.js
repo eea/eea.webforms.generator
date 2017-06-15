@@ -20,7 +20,6 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	
 	//$eea.data.destinations.json
 
-
 	$scope.submit = function (frm, test) {
 		return $eea.form.submit(frm, test, $scope);
 	};
@@ -34,37 +33,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
-/**
-/ eeaLoader
-*/
-var eeaLoader  = {
-	getAllJS : function(scripts) {
-		scripts.forEach(function(script) {
-			eeaLoader.getJS(script);
-		})
-	},
-	getJS : function(script) {
-		var oXmlHttp = new XMLHttpRequest();
-		oXmlHttp.onreadystatechange = function() {
-			if (oXmlHttp.readyState == 4) {
-				if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
-					eeaLoader.includeJS(script, oXmlHttp.responseText);
-			}
-		}
-		oXmlHttp.open('GET', script, false);
-		oXmlHttp.send(null);
-	},
-	includeJS : function (fileUrl, source) {
-		var script = document.createElement("script");
-		script.language = "javascript";
-		script.type = "text/javascript";
-		script.defer = true;
-		script.text = source;
-		document.getElementsByTagName('HEAD').item(0).appendChild(script);
-	}
-}
-
-eeaLoader.getAllJS([
+eea.Loader.getAllJS([
 	"./assets/services/eeawebformcore.min.js", 
 	"./assets/components/eeaheader.min.js", 
 	"./assets/components/eeamenu.min.js", 

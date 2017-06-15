@@ -263,6 +263,7 @@ export default class XSDWebForm {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{('labels.pagetitle' || 'pagetitle') | translate}}</title>
 
+<script src="./assets/eea/eea.core.js"></script>
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
 
