@@ -22,6 +22,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	// eea.greece.athens.chalandri.getSomething()
 	// eea.italy.rome.somewhere.getSomethingElse()
 	// call $1.$2.$8.$3.ring()
+	// eea.denmark.eea.getFunctionList()
 	
 	//$eea.data.destinations.json
 
