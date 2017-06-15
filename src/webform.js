@@ -33,7 +33,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
-eea.Loader.getAllJS([
+eea.Components.getAll([
 	"./assets/services/eeawebformcore.min.js", 
 	"./assets/components/eeaheader.min.js", 
 	"./assets/components/eeamenu.min.js", 
