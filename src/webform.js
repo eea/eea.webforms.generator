@@ -42,7 +42,7 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
-eea.Loader.getJS("../assets/services/eeawebformcore.min.js");
+eea.Services.get("eeawebformcore");
 eea.Components.getAll([
 	"eeaheader", 
 	"eeamenu", 

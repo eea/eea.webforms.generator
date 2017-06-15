@@ -5,8 +5,18 @@
 */
 var eea = {
 	settings : {
+		service_path : "./assets/services/",
+		service_ext : ".min.js",
 		component_path : "./assets/components/",
 		component_ext : ".min.js"
+	},	
+	Services : {
+		get : function(script) {
+			eea.Loader.getJS(script, eea.settings.service_path, eea.settings.service_ext);
+		},
+		getAll : function(scripts) {
+			eea.Loader.getAllJS(scripts, eea.settings.service_path, eea.settings.service_ext);
+		},
 	},
 	Components : {
 		get : function(script) {
@@ -24,7 +34,9 @@ var eea = {
 				eea.Loader.getJS(path + script + ext);
 			})
 		},
-		getJS : function(script) {
+		getJS : function(script, path, ext) {
+			var path  = path || "";
+			var ext  = ext || "";
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
@@ -32,7 +44,7 @@ var eea = {
 						eea.Loader.includeJS(script, oXmlHttp.responseText);
 				}
 			}
-			oXmlHttp.open('GET', script, false);
+			oXmlHttp.open('GET', path+ script + ext, false);
 			oXmlHttp.send(null);
 		},
 		includeJS : function (fileUrl, source) {
