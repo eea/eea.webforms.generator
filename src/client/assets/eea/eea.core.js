@@ -14,30 +14,30 @@ var eea = {
 	},	
 	Services : {
 		get : function(script) {
-			eea.Loader.getJS(script, eea.settings.service_path, eea.settings.service_ext, eea.settings.service_type);
+			eea.Loader.getJS(script, eea.settings.service_path, eea.settings.service_ext);
 		},
 		getAll : function(scripts) {
-			eea.Loader.getAllJS(scripts, eea.settings.service_path, eea.settings.service_ext, eea.settings.service_type);
+			eea.Loader.getAllJS(scripts, eea.settings.service_path, eea.settings.service_ext);
 		},
 	},
 	Components : {
 		get : function(script) {
-			eea.Loader.getJS(script, eea.settings.component_path, eea.settings.component_ext, eea.settings.component_type);
+			eea.Loader.getJS(script, eea.settings.component_path, eea.settings.component_ext);
 		},
 		getAll : function(scripts) {
-			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext, eea.settings.component_type);
+			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
 		},
 	},
 	CSS : {
 		get : function(css, freeurl) {
-			eea.Loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type);
+			eea.Loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
 		},
 		getAll : function(csss, freeurl) {
-			eea.Loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type);
+			eea.Loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
 		},
 	},
 	Loader : {
-		getJS : function(script, path, ext, type, freeurl) {
+		getJS : function(script, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
 			var type  = type || "";
@@ -46,28 +46,61 @@ var eea = {
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
 					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
-						eea.Loader.includeJS(script, oXmlHttp.responseText, type);
+						eea.Loader.includeJS(script, oXmlHttp.responseText);
 				}
 			}
 			
 			oXmlHttp.open('GET', path+ script + ext, false);
 			oXmlHttp.send(null);
 		},
-		getAllJS : function(scripts, path, ext, type) {
+		getAllJS : function(scripts, path, ext) {
 			var path  = path || "";
 			var ext  = ext || "";
 			var type  = type || "";
 			scripts.forEach(function(script) {
-				eea.Loader.getJS(script, path, ext, type);
+				eea.Loader.getJS(script, path, ext);
 			})
 		},
-		includeJS : function (fileUrl, source, type) {
+		includeJS : function (fileUrl, source) {
 			var script = document.createElement("script");
 			script.language = "javascript";
 			script.type = "text/javascript";
 			script.defer = true;
 			script.text = source;
 			document.getElementsByTagName('HEAD').item(0).appendChild(script);
+		},
+		getCSS : function(css, path, ext, freeurl) {
+			var path  = path || "";
+			var ext  = ext || "";
+			var type  = type || "";
+
+			var oXmlHttp = new XMLHttpRequest();
+			oXmlHttp.onreadystatechange = function() {
+				if (oXmlHttp.readyState == 4) {
+					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
+						eea.Loader.includeCSS(css, oXmlHttp.responseText);
+				}
+			}
+			
+			var url = (freeurl) ? css : path+ css + ext ;
+			oXmlHttp.open('GET', url, false);
+			oXmlHttp.send(null);
+		},
+		getAllCSS : function(csss, path, ext) {
+			var path  = path || "";
+			var ext  = ext || "";
+			var type  = type || "";
+			csss.forEach(function(css) {
+				eea.Loader.getCSS(css, path, ext);
+			})
+		},
+		includeCSS : function (fileUrl, source) {
+			var link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.defer = true;
+			link.text = source;
+			document.getElementsByTagName('HEAD').item(0).appendChild(link);
 		}
 	}
 }
