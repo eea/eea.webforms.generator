@@ -5,6 +5,7 @@
 */
 var eea = {
 	settings : {
+		allow_external_includes : false,
 		service_path : "./assets/services/",
 		service_ext : ".min.js",
 		component_path : "./assets/components/",
@@ -59,7 +60,7 @@ var eea = {
 				}
 			}
 			
-			var url = (freeurl) ? script : path+ script + ext ;
+			var url = (freeurl && allow_external_includes) ? script : path+ script + ext ;
 			oXmlHttp.open('GET', url, false);
 			oXmlHttp.send(null);
 		},
@@ -91,7 +92,7 @@ var eea = {
 				}
 			}
 			
-			var url = (freeurl) ? css : path+ css + ext ;
+			var url = (freeurl && allow_external_includes) ? css : path+ css + ext ;
 			oXmlHttp.open('GET', url, false);
 			oXmlHttp.send(null);
 		},
