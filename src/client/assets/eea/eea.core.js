@@ -1,6 +1,7 @@
+'use strict';
 
 /**
-/ eeaLoader
+/ EEA Core
 */
 var eea = {
 	Loader  : {
