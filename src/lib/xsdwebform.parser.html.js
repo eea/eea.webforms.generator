@@ -246,7 +246,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseSubGroup(item, xsdItem, sender) {
-		sender.logger.logHtmlTag(item, sender);
+		// sender.logger.logHtmlTag(item, sender);
 		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 		var subGroupObject = {
