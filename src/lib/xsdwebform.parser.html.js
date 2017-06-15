@@ -1,5 +1,5 @@
 /**
- * @file xsdwebform.parser.htmld.js
+ * @file xsdwebform.parser.html.js
  * XSD Schema to HTML5 Web Form
  * @author George Bouris <gb@eworx.gr>
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
@@ -87,7 +87,6 @@ class XSDWebFormParserHTMLTags {
 	 * htmlParse - Parse inner XML Document
 	 * @param htmlItem
 	 * @param xsdItem
-	 * @returns HTMLObjects[]
 	 */
 	htmlParse(htmlItem, xsdItem) {
 		// Loop through Tag's childNodes
