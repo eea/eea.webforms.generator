@@ -4,16 +4,19 @@
 / EEA Core
 */
 var eea = {
-	settings: {
+	settings : {
 		component_path : "./assets/components/",
 		component_ext : ".min.js"
 	},
 	Components : {
+		get : function(script) {
+			eea.Loader.getJS(script, eea.settings.component_path, eea.settings.component_ext);
+		},
 		getAll : function(scripts) {
 			eea.Loader.getAllJS(scripts, eea.settings.component_path, eea.settings.component_ext);
 		},
 	},
-	Loader  : {
+	Loader : {
 		getAllJS : function(scripts, path, ext) {
 			var path  = path || "";
 			var ext  = ext || "";
