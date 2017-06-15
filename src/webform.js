@@ -54,3 +54,4 @@ eea.Components.getAll([
 	"eeaformviewmode", 
 	"eeabuildinfo"
 ]);
+eea.CSS.get("webform.all");

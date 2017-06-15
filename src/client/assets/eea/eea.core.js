@@ -40,7 +40,7 @@ var eea = {
 		getJS : function(script, path, ext, freeurl) {
 			var path  = path || "";
 			var ext  = ext || "";
-			
+
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
 				if (oXmlHttp.readyState == 4) {
@@ -93,12 +93,9 @@ var eea = {
 			})
 		},
 		includeCSS : function (fileUrl, source) {
-			var link = document.createElement("link");
-			link.rel = "stylesheet";
-			link.type = "text/css";
-			link.defer = true;
-			link.text = source;
-			document.getElementsByTagName('HEAD').item(0).appendChild(link);
+			var style = document.createElement("style");
+			style.appendChild(document.createTextNode(source)); 
+			document.getElementsByTagName('HEAD').item(0).appendChild(style);
 		}
 	}
 }

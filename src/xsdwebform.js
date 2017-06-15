@@ -268,7 +268,6 @@ export default class XSDWebForm {
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="./assets/css/webform.all.min.css"/>
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" title="Eionet 2007 style" media="screen" />
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/handheld.css" media="handheld" />
