@@ -35,6 +35,15 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
+getJS("./assets/components/eeaheader.min.js");
+getJS("./assets/components/eeamenu.min.js");
+getJS("./assets/components/eeafooter.min.js");
+getJS("./assets/components/eeaformtesting.min.js");
+getJS("./assets/components/eealanguage.min.js");
+getJS("./assets/components/eeatoolbar.min.js");
+getJS("./assets/components/eealookup.min.js");
+getJS("./assets/components/eeaformviewmode.min.js");
+getJS("./assets/components/eeabuildinfo.min.js");
 
 function getJS(url) {
 	var oXmlHttp = new XMLHttpRequest();
@@ -57,11 +66,3 @@ function IncludeJS(fileUrl, source) {
 	document.getElementsByTagName('HEAD').item(0).appendChild(script);
 }
 
-getJS("./assets/components/eeaheader.min.js");
-getJS("./assets/components/eeamenu.min.js");
-getJS("./assets/components/eeafooter.min.js");
-getJS("./assets/components/eeaformtesting.min.js");
-getJS("./assets/components/eealanguage.min.js");
-getJS("./assets/components/eeatoolbar.min.js");
-getJS("./assets/components/eealookup.min.js");
-getJS("./assets/components/eeaformviewmode.min.js");
