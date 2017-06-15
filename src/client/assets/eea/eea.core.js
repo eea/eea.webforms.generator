@@ -17,7 +17,6 @@ var eea = {
 		getAllJS : function(scripts, path, ext) {
 			var path  = path || "";
 			var ext  = ext || "";
-			console.log("path", path);
 			scripts.forEach(function(script) {
 				eea.Loader.getJS(path + script + ext);
 			})
