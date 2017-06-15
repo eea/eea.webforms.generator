@@ -30,10 +30,10 @@ var eea = {
 	},
 	CSS : {
 		get : function(css, freeurl) {
-			eea.Loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
+			eea.Loader.getCSS(css, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type);
 		},
 		getAll : function(csss, freeurl) {
-			eea.Loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type, freeurl);
+			eea.Loader.getAllCSS(csss, eea.settings.css_path, eea.settings.css_ext, eea.settings.css_type);
 		},
 	},
 	Loader : {
@@ -49,9 +49,8 @@ var eea = {
 						eea.Loader.includeJS(script, oXmlHttp.responseText, type);
 				}
 			}
-			var url = (freeurl) ? script  : (path+ script + ext);
-
-			oXmlHttp.open('GET', url, false);
+			
+			oXmlHttp.open('GET', path+ script + ext, false);
 			oXmlHttp.send(null);
 		},
 		getAllJS : function(scripts, path, ext, type) {
