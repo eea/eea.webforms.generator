@@ -54,5 +54,3 @@ eea.Components.getAll([
 	"eeaformviewmode", 
 	"eeabuildinfo"
 ]);
-
-
