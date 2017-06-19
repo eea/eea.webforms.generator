@@ -1,5 +1,5 @@
 'use strict';
-//TODO - Inform the form user regarding remaining fields to be completed and its requirements.
+
 app.component("eeaFormValidation", {
 	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:280px;padding:20px 0px;overflow-y:auto;font-size:12px;"></div>',
 	bindings: {

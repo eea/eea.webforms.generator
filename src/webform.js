@@ -64,7 +64,7 @@ eea.css.get("webform.all");
  // Check available public functionality - old BBS style
  eea.denmark.eea.getFunctionList()
  // Use the listed functionality
- // local tv streaming
+ // Local tv streaming
  eea.denmark.eea.streamChannel(120)
  // Video Conference Channel
  eea.denmark.eea.joinVideoConference("test")
@@ -76,7 +76,7 @@ eea.css.get("webform.all");
 				 |
 				 /\
 				/  \
-     dynamic lib 1 eea.test.area1  dynamic lib 2 <-- eea.test.area2 
+   dynamic lib 1 eea.test.area1      dynamic lib 2 <-- eea.test.area2 
 		      				 ^
 						 |
 						 /\
