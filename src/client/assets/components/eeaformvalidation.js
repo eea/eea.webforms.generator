@@ -1,7 +1,7 @@
 'use strict';
 //TODO - Inform the form user regarding remaining fields to be completed and its requirements.
 app.component("eeaFormValidation", {
-	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#f1f1f1;width:400px;height:300px;padding:10px;overflow-y:auto;font-size:12px;"></div>',
+	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:300px;padding:10px;overflow-y:auto;font-size:12px;"></div>',
 	bindings: {
 		scp: '='
 	},
@@ -29,8 +29,8 @@ app.component("eeaFormValidation", {
 					var arr = aname[1];
 					var nme = aname[0];
 					
-					content += "<li>Group <b>[" + arr + "]</b><br>";
-					content += "<b>[" + nme + "]</b><br>";
+					content += "<li>Group <b>" + arr + "</b><br>";
+					content += "<b style=\"font-size:14px\">" + $translate.instant('labels.' + nme) + "</b><br>";
 					content += ($translate.instant($(item).attr("def"))  || "" )+ "<br>";
 					content += "<button style=\"padding:4px;min-width:auto;width:30px;max-width:30px;height:30px;\" onclick='" + name + ".focus()'>Go</button><br><br>";
 
