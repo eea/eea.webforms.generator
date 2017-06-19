@@ -18,23 +18,6 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	//$eea.libraries.$.2.2
 	//$eea.libraries.angular.1.6
 
-	//try dynamic loading in object - chain
-	// eea.greece.athens.chalandri.getSomething()
-	// eea.italy.rome.somewhere.getSomethingElse()
-	// call $1.$2.$8.$3.ring()
-	// eea.denmark.eea.getFunctionList()
-	// eea.denmark.eea.streamChannel(120)
-	// eea.denmark.eea.joinVideoConference("test")
-	// eea.iot.api.client.connect()
-	/*
-		[eea root library] <--- bind library test eea.test.(no downtime)
-					^
-					 |
-					 /\
-					/   \
-	        dynamic lib 1 eea.test.area1	dynamic lib 2 <-- eea.test.area2 
-	*/
-	
 	//$eea.data.destinations.json
 
 	$scope.submit = function (frm, test) {
@@ -64,3 +47,22 @@ eea.components.getAll([
 ]);
 eea.css.get("webform.all");
 
+
+
+// TOTEST
+// try dynamic loading in object - chain
+// eea.greece.athens.chalandri.getSomething()
+// eea.italy.rome.somewhere.getSomethingElse()
+// call $1.$2.$8.$3.ring()
+// eea.denmark.eea.getFunctionList()
+// eea.denmark.eea.streamChannel(120)
+// eea.denmark.eea.joinVideoConference("test")
+// eea.iot.api.client.connect()
+/*
+	[eea root library] <--- bind library test eea.test.(no downtime)
+				^
+				|
+				/\
+			       /  \
+     dynamic lib 1 eea.test.area1  dynamic lib 2 <-- eea.test.area2 
+*/
