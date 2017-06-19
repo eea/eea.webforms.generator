@@ -58,6 +58,13 @@ eea.css.get("webform.all");
  eea.greece.athens.chalandri.getSomething()
  eea.italy.rome.somewhere.getSomethingElse()
  
+ // Travel guide
+ eea.italy.rome.somearea.tourism.list()
+
+ // Shopping guide - get area shops
+ eea.italy.rome.somearea.shopping.list()
+ eea.italy.rome.somearea.shopping.shop1.listProducts()
+
  // Telephone system via internet
  call $1.$2.$8.$3.ring()
 
