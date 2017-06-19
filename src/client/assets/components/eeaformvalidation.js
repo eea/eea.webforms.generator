@@ -35,7 +35,6 @@ app.component("eeaFormValidation", {
 					content += "<button style=\"padding:4px;min-width:auto;width:30px;max-width:30px;height:30px;\" onclick='" + name + ".focus()'>Go</button><br><br>";
 
 				});
-				console.log(content);
 				$("#eeavalidation").html(content + "</ul>");
 			});
 		};
