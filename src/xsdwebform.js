@@ -301,7 +301,7 @@ var groups = {${
 
 	<div class="row">
 		<div style="margin-top: 50px;">
-			<eea-language scp="this" lang="{{selectedLanguage}}" langfile="${this.baseFileName}" chooselanguage="{{'chooselanguage' | translate}}"></eea-language>
+			<eea-language scp="this" lang="{{selectedLanguage}}" langfile="${this.baseFileName}" chooselanguage="{{'chooselanguage' | translate}}" hide="0"></eea-language>
 		</div>
 	</div>
 	<div class="row">
