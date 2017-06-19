@@ -51,6 +51,7 @@ eea.css.get("webform.all");
 /*
 
  TOTEST
+Enviromental Computing and Networking
 
  Try dynamic loading in object - chain
 
@@ -66,12 +67,13 @@ eea.css.get("webform.all");
  eea.italy.rome.somearea.shopping.shop1.listProducts()
 
  // Telephone system via internet
+ // No cables and satelites
  call $1.$2.$8.$3.ring()
 
  // Check available public functionality - old BBS style
  eea.denmark.eea.getFunctionList()
  // Use the listed functionality
- // Local tv streaming
+ // Local tv streaming - no atmosphere antenna transmissions and satelites 
  eea.denmark.eea.streamChannel(120)
  // Video Conference Channel
  eea.denmark.eea.joinVideoConference("test")
