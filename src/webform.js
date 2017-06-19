@@ -43,6 +43,7 @@ eea.components.getAll([
 	"eeatoolbar", 
 	"eealookup", 
 	"eeaformviewmode", 
+	"eeaformvalidation", 
 	"eeabuildinfo"
 ]);
 eea.css.get("webform.all");
@@ -59,7 +60,7 @@ eea.css.get("webform.all");
 // eea.denmark.eea.joinVideoConference("test")
 // eea.iot.api.client.connect()
 /*
-	[eea root library] <--- bind library test eea.test.(no downtime)
+	[eea root library] <--- bind library test eea.test (no downtime)
 				 ^
 				 |
 				 /\
