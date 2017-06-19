@@ -78,7 +78,7 @@ var eea = {
 			script.type = "text/javascript";
 			script.defer = true;
 			script.text = source;
-			document.getElementsByTagName('HEAD').item(0).appendChild(script);
+			document.getElementsByTagName('head').item(0).appendChild(script);
 		},
 		getCSS : function(css, path, ext, freeurl) {
 			var path  = path || "";
@@ -107,7 +107,7 @@ var eea = {
 		includeCSS : function (fileUrl, source) {
 			var style = document.createElement("style");
 			style.appendChild(document.createTextNode(source)); 
-			document.getElementsByTagName('HEAD').item(0).appendChild(style);
+			document.getElementsByTagName('head').item(0).appendChild(style);
 		}
 	}
 }
