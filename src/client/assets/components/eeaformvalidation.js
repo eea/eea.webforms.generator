@@ -12,19 +12,11 @@ app.component("eeaFormValidation", {
 			setTimeout(
 				function() {
 					parent.validate($translate);
-					$('.formitem :input').change( function() {
-						parent.validate($translate);
-					});
-					$('.rowbutton').click(function() {
-						parent.validate($translate);	
-					});
-					$('.deleterowbutton').click(function() {
-						parent.validate($translate);	
-					});
 				}
 				, ctimeout);
 		};
 		this.validate = function($translate) {
+			$("#eeavalidation").html("");
 			var content = '<b style="font-size:16px;margin-left:10px;margin-bottom:20px;">Remaining fields:</b><br><br><ul>';				
 			$("form.eeaform").each(function($b, $a){
 				$(this).find('.formitem :input').each(function(index, item) {
@@ -32,6 +24,7 @@ app.component("eeaFormValidation", {
 					if (!itype || itype === "submit") return;
 					
 					item = $(item);
+					
 					var val = item.val();
 					if (val) return;
 					
@@ -49,6 +42,21 @@ app.component("eeaFormValidation", {
 				});
 				$("#eeavalidation").html(content + "</ul>");
 			});
+
+			$('.formitem :input').change( function() {
+				parent.validate($translate);
+			});
+			$('.rowbutton').click(function() {
+				parent.validate($translate);	
+				setTimeout( function() {
+					$('.deleterowbutton').click(function() {
+						parent.validate($translate);	
+					});
+				}, 100);
+			});		
+			$('.deleterowbutton').click(function() {
+				parent.validate($translate);	
+			});	
 		};
 	}]
 });
