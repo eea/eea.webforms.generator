@@ -93,4 +93,11 @@ Enviromental Computing and Networking
 					eea.test.area2.iot
 	eea.test.area2.iot.device1.getData() 	   eea.test.area2.iot.device2.getData()
 
+
+CANNOTTEST
+
+Quntum spooky phenomenon
+parallel interacted particles to digital
+Example:
+128 one side <--> 128 interacted other side 
 */
