@@ -15,6 +15,12 @@ app.component("eeaFormValidation", {
 					$('.formitem :input').change( function() {
 						parent.validate($translate);
 					});
+					$('.rowbutton').click(function() {
+						parent.validate($translate);	
+					});
+					$('.deleterowbutton').click(function() {
+						parent.validate($translate);	
+					});
 				}
 				, ctimeout);
 		};
