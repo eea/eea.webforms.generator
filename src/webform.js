@@ -65,4 +65,10 @@ eea.css.get("webform.all");
 				 /\
 				/  \
      dynamic lib 1 eea.test.area1  dynamic lib 2 <-- eea.test.area2 
+		      				 ^
+						 |
+						 /\
+						/  \
+					eea.test.area2
+	eea.test.area2.iot. device1..getData() 	eea.test.area2.iot. device2.getData()
 */
