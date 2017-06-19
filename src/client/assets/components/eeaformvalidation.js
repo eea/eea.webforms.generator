@@ -1,16 +1,21 @@
 'use strict';
 //TODO - Inform the form user regarding remaining fields to be completed and its requirements.
 app.component("eeaFormValidation", {
-	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:300px;padding:20px 0px;overflow-y:auto;font-size:12px;"></div>',
+	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:280px;padding:20px 0px;overflow-y:auto;font-size:12px;"></div>',
 	bindings: {
 		scp: '='
 	},
 	controller: ['$translate', function($translate) {
 		var parent = this;
 		this.$onInit = function() {
-			// TESTING: Should be activated on form inputs change
+
 			setTimeout(
-				function() {parent.validate($translate);}
+				function() {
+					parent.validate($translate);
+					$('.formitem :input').change( function() {
+						parent.validate($translate);
+					});
+				}
 				, 4000);
 		};
 		this.validate = function($translate) {
