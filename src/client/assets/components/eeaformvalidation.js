@@ -12,8 +12,13 @@ app.component("eeaFormValidation", {
 			setTimeout(
 				function() {
 					parent.validate($translate);
-				}
-				, ctimeout);
+					$('.rowbutton').click(function() {
+						parent.validate($translate);	
+					});		
+					$('.deleterowbutton').click(function() {
+						parent.validate($translate);	
+					});	
+				}, ctimeout);
 		};
 		this.validate = function($translate) {
 			$("#eeavalidation").html("");
@@ -53,9 +58,6 @@ app.component("eeaFormValidation", {
 						parent.validate($translate);	
 					});
 				}, 100);
-			});		
-			$('.deleterowbutton').click(function() {
-				parent.validate($translate);	
 			});	
 		};
 	}]
