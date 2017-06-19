@@ -8,7 +8,7 @@ app.config([ '$locationProvider', function($locationProvider) {
 }]);
 
 app.component("lookup", {
-	template: '<select ng-model="$ctrl.parentNgModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}"  id="{{$ctrl.luName}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
+	template: '<select ng-model="$ctrl.parentNgModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}"  id="{{$ctrl.luName}}" def="{{$ctrl.def}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
 	bindings: {
 		parentNgModel: '=',
 		lookup: '@',
@@ -18,6 +18,7 @@ app.component("lookup", {
 		luOption : '@' ,
 		luOrder : '@' ,
 		luData: '@',
+		def : '@' ,
 		autoselect: '@',
 		hideonautoselect: '@',
 		scp: '='
