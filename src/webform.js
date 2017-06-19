@@ -48,17 +48,29 @@ eea.components.getAll([
 ]);
 eea.css.get("webform.all");
 
-
-// TOTEST
-// try dynamic loading in object - chain
-// eea.greece.athens.chalandri.getSomething()
-// eea.italy.rome.somewhere.getSomethingElse()
-// call $1.$2.$8.$3.ring()
-// eea.denmark.eea.getFunctionList()
-// eea.denmark.eea.streamChannel(120)
-// eea.denmark.eea.joinVideoConference("test")
-// eea.iot.api.client.connect()
 /*
+
+ TOTEST
+
+ Try dynamic loading in object - chain
+
+ // Use remote libraries and funcions or get data instantly 
+ eea.greece.athens.chalandri.getSomething()
+ eea.italy.rome.somewhere.getSomethingElse()
+ 
+ // Telephone system via internet
+ call $1.$2.$8.$3.ring()
+
+ // Check available public functionality - old BBS style
+ eea.denmark.eea.getFunctionList()
+ // Use the listed functionality
+ // local tv streaming
+ eea.denmark.eea.streamChannel(120)
+ // Video Conference Channel
+ eea.denmark.eea.joinVideoConference("test")
+ // Connect your iot sensor
+ eea.iot.api.client.connect()
+
 	[eea root library] <--- bind library test eea.test (no downtime)
 				 ^
 				 |
@@ -69,6 +81,7 @@ eea.css.get("webform.all");
 						 |
 						 /\
 						/  \
-					eea.test.area2
+					eea.test.area2.iot
 	eea.test.area2.iot.device1.getData() 	   eea.test.area2.iot.device2.getData()
+
 */
