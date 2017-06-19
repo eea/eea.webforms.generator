@@ -8,7 +8,7 @@ app.component("eeaFormValidation", {
 	controller: ['$translate', function($translate) {
 		var parent = this;
 		this.$onInit = function() {
-			var ctimeout = ($('eea-form-testing')) ? 4000 : 10;
+			var ctimeout = ($('eea-form-testing').length) ? 4000 : 10;
 			setTimeout(
 				function() {
 					parent.validate($translate);
