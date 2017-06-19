@@ -23,6 +23,11 @@ app.component("eeaFormValidation", {
 					item = $(item);
 					var val = item.val();
 					if (val) return;
+
+					var parentItem;
+					if (item.attr("ng-model") === "$ctrl.parentNgModel") {
+						parentItem = item.parent();
+					}
 					
 					var name = item.attr("name");
 					var aname = name.split("$");
@@ -31,8 +36,9 @@ app.component("eeaFormValidation", {
 					
 					content += "<li>Group <b>" + arr + "</b><br>";
 					content += "<b style=\"font-size:14px\">" + $translate.instant('labels.' + nme) + "</b><br>";
-					content += ($translate.instant($(item).attr("def"))  || "" )+ "<br>";
-					content += "<button style=\"padding:4px;min-width:auto;width:30px;max-width:30px;height:30px;\" onclick='" + name + ".focus()'>Go</button><br><br>";
+					content += ($translate.instant(item.attr("def")  || parentItem.attr("def"))  || "" )+ "<br>";
+
+					content += "<button style=\"padding:2px;min-width:auto;font-size:11px;width:24px;max-width:24px;height:24px;\" onclick='" + name + ".focus()'>Go</button><br><br>";
 
 				});
 				$("#eeavalidation").html(content + "</ul>");
