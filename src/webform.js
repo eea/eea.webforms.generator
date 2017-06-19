@@ -70,5 +70,5 @@ eea.css.get("webform.all");
 						 /\
 						/  \
 					eea.test.area2
-	eea.test.area2.iot. device1..getData() 	eea.test.area2.iot. device2.getData()
+	eea.test.area2.iot.device1.getData() 	   eea.test.area2.iot.device2.getData()
 */
