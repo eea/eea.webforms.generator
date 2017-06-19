@@ -264,6 +264,7 @@ export default class XSDWebForm {
 <title>{{('labels.pagetitle' || 'pagetitle') | translate}}</title>
 
 <script src="./assets/eea/eea.core.min.js"></script>
+<script src="./assets/js/jquery.min.js" ></script>
 <script src="./assets/js/a/angular.all.min.js" ></script>
 <script src="./${this.baseFileName}.webform.min.js"></script>
 

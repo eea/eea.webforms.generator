@@ -54,10 +54,5 @@ eea.components.getAll([
 	"eeaformviewmode", 
 	"eeabuildinfo"
 ]);
-<<<<<<< HEAD
-eea.JS.get("jquery");
-eea.CSS.get("webform.all");
-=======
-eea.js.get("jquery");
 eea.css.get("webform.all");
->>>>>>> cd33e7fea7aae0b3085b2cccef17b2a933f31614
+
