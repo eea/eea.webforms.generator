@@ -60,9 +60,9 @@ eea.css.get("webform.all");
 // eea.iot.api.client.connect()
 /*
 	[eea root library] <--- bind library test eea.test.(no downtime)
-				^
-				|
-				/\
-			       /  \
+				 ^
+				 |
+				 /\
+				/  \
      dynamic lib 1 eea.test.area1  dynamic lib 2 <-- eea.test.area2 
 */
