@@ -1,7 +1,7 @@
 'use strict';
 //TODO - Inform the form user regarding remaining fields to be completed and its requirements.
 app.component("eeaFormValidation", {
-	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:300px;padding:10px;overflow-y:auto;font-size:12px;"></div>',
+	template: '<div id="eeavalidation" style="position:fixed;right:0;bottom:0;z-index:999;background-color:#F0F4F5;width:400px;height:300px;padding:20px 0px;overflow-y:auto;font-size:12px;"></div>',
 	bindings: {
 		scp: '='
 	},
@@ -14,7 +14,7 @@ app.component("eeaFormValidation", {
 				, 4000);
 		};
 		this.validate = function($translate) {
-			var content = '<ul>';				
+			var content = '<b style="font-size:16px;margin-left:10px;margin-bottom:20px;">Remaining fields:</b><br><br><ul>';				
 			$("form.eeaform").each(function($b, $a){
 				$(this).find('.formitem :input').each(function(index, item) {
 					var itype = item.type;
