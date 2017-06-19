@@ -12,6 +12,9 @@ app.component("eeaFormValidation", {
 			setTimeout(
 				function() {
 					parent.validate($translate);
+					$('.formitem :input').change( function() {
+						parent.validate($translate);
+					});
 					$('.rowbutton').click(function() {
 						parent.validate($translate);	
 					});		
