@@ -43,7 +43,7 @@ eea.components.getAll([
 	"eeatoolbar", 
 	"eealookup", 
 	"eeaformviewmode", 
-	// "eeaformvalidation", 
+	"eeaformvalidation", 
 	"eeabuildinfo"
 ]);
 eea.css.get("webform.all");

@@ -27,25 +27,24 @@ app.component("eeaFormValidation", {
 			$("#eeavalidation").html("");
 			var content = '<b style="font-size:16px;margin-left:10px;margin-bottom:20px;">Remaining fields:</b><br><br><ul>';				
 			$("form.eeaform").each(function(){
-				$(this).find('.formitem :input').each(function(index, item) {
-					var itype = item.type;
+				$(this).find('.formitem :input').each(function(index, fitem) {
+					var itype = fitem.type;
 					
 					if (!itype || itype === "submit") return;
 					
-					item = $(item);
+					var item = $(fitem);
 					var val = item.val();
 					
 					if ((val && itype !== "checkbox") || (itype === "checkbox" && ! item.hasClass("ng-untouched") || item.is(':checked'))) {
 						return;
 					}
 
+					fitem.onchange = function(){ parent.validate($translate); };
+
 					var name = item.attr("name");
 					var aname = name.split("$");
 					var arr = aname[1];
 					var nme = aname[0];
-					item.change(function() {
-						parent.validate($translate);
-					});
 					
 					content += "<li>Group <b>" + arr + "</b><br>";
 					content += "<b style=\"font-size:14px\">" + $translate.instant('labels.' + nme) + "</b><br>";
