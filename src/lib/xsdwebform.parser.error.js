@@ -20,7 +20,7 @@ class XSDWebFormParserError {
 			console.log("\n\x1b[1m\x1b[31m" + error + "\x1b[0m");
 
 		if (item)
-			console.log(`\x1b[0m\x1b[37mline: ${item.line}, colum: ${item.column}, position: ${item.position}\n\x1b[0m`);
+			console.error(`\x1b[0m\x1b[37mline: ${item.line}, colum: ${item.column}, position: ${item.position}\n\x1b[0m`);
 
 		if (!dontex)
 			process.exit();
