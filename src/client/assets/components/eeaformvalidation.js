@@ -62,7 +62,7 @@ app.component("eeaFormValidation", {
 					$('.deleterowbutton').onchange = function() {
 						parent.validate($translate);	
 					};
-				}, 20);
+				}, 100);
 			};	
 		};
 	}]
