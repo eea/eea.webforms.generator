@@ -53,7 +53,5 @@ app.component("lookup", {
 					}
 				});
 		};
-		this.updateLookup = function() {
-		};
 	}]
 });
