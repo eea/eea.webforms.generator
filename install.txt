@@ -1,0 +1,3 @@
+npm install
+npm install -s nodemon
+tpm install -s babel-cli
