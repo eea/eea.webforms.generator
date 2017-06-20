@@ -25,9 +25,9 @@
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
-    "heapdump": "^0.3.9",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.3.0",
+    "nodemon": "^1.11.0",
     "recursive-uglifyjs": "^1.0.0",
     "request": "^2.81.0",
     "request-mocha": "^0.2.0"

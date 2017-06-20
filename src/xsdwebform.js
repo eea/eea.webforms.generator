@@ -7,7 +7,6 @@
 
 'use strict';
 
-// import heapdump from 'heapdump';  //debug library
 import fs from 'fs';
 import path from 'path';
 import ncp from 'ncp';
@@ -378,5 +377,3 @@ var groups = {${
 var xsdWebForm = new XSDWebForm(process.argv);
 
 module.exports.xsdWebForm = xsdWebForm;
-
-// heapdump.writeSnapshot('./' + Date.now() + '.heapsnapshot');
