@@ -2,6 +2,8 @@
 
 //var Version="0.2";
 
+//TODO: Refactor jquery slow calls to native/vanilla
+
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
 

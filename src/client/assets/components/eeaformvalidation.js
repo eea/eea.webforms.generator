@@ -40,7 +40,7 @@ app.component("eeaFormValidation", {
 					}
 
 					fitem.onchange = function(){ parent.validate($translate); };
-
+					
 					var name = item.attr("name");
 					var aname = name.split("$");
 					var arr = aname[1];
@@ -56,14 +56,14 @@ app.component("eeaFormValidation", {
 				$("#eeavalidation").html(content + "</ul>");
 			});
 
-			$('.rowbutton').click(function() {
+			$('.rowbutton').onchange = function() {
 				parent.validate($translate);	
 				setTimeout( function() {
-					$('.deleterowbutton').click(function() {
+					$('.deleterowbutton').onchange = function() {
 						parent.validate($translate);	
-					});
+					};
 				}, 20);
-			});	
+			};	
 		};
 	}]
 });
