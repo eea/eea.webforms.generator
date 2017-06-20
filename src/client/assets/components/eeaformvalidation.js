@@ -59,10 +59,10 @@ app.component("eeaFormValidation", {
 			document.getElementsByClassName('rowbutton').onclick = function() {
 				parent.validate($translate);	
 				setTimeout(function() {
-					document.getElementsByClassName('rowbutton').onclick  = function() {
+					document.getElementsByClassName('deletebutton').onclick  = function() {
 						parent.validate($translate);	
 					};
-				}, 10);
+				}, 100);
 			};	
 		};
 	}]
