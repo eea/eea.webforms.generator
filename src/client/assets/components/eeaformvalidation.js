@@ -62,7 +62,7 @@ app.component("eeaFormValidation", {
 					document.getElementsByClassName('rowbutton').onclick  = function() {
 						parent.validate($translate);	
 					};
-				}, 100);
+				}, 10);
 			};	
 		};
 	}]
