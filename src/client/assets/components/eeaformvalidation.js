@@ -43,6 +43,9 @@ app.component("eeaFormValidation", {
 					var aname = name.split("$");
 					var arr = aname[1];
 					var nme = aname[0];
+					item.change(function() {
+						parent.validate($translate);
+					});
 					
 					content += "<li>Group <b>" + arr + "</b><br>";
 					content += "<b style=\"font-size:14px\">" + $translate.instant('labels.' + nme) + "</b><br>";
