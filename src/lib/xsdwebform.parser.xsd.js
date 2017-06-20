@@ -5,6 +5,7 @@
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
 'use strict';
+
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
 
 /**

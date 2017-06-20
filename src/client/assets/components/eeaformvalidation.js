@@ -54,16 +54,13 @@ app.component("eeaFormValidation", {
 				$("#eeavalidation").html(content + "</ul>");
 			});
 
-			$('.formitem :input').change( function() {
-				parent.validate($translate);
-			});
 			$('.rowbutton').click(function() {
 				parent.validate($translate);	
 				setTimeout( function() {
 					$('.deleterowbutton').click(function() {
 						parent.validate($translate);	
 					});
-				}, 100);
+				}, 20);
 			});	
 		};
 	}]
