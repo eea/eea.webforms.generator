@@ -40,7 +40,7 @@ app.component("lookup", {
 				$http.get(parent.lookup).then( function(response) {
 					parent.data = response.data[parent.luData];
 					if (parent.autoselect) {
-						let qs = $location.search()['countrycode'];
+						let qs = $location.search()[parent.autoselect];
 						let fdata = parent.data.filter(function (item) {
 							if (item[parent.luValueStr] === qs) return true;
 						});
