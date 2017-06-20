@@ -29,13 +29,16 @@ app.component("eeaFormValidation", {
 			$("form.eeaform").each(function($b, $a){
 				$(this).find('.formitem :input').each(function(index, item) {
 					var itype = item.type;
+					
 					if (!itype || itype === "submit") return;
 					
 					item = $(item);
-					
 					var val = item.val();
-					if (val) return;
 					
+					if ((val && itype !== "checkbox") || (itype === "checkbox" && ! item.hasClass("ng-untouched") || item.is(':checked'))) {
+						return;
+					}
+
 					var name = item.attr("name");
 					var aname = name.split("$");
 					var arr = aname[1];

@@ -50,12 +50,12 @@ eea.css.get("webform.all");
 
 /*
 
- TOTEST
+TOTEST
 Enviromental Computing and Networking
 
  Try dynamic loading in object - chain
 
- // Use remote libraries and funcions or get data instantly 
+ // Use remote libraries and functions or get data instantly 
  eea.greece.athens.chalandri.getSomething()
  eea.italy.rome.somewhere.getSomethingElse()
  
@@ -96,8 +96,9 @@ Enviromental Computing and Networking
 
 CANNOTTEST
 
-Quntum spooky phenomenon
+Quantum spooky phenomenon
 parallel interacted particles to digital
 Example:
 128 one side <--> 128 interacted other side 
+
 */
