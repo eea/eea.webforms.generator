@@ -57,9 +57,10 @@ app.component("eeaFormValidation", {
 			});
 
 			setTimeout(function() {
-				document.getElementsByClassName('deleterowbutton').onclick  = function() {
+				console.log("a");
+				$('.deleterowbutton').click(function() {
 					parent.validate($translate);	
-				};
+				});
 			}, 100);
 		};
 	}]
