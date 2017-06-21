@@ -17,7 +17,7 @@ app.component("eeaToolbar", {
                         -->
                     </span>
                     <span ng-show="!currentDerogation" class="">
-                        <input type="button" ng-click="saveInstance()" value="Save" class="btn btn-success">
+                        <input type="button" ng-click="$ctrl.saveInstance()" value="Save" class="btn btn-success">
                         <!--
                         <input type="button" ng-click="validationOnOff()" value="Turn validation {{status.submitted ? 'Off' : 'On'}}" class="btn btn-primary">
                         -->
@@ -49,8 +49,8 @@ app.component("eeaToolbar", {
 			$window.open(conversionLink, '_blank');
 		}
 
-		this.save = function(){
-				//TODO
+		this.saveInstance = function(){
+				parent.scp.submit();
 		}
 
 		this.close = function(){
