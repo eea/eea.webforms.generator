@@ -176,11 +176,11 @@ export default class XSDWebForm {
 					});
 
 					// Create XSD and form.xml files
-					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".xsd", xObject.xdata);
-					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".form.xml", xObject.hdata);
+					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".xsd", xObject.xdata, false);
+					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".form.xml", xObject.hdata, false);
 					
 					// Create XSLT output
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput());
+					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput(), false);
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
 
 					// Open browser 
