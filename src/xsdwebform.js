@@ -175,6 +175,10 @@ export default class XSDWebForm {
 						});
 					});
 
+					// Create XSD output
+					fs.createReadStream(xsdFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".xsd"));
+					fs.createReadStream(filePath + "/" + xmlHtmlFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".form.xml"));
+
 					// Create XSLT output
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput());
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
@@ -196,6 +200,7 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
+					fs.mkdirSync(parent.buildPath+"xsd");
 					fs.mkdirSync(parent.buildPath+"xslt");
 					fs.mkdirSync(parent.buildPath+"log");
 					ncp(__dirname + "/client/lng/", parent.buildPath + "lng", function(err) {
