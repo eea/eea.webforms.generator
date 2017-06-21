@@ -961,7 +961,9 @@ class XSDWebFormParserHTMLTags {
 		xstrArr.forEach((item) => {
 			try {
 				xsdElement  = sender.getItemByNameRegex(item, xsdElement);
-			} catch (err) {};
+			} catch (err) {
+				//console.log(err)
+			}
 			if (!xsdElement) return;
 		});
 
