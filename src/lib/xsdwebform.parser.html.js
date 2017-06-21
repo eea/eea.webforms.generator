@@ -948,7 +948,7 @@ class XSDWebFormParserHTMLTags {
 
 	/**
 	 * xxQuery
-	 * @param item
+	 * @param xstr
 	 * @param xsdItem
 	 * @param sender
 	 */
