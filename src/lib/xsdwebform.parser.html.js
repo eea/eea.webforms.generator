@@ -953,7 +953,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	xxQuery(xstr, xsdItem, sender) {
-		
 		if (!xsdItem) return;
 
 		var xstrArr = xstr.split("/");
