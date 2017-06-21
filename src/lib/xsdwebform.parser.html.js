@@ -943,7 +943,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	getLabel(item, xsdItem, sender) {
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
-		item.label = sender.xxQuery("xs:annotation/xs:docsumentation/(.*?):Name", XSDWFormItemLabel, sender);
+		item.label = sender.xxQuery("xs:annotation/xs:documentation/(.*?):Name", XSDWFormItemLabel, sender);
 	}
 
 	/**
