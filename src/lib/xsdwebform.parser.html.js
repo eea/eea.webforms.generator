@@ -943,7 +943,7 @@ class XSDWebFormParserHTMLTags {
 	 */
 	getLabel(item, xsdItem, sender) {
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
-		item.label = sender.xxQuery("xs:annotation/xs:documentation/(.*?):Name", XSDWFormItemLabel, sender).val;
+		item.label = sender.xxQuery("xs:annotation/xs:docsumentation/(.*?):Name", XSDWFormItemLabel, sender);
 	}
 
 	/**
@@ -957,13 +957,15 @@ class XSDWebFormParserHTMLTags {
 		if (!xsdItem) return;
 
 		var xstrArr = xstr.split("/");
-		var XsdElement = xsdItem;
+		var xsdElement = xsdItem;
 		xstrArr.forEach((item) => {
-			XsdElement  = sender.getItemByNameRegex(item, XsdElement);
-			if (!XsdElement) return;
+			try {
+				xsdElement  = sender.getItemByNameRegex(item, xsdElement);
+			} catch (err) {};
+			if (!xsdElement) return;
 		});
 
-		return XsdElement;
+		return (xsdElement) ? xsdElement.val : undefined;
 	}
 
 	/**
