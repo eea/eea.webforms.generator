@@ -40,15 +40,13 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 						}
 				});
 			},
-			submit : function (frm, test, $scope) {
+			submit : function (frm, $scope) {
 
 				for (var form in $scope.field) {
 					if (frm) {
 						if (frm.$name !== form) continue;
 					}
 
-					if (test) return false;
-				
 					var frmObj = $scope.field[form];
 					var postContent = '';
 					for (var element in frmObj) {
