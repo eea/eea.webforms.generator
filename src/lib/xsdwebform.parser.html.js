@@ -943,18 +943,27 @@ class XSDWebFormParserHTMLTags {
 	 */
 	getLabel(item, xsdItem, sender) {
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
-		if (XSDWFormItemLabel) {
-			XSDWFormItemLabel  = XSDWFormItemLabel.childNamed("xs:annotation");			
-			if (XSDWFormItemLabel) {
-				XSDWFormItemLabel = XSDWFormItemLabel.childNamed("xs:documentation");
-				if (XSDWFormItemLabel) {
-					XSDWFormItemLabel = sender.getItemByNameRegex("(.*?):Name", XSDWFormItemLabel);
-					if (XSDWFormItemLabel) {
-						item.label = XSDWFormItemLabel.val;
-					}
-				}
-			}
-		}
+		item.label = sender.xxQuery("xs:annotation/xs:documentation/(.*?):Name", XSDWFormItemLabel, sender).val;
+	}
+
+	/**
+	 * xxQuery
+	 * @param item
+	 * @param xsdItem
+	 * @param sender
+	 */
+	xxQuery(xstr, xsdItem, sender) {
+		
+		if (!xsdItem) return;
+
+		var xstrArr = xstr.split("/");
+		var XsdElement = xsdItem;
+		xstrArr.forEach((item) => {
+			XsdElement  = sender.getItemByNameRegex(item, XsdElement);
+			if (!XsdElement) return;
+		});
+
+		return XsdElement;
 	}
 
 	/**
