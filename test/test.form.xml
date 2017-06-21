@@ -5,11 +5,15 @@
 			<group element="ConcludedTransferRecord"> 	
 				<item element="AEA"/>	
 				<item element="TransferringMemberState"/>
-				<item element="AcquiringMemberState"/>
-				<item element="AEA-Price"/>
-				<item element="TransferAgreementDate"/>
-				<item element="ExpectedTransactionYear"/>
-				<item element="Other"/>
+				<subgroup tab="1//TODO"  tabtitle="Tab1">
+					<item element="AcquiringMemberState"/>
+					<item element="AEA-Price"/>
+					<item element="TransferAgreementDate"/>
+				</subgroup>
+				<subgroup tab="1" tabtitle="Tab2">
+					<item element="ExpectedTransactionYear"/>
+					<item element="Other"/>
+				</subgroup>
 				<input name="Test"/>
 				<input name="Test2"/>
 				<item element="ReportingIssue"/>
