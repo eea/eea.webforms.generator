@@ -176,7 +176,6 @@ export default class XSDWebForm {
 					});
 
 					// Create XSD and form.xml files
-					//fs.createReadStream(xsdFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".xsd"));
 					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".xsd", xObject.xdata);
 					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".form.xml", xObject.hdata);
 					
