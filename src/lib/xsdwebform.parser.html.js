@@ -746,53 +746,6 @@ class XSDWebFormParserHTMLTags {
 	}
 
 	/**
-	 * getTypeByName
-	 * @param itemname
-	 * @param xsdItem
-	 */
-	getTypeByName(itemname, xsdItem) {
-		let elements = xsdItem.childrenNamed("xs:simpleType");
-		for (let i = 0, l = elements.length; i  < l; i++) {
-			if (elements[i].attr.name === itemname) {
-				return elements[i];
-			}
-		}
-	}
-
-	/**
-	 * getItemByName
-	 * @param itemname
-	 * @param xsdItem
-	 */
-	getItemByName(itemname, xsdItem) {
-		return xsdItem.childWithAttribute("name", itemname);
-	}
-
-	/**
-	 * getItemByRef
-	 * @param itemref
-	 * @param xsdItem
-	 */
-	getItemByRef(itemref, xsdItem) {
-		return xsdItem.childWithAttribute("ref", itemref);
-	}
-
-	/**
-	 * getItemByNameRegex 
-	 * @param itemname
-	 * @param xsdItem
-	 */
-	getItemByNameRegex(itemname, xsdItem) {
-		if (!xsdItem) return;
-		for (var i = 0, l = xsdItem.children.length; i < l; i++) {
-			var child = xsdItem.children[i];
-			if (child.type === "element")
-				if (child.name.match(itemname)) return child;
-		}
-		return undefined;
-	}
-
-	/**
 	 * getXSDProperties - Parse XSD Properties
 	 * @param item
 	 * @param groupxsdItem
@@ -964,6 +917,53 @@ class XSDWebFormParserHTMLTags {
 		});
 
 		return (xsdElement) ? xsdElement.val : undefined;
+	}
+
+	/**
+	 * getTypeByName
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getTypeByName(itemname, xsdItem) {
+		let elements = xsdItem.childrenNamed("xs:simpleType");
+		for (let i = 0, l = elements.length; i  < l; i++) {
+			if (elements[i].attr.name === itemname) {
+				return elements[i];
+			}
+		}
+	}
+
+	/**
+	 * getItemByName
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getItemByName(itemname, xsdItem) {
+		return xsdItem.childWithAttribute("name", itemname);
+	}
+
+	/**
+	 * getItemByRef
+	 * @param itemref
+	 * @param xsdItem
+	 */
+	getItemByRef(itemref, xsdItem) {
+		return xsdItem.childWithAttribute("ref", itemref);
+	}
+
+	/**
+	 * getItemByNameRegex 
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getItemByNameRegex(itemname, xsdItem) {
+		if (!xsdItem) return;
+		for (var i = 0, l = xsdItem.children.length; i < l; i++) {
+			var child = xsdItem.children[i];
+			if (child.type === "element")
+				if (child.name.match(itemname)) return child;
+		}
+		return undefined;
 	}
 
 	/**
