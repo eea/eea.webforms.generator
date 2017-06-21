@@ -956,7 +956,6 @@ class XSDWebFormParserHTMLTags {
 		if (!xsdItem) return;
 
 		var xstrArr = xstr.split("/");
-		if (!xstrArr) return;
 		var xsdElement = xsdItem;
 		xstrArr.forEach((item) => {
 			try {
