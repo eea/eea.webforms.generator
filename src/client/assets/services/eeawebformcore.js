@@ -29,7 +29,8 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 		form: {
 			save : function ($scope) {
 				$("form.eeaform").each(function(index, form){
-						console.log("Testing form - Valid:", $scope[form.name].$valid);						    
+						console.log("Testing form - Valid:", $scope[form.name].$valid);			
+						//TODO: Maybe a DB flag commited: true or false. In order to be Commited it needs to be valid. It can be saved without all elements completed but not commited.			    
 				});
 			},
 			submit : function (frm, test, $scope) {
