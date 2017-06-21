@@ -960,7 +960,7 @@ class XSDWebFormParserHTMLTags {
 		var xsdElement = xsdItem;
 		xstrArr.forEach((item) => {
 			try {
-				xsdElement  = sender.getItemByNameRegex(item, xsdElement);
+				xsdElement = sender.getItemByNameRegex(item, xsdElement);
 			} catch (err) {
 				//console.log(err)
 			}
