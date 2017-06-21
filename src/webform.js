@@ -33,12 +33,12 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 	};
 }
 
-// eea.services.get("eeawebformcore");
+eea.services.get("eeawebformcore");
 eea.components.getAll([
 	"eeaheader", 
 	"eeamenu", 
 	"eeafooter", 
-	// "eeaformtesting", 
+	"eeaformtesting", 
 	"eealanguage", 
 	"eeatoolbar", 
 	"eealookup", 
