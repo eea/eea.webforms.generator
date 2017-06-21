@@ -32,7 +32,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 						console.log("Testing form - Valid:", $scope[form.name].$valid);			
 						//TODO: Maybe a DB status flag (same Table or Lookup for activity logging? or Status in main table and Activity Table for action/date/user logging) 
 						//(i.e. 0 created/saved, 1 edited (+dateedited? extra field), 2 commited - leave it "open" for future statuses). In order to be Commited it needs to be valid. It can be saved without all elements completed but not commited.			    
-						// Maybe an extra Commit button appearing in case server respond to last edit/save that data are accepted and checked.
+						// Maybe an extra Commit button appearing in case server respond to last edit/save (and on form loading with saved data from server) that data are accepted and checked.
 						if (!$scope[form.name].$valid) {
 							$("#" + form.name + " .ng-invalid").first().focus();
 						}
