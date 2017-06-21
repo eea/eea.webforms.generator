@@ -783,6 +783,7 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItem
 	 */
 	getItemByNameRegex(itemname, xsdItem) {
+		if (!xsdItem) return;
 		for (var i = 0, l = xsdItem.children.length; i < l; i++) {
 			var child = xsdItem.children[i];
 			if (child.type === "element")
@@ -958,11 +959,7 @@ class XSDWebFormParserHTMLTags {
 		var xstrArr = xstr.split("/");
 		var xsdElement = xsdItem;
 		xstrArr.forEach((item) => {
-			try {
-				xsdElement = sender.getItemByNameRegex(item, xsdElement);
-			} catch (err) {
-				//console.log(err)
-			}
+			xsdElement = sender.getItemByNameRegex(item, xsdElement);
 			if (!xsdElement) return;
 		});
 
