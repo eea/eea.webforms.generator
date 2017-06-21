@@ -175,10 +175,11 @@ export default class XSDWebForm {
 						});
 					});
 
-					// Create XSD output
-					fs.createReadStream(xsdFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".xsd"));
-					fs.createReadStream(filePath + "/" + xmlHtmlFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".form.xml"));
-
+					// Create XSD and form.xml files
+					//fs.createReadStream(xsdFile).pipe(fs.createWriteStream(this.buildPath + "xsd/" + this.baseFileName + ".xsd"));
+					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".xsd", xObject.xdata);
+					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".form.xml", xObject.hdata);
+					
 					// Create XSLT output
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput());
 					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
