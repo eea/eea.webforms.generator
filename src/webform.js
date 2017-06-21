@@ -24,6 +24,10 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 		$eea.form.save($scope);
 	};
 	
+	$scope.submit = function (frm, test) {
+		return $eea.form.submit(frm, test, $scope);
+	};
+
 	$scope.addRow = function (frm, group) {
 		$eea.group.addRow(frm, group, $scope);
 	};
