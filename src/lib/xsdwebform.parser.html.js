@@ -156,12 +156,10 @@ class XSDWebFormParserHTMLTags {
 			text: item.attr.title || ""
 		});
 		let formNum = sender.HTMLObjects.length + 1;
-		// let formEnd = `<button type="submit" class="submitbutton btn btn-primary">{{'submitform' | translate}}</button>`;
 		var formObject = {
 			name: 'form' + formNum ,
 			action: item.attr.action,
 			tag: 'form',
-			// append: formEnd,
 			attrs: {
 				name: 'form' + formNum,
 				id: 'form' + formNum,
