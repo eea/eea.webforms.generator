@@ -50,7 +50,7 @@ app.component("eeaToolbar", {
 		}
 
 		this.saveInstance = function(){
-				parent.scp.submit();
+				parent.scp.save();
 		}
 
 		this.close = function(){

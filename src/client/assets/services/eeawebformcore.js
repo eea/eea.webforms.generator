@@ -27,35 +27,40 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 			}
 		},
 		form: {
+			save : function ($scope) {
+				$("form.eeaform").each(function(index, form){
+						console.log("Testing form - Valid:", $scope[form.name].$valid);						    
+				});
+			},
 			submit : function (frm, test, $scope) {
 
-				for (var form in $scope.field) {
-					if (frm) {
-						if (frm.$name !== form) continue;
-					}
+				// for (var form in $scope.field) {
+					// if (frm) {
+						// if (frm.$name !== form) continue;
+					// }
 
-					if (test) return false;
-				
-					var frmObj = $scope.field[form];
-					var postContent = '';
-					for (var element in frmObj) {
-						postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
-					}
-
-					$http({
-						method: 'POST',
-						url: $("#" + form).attr("eea-action"),
-						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-						data: postContent
-					}).then(			
-						function(response) {
-							console.log("response", response.status);
-						},
-						function(error) {
-							console.log("error", error.status);
-						});
-
+				if (test) return false;
+			
+				var frmObj = $scope.field[form];
+				var postContent = '';
+				for (var element in frmObj) {
+					postContent += "&" + encodeURIComponent(element) + "=" + encodeURIComponent(frmObj[element]);
 				}
+
+				$http({
+					method: 'POST',
+					url: $("#" + form).attr("eea-action"),
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					data: postContent
+				}).then(			
+					function(response) {
+						console.log("response", response.status);
+					},
+					function(error) {
+						console.log("error", error.status);
+					});
+
+				// }
 
 				return false;
 			}

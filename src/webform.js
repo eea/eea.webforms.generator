@@ -20,8 +20,8 @@ function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $com
 
 	//$eea.data.destinations.json
 
-	$scope.submit = function (frm, test) {
-		return $eea.form.submit(frm, test, $scope);
+	$scope.save = function () {
+		$eea.form.save($scope);
 	};
 	
 	$scope.addRow = function (frm, group) {
