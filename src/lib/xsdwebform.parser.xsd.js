@@ -119,7 +119,17 @@ class XSDWebFormParserTags {
 								}]
 							}
 						}
-
+						
+						XML
+						 <xml>
+							 <Children>
+								<Child name="test1"/>
+								<Child name="test2"/>
+								<Child name="test3"> 
+									<Child name="stest1"/>
+								</Child>
+							</Children>
+						</xml>
 						*/
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
