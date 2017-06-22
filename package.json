@@ -40,9 +40,9 @@
     "dev": "nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2",
     "deva": "nodemon ./src/xsdwebform.js -a --exec babel-node --presets es2015,stage-2",
     "build": "babel ./src -d dist --presets es2015,stage-2",
-    "buildcom": "babel ./src/client/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/assets/components -eo ./src/client/assets/components ",
-    "buildsrv": "babel ./src/client/assets/services/*.js -d /tmp/services --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/services/src/client/assets/services -eo ./src/client/assets/services ",
-    "buildeea": "uglifyjs ./src/client/assets/eea/eea.core.js -o ./src/client/assets/eea/eea.core.min.js"
+    "buildcom": "babel ./src/client/webform/assets/components/*.js -d /tmp/components --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/components/src/client/webform/assets/components -eo ./src/client/webform/assets/components ",
+    "buildsrv": "babel ./src/client/webform/assets/services/*.js -d /tmp/services --no-babelrc --presets=es2015 --ignore *.min.js && uglifyjs-folder /tmp/services/src/client/webform/assets/services -eo ./src/client/webform/assets/services ",
+    "buildeea": "uglifyjs ./src/client/webform/assets/eea/eea.core.js -o ./src/client/webform/assets/eea/eea.core.min.js"
   },
   "author": "George Bouris",
   "license": "ISC"

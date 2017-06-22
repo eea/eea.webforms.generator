@@ -2,7 +2,7 @@
 
 app.config(['$translateProvider', '$translatePartialLoaderProvider', function($translateProvider, $translatePartialLoaderProvider) {
 	$translateProvider.useLoader('$translatePartialLoader', {
-		urlTemplate: 'lng/{part}.{lang}.lang.json'
+		urlTemplate: '/resources/labels/{part}.{lang}.lang.json'
 	});
 	$translateProvider.useSanitizeValueStrategy('escapeParameters');
 	$translateProvider.fallbackLanguage('en');
@@ -27,7 +27,7 @@ app.component("eeaLanguage", {
 			$translatePartialLoader.addPart(parent.langfile);
 			$translate.refresh();
 			(function() {
-				$http.get('lng/ct-codelists-en.json').then( function(response) {
+				$http.get('/resources/labels/ct-codelists-en.json').then( function(response) {
 					parent.codeLists = response.data;
 					parent.language = parent.lang;
 				});

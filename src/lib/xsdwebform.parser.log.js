@@ -18,7 +18,10 @@ class XSDWebFormParserLog {
 		this.htmlOutput = `<!DOCTYPE html>
 <html>
 <head>
-<script src="../assets/js/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 <script>
 $(function () {
 	var cnt = 0;

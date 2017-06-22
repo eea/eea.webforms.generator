@@ -45,7 +45,7 @@ export default class XSDWebForm {
 			this.serverPort = 3001;
 
 			//Build directory
-			this.buildPath = "build/";
+			this.buildPath = "build/obligation/";
 			// Input file variable
 			var xsdFile = null;
 			// HTML Input file variable
@@ -107,7 +107,7 @@ export default class XSDWebForm {
 							.listen(parent.serverPort, function () {
 								if (parent.showLog) {
 									console.log(`\x1b[1m\x1b[37mTest web server is listening on port ${parent.serverPort}\x1b[0m`);
-									console.log(`http://localhost:${parent.serverPort}/${parent.baseFileName}.html`);
+									console.log(`http://localhost:${parent.serverPort}/webform/${parent.baseFileName}.html`);
 									console.log(`\x1b[0m\x1b[37mLog: \x1b[2mhttp://localhost:${parent.serverPort}/log/${parent.baseFileName}.log.html \n\n`);
 								}
 								resolve(parent);
@@ -145,16 +145,16 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					
 					// Create HTML file
-					this.createFile(this.buildPath + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
-						this.getFile(__dirname + "/client/lng/ct-codelists-en.json").then((langs) => {
+					this.createFile(this.buildPath + "webform/" + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
+						this.getFile(__dirname + "/client/resources/labels/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
 							let langData = this.parser.getFullTextContent();
 							langs.CTCodelists.Languages.item.forEach((item) => {
-								this.createFile(this.buildPath + "lng/" + this.baseFileName + "." + item.code + ".lang.json", langData, false);
+								this.createFile(this.buildPath + "resources/labels/" + this.baseFileName + "." + item.code + ".lang.json", langData, false);
 							});
 							if (this.showLog) {
-								this.createFile(this.buildPath + "log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
-								webshot(`http://localhost:${this.serverPort}/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", { shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
+								this.createFile(this.buildPath + "/log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
+								webshot(`http://localhost:${this.serverPort}/webform/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", { shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
 							this.tester.test().then ((res) => {
 								let cres = "\x1b[32m ✓\x1b[1m ";
@@ -176,16 +176,16 @@ export default class XSDWebForm {
 					});
 
 					// Create XSD and form.xml files
-					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".xsd", xObject.xdata, false);
-					this.createFile(this.buildPath + "xsd/" + this.baseFileName + ".form.xml", xObject.hdata, false);
+					this.createFile(this.buildPath + "schema/" + this.baseFileName + ".xsd", xObject.xdata, false);
+					this.createFile(this.buildPath + "schema/" + this.baseFileName + ".form.xml", xObject.hdata, false);
 					
 					// Create XSLT output
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput(), false);
-					this.createFile(this.buildPath + "xslt/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
+					this.createFile(this.buildPath + "xsl/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput(), false);
+					this.createFile(this.buildPath + "xsl/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
 
 					// Open browser 
 					if (this.autoOpenOutput)
-						openurl.open(`http://localhost:3001/${this.baseFileName}.html`);
+						openurl.open(`http://localhost:3001/webform/${this.baseFileName}.html`);
 				});
 			});
 		});
@@ -200,15 +200,13 @@ export default class XSDWebForm {
 			rimraf(parent.buildPath, fs, function() {
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
-					fs.mkdirSync(parent.buildPath+"xsd");
-					fs.mkdirSync(parent.buildPath+"xslt");
-					fs.mkdirSync(parent.buildPath+"log");
-					ncp(__dirname + "/client/lng/", parent.buildPath + "lng", function(err) {
-						if (err) {
-							console.error(err);
-							reject(err);
-						}
-					});
+					fs.mkdirSync(parent.buildPath + "webform");
+					fs.mkdirSync(parent.buildPath + "aggregation");
+					fs.mkdirSync(parent.buildPath + "docs");
+					fs.mkdirSync(parent.buildPath + "xsl");
+					fs.mkdirSync(parent.buildPath + "schema");
+					fs.mkdirSync(parent.buildPath + "xquery");
+					fs.mkdirSync(parent.buildPath + "log");
 					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
 						parent.getFile(__dirname + "/client/dev/package.json").then ((data) => {
 							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
@@ -218,25 +216,37 @@ export default class XSDWebForm {
 							reject(err);
 						}
 					});
-					ncp(__dirname + "/client/assets/", parent.buildPath + "assets", function(err) {
+					ncp(__dirname + "/client/resources/", parent.buildPath + "resources", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
-						ncp(__dirname + "/webform.js", parent.buildPath + parent.baseFileName + ".webform.js", function(err) {
-							parent.getFile(__dirname + "/webform.js").then ((data) => {
-								parent.createFile(parent.buildPath + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
+						ncp(__dirname + "/client/resources/labels/", parent.buildPath + "resources/labels", function(err) {
+							if (err) {
+								console.error(err);
+								reject(err);
+							}
+						});
+						ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
+							if (err) {
+								console.error(err);
+								reject(err);
+							}
+						});
+						ncp(__dirname + "/client/webform/webform.js", parent.buildPath  + "webform/" + parent.baseFileName + ".webform.js", function(err) {
+							parent.getFile(__dirname + "/client//webform/webform.js").then ((data) => {
+								parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
-							ncp(__dirname + "/webform.css", parent. buildPath + parent.baseFileName + ".webform.css", function(err) {
+							ncp(__dirname + "/client//webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
 								let uglified = uglifycss.processFiles(
-								[ __dirname + "/webform.css" ],
+								[ __dirname + "/client//webform/webform.css" ],
 									{ maxLineLen: 500, expandVars: true }
 								);
-								parent.createFile(parent.buildPath + parent.baseFileName +  ".webform.min.css", uglified, false);
+								parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);
 								if (err) {
 									console.error(err);
 									reject(err);
