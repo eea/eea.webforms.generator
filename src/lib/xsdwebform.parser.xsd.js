@@ -83,7 +83,7 @@ class XSDWebFormParserTags {
 			// Parse XML => Look for xs:element => Execute task this.parseElement(item<- xml node, this<-sender)
 			// in this.parseElement():
 			// Attributes: Find the attributes. e.g. <xs:element name="CountryCode"> | item.attr.name
-			// Value: Find the attributes. e.g. <xs:element name="CountryCode">My Value</xs:element> | item.val = My Value
+			// Value: Find the value e.g. <xs:element name="CountryCode">My Value</xs:element> | item.val = My Value
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
 			console.log(`\n\x1b[1m\x1b[31m************* Unknown Tag {${item}} *************\x1b[0m\n`);
