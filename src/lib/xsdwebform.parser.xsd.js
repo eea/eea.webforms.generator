@@ -130,6 +130,7 @@ class XSDWebFormParserTags {
 								</Child>
 							</Children>
 						</xml>
+
 						*/
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
@@ -168,6 +169,9 @@ class XSDWebFormParserTags {
 			 Or
 			 this.executeTask(item.attr.value, sender)
 			 executeTask(whatToExecute, sender)
+
+			 How to find an Element by name starting with Ch ending with d
+			 var Element = xxQuery("Children/Ch(.*?)d", node <--which area e.g. child3 node, sender/this)
 			 */
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
@@ -411,6 +415,72 @@ class XSDWebFormParserTags {
 		
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
+	}
+
+	/**
+	 * xxQuery
+	 * @param xstr
+	 * @param xsdItem
+	 * @param sender
+	 */
+	xxQuery(xstr, xsdItem, sender) {
+		if (!xsdItem) return;
+
+		var xstrArr = xstr.split("/");
+		var xsdElement = xsdItem;
+		xstrArr.forEach((item) => {
+			xsdElement = sender.getItemByNameRegex(item, xsdElement);
+			if (!xsdElement) return;
+		});
+
+		return xsdElement;
+	}
+
+	/**
+	 * getTypeByName
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getTypeByName(itemname, xsdItem) {
+		let elements = xsdItem.childrenNamed("xs:simpleType");
+		for (let i = 0, l = elements.length; i  < l; i++) {
+			if (elements[i].attr.name === itemname) {
+				return elements[i];
+			}
+		}
+	}
+
+	/**
+	 * getItemByName
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getItemByName(itemname, xsdItem) {
+		return xsdItem.childWithAttribute("name", itemname);
+	}
+
+	/**
+	 * getItemByRef
+	 * @param itemref
+	 * @param xsdItem
+	 */
+	getItemByRef(itemref, xsdItem) {
+		return xsdItem.childWithAttribute("ref", itemref);
+	}
+
+	/**
+	 * getItemByNameRegex 
+	 * @param itemname
+	 * @param xsdItem
+	 */
+	getItemByNameRegex(itemname, xsdItem) {
+		if (!xsdItem) return;
+		for (var i = 0, l = xsdItem.children.length; i < l; i++) {
+			var child = xsdItem.children[i];
+			if (child.type === "element")
+				if (child.name.match(itemname)) return child;
+		}
+		return undefined;
 	}
 
 	/**
