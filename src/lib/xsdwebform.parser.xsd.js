@@ -24,6 +24,7 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
 * - Render your XML file executable
 * - Automate your Task List/Job
 * - Filter uknown XML elements 
+* - Create an XML based scripting language
 */
 class XSDWebFormParserTags {
 	/**
