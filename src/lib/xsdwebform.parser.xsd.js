@@ -79,7 +79,7 @@ class XSDWebFormParserTags {
 							<item name="test1"/>  <-- child 1
 							<item name="test2"/>  <-- child 2
 							<item name="test3">  <-- child 3
-								<subitem name="stest1"> <-- child 1 of Child 3
+								<subitem name="stest1"/> <-- child 1 of Child 3
 							</item>
 						</xml>
 						*/
