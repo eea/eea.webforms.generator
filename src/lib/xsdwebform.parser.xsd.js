@@ -82,6 +82,13 @@ class XSDWebFormParserTags {
 								<subitem name="stest1"/> <-- child 1 of Child 3
 							</item>
 						</xml>
+
+						Tree Representation:
+							              [ XML ]
+							           /       |       \
+							Child1	Child 2  Child 3
+									   |
+									child 1
 						*/
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
