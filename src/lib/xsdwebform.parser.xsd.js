@@ -171,7 +171,7 @@ class XSDWebFormParserTags {
 			 executeTask(whatToExecute, sender)
 
 			 How to find an Element by name starting with Ch ending with d
-			 var Element = xxQuery("Children/Ch(.*?)d", node <--which area e.g. child3 node, sender/this)
+			 var Element = sender.xxQuery("Children/Ch(.*?)d", node <--which area e.g. child3 node, sender/this)
 			 */
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
