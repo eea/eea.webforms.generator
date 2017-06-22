@@ -74,7 +74,7 @@ class XSDWebFormParserTags {
 						xsdItem.children[i].level = xsdItem.level + 1;
 						// Recursive call - Send Children nodes to the same function(xsdParse) => Send their Children to xsdParse and so on
 						/* 
-						XML
+						XML ( Markup Language : [boxes] [box1/][box2/][/boxes] )
 						 <xml>
 							<item name="test1"/>  <-- child 1
 							<item name="test2"/>  <-- child 2
