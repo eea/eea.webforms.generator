@@ -80,7 +80,8 @@ class XSDWebFormParserTags {
 		if ((item in this.ELEMENT_TYPES)) {
 			// Execute hash value=>function
 			// i.e. ELEMENT_TYPES["xs:element"] => (this.parseElement)(item, this)
-			// Parse XML => Look for xs:element => Execute task this.parseElement
+			// Parse XML => Look for xs:element => Execute task this.parseElement(item<- xml node, this<-sender)
+			// in this.parseElement() find the attributes. e.g. <xs:element name="CountryCode"> | item.attr.name
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
 			console.log(`\n\x1b[1m\x1b[31m************* Unknown Tag {${item}} *************\x1b[0m\n`);
