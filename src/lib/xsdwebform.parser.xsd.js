@@ -79,7 +79,7 @@ class XSDWebFormParserTags {
 	parseXSDItem(item) {
 		if ((item in this.ELEMENT_TYPES)) {
 			// Execute hash value=>function
-			// i.e. ELEMENT_TYPES["xs:element"] => (this.parseElement)(item, xsdItem, this)
+			// i.e. ELEMENT_TYPES["xs:element"] => (this.parseElement)(item, this)
 			// Parse XML => Look for xs:element => Execute task this.parseElement
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
