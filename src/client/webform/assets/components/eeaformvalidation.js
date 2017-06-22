@@ -60,7 +60,7 @@ app.component("eeaFormValidation", {
 				$('.deleterowbutton').click(function() {
 					parent.validate($translate);	
 				});
-			}, 100);
+			}, 500);
 		};
 	}]
 });
