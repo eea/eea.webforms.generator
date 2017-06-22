@@ -75,11 +75,19 @@ class XSDWebFormParserTags {
 						// Recursive call - Send Children nodes to the same function(xsdParse) => Send their Children to xsdParse and so on
 						/* 
 						XML ( Markup Language : [boxes] [box1/][box2/] [/boxes] )
+						<boxes>
+							<box name="test1"/>  <-- box 1
+							<box name="test2"/>  <-- box 2
+							<box name="test3">  <-- box 3
+								<sbox name="stest1"/> <-- box 1 of box 3
+							</box>
+						</boxes>
+
 						 <xml>
 							<item name="test1"/>  <-- child 1
 							<item name="test2"/>  <-- child 2
 							<item name="test3">  <-- child 3
-								<subitem name="stest1"/> <-- child 1 of Child 3
+								<subitem name="stest1"/> <-- child 1 of child 3
 							</item>
 						</xml>
 
@@ -88,7 +96,7 @@ class XSDWebFormParserTags {
 							           /       |       \
 							Child 1	Child 2  Child 3
 									   |
-									child 1
+									Child 1
 						*/
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
