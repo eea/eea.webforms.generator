@@ -14,6 +14,7 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
  *
  * import { XmlDocument } from 'xmldoc';
  * import XSDWebFormParserLog from './xsdwebform.parser.log.js';
+ * import XSDWebFormParserTags from './xsdwebform.parser.xsd.js';
  *
  * var myXml = new XmlDocument(XML TEXT);
  * var myXmlParser = new XSDWebFormParserTags();
