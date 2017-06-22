@@ -103,6 +103,23 @@ class XSDWebFormParserTags {
 							Child 1	Child 2  Child 3
 									   |
 									Child 1
+
+						JSON
+						{
+							"boxes": {
+								"box": [{
+									"name": "test1"
+								}, {
+									"name": "test2"
+								}, {
+									"name": "test3",
+									"sbox": {
+										"-name": "stest1"
+									}
+								}]
+							}
+						}
+
 						*/
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
