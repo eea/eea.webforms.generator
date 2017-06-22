@@ -75,7 +75,7 @@ class XSDWebFormParserTags {
 						// Recursive call - Send Children nodes to the same function(xsdParse) => Send their Children to xsdParse and so on
 						/* 
 						XML ( Markup Language : [boxes] [box1/][box2/] [/boxes] )
-						
+
 						<xml>
 							<boxes>
 								<box name="test1"/>  <-- box 1
@@ -98,6 +98,7 @@ class XSDWebFormParserTags {
 
 						Tree Representation:
 							              [ XML ]
+							           [Children]
 							           /       |       \
 							Child 1	Child 2  Child 3
 									   |
