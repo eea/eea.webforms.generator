@@ -895,7 +895,9 @@ class XSDWebFormParserHTMLTags {
 	 */
 	getLabel(item, xsdItem, sender) {
 		let XSDWFormItemLabel = sender.getItemByName(item.attr.element, xsdItem);
-		item.label = sender.xxQuery("xs:annotation/xs:documentation/(.*?):Name", XSDWFormItemLabel, sender);
+		let lval = sender.xxQuery("xs:annotation/xs:documentation/(.*?):Name", XSDWFormItemLabel, sender);
+		if (lval)
+			item.label = lval.val;
 	}
 
 	/**
@@ -914,7 +916,7 @@ class XSDWebFormParserHTMLTags {
 			if (!xsdElement) return;
 		});
 
-		return (xsdElement) ? xsdElement.val : undefined;
+		return (xsdElement) ? xsdElement : undefined;
 	}
 
 	/**
