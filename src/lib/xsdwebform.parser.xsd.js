@@ -23,6 +23,7 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
 * Usage Examples
 * - Render your XML file executable
 * - Automate your Task List/Job
+* - Automate your hardware/machinery/factory
 * - Filter uknown XML elements 
 * - Transcompile/transform your XML to ?
 * - Create your own mini xml based Database
