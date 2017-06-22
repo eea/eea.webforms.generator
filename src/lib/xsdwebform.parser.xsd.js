@@ -78,7 +78,6 @@ class XSDWebFormParserTags {
 						this.parseXSDItem(xsdItem.children[i].name);
 						xsdItem.children[i].xparent = xsdItem;
 						xsdItem.children[i].level = xsdItem.level + 1;
-						// Recursive call - Send Children nodes to the same function(xsdParse) => Send their Children to xsdParse and so on
 						/* 
 						XML ( Markup Language : [boxes] [box1/][box2/] [/boxes] )
 
@@ -138,6 +137,7 @@ class XSDWebFormParserTags {
 						</xml>
 
 						*/
+						// Recursive call - Send Children nodes to the same function(xsdParse) => Send their Children to xsdParse and so on
 						this.xsdParse(xsdItem.children[i]);
 					} catch (err) {
 						XSDWebFormParserError.reportError(err);
