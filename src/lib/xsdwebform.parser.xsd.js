@@ -25,6 +25,7 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
 * - Automate your Task List/Job
 * - Filter uknown XML elements 
 * - Transcompile/transform your XML to ?
+* - Create your own mini xml based Database
 * - Create an XML based scripting language
 * - Create your own mini webkit based on your own elements
 * - Create Animations by changing movement values to an object (e.g. <body><hand moveleft="10"><hand wait="2"><hand movetop="24"></body>)
