@@ -78,22 +78,24 @@ class XSDWebFormParserTags {
 	 */
 	parseXSDItem(item) {
 		if ((item in this.ELEMENT_TYPES)) {
-			// Execute hash value=>function
-			// i.e. ELEMENT_TYPES["xs:element"] => (this.parseElement)(item, this)
-			// Parse XML => Look for xs:element => Execute task this.parseElement(item<- xml node, this<-sender)
-			// in this.parseElement():
-			// Attributes: Find the attributes. e.g. <xs:element name="CountryCode"> | item.attr.name = CountryCode
-			// Value: Find the value e.g. <xs:element name="CountryCode">My Value</xs:element> | item.val = My Value
-			// Or
-			// Attributes: Find the attributes. e.g. <xs:element name="CountryCode" value="My Value"> | item.attr.name = CountryCode, item.attr.value = My Value
-			// Then, expand
-			// this.CountryCodes =  {
-			//	"My Value" : this.executeTaskMyValue,				
-			//	"Another Value" : this.executeTaskAnotherValue,
-			// }
-			// Or
-			// this.executeTask(item.attr.value, sender)
-			// executeTask(whatToExecute, sender)
+			/*
+			 Execute hash value=>function
+			 i.e. ELEMENT_TYPES["xs:element"] => (this.parseElement)(item, this)
+			 Parse XML => Look for xs:element => Execute task this.parseElement(item<- xml node, this<-sender)
+			 in this.parseElement():
+			 Attributes: Find the attributes. e.g. <xs:element name="CountryCode"> | item.attr.name = CountryCode
+			 Value: Find the value e.g. <xs:element name="CountryCode">My Value</xs:element> | item.val = My Value
+			 Or
+			 Attributes: Find the attributes. e.g. <xs:element name="CountryCode" value="My Value"> | item.attr.name = CountryCode, item.attr.value = My Value
+			 Then, expand
+			 this.CountryCodes =  {
+				"My Value" : this.executeTaskMyValue,				
+				"Another Value" : this.executeTaskAnotherValue,
+			 }
+			 Or
+			 this.executeTask(item.attr.value, sender)
+			 executeTask(whatToExecute, sender)
+			 */
 			(this.ELEMENT_TYPES[item])(item, this);
 		} else {
 			console.log(`\n\x1b[1m\x1b[31m************* Unknown Tag {${item}} *************\x1b[0m\n`);
