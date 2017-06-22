@@ -19,7 +19,12 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
  * var myXml = new XmlDocument(XML TEXT);
  * var myXmlParser = new XSDWebFormParserTags();
  * myXmlParser.xsdParse(myxml)
- */
+*
+* Usage Examples
+* - Render your XML file executable
+* - Automate your Task List/Job
+* - Filter uknown XML elements 
+*/
 class XSDWebFormParserTags {
 	/**
 	 * Class constructor
