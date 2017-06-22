@@ -42,8 +42,8 @@ class XSDWebFormParserTags {
 			"dd2:Definition": this.parseDefinition,
 			"dd3:Methodology": this.parseMethodology
 		};
-		this.showLog = false;
-		this.verbose = false;
+		this.showLog = true;
+		this.verbose = true;
 	}
 
 	/**
