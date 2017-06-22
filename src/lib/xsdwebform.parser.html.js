@@ -120,6 +120,8 @@ class XSDWebFormParserHTMLTags {
 	 */
 	parseHTMLItem(item, xsdItem) {
 		if ((item.name in this.HTML_TYPES)) {
+			// Execute hash value=>function
+			// i.e. HTML_TYPES["item"] => (this.parseItem)(item, xsdItem, this)
 			(this.HTML_TYPES[item.name])(item, xsdItem, this);
 		} else {
 			console.log(`\n************* Unknown HTML Tag {${item.name}} *************\n`);
