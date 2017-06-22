@@ -106,16 +106,16 @@ class XSDWebFormParserTags {
 
 						JSON
 						{
-							"boxes": {
-								"box": [{
+							"Children": {
+								"Child": [{
 									"name": "test1"
 								}, {
 									"name": "test2"
 								}, {
 									"name": "test3",
-									"sbox": {
-										"-name": "stest1"
-									}
+									"Child": [{
+										"name": "stest1"
+									}]
 								}]
 							}
 						}
