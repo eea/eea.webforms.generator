@@ -916,7 +916,7 @@ class XSDWebFormParserHTMLTags {
 			if (!xsdElement) return;
 		});
 
-		return (xsdElement) ? xsdElement : undefined;
+		return xsdElement;
 	}
 
 	/**
