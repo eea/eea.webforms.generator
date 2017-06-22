@@ -53,7 +53,6 @@ class XSDWebFormParserTags {
 		this.showLog = true;
 		this.verbose = true;
 
-		//ON TOP: import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 		//this.logger = new XSDWebFormParserLog();
 	}
 
