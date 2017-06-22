@@ -86,7 +86,7 @@ class XSDWebFormParserTags {
 						Tree Representation:
 							              [ XML ]
 							           /       |       \
-							Child1	Child 2  Child 3
+							Child 1	Child 2  Child 3
 									   |
 									child 1
 						*/
