@@ -11,6 +11,11 @@ import XSDWebFormParserError from './xsdwebform.parser.error.js';
 /**
  * Class XSDWebFormParserTags
  * Parser for XSD Schema Tags
+ *
+ * import { XmlDocument } from 'xmldoc';
+ * import XSDWebFormParserLog from './xsdwebform.parser.log.js';
+ *
+ * var myXml = new XmlDocument(XML TEXT);
  * var myXmlParser = new XSDWebFormParserTags();
  * myXmlParser.xsdParse(myxml)
  */
