@@ -8,7 +8,7 @@ app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$windo
 /**
 * WebFormAppCtrl: Main controller
 */
-function WebFormAppCtrl($eea, $scope, $http, $timeout, $window, $translate, $compile) {
+function WebFormAppCtrl($eea, $scope) {
 
 	$eea.init($scope);
 

@@ -8,7 +8,9 @@
     "document": 1,
     "groups": 1,
     "Version": 1,
-    "$": 1
+    "$": 1,
+    "eea": 1,
+    "app": 1
   },
     "extends": "eslint:recommended",
     "parserOptions": {
