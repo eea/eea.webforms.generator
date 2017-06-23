@@ -108,10 +108,10 @@ export default class XSDWebForm {
 			this.prepareJSFiles().then((res) => {
 				try {
 					// After Build directory preperation, parse the document
-					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ( (response) => {	
+					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then ((response) => {	
 						var app = express();
 						var parent = this;
-						var filePath = path.join( __dirname.substring(0, __dirname.length - 3), this.buildPath);
+						var filePath = path.join(__dirname.substring(0, __dirname.length - 3), this.buildPath);
 
 						// Start test web server in order to view the HTML5 file result.
 						app.use(express.static(filePath))
