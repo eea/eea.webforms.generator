@@ -249,6 +249,7 @@ class XSDWebFormParserHTMLTags {
 		// sender.logger.logHtmlTag(item, sender);
 		
 		let itemInfo = sender.getItemInfo(item, xsdItem, sender);
+		item.inactive = true;
 		var subGroupObject = {
 			name: 'subgroup',
 			tag: 'fieldset',

@@ -34,7 +34,7 @@ class XSDWebFormParserDoc {
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
-					if (groups[gi].children[i].type === "element" && groups[gi].children[i].name != "subgroup") {
+					if (groups[gi].children[i].type === "element" && !groups[gi].children[i].inactive) {
 						output += `<br><br><h3>${groups[gi].children[i].label || groups[gi].children[i].attr.element}</h3>\<br>`;						
 						if (groups[gi].children[i].xsdAttrs) {
 							output += `<b>Definition:</b> ${groups[gi].children[i].xsdAttrs.src.Definition || ""}<br><br>`;
