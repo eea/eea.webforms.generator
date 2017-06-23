@@ -49,7 +49,7 @@ var eea = {
 	},
 	loader : {
 		getJS : function(script, path, ext, freeurl) {
-			var path  = path || "";
+			path  = path || "";
 			var ext  = ext || "";
 
 			var oXmlHttp = new XMLHttpRequest();
@@ -65,7 +65,7 @@ var eea = {
 			oXmlHttp.send(null);
 		},
 		getAllJS : function(scripts, path, ext, freeurl) {
-			var path  = path || "";
+			path  = path || "";
 			var ext  = ext || "";
 			
 			scripts.forEach(function(script) {
