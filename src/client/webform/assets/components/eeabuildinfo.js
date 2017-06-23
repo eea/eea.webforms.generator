@@ -22,6 +22,6 @@ app.component("eeaFormBuild", {
 			var seconds = Math.floor(delta % 60);
 
 			this.diff = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " sec.";
-		}
+		};
 	}
 });
