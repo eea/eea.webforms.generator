@@ -35,7 +35,7 @@ class XSDWebFormParserDoc {
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
 					if (groups[gi].children[i].type === "element") {
-						output += `Field:${groups[gi].children[i].label || groups[gi].children[i].attr.element}\n`;						
+						output += `\n\n${groups[gi].children[i].label || groups[gi].children[i].attr.element}\n`;						
 						if (groups[gi].children[i].xsdAttrs) {
 							output += `Definition: ${groups[gi].children[i].xsdAttrs.src.Definition || ""}\n`;
 							output += `Methodology: ${groups[gi].children[i].xsdAttrs.src.Methodology || ""}\n`;
