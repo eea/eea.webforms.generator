@@ -184,7 +184,7 @@ export default class XSDWebForm {
 					this.createFile(this.buildPath + "xsl/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
 
 					// Create Doc output
-					this.createFile(this.buildPath + "docs/" + this.baseFileName + ".doc", this.parser.getDocOutput(), false);
+					this.createFile(this.buildPath + "docs/" + this.baseFileName + ".odt", this.parser.getDocOutput(), false);
 
 					// Open browser 
 					if (this.autoOpenOutput)
