@@ -28,9 +28,9 @@ import express from 'express';
 import uglify from "uglify-js";
 import uglifycss from "uglifycss";
 import webshot from "webshot";
-import XSDWebFormParser from './lib/xsdwebform.parser.js'
-import XSDWebFormParserError from './lib/xsdwebform.parser.error.js'
-import XSDWebFormParserTest from './lib/xsdwebform.parser.test.js'
+import XSDWebFormParser from './lib/xsdwebform.parser.js';
+import XSDWebFormParserError from './lib/xsdwebform.parser.error.js';
+import XSDWebFormParserTest from './lib/xsdwebform.parser.test.js';
 
 /**
  * Class XSDWebForm
