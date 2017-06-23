@@ -12,7 +12,11 @@
     "eea": 1,
     "app": 1,
     "XMLHttpRequest": 1,
-    "window": 1
+    "window": 1,
+    "mocha": 1,
+    "chai": 1,
+    "describe": 1,
+    "it": 1
   },
     "extends": "eslint:recommended",
     "parserOptions": {

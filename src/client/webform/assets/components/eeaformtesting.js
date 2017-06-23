@@ -38,60 +38,59 @@ app.component("eeaFormTesting", {
 			$.getScript("./assets/js/test/mocha.min.js");
 			$.getScript("./assets/js/test/chai.min.js");
 			$(function() {
-			setTimeout( function() {
-				mocha.setup('bdd');
-				var expect = chai.expect;
-				var aflabel = " (eea-form-testing : autofilled)";
-				$("#teststartingmsg").hide();
-							
-				describe("Testing eea form js library", function() {
-					it('selected language should be "en"', function(done) {
-						expect(parent.scp.selectedLanguage).to.equal("en");
-						done();
+				setTimeout( function() {
+					mocha.setup('bdd');
+					var expect = chai.expect;
+					var aflabel = " (eea-form-testing : autofilled)";
+					$("#teststartingmsg").hide();
+								
+					describe("Testing eea form js library", function() {
+						it('selected language should be "en"', function(done) {
+							expect(parent.scp.selectedLanguage).to.equal("en");
+							done();
+						});
 					});
-				});
 
-				describe("Testing angular", function() {
-					it('document should have a $scope', function(done) {
-						expect(parent.scp).to.not.be.undefined;
-						done();
+					describe("Testing angular", function() {
+						it('document should have a $scope', function(done) {
+							expect(parent.scp).to.not.be.undefined;
+							done();
+						});
 					});
-				});
-				
-				describe("Testing jquery", function() {
-					it('variable $ should be defined', function(done) {
-						expect($).to.not.be.undefined;
-						done();
+					
+					describe("Testing jquery", function() {
+						it('variable $ should be defined', function(done) {
+							expect($).to.not.be.undefined;
+							done();
+						});
 					});
-				});
 
-				describe("Testing form. Performing autofill...", function() {
-					$("form.eeaform").each(function(a){
-							
-						$(this).find('.formitem :input').each(function(index, item){
-							var itype = item.type;
-							if (!itype) return;
-							
-							item = $(item);
-							
-							var iname = item.attr("name");
-							if (!iname) return;
-							if (iname.indexOf('$')  > -1) {
-								iname = iname.split('$')[0];
-							}
+					describe("Testing form. Performing autofill...", function() {
+						$("form.eeaform").each(function(){
+							$(this).find('.formitem :input').each(function(index, item){
+								var itype = item.type;
+								if (!itype) return;
+								
+								item = $(item);
+								
+								var iname = item.attr("name");
+								if (!iname) return;
+								if (iname.indexOf('$')  > -1) {
+									iname = iname.split('$')[0];
+								}
 
-							var valToEnter;
-							switch(itype) {
-							case "text" :
-								valToEnter = Math.random().toString(36).replace(/[^a-z]+/g, '') + aflabel;
-								item.val(valToEnter);
-								break;
-							case "number" :
-								valToEnter = item.attr("min") || item.attr("max") || 1;
-								item.val(valToEnter);
-								break;
-							case "date" :
-								valToEnter = (function() {
+								var valToEnter;
+								switch(itype) {
+								case "text" :
+									valToEnter = Math.random().toString(36).replace(/[^a-z]+/g, '') + aflabel;
+									item.val(valToEnter);
+									break;
+								case "number" :
+									valToEnter = item.attr("min") || item.attr("max") || 1;
+									item.val(valToEnter);
+									break;
+								case "date" :
+									valToEnter = (function() {
 										var today = new Date();
 										var dd = today.getDate();
 										var mm = today.getMonth()+1; 
@@ -100,79 +99,79 @@ app.component("eeaFormTesting", {
 										if(mm < 10) mm = '0' + mm;
 										return  yyyy +'-' + mm + '-' + dd;
 									})();
-								item.val(valToEnter);
-								break;
-							case "select-one":
-								if (!item.val()) {
-									var options = item.find('option');
-									var sopt = options[Math.floor(Math.random() * (options.length - 1)) + 1];
-									sopt.selected = true;
-									valToEnter = $(sopt).text();
-								} else{ 
-									valToEnter = item.find(":selected").text();
+									item.val(valToEnter);
+									break;
+								case "select-one":
+									if (!item.val()) {
+										var options = item.find('option');
+										var sopt = options[Math.floor(Math.random() * (options.length - 1)) + 1];
+										sopt.selected = true;
+										valToEnter = $(sopt).text();
+									} else{ 
+										valToEnter = item.find(":selected").text();
+									}
+									
+									break;
+								case "checkbox":
+									valToEnter = "on";
+									item.prop("checked", true);
+									break;
+								default:
+									
 								}
-								
-								break;
-							case "checkbox":
-								valToEnter = "on";
-								item.prop("checked", true);
-								break;
-							default:
-								
-							}
 
-							var valToEnternl = valToEnter.toString().replace(aflabel, "");
-							it(iname + '  should be "' +  valToEnternl + '"', function(done) {
-								item.trigger("input"); 
-								item.trigger("change"); 
-								var itemv
-								if (itype === 'select-one')
-									itemv = $(item).find("option:selected").text();
-								else
-									itemv = item.val();	
-								expect(itemv).to.equal(valToEnter.toString());
-								done();
+								var valToEnternl = valToEnter.toString().replace(aflabel, "");
+								it(iname + '  should be "' +  valToEnternl + '"', function(done) {
+									item.trigger("input"); 
+									item.trigger("change"); 
+									var itemv;
+									if (itype === 'select-one')
+										itemv = $(item).find("option:selected").text();
+									else
+										itemv = item.val();	
+									expect(itemv).to.equal(valToEnter.toString());
+									done();
+								});
 							});
 						});
 					});
-				});
 
-				if ($('#Row').attr("multi") == 1) {
-					describe("Multirow detected... Testing new row", function() {
-						it('form should have two rows', function(done) {
-							parent.scp.addRow('form1', 'Row');
-							expect(parent.scp.groups.form1.Row.length).to.equal(2);
+					if ($('#Row').attr("multi") == 1) {
+						describe("Multirow detected... Testing new row", function() {
+							it('form should have two rows', function(done) {
+								parent.scp.addRow('form1', 'Row');
+								expect(parent.scp.groups.form1.Row.length).to.equal(2);
+								done();
+							});
+						});
+					}
+
+					describe("Performing form submission emulation", function() {
+						it('should log form elements below', function(done) {
+							var fnc = parent.scp.submit(null, true);
+							var objs = parent.scp.field;
+							var objsStr = "<b>Form submission emulation data:</b><BR><BR>";
+							for (var form in objs) {
+								var frmObj = objs[form];
+								for (var element in frmObj) {
+									var elname = element;
+									var elvalue = frmObj[element];
+									elvalue = elvalue.toString().replace(aflabel, "");
+									if (elname.indexOf('$')  > -1) {
+										elname = elname.split('$')[0];
+									}
+									objsStr += "<b>" + elname + "</b> = " + elvalue + "<BR>";
+								}
+							}
+							$("<div style=\"position:relative;background-color:#FFD700;color:#333;padding:20px;font-size:11px;\">" + objsStr + "</div>").appendTo('#mocha');
+							expect(fnc).to.equal(false);
 							done();
 						});
 					});
-				}
 
-				describe("Performing form submission emulation", function() {
-					it('should log form elements below', function(done) {
-						var fnc = parent.scp.submit(null, true);
-						var objs = parent.scp.field;
-						var objsStr = "<b>Form submission emulation data:</b><BR><BR>";
-						for (var form in objs) {
-							var frmObj = objs[form];
-							for (var element in frmObj) {
-								var elname = element;
-								var elvalue = frmObj[element];
-								elvalue = elvalue.toString().replace(aflabel, "");
-								if (elname.indexOf('$')  > -1) {
-									elname = elname.split('$')[0];
-								}
-								objsStr += "<b>" + elname + "</b> = " + elvalue + "<BR>";
-							}
-						};
-						var pdiv = $("<div style=\"position:relative;background-color:#FFD700;color:#333;padding:20px;font-size:11px;\">" + objsStr + "</div>").appendTo('#mocha');
-						expect(fnc).to.equal(false);
-						done();
-					});
-				});
-
-				mocha.run();
-			}, parent.timecnt);
+					mocha.run();
+				}, parent.timecnt);
 			});
-		}
+		};
 	}]
 });
