@@ -10,6 +10,7 @@ import { XmlDocument } from 'xmldoc';
 import XsdTagParser from './xsdwebform.parser.xsd.js';
 import HtmlTagParser from './xsdwebform.parser.html.js';
 import XsltGenerator from './xsdwebform.parser.xslt.js';
+import DocGenerator from './xsdwebform.parser.doc.js';
 import XSDWebFormParserLog from './xsdwebform.parser.log.js';
 
 /**
@@ -26,6 +27,7 @@ class XSDWebFormParser {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 		this.xsltGenerator = new XsltGenerator();
+		this.docGenerator = new DocGenerator();
 		this.logger = new XSDWebFormParserLog();
 		this.baseFileName = baseFileName;
 
@@ -47,6 +49,9 @@ class XSDWebFormParser {
 		this.xsltGenerator.setLogger(this.logger);
 		this.xsltGenerator.setLog(this.showLog);
 		this.xsltGenerator.setVerbose((this.showLog && this.verbose));
+		this.docGenerator.setLogger(this.logger);
+		this.docGenerator.setLog(this.showLog);
+		this.docGenerator.setVerbose((this.showLog && this.verbose));
 	}
 
 	/**
@@ -79,6 +84,9 @@ class XSDWebFormParser {
 		// Create XSLT output
 		this.xslt = this.xsltGenerator.createXSLTOutput(htmlItem);
 		this.xsltXml = this.xsltGenerator.createXMLOutput(htmlItem, this.baseFileName);
+
+		// Create Doc output
+		this.doc = this.docGenerator.createDocOutput(htmlItem);
 		
 		if (this.showLog)
 			this.logger.showLogs(this);
@@ -171,6 +179,14 @@ class XSDWebFormParser {
 	getXSLTXMLOutput() {
 		return this.xsltXml;
 	}
+
+	/**
+	 * getDocOutput - Return Document
+	 */
+	getDocOutput() {
+		return this.doc;
+	}
+
 
 	/**
 	 * getLanguageContent - Return Text Content 

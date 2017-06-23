@@ -183,6 +183,9 @@ export default class XSDWebForm {
 					this.createFile(this.buildPath + "xsl/" + this.baseFileName + ".xslt", this.parser.getXSLTOutput(), false);
 					this.createFile(this.buildPath + "xsl/" + this.baseFileName + ".xml", this.parser.getXSLTXMLOutput(), false);
 
+					// Create Doc output
+					this.createFile(this.buildPath + "docs/" + this.baseFileName + ".doc", this.parser.getDocOutput(), false);
+
 					// Open browser 
 					if (this.autoOpenOutput)
 						openurl.open(`http://localhost:3001/webform/${this.baseFileName}.html`);
@@ -208,7 +211,7 @@ export default class XSDWebForm {
 					fs.mkdirSync(parent.buildPath + "xquery");
 					fs.mkdirSync(parent.buildPath + "log");
 					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
-						parent.getFile(__dirname + "/client/dev/package.json").then ((data) => {
+						parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
 							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
 						});
 						if (err) {
@@ -241,7 +244,7 @@ export default class XSDWebForm {
 								console.error(err);
 								reject(err);
 							}
-							ncp(__dirname + "/client//webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
+							ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
 								let uglified = uglifycss.processFiles(
 								[ __dirname + "/client//webform/webform.css" ],
 									{ maxLineLen: 500, expandVars: true }
