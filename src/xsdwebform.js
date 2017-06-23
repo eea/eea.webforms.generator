@@ -23,7 +23,7 @@
 // client replace in your request field title with generic [field]
 // client send phrase to server=>server textToCrc=>select by crc
 // client check translation server for field if available and replace [field] with translated text
-// Server Database: langId, crc, text
+// Server Database: Id, crc, text
 // Create crc map => En[thiscrc]+{id} => Fr[thatcrc]+{id} and so on
 // in case of duplicate crc (if returns array) then match entire text to find the correct one (server side)
 
