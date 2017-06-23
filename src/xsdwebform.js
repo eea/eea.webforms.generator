@@ -33,7 +33,7 @@
 // word[It]=>=>word[is]=>word[not]
 // is=>[a, not] One instance each word as an object=>multiple connections (polymorphic type?)
 // $this.$is a javascript class/object
-// $go(=action, expects:type confirmation).$there(=location, action:()=>{moveThere(), define:()=>{getDefinition()}, answer:()=>{getLocation();}}})
+// $go(=action, expects:type confirmation).$there(=location, action:()=>{moveThere(), define:()=>{getDefinition()}, answer.location:()=>{getLocation();}, answer.definition:()=>{getDefinition();}}})
 // $what(=question.definintion, expects: type answer.$is(=definition).$there(..)
 // $where(=question.location, expects: type answer.$are(=definition).$you
 
