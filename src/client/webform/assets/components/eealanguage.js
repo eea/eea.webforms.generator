@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(['$translateProvider', '$translatePartialLoaderProvider', function($translateProvider, $translatePartialLoaderProvider) {
+app.config(['$translateProvider', '$translatePartialLoaderProvider', function($translateProvider) {
 	$translateProvider.useLoader('$translatePartialLoader', {
 		urlTemplate: '/resources/labels/{part}.{lang}.lang.json'
 	});
@@ -36,6 +36,6 @@ app.component("eeaLanguage", {
 				$translate.use(parent.language);
 				$translate.refresh();
 			};
-		}	
+		};
 	}]
 });
