@@ -26,7 +26,7 @@ class XSDWebFormParserDoc {
 		var output = ``;
 
 		// Loop through Tag's childNodes
-		let page = htmlItem.childNamed("page")
+		let page = htmlItem.childNamed("page");
 		output += `<h1>${page.attr.title}</h1><br><br><br>`;
 		let forms = page.childrenNamed("form");
 		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
