@@ -20,9 +20,9 @@
 // Translation Server (possible method) 
 // crc phrace "Insert value into [field] to blah blah"
 // client replace in your request field title with generic [field]
-// send phrase to server=>server textToCrc=>select by crc
-// check translation server for field if available and replace [field] with translated text
-// Database: langId, crc, text
+// client send phrase to server=>server textToCrc=>select by crc
+// client check translation server for field if available and replace [field] with translated text
+// Server Database: langId, crc, text
 // Create crc map => En[thiscrc] => Fr[thatcrc] and so on
 
 
