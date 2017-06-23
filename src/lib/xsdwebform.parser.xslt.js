@@ -41,7 +41,7 @@ class XSDWebFormParserXSLT {
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
-					if (groups[gi].children[i].type === "element") {
+					if (groups[gi].children[i].type === "element" && groups[gi].children[i].name != "subgroup") {
 						output += `\t<th style="text-align:left">${groups[gi].children[i].label || groups[gi].children[i].attr.name || groups[gi].children[i].attr.element}</th>\n`;						
 						outputView += `\t<td><xsl:value-of select="${groups[gi].children[i].attr.name || groups[gi].children[i].attr.element}"/></td>\n`;						
 					}

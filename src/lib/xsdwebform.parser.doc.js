@@ -27,14 +27,14 @@ class XSDWebFormParserDoc {
 
 		// Loop through Tag's childNodes
 		let page = htmlItem.childNamed("page")
-		output += `${page.attr.title}\n\n`;
+		output += `${page.attr.title}\n\n\n`;
 		let forms = page.childrenNamed("form");
 		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
-			output += `Form: ${forms[fi].attr.title}\n\n`;
+			output += `Form: ${forms[fi].attr.title}\n`;
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
-					if (groups[gi].children[i].type === "element") {
+					if (groups[gi].children[i].type === "element" && groups[gi].children[i].name != "subgroup") {
 						output += `\n\n${groups[gi].children[i].label || groups[gi].children[i].attr.element}\n`;						
 						if (groups[gi].children[i].xsdAttrs) {
 							output += `Definition: ${groups[gi].children[i].xsdAttrs.src.Definition || ""}\n`;
