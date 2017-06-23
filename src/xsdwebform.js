@@ -26,7 +26,12 @@
 // Server Database: Id, crc, text
 // Create crc map => En[thiscrc]+{id} => Fr[thatcrc]+{id} and so on
 // in case of duplicate crc (if returns array) then match entire text to find the correct one (server side)
-
+// ?
+// phrase 1: This is a test 
+// phrase 2: It is not
+// word[this]=>word[is]=>word[a]=>word[test]
+// word[this]=>=>word[is]=>word[not]
+// is=>[a, not]
 
 'use strict';
 
