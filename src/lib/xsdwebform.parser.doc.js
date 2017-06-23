@@ -30,7 +30,7 @@ class XSDWebFormParserDoc {
 		output += `<b>${page.attr.title}</b><br><br><br>`;
 		let forms = page.childrenNamed("form");
 		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
-			output += `Form: ${forms[fi].attr.title}\n`;
+			output += `Form: <b>${forms[fi].attr.title}</b>\n`;
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
