@@ -33,7 +33,7 @@
 // word[It]=>=>word[is]=>word[not]
 // is=>[a, not] One instance each word as an object=>multiple connections (polymorphic type?)
 // $this.$is a javascript class/object
-// $go(=action).$there(=location, action:()=>{moveHere()})
+// $go(=action).$there(=location, action:()=>{moveThere()})
 
 'use strict';
 
