@@ -27,18 +27,18 @@ class XSDWebFormParserDoc {
 
 		// Loop through Tag's childNodes
 		let page = htmlItem.childNamed("page")
-		output += `<b>${page.attr.title}</b><br><br><br>`;
+		output += `<h1>${page.attr.title}</h1><br><br><br>`;
 		let forms = page.childrenNamed("form");
 		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
-			output += `Form: <b>${forms[fi].attr.title}</b>\n`;
+			output += `Form: <h2>${forms[fi].attr.title}</h2>\n`;
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
 					if (groups[gi].children[i].type === "element" && groups[gi].children[i].name != "subgroup") {
-						output += `<br><br><b>${groups[gi].children[i].label || groups[gi].children[i].attr.element}</b>\<br>`;						
+						output += `<br><br><h3>${groups[gi].children[i].label || groups[gi].children[i].attr.element}</h3>\<br>`;						
 						if (groups[gi].children[i].xsdAttrs) {
-							output += `Definition: ${groups[gi].children[i].xsdAttrs.src.Definition || ""}<br>`;
-							output += `Methodology: ${groups[gi].children[i].xsdAttrs.src.Methodology || ""}<br>`;
+							output += `<b>Definition:</b> ${groups[gi].children[i].xsdAttrs.src.Definition || ""}<br><br>`;
+							output += `<b>Methodology:</b> ${groups[gi].children[i].xsdAttrs.src.Methodology || ""}<br>`;
 						}
 					}
 				}
