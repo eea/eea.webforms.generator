@@ -34,8 +34,8 @@
 // is=>[a, not] One instance each word as an object=>multiple connections (polymorphic type?)
 // $this.$is a javascript class/object
 // $go(=action, expects:type confirmation).$there(=location, action:()=>{moveThere(), define:()=>{getDefinition()}, answer:()=>{getLocation();}}})
-// $what(=definintionquestion, expects: type answer.$is(=definition).$there(..)
-// $where(=locationquestion, expects: type answer.$are(=definition).$you
+// $what(=question.definintion, expects: type answer.$is(=definition).$there(..)
+// $where(=question.location, expects: type answer.$are(=definition).$you
 
 'use strict';
 
