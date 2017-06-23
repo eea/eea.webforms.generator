@@ -45,7 +45,7 @@ class XSDWebFormParserDoc {
 			}
 		}
 
-		return ${output};
+		return output;
 	}
 
 
