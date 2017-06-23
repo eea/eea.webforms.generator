@@ -1,7 +1,7 @@
 'use strict';
 
 app.component("eeaMenu", {
-  template: `<div id="menuribbon" style="height: 1.6em;padding: 2px;">
+	template: `<div id="menuribbon" style="height: 1.6em;padding: 2px;">
         <ul id="dropdowns">
          <li><a href="http://www.eionet.europa.eu/services">Services</a>
           <ul>

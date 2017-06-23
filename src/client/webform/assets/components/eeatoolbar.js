@@ -64,11 +64,10 @@ app.component("eeaToolbar", {
 			        	}
 		    	}
 		    	else {
-		       	 	window.location = windowLocation;
-		    	}
-		}
-
-	}
-    }]
+				window.location = windowLocation;
+			}
+		};
+	};
+	}]
 
 });

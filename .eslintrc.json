@@ -11,7 +11,8 @@
     "$": 1,
     "eea": 1,
     "app": 1,
-    "XMLHttpRequest": 1
+    "XMLHttpRequest": 1,
+    "window": 1
   },
     "extends": "eslint:recommended",
     "parserOptions": {
