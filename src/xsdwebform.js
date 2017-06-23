@@ -29,8 +29,8 @@
 // ?
 // phrase 1: This is a test 
 // phrase 2: It is not
-// word[this]=>word[is]=>word[a]=>word[test]
-// word[this]=>=>word[is]=>word[not]
+// word[This]=>word[is]=>word[a]=>word[test]
+// word[It]=>=>word[is]=>word[not]
 // is=>[a, not]
 
 'use strict';
