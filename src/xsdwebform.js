@@ -6,6 +6,9 @@
  */
 //TODO:
 // Add a file with all files checksums  - Check if files have been changed after build
+// File 1 checksum = something
+// File 2 checksum = something
+// Total checksum (File1 checksum, File2 checksum)
 
 'use strict';
 
