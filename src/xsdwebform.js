@@ -9,6 +9,9 @@
 // File 1 checksum = something
 // File 2 checksum = something
 // Total checksum (File1 checksum, File2 checksum)
+// https://github.com/alexgorbatchev/node-crc
+// https://github.com/dshaw/checksum
+// https://www.npmjs.com/package/crc32-java
 
 'use strict';
 
