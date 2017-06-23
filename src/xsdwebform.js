@@ -15,7 +15,7 @@
 // Check 1: If "nodemon" has been triggered=>log envriroment user, file etc=>git commit changes (rollback + staging capability, works with database too?)
 // Check 2: check total checksum=>nodes(app area) checksum=>each file checksum - Can check remote files (e.g. html files source) 
 // Total Checksum => each app checksum (e.g. webforms) => each webform file
-// Stealth Mode: flag true. Don't accept changes. If something change, rollback.
+// Stealth Mode: flag true. Don't accept changes. If something change, rollback => alert.
 
 'use strict';
 
