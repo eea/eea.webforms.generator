@@ -26,32 +26,32 @@ app.component("lookup", {
 	controller: ['$http', '$translate', '$location', function($http, $translate, $location) {
 		var parent = this;
 		this.$onInit = function() {
-				if (!parent.luOption.toString().startsWith('[')) {
-					parent.luOption = '.' + parent.luOption;
-				}
-				if (!parent.luValue.toString().startsWith('[')) {
-					parent.luValue = '.' + parent.luValue;
-				} else {
-					parent.luValueStr = parent.luValue.replace(/(\[|\'|\])/g, "");
-				}
-				if (parent.luOrder) {
-					parent.luOrder = parent.luOrder.toString().replace(/'/g, "\\\'");
-				}
-				$http.get(parent.lookup).then( function(response) {
-					parent.data = response.data[parent.luData];
-					if (parent.autoselect) {
-						let qs = $location.search()[parent.autoselect];
-						let fdata = parent.data.filter(function (item) {
-							if (item[parent.luValueStr] === qs) return true;
-						});
-						if (fdata.length > 0) {
-							parent.parentNgModel = qs;	
-							if (parent.hideonautoselect == 1 && $location.search()[parent.autoselect]){
-								parent.scp['h_' + parent.name] = 1;
-							}
+			if (!parent.luOption.toString().startsWith('[')) {
+				parent.luOption = '.' + parent.luOption;
+			}
+			if (!parent.luValue.toString().startsWith('[')) {
+				parent.luValue = '.' + parent.luValue;
+			} else {
+				parent.luValueStr = parent.luValue.replace(/(\[|\'|\])/g, "");
+			}
+			if (parent.luOrder) {
+				parent.luOrder = parent.luOrder.toString().replace(/'/g, "\\\'");
+			}
+			$http.get(parent.lookup).then( function(response) {
+				parent.data = response.data[parent.luData];
+				if (parent.autoselect) {
+					let qs = $location.search()[parent.autoselect];
+					let fdata = parent.data.filter(function (item) {
+						if (item[parent.luValueStr] === qs) return true;
+					});
+					if (fdata.length > 0) {
+						parent.parentNgModel = qs;	
+						if (parent.hideonautoselect == 1 && $location.search()[parent.autoselect]){
+							parent.scp['h_' + parent.name] = 1;
 						}
 					}
-				});
+				}
+			});
 		};
 	}]
 });
