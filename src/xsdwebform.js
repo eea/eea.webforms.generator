@@ -188,7 +188,7 @@ export default class XSDWebForm {
 
 					// Open browser 
 					if (this.autoOpenOutput)
-						openurl.open(`http://localhost:3001/webform/${this.baseFileName}.html`);
+						openurl.open(`http://localhost:${this.serverPort}/webform/${this.baseFileName}.html`);
 				});
 			});
 		});
