@@ -35,7 +35,7 @@
 // $this.$is a javascript class/object
 // $go(=action, expects:type confirmation).$there(=location, action:()=>{moveThere(), define:()=>{getDefinition()}, answer.location:()=>{getLocation();}, answer.definition:()=>{getDefinition();}}})
 // $what(=question.definintion, expects: type answer.$is(=definition).$there(..)
-// $where(=question.location, expects: type answer.$are(=definition).$you
+// $where(=question.location, expects: type answer.$are(=definition).$you (plural or not? $you.$is.$the.$expert)
 
 'use strict';
 
