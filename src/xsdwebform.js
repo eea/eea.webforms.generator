@@ -31,7 +31,7 @@
 // phrase 2: It is not
 // word[This]=>word[is]=>word[a]=>word[test]
 // word[It]=>=>word[is]=>word[not]
-// is=>[a, not]
+// is=>[a, not] One Word/Instance each word as an obeject=>multiple connections (polymorphic type?)
 
 'use strict';
 
