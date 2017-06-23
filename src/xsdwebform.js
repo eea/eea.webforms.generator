@@ -12,7 +12,7 @@
 // https://github.com/alexgorbatchev/node-crc
 // https://github.com/dshaw/checksum
 // https://www.npmjs.com/package/crc32-java - https://npm.runkit.com/crc32-java - https://runkit.com/embed/ae2bwnaq5oth | + nodemon like app server side(?) + git it as timemachine(?)
-// Check 1: If "nodemon" has been triggered=>log envriroment user, file etc=>git commit changes (rollback + staging capability)
+// Check 1: If "nodemon" has been triggered=>log envriroment user, file etc=>git commit changes (rollback + staging capability, works with database too?)
 // Check 2: check total checksum=>nodes(app area) checksum=>each file checksum
 // Total Checksum => each app checksum (e.g. webforms) => each webform file
 
