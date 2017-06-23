@@ -11,7 +11,7 @@
 // Total checksum (File1 checksum, File2 checksum)
 // https://github.com/alexgorbatchev/node-crc
 // https://github.com/dshaw/checksum
-// https://www.npmjs.com/package/crc32-java - https://npm.runkit.com/crc32-java - https://runkit.com/embed/ae2bwnaq5oth | + nodemon like app server side(?)
+// https://www.npmjs.com/package/crc32-java - https://npm.runkit.com/crc32-java - https://runkit.com/embed/ae2bwnaq5oth | + nodemon like app server side(?) + git it as timemachine(?)
 // Check 1: If "nodemon" has been triggered=>log envriroment user, file etc
 // Check 2: check total checksum=>nodes(app area) checksum=>each file checksum
 // Total Checksum => each app checksum (e.g. webforms) => each webform file
