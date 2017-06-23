@@ -10,7 +10,8 @@
     "Version": 1,
     "$": 1,
     "eea": 1,
-    "app": 1
+    "app": 1,
+    "XMLHttpRequest": 1
   },
     "extends": "eslint:recommended",
     "parserOptions": {

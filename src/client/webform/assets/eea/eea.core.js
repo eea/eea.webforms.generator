@@ -50,7 +50,7 @@ var eea = {
 	loader : {
 		getJS : function(script, path, ext, freeurl) {
 			path  = path || "";
-			var ext  = ext || "";
+			ext  = ext || "";
 
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
@@ -58,19 +58,19 @@ var eea = {
 					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
 						eea.loader.includeJS(script, oXmlHttp.responseText);
 				}
-			}
+			};
 			
-			var url = (freeurl && allow_external_includes) ? script : path + script + ext;
+			var url = (freeurl && eea.settings.allow_external_includes) ? script : path + script + ext;
 			oXmlHttp.open('GET', url, false);
 			oXmlHttp.send(null);
 		},
 		getAllJS : function(scripts, path, ext, freeurl) {
 			path  = path || "";
-			var ext  = ext || "";
+			ext  = ext || "";
 			
 			scripts.forEach(function(script) {
 				eea.loader.getJS(script, path, ext, freeurl);
-			})
+			});
 		},
 		includeJS : function (fileUrl, source) {
 			var script = document.createElement("script");
@@ -81,8 +81,8 @@ var eea = {
 			document.getElementsByTagName('head').item(0).appendChild(script);
 		},
 		getCSS : function(css, path, ext, freeurl) {
-			var path  = path || "";
-			var ext  = ext || "";
+			path  = path || "";
+			ext  = ext || "";
 			
 			var oXmlHttp = new XMLHttpRequest();
 			oXmlHttp.onreadystatechange = function() {
@@ -90,19 +90,19 @@ var eea = {
 					if (oXmlHttp.status == 200 || oXmlHttp.status == 304)
 						eea.loader.includeCSS(css, oXmlHttp.responseText);
 				}
-			}
+			};
 			
-			var url = (freeurl && allow_external_includes) ? css : path + css + ext;
+			var url = (freeurl && eea.settings.allow_external_includes) ? css : path + css + ext;
 			oXmlHttp.open('GET', url, false);
 			oXmlHttp.send(null);
 		},
 		getAllCSS : function(csss, path, ext) {
-			var path  = path || "";
-			var ext  = ext || "";
+			path  = path || "";
+			ext  = ext || "";
 
 			csss.forEach(function(css) {
 				eea.loader.getCSS(css, path, ext);
-			})
+			});
 		},
 		includeCSS : function (fileUrl, source) {
 			var style = document.createElement("style");
@@ -110,4 +110,4 @@ var eea = {
 			document.getElementsByTagName('head').item(0).appendChild(style);
 		}
 	}
-}
+};
