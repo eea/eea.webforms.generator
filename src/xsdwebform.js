@@ -32,6 +32,7 @@
 // word[This]=>word[is]=>word[a]=>word[test]
 // word[It]=>=>word[is]=>word[not]
 // is=>[a, not] One instance each word as an object=>multiple connections (polymorphic type?)
+// $this.$is a javascript class/object
 
 'use strict';
 
