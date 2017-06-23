@@ -16,7 +16,7 @@
 // Check 2: check total checksum=>nodes(app area) checksum=>each file checksum - Can check remote files (e.g. html files source) 
 // Total Checksum => each app checksum (e.g. webforms) => each webform file
 // Stealth Mode: flag true. Don't accept changes. If something change, rollback => alert.
-// test: 2nd crc datetime + ":" + text crc  = Unique?
+// test: datetime numeric stamp + ":" + text crc  = Unique?
 
 // Translation Server (possible method) 
 // crc phrace "Insert value into [field] to blah blah"
