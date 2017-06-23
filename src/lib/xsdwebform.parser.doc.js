@@ -26,13 +26,16 @@ class XSDWebFormParserDoc {
 		var output = ``;
 
 		// Loop through Tag's childNodes
-		let forms = htmlItem.childNamed("page").childrenNamed("form");
+		let page = htmlItem.childNamed("page")
+		output += `${page.attr.title}\n\n`;
+		let forms = page.childrenNamed("form");
 		for (let fi = 0, fl = forms.length; fi < fl; fi++) {
+			output += `Form: ${forms[fi].attr.title}\n\n`;
 			let groups = forms[fi].childrenNamed("group");
 			for (let gi = 0, gl = groups.length; gi < gl; gi++) {
 				for (let i = 0, l = groups[gi].children.length; i < l; i++) {
 					if (groups[gi].children[i].type === "element") {
-						output += `\t${groups[gi].children[i].label || groups[gi].children[i].attr.element} `;						
+						output += `${groups[gi].children[i].label || groups[gi].children[i].attr.element} `;						
 						if (groups[gi].children[i].xsdAttrs) {
 							output += `Definition: ${groups[gi].children[i].xsdAttrs.src.Definition || ""}\n`;
 							output += `Methodology: ${groups[gi].children[i].xsdAttrs.src.Methodology || ""}\n`;
