@@ -4,6 +4,8 @@
  * @author George Bouris <gb@eworx.gr>
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
+//TODO:
+// Add a file with all files checksums  - Check if files have been changed after build
 
 'use strict';
 
