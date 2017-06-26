@@ -1,6 +1,7 @@
 'use strict';
 
 app.component("eeaToolbar", {
+	//source: 'HABIDES+ reporting tool' web form
 	template: `<div class="menu-buttons" style="padding: 40px;">
             <div>
                 <div style="float:left;margin-right:10px;">
