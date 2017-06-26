@@ -8,7 +8,6 @@ app.component("eeaFormViewmode", {
 		this.$onInit = function() {
 			$(function() {
 				var ctimeout = ($('eea-form-testing').length) ? 3000 : 10;
-
 				setTimeout( function() {
 					$("form.eeaform").each(function(){
 						$(this).find('.formitem :input').each(function(index, item){

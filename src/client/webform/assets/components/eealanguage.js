@@ -27,7 +27,7 @@ app.component("eeaLanguage", {
 			$translatePartialLoader.addPart(parent.langfile);
 			$translate.refresh();
 			(function() {
-				$http.get('/resources/labels/ct-codelists-en.json').then( function(response) {
+				$http.get('/resources/labels/ct-codelists-en.json').then(function(response) {
 					parent.codeLists = response.data;
 					parent.language = parent.lang;
 				});

@@ -40,7 +40,6 @@ app.component("eeaToolbar", {
 	controller: [function() {
 		var parent = this;
 		this.$onInit = function() {
-
 			//source: 'HABIDES+ reporting tool' web form
 			//TODO
 			// this.toggleValidation = function() {
