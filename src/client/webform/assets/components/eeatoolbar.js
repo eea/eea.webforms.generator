@@ -53,6 +53,8 @@ app.component("eeaToolbar", {
 			// 	$window.open(conversionLink, '_blank');
 			// }
 
+			// Save in order to save all forms in page
+			// TODO: Save(frm) to save only the selected one
 			this.saveInstance = function(){
 				parent.scp.save();
 			};
