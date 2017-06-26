@@ -259,6 +259,12 @@ export default class XSDWebForm {
 									console.error(err);
 									reject(err);
 								}
+							ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
+								if (err) {
+									console.error(err);
+									reject(err);
+								}
+							});
 							resolve();
 						});
 					});
@@ -268,12 +274,6 @@ export default class XSDWebForm {
 							reject(err);
 						}
 						ncp(__dirname + "/client/resources/labels/", parent.buildPath + "resources/labels", function(err) {
-							if (err) {
-								console.error(err);
-								reject(err);
-							}
-						});
-						ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
 							if (err) {
 								console.error(err);
 								reject(err);
