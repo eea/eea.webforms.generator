@@ -2,7 +2,7 @@
 app.service('$eea', ['$http', '$compile', function($http, $compile) {
 	return {
 		test: function($scope) {
-			return 'test' + $scope;
+			return 'Test: ' + $scope;
 		},
 		init: function($scope) {
 			//Preserialisation: all form fields will be available on $scope.field.form name.field name
