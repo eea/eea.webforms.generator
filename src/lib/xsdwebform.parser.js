@@ -23,7 +23,7 @@ class XSDWebFormParser {
 	 * @param showlog
 	 * @param verbose
 	 */
-	constructor(baseFileName, showlog = false, verbose = false,  showXSDLog  = true) {
+	constructor(baseFileName, showlog = false, verbose = false,  showXSDLog = true) {
 		this.xsdTagParser = new XsdTagParser();
 		this.htmlTagParser = new HtmlTagParser();
 		this.xsltGenerator = new XsltGenerator();
