@@ -6,7 +6,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 		},
 		init: function($scope) {
 			// preserialisation: all fiels will be available on filed.form name.field name
-fi			$scope.field = {};
+			$scope.field = {};
 			$scope.multipleIndex = 1;
 			$scope.ValidationDisabled = false;
 			$scope.selectedLanguage = "en";
