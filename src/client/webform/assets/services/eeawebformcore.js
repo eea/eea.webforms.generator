@@ -41,7 +41,6 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 				});
 			},
 			submit : function (frm, test, $scope) {
-
 				for (var form in $scope.field) {
 					if (frm) {
 						if (frm.$name !== form) continue;
@@ -67,7 +66,6 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 						function(error) {
 							console.log("error", error.status);
 						});
-
 				}
 
 				return false;
