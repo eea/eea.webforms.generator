@@ -8,6 +8,7 @@ app.component("eeaFormBuild", {
 	},
 	controller: function() {
 		this.$onInit = function() {
+			// https://stackoverflow.com/questions/38714578/countdown-timer-with-progressbar
 			var delta = Math.abs(new Date().getTime() - new Date(this.date).getTime()) / 1000;
 
 			var days = Math.floor(delta / 86400);
