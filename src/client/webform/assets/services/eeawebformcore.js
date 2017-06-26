@@ -19,6 +19,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 				setTimeout(function() {
 					$scope.$apply();
 					$('#group-area-' + $scope.multipleIndex + '-' + group).prepend($compile('<div class="row"><button type="button"  title="{{\'deleterow\' | translate}}"class="deleterowbutton" ng-click="deleteRow(\'' + frm + '\', \'' + group + '\', ' + id + ')"></button></div>')($scope));
+					$scope.$apply();
 				}, 10);
 			},
 			deleteRow: function(frm, group, id, $scope) {
