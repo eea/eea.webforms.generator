@@ -99,7 +99,7 @@ class XSDWebFormParserTestAccessibility {
 		this.acblt = { 
 			options : {
 				id: 'cb8b45b1bf19ff2d3c5a7f270e571e7acc055084',
-				uri: 'http://localhost:' + this.serverPort + "/" + this.baseFileName + '.html',
+				uri: 'http://localhost:' + this.serverPort + "/webform/" + this.baseFileName + '.html',
 				guide: 'WCAG2-AA'
 			}
 		};
@@ -109,7 +109,7 @@ class XSDWebFormParserTestAccessibility {
 	 * test
 	 */
 	test() {
-		return new Promise( (resolve, reject) => {
+		return new Promise((resolve, reject) => {
 			wcag(this.acblt.options, function(error, data) {
 				if (error) {
 					reject(error);
