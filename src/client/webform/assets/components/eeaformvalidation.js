@@ -57,11 +57,11 @@ app.component("eeaFormValidation", {
 			});
 
 			if (noval) return;
-				setTimeout(function() {
-					$('.deleterowbutton').click(function() {
-						parent.validate($translate, true);	
-					});
-				}, 500);
+			setTimeout(function() {
+				$('.deleterowbutton').click(function() {
+					parent.validate($translate, true);	
+				});
+			}, 500);
 		};
 	}]
 });
