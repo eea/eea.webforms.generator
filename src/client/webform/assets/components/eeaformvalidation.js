@@ -39,7 +39,7 @@ app.component("eeaFormValidation", {
 						return;
 					}
 
-					fitem.onchange = function(){ parent.validate($translate); };
+					fitem.onchange = function(){ parent.validate($translate, true); };
 					
 					var name = item.attr("name");
 					var aname = name.split("$");
