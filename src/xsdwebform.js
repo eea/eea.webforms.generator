@@ -176,7 +176,7 @@ export default class XSDWebForm {
 					this.parser.parse(xObject);
 					
 					// Create HTML file
-					this.createFile(this.buildPath + "webform/" + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then ( () => {
+					this.createFile(this.buildPath + "webform/" + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then(() => {
 						this.getFile(__dirname + "/client/resources/labels/ct-codelists-en.json").then((langs) => {
 							langs = JSON.parse(langs);
 							let langData = this.parser.getFullTextContent();
@@ -187,7 +187,7 @@ export default class XSDWebForm {
 								this.createFile(this.buildPath + "/log/" + this.baseFileName + ".log.html", this.parser.logger.getHtmlLog(), false);
 								webshot(`http://localhost:${this.serverPort}/webform/${this.baseFileName}.html`,  this.buildPath + "log/scrnsht.png", { shotSize : { width: 'all', height: 'all'} }, (res) => { return; });
 							}
-							this.tester.test().then ((res) => {
+							this.tester.test().then((res) => {
 								let cres = "\x1b[32m ✓\x1b[1m ";
 								let cresPlus = "";
 								if (res.status !== 'PASS') {
@@ -242,7 +242,7 @@ export default class XSDWebForm {
 					fs.mkdirSync(parent.buildPath + "xquery");
 					fs.mkdirSync(parent.buildPath + "log");
 					ncp(__dirname + "/client/webform/webform.js", parent.buildPath  + "webform/" + parent.baseFileName + ".webform.js", function(err) {
-							parent.getFile(__dirname + "/client//webform/webform.js").then ((data) => {
+							parent.getFile(__dirname + "/client//webform/webform.js").then((data) => {
 								parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
 							if (err) {
