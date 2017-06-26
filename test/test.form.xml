@@ -9,10 +9,12 @@
 					<item element="AcquiringMemberState"/>
 					<item element="AEA-Price"/>
 					<item element="TransferAgreementDate"/>
-				</subgroup>
-				<subgroup tab="1" tabtitle="Tab2">
-					<item element="ExpectedTransactionYear"/>
-					<item element="Other"/>
+					<subgroup tab="1" tabtitle="Tab2">
+						<item element="ExpectedTransactionYear"/>
+						<subgroup tab="1" tabtitle="Tab2">
+							<item element="Other"/>
+						</subgroup>
+					</subgroup>
 				</subgroup>
 				<input name="Test"/>
 				<input name="Test2"/>
