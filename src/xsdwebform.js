@@ -125,7 +125,7 @@ export default class XSDWebForm {
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
 
 			// Create (/clean) Build directory and move files
-			this.prepareJSFiles().then((res) => {
+			this.prepareFiles().then((res) => {
 				try {
 					// After Build directory preperation, parse the document
 					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then((response) => {	
@@ -226,9 +226,9 @@ export default class XSDWebForm {
 	}
 
 	/**
-	 * prepareJSFiles - Copy JS folder to build
+	 * prepareFiles - Copy JS folder to build
 	 */
-	prepareJSFiles() {
+	prepareFiles() {
 		var parent = this;
 		return new Promise((resolve, reject) => {
 			rimraf(parent.buildPath, fs, function() {
@@ -267,7 +267,8 @@ export default class XSDWebForm {
 								reject(err);
 							}
 						});
-						ncp(__dirname + "/client/webform/webform.js", parent.buildPath  + "webform/" + parent.baseFileName + ".webform.js", function(err) {
+					});
+					ncp(__dirname + "/client/webform/webform.js", parent.buildPath  + "webform/" + parent.baseFileName + ".webform.js", function(err) {
 							parent.getFile(__dirname + "/client//webform/webform.js").then ((data) => {
 								parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
@@ -286,7 +287,6 @@ export default class XSDWebForm {
 									reject(err);
 								}
 							resolve();
-							});
 						});
 					});
 				}
