@@ -498,7 +498,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseSelect(item, xsdItem, sender) {
-		
 		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
@@ -582,7 +581,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseLookup(item, xsdItem, sender) {
-		
 		sender.logger.logHtmlTag(item, sender);
 		
 		if (item.attr.lookup) {
@@ -628,7 +626,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseRadio(item, xsdItem, sender) {
-
 		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
@@ -698,7 +695,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param sender
 	 */
 	parseCheckbox(item, xsdItem, sender) {
-
 		sender.logger.logHtmlTag(item, sender);
 		
 		if (item.attr.element) {
