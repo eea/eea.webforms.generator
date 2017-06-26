@@ -12,14 +12,14 @@ app.component("eeaFormValidation", {
 			setTimeout(
 				function() {
 					parent.validate($translate);
-					$('.formitem :input').change( function() {
-						parent.validate($translate);
+					$('.formitem :input').change(function() {
+						parent.validate($translate, true);
 					});
 					$('.rowbutton').click(function() {
 						parent.validate($translate);	
 					});		
 					$('.deleterowbutton').click(function() {
-						parent.validate($translate);	
+						parent.validate($translate, true);	
 					});	
 				}, ctimeout);
 		};
