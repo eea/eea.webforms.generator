@@ -5,7 +5,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 			return 'test' + $scope;
 		},
 		init: function($scope) {
-			//preserialisation: all form fields will be available on filed.form name.field name
+			//preserialisation: all form fields will be available on field.form name.field name
 			$scope.field = {};
 			//Multiple Rows counter - It works only In case of different $scope for each form. TODO: same scope
 			$scope.multipleIndex = 1;
