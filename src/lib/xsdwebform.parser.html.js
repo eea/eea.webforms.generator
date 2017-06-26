@@ -840,7 +840,6 @@ class XSDWebFormParserHTMLTags {
 	 * @param xsdItem
 	 */
 	getXSDComplexByGroupTag(xsdItemName, xsdItem, sender) {
-
 		var XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence")
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");

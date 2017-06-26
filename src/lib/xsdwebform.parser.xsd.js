@@ -367,8 +367,7 @@ class XSDWebFormParserTags {
 	 * @param item
 	 * @param sender
 	 */
-	parseMaxLength(item, sender) {
-		
+	parseMaxLength(item, sender) {	
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}
@@ -378,8 +377,7 @@ class XSDWebFormParserTags {
 	 * @param item
 	 * @param sender
 	 */
-	parseTotalDigits(item, sender) {
-		
+	parseTotalDigits(item, sender) {	
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}
@@ -389,8 +387,7 @@ class XSDWebFormParserTags {
 	 * @param item
 	 * @param sender
 	 */
-	parseMultiValueDelim(item, sender) {
-		
+	parseMultiValueDelim(item, sender) {	
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}
@@ -401,7 +398,6 @@ class XSDWebFormParserTags {
 	 * @param sender
 	 */
 	parseKeyword(item, sender) {
-		
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}
@@ -412,7 +408,6 @@ class XSDWebFormParserTags {
 	 * @param sender
 	 */
 	parseDefinition(item, sender) {
-		
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}
@@ -423,7 +418,6 @@ class XSDWebFormParserTags {
 	 * @param sender
 	 */
 	parseMethodology(item, sender) {
-		
 		if (sender.showLog)
 			sender.logger.logXsdTag(item);
 	}

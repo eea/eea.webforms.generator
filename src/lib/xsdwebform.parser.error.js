@@ -15,7 +15,6 @@
 class XSDWebFormParserError {
 
 	static reportError(error, item, dontex = false) {
-
 		if (!dontex)
 			console.log("\n\x1b[1m\x1b[31m" + error + "\x1b[0m");
 
