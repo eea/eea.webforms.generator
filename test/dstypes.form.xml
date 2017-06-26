@@ -12,18 +12,10 @@
 				<item element="creatingSites"/>
 				<subgroup>
 					<item element="legalReferenceName"/>
-					<subgroup>
-						<item element="legalReferencePublicationDate"/>
-						<subgroup>
-							<item element="legalReferenceLink"/>
-							<subgroup>
-								<item element="legalReferenceLevel"/>
-								<subgroup>
-									<item element="legalReferenceOfficialJournalIdentification"/>
-								</subgroup>
-							</subgroup>
-						</subgroup>	
-					</subgroup>
+					<item element="legalReferencePublicationDate"/>
+					<item element="legalReferenceLink"/>
+					<item element="legalReferenceLevel"/>
+					<item element="legalReferenceOfficialJournalIdentification"/>
 				</subgroup>
 				<item element="competentAuthorityOrganisationName"/>
 				<item element="competentAuthorityWebsite"/>
