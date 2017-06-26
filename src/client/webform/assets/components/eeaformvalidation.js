@@ -60,6 +60,7 @@ app.component("eeaFormValidation", {
 			setTimeout(function() {
 				$('.deleterowbutton').click(function() {
 					parent.validate($translate, true);	
+					parent.scp.$apply();
 				});
 			}, 10);
 		};
