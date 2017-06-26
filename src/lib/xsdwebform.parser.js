@@ -193,6 +193,7 @@ class XSDWebFormParser {
 	 */
 	getLanguageContent() {
 		// Remove duplicate labels
+		// TODO: Check for duplicates on push or after (in getLanguageContent).
 		let exists = {};
 		let filteredLabels = this.htmlTagParser.LabelContentObjects.filter((item) => {
 			if (exists[item.label])
