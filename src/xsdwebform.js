@@ -262,15 +262,6 @@ export default class XSDWebForm {
 							resolve();
 						});
 					});
-					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
-						parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
-							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
-						});
-						if (err) {
-							console.error(err);
-							reject(err);
-						}
-					});
 					ncp(__dirname + "/client/resources/", parent.buildPath + "resources", function(err) {
 						if (err) {
 							console.error(err);
@@ -288,6 +279,15 @@ export default class XSDWebForm {
 								reject(err);
 							}
 						});
+					});
+					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
+						parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
+							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
+						});
+						if (err) {
+							console.error(err);
+							reject(err);
+						}
 					});
 				}
 			});
