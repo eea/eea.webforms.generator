@@ -40,6 +40,7 @@ app.component("eeaToolbar", {
 		var parent = this;
 		this.$onInit = function() {
 
+			//source: 'HABIDES+ reporting tool' web form
 			this.toggleValidation = function() {
 				parent.scp.ValidationDisabled = !parent.scp.ValidationDisabled;
 			};
