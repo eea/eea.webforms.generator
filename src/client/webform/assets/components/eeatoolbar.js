@@ -41,11 +41,13 @@ app.component("eeaToolbar", {
 		this.$onInit = function() {
 
 			//source: 'HABIDES+ reporting tool' web form
-			this.toggleValidation = function() {
-				parent.scp.ValidationDisabled = !parent.scp.ValidationDisabled;
-			};
+			//TODO
+			// this.toggleValidation = function() {
+			// 	parent.scp.ValidationDisabled = !parent.scp.ValidationDisabled;
+			// };
 
 			//source: 'HABIDES+ reporting tool' web form
+			//TODO
 			// this.printPreview = function() {
 			// 	var conversionLink = [formApplicationUrl("/download/convert", urlProperties.baseURI, urlProperties.sessionID, urlProperties.fileID), "&conversionId=", HTMLconversionNumber].join("");
 			// 	$window.open(conversionLink, '_blank');
@@ -56,6 +58,7 @@ app.component("eeaToolbar", {
 			};
 
 			//source: 'HABIDES+ reporting tool' web form
+			//TODO
 			// this.close = function(){
 			// 	if (urlProperties.baseURI == ''){
 			// 			urlProperties.baseURI = "/";
