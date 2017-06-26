@@ -50,9 +50,7 @@ app.component("eeaFormValidation", {
 					content += "<li>Group <b>" + arr + "</b><br>";
 					content += "<b style=\"font-size:14px\">" + $translate.instant('labels.' + nme) + "</b><br>";
 					content += ($translate.instant(item.attr("def"))  || "" )+ "<br>";
-
 					content += "<button style=\"padding:2px;min-width:auto;font-size:11px;width:24px;max-width:24px;height:24px;\" onclick='" + name + ".focus()'>Go</button><br><br>";
-
 				});
 				$("#eeavalidation").html(content + "</ul>");
 			});
