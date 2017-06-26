@@ -159,7 +159,7 @@ export default class XSDWebForm {
 	 * @param xmlHtmlFile
 	 */
 	parseFiles(xsdFile, xmlHtmlFile, filePath) {
-		return new Promise ( (resolve, reject) => {	
+		return new Promise((resolve, reject) => {	
 			var xObject = {
 				basefilename: this.baseFileName, 
 				xfile: xsdFile,
