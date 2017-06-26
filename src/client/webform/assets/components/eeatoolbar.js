@@ -54,7 +54,7 @@ app.component("eeaToolbar", {
 			// }
 
 			// Save in order to save all forms in page
-			// TODO: Save(frm) to save only the selected one
+			// TODO: Save(frm) to save only the selected one - Mini Toolbar for each form? Different Component?
 			this.saveInstance = function(){
 				parent.scp.save();
 			};
