@@ -23,7 +23,7 @@ class XSDWebFormParserDoc {
 	 * createDocOutput
 	 */
 	createDocOutput(htmlItem) {
-		var output = ``;
+		var output = "";
 
 		// Loop through Tag's childNodes
 		let page = htmlItem.childNamed("page");
