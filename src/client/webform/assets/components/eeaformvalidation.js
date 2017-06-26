@@ -59,7 +59,6 @@ app.component("eeaFormValidation", {
 			if (noval) return;
 			setTimeout(function() {
 				$('.deleterowbutton').click(function() {
-					parent.scp.$apply();
 					parent.validate($translate, true);	
 				});
 			}, 10);
