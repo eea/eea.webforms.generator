@@ -125,7 +125,7 @@ export default class XSDWebForm {
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
 
 			// Create (/clean) Build directory and move files
-			this.prepareFiles().then((res) => {
+			this.prepareStructure().then((res) => {
 				try {
 					// After Build directory preperation, parse the document
 					this.parseFiles(xsdFile, xmlHtmlFile, this.basePath).then((response) => {	
@@ -228,7 +228,7 @@ export default class XSDWebForm {
 	/**
 	 * prepareFiles - Copy JS folder to build
 	 */
-	prepareFiles() {
+	prepareStructure() {
 		var parent = this;
 		return new Promise((resolve, reject) => {
 			rimraf(parent.buildPath, fs, function() {
