@@ -5,12 +5,16 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 			return 'test' + $scope;
 		},
 		init: function($scope) {
-			// preserialisation: all fiels will be available on filed.form name.field name
+			//preserialisation: all fiels will be available on filed.form name.field name
 			$scope.field = {};
+			//Multiple Rows counter
 			$scope.multipleIndex = 1;
-			$scope.ValidationDisabled = false;
-			$scope.selectedLanguage = "en";
+			//Multiple Forms/Groups/Rows placeholder Object
 			$scope.groups = groups;
+			//Validation labels switch
+			$scope.ValidationDisabled = false;
+			//Default language
+			$scope.selectedLanguage = "en";
 		},
 		group: {
 			addRow: function(frm, group, $scope) {
