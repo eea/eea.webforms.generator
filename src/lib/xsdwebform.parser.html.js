@@ -499,7 +499,6 @@ class XSDWebFormParserHTMLTags {
 		sender.logger.logHtmlTag(item, sender);
 
 		if (item.attr.element) {
-		
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let XSDWFormItem, XSDWFormItemTypeData;
 
@@ -625,8 +624,7 @@ class XSDWebFormParserHTMLTags {
 	parseRadio(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
 
-		if (item.attr.element) {
-			
+		if (item.attr.element) {	
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let XSDWFormItem, XSDWFormItemData;
 
@@ -694,8 +692,7 @@ class XSDWebFormParserHTMLTags {
 	parseCheckbox(item, xsdItem, sender) {
 		sender.logger.logHtmlTag(item, sender);
 		
-		if (item.attr.element) {
-			
+		if (item.attr.element) {	
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
