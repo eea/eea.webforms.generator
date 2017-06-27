@@ -42,8 +42,8 @@ class XSDWebFormParserHTMLTags {
 		};
 
 		this.XSD_HTML_TYPES = {
-			"xs:integer": "number",
-			"xs:decimal": "number",
+			"xs:integer": "number", //TODO: pattern
+			"xs:decimal": "number", //TODO: pattern="[0-9]+([\.,][0-9]+)?" step="0.01"(?) https://stackoverflow.com/questions/15303940/how-to-handle-floats-and-decimal-separators-with-html5-input-type-number
 			"NonNegativeIntegerType": "positivenumber",
 			"xs:date": "date",
 			"DateType": "date",
