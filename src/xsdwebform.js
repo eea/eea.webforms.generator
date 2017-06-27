@@ -66,20 +66,27 @@ export default class XSDWebForm {
 		return new Promise((resolve, reject) => {
 			//Version	
 			this.Version = "0.3";
+
 			//logging
 			this.showLog = true;
 			this.verbose = true;
 			this.showXSDLog = true;
+			
 			//Test Server	
 			this.serverPort = 3001;
+			
 			//Build directory
 			this.buildPath = "build/obligation/";
+			
 			// Input file variable
 			var xsdFile = null;
+			
 			// HTML Input file variable
 			var xmlHtmlFile = null;
+			
 			// Open the default browser when build is completed
 			this.autoOpenOutput = false;
+			
 			// Check for [-f file] [-a | open browser after build] input
 			args.forEach((item, index) => {
 				if (item === '-f') {
@@ -100,19 +107,24 @@ export default class XSDWebForm {
 					return;
 				}
 			});
+			
 			// If not file input
 			if (!xsdFile) {
 				xsdFile = "./test/test";
 			}
+			
 			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
 			this.baseFileName = path.basename(xsdFile);
 			this.basePath = path.dirname(xsdFile);
 			xsdFile += ".xsd";
 			xmlHtmlFile = this.baseFileName + ".form.xml";
+			
 			// XSDWebFormParser    		
 			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
+			
 			// XSDWebFormTest  		
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
+			
 			// Create (/clean) Build directory and move files
 			this.prepareStructure().then((res) => {
 				try {

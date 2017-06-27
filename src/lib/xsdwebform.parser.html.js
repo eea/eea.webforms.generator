@@ -62,7 +62,7 @@ class XSDWebFormParserHTMLTags {
 			"maxOccurs": () => {},
 			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; },
 		};
-		
+
 		//DD Custom Properties
 		this.XSD_DD_PROPERTIES = {
 			"Methodology": (item, inp) => { 
