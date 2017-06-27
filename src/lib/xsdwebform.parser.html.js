@@ -40,7 +40,7 @@ class XSDWebFormParserHTMLTags {
 			"radio": this.parseRadio,
 			"checkbox": this.parseCheckbox,
 			"radioorselect" : this.decideRadioCheck
-		};
+		};//TODO: Array of Types ? (minOccurs maxOccurs)
 
 		this.XSD_HTML_TYPES = {
 			"xs:integer": "number", //TODO: pattern ? totalDigits
@@ -50,7 +50,7 @@ class XSDWebFormParserHTMLTags {
 			"DateType": "date",
 			"xs:string": "input",
 			"xs:boolean": "radioorselect"
-		};//TODO: Array of Types ? (minOccurs maxOccurs)
+		};
 
 		this.XSD_PROPERTIES = {
 			"minInclusive": (inp) => { return `min="${inp}"`; },
