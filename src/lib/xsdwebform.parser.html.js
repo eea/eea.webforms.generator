@@ -352,7 +352,6 @@ class XSDWebFormParserHTMLTags {
 		let name = (item.attr.name) ? item.attr.name : item.attr.element;
 		let itemFormModel = sender.getFullFormName(name, sender);
 		name = name.replace("-", "");
-		
 		var htmlItem = {
 			name: name,
 			tag: 'input',
@@ -584,7 +583,6 @@ class XSDWebFormParserHTMLTags {
 		
 		if (item.attr.lookup) {
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
@@ -699,7 +697,6 @@ class XSDWebFormParserHTMLTags {
 		if (item.attr.element) {
 			
 			let itemInfo = sender.getItemInfo(item, xsdItem, sender);
-		
 			let itemFormModel = sender.getFullFormName(item.attr.element, sender);
 			var htmlItem = {
 				name: item.attr.element,
