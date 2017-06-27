@@ -263,7 +263,6 @@ class XSDWebFormParserHTMLTags {
 			},
 			tagToHtml: XSDWebFormParserHTMLTags.tagToHtml
 		};
-
 		sender.addItemToGroup(subGroupObject, itemInfo);
 	}
 
