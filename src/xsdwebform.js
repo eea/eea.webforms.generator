@@ -80,7 +80,6 @@ export default class XSDWebForm {
 			var xmlHtmlFile = null;
 			// Open the default browser when build is completed
 			this.autoOpenOutput = false;
-
 			// Check for [-f file] [-a | open browser after build] input
 			args.forEach((item, index) => {
 				if (item === '-f') {
@@ -101,12 +100,10 @@ export default class XSDWebForm {
 					return;
 				}
 			});
-
 			// If not file input
 			if (!xsdFile) {
 				xsdFile = "./test/test";
 			}
-
 			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
 			this.baseFileName = path.basename(xsdFile);
 			this.basePath = path.dirname(xsdFile);
