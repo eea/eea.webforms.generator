@@ -66,15 +66,12 @@ export default class XSDWebForm {
 		return new Promise((resolve, reject) => {
 			//Version	
 			this.Version = "0.3";
-
 			//logging
 			this.showLog = true;
 			this.verbose = true;
 			this.showXSDLog = true;
-
 			//Test Server	
 			this.serverPort = 3001;
-
 			//Build directory
 			this.buildPath = "build/obligation/";
 			// Input file variable
