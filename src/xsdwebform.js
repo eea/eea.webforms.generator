@@ -85,26 +85,25 @@ export default class XSDWebForm {
 			this.autoOpenOutput = false;
 
 			// Check for [-f file] [-a | open browser after build] input
-			args.forEach( 
-				(item, index) => {
-					if (item === '-f') {
-						xsdFile = args[index + 1];
-						return;
-					}
-					if (item === '-ul') {
-						this.showLog = false;
-						this.verbose = false;
-						return;
-					}
-					if (item === '-l') {
-						this.showXSDLog = false;
-						return;
-					}
-					if (item === '-a') {
-						this.autoOpenOutput = true;
-						return;
-					}
-				});
+			args.forEach((item, index) => {
+				if (item === '-f') {
+					xsdFile = args[index + 1];
+					return;
+				}
+				if (item === '-ul') {
+					this.showLog = false;
+					this.verbose = false;
+					return;
+				}
+				if (item === '-l') {
+					this.showXSDLog = false;
+					return;
+				}
+				if (item === '-a') {
+					this.autoOpenOutput = true;
+					return;
+				}
+			});
 
 			// If not file input
 			if (!xsdFile) {
@@ -201,7 +200,6 @@ export default class XSDWebForm {
 								}
 								console.log(`\x1b[1m\x1b[37mWCAG 2-AA Accessibility checking: \x1b[1m${cres}${res.status}\x1b[37m\x1b[2m${cresPlus}\x1b[0m`);
 							});
-							
 							resolve();
 						});
 					});
