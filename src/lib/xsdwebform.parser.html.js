@@ -439,7 +439,6 @@ class XSDWebFormParserHTMLTags {
 			if (positive) {
 				htmlItem.attrs.min = 0;
 			}
-
 			sender.addItemToGroup(htmlItem, itemInfo);
 		}
 	}
@@ -832,7 +831,6 @@ class XSDWebFormParserHTMLTags {
 		var XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence")
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
-		
 		return XSDWFormComplexItems;
 	}
 
