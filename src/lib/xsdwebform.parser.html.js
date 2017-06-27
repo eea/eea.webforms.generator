@@ -903,7 +903,6 @@ class XSDWebFormParserHTMLTags {
 			xsdElement = sender.getItemByNameRegex(item, xsdElement);
 			if (!xsdElement) return;
 		});
-
 		return xsdElement;
 	}
 
