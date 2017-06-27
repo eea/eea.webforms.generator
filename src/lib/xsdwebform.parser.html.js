@@ -1028,7 +1028,7 @@ class XSDWebFormParserHTMLTags {
 			outPut += tabspace + "</" + this.tag + ">\n";
 
 		if (this.attrs.required === 1) {
-			//TODO: Try transfer  Validation Checking Labels in a Component
+			//TODO: Try transfer  Validation Checking Labels in EEA Form Validation Component
 			outPut += `${tabspace}<span ng-show="${this.formModel}.$touched && ${this.formModel}.$invalid && !ValidationDisabled" class="required-msg"><em>{{'${this.name.replace("-", "")}' | translate}}</em> {{'isrequired' | translate}}</span>`;
 		}
 
