@@ -57,7 +57,7 @@ class XSDWebFormParserHTMLTags {
 			"maxInclusive": (inp) => { return `max="${inp}"`; },
 			"minLength": (inp) => { return `minlength="${inp}"`; },
 			"maxLength": (inp) => { return `maxlength="${inp}"`; },
-			"multiValueDelim":  (inp) => { return `placeholder="use ${inp} separator (e.g. text${inp}text)"`; },
+			"multiValueDelim":  (inp) => { return `placeholder="use ${inp} as separator (e.g. text${inp}text)"`; },
 			"minOccurs": () => {},
 			"maxOccurs": () => {},
 			"totalDigits": (inp) => { return `pattern="[0-9]{1,${inp}}"`; },
