@@ -114,15 +114,11 @@ export default class XSDWebForm {
 			this.baseFileName = path.basename(xsdFile);
 			this.basePath = path.dirname(xsdFile);
 			xsdFile += ".xsd";
-			
 			xmlHtmlFile = this.baseFileName + ".form.xml";
-
 			// XSDWebFormParser    		
 			this.parser = new XSDWebFormParser(this.baseFileName, this.showLog, this.verbose, this.showXSDLog);
-
 			// XSDWebFormTest  		
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
-
 			// Create (/clean) Build directory and move files
 			this.prepareStructure().then((res) => {
 				try {
@@ -173,7 +169,6 @@ export default class XSDWebForm {
 					xObject.hdata = res;
 					// Parse file content
 					this.parser.parse(xObject);
-					
 					// Create HTML file
 					this.createFile(this.buildPath + "webform/" + this.baseFileName + ".html", this.getHeader() + this.parser.getHTMLOutput() + this.getFooter() ). then(() => {
 						this.getFile(__dirname + "/client/resources/labels/ct-codelists-en.json").then((langs) => {
