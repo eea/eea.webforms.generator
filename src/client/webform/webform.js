@@ -55,7 +55,8 @@ eea.css.get("webform.all");
 /*
 TODO
 - Error Reporting/Form Deactivating Component
-- Lookup Component AutoGrouping in case more than once instances have the same attributes 
+- Lookup Component. AutoGrouping in case more than once instances have the same attributes 
+- Lookup Component. When adding row, get data from existing instance)
 
 TOTEST
 Enviromental Computing and Networking
