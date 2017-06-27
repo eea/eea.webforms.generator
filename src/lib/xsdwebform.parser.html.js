@@ -716,7 +716,6 @@ class XSDWebFormParserHTMLTags {
 			};
 			sender.addItemToGroup(htmlItem, itemInfo);
 		}
-
 	}
 
 	/**
