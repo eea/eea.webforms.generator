@@ -240,7 +240,7 @@ export default class XSDWebForm {
 					fs.mkdirSync(parent.buildPath + "xquery");
 					fs.mkdirSync(parent.buildPath + "log");
 					ncp(__dirname + "/client/webform/webform.js", parent.buildPath + "webform/" + parent.baseFileName + ".webform.js", function(err) {
-							parent.getFile(__dirname + "/client//webform/webform.js").then((data) => {
+							parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
 								parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 							});
 							if (err) {
