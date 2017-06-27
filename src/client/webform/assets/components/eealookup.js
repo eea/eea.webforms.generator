@@ -37,7 +37,7 @@ app.component("lookup", {
 			if (parent.luOrder) {
 				parent.luOrder = parent.luOrder.toString().replace(/'/g, "\\\'");
 			}
-			$http.get(parent.lookup).then( function(response) {
+			$http.get(parent.lookup).then(function(response) {
 				parent.data = response.data[parent.luData];
 				if (parent.autoselect) {
 					let qs = $location.search()[parent.autoselect];
@@ -51,6 +51,8 @@ app.component("lookup", {
 						}
 					}
 				}
+			}, function error(response) {
+				console.error("response", response);
 			});
 		};
 	}]
