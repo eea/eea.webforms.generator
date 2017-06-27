@@ -801,7 +801,6 @@ class XSDWebFormParserHTMLTags {
 	getItemInfo(item, xsdItem, sender) {
 		var htmlBase = sender.HTMLObjects[sender.HTMLObjects.length - 1];
 		var groupBase = htmlBase.itemObject.groups[htmlBase.itemObject.groups.length - 1];
-
 		var parentName = sender.getItemByName(item.attr.element, groupBase.itemObject.xsdXML)
 				|| sender.getItemByRef(item.attr.element, groupBase.itemObject.xsdXML);
 		
