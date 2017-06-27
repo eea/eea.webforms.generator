@@ -50,7 +50,7 @@ class XSDWebFormParserHTMLTags {
 			"DateType": "date",
 			"xs:string": "input",
 			"xs:boolean": "radioorselect"
-		};//TODO: Array of Types
+		};//TODO: Array of Types ? (minOccurs maxOccurs)
 
 		this.XSD_PROPERTIES = {
 			"minInclusive": (inp) => { return `min="${inp}"`; },
