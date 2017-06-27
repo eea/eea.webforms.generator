@@ -57,7 +57,7 @@ TODO
 - Error Reporting & Page/Form Deactivating Component or in Webform Core or in *Core
 - Lookup Component. AutoGrouping in case more than once instances have the same attributes 
 - Lookup Component. When adding row, get data from existing instance
-  Add data to a Hash Array lookup/url+lu-value etc and check the Hash for existing data e.g. Data[urlstring + lu-value string] = json data
+  Store returned REST/Json data to a Hash Array lookup/url+lu-value etc and check the Hash for existing data e.g. Data[urlstring + lu-value string] = json data
 
 TOTEST
 Enviromental Computing and Networking
