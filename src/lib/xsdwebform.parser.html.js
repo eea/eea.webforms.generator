@@ -32,6 +32,7 @@ class XSDWebFormParserHTMLTags {
 			"input": this.parseInput,
 			"text": this.parseText,
 			"number": this.parseNumber,
+			//TODO: "decimal": this.parseDecimal,
 			"positivenumber": this.parseNumberP,
 			"date": this.parseDate,
 			"select": this.parseSelect,
