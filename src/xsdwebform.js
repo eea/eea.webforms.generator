@@ -263,7 +263,6 @@ export default class XSDWebForm {
 									reject(err);
 								}
 							});
-							resolve();
 						});
 					});
 					ncp(__dirname + "/client/resources/", parent.buildPath + "resources", function(err) {
@@ -277,7 +276,6 @@ export default class XSDWebForm {
 								reject(err);
 							}
 						});
-						resolve();
 					});
 					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
 						parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
@@ -294,8 +292,8 @@ export default class XSDWebForm {
 							console.error(err);
 							reject(err);
 						}
-						resolve();
 					});
+					resolve();
 				}
 			});
 		});
