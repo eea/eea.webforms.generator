@@ -112,7 +112,7 @@ export default class XSDWebForm {
 			
 			// If not file input
 			if (!xsdFile) {
-				xsdFile = "./test/test";
+				xsdFile = "./test/dstypes";
 			}
 			
 			// Lookup for base file name. Needed to check for (formname).form.xml file. Also, if file is named form.xsd then .js,.css filets etc are going to be named form.js form.css
