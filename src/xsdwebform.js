@@ -227,6 +227,7 @@ export default class XSDWebForm {
 
 	/**
 	 * prepareFiles
+	 * Dist version - Not Tested 
 	 */
 	prepareStructure() {
 		var parent = this;
