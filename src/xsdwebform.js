@@ -233,71 +233,69 @@ export default class XSDWebForm {
 		return new Promise((resolve, reject) => {
 			rimraf(__dirname + "/../" + parent.buildRootPath, fs, function() {
 				fs.mkdirSync(__dirname + "/../" + parent.buildRootPath);
-				if (!fs.existsSync(parent.buildPath)) {
-					fs.mkdirSync(parent.buildPath);
-					fs.mkdirSync(parent.buildPath + "webform");
-					fs.mkdirSync(parent.buildPath + "instance");
-					fs.mkdirSync(parent.buildPath + "aggregation");
-					fs.mkdirSync(parent.buildPath + "docs");
-					fs.mkdirSync(parent.buildPath + "xsl");
-					fs.mkdirSync(parent.buildPath + "schema");
-					fs.mkdirSync(parent.buildPath + "log");
-					ncp(__dirname + "/client/webform/webform.js", parent.buildPath + "webform/" + parent.baseFileName + ".webform.js", function(err) {
-							parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
-								parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
-							});
-							if (err) {
-								console.error(err);
-								reject(err);
-							}
-							ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
-								let uglified = uglifycss.processFiles(
-								[ __dirname + "/client//webform/webform.css" ],
-									{ maxLineLen: 500, expandVars: true }
-								);
-								parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);
-								if (err) {
-									console.error(err);
-									reject(err);
-								}
-							ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
-								if (err) {
-									console.error(err);
-									reject(err);
-								}
-							});
+				fs.mkdirSync(parent.buildPath);
+				fs.mkdirSync(parent.buildPath + "webform");
+				fs.mkdirSync(parent.buildPath + "instance");
+				fs.mkdirSync(parent.buildPath + "aggregation");
+				fs.mkdirSync(parent.buildPath + "docs");
+				fs.mkdirSync(parent.buildPath + "xsl");
+				fs.mkdirSync(parent.buildPath + "schema");
+				fs.mkdirSync(parent.buildPath + "log");
+				ncp(__dirname + "/client/webform/webform.js", parent.buildPath + "webform/" + parent.baseFileName + ".webform.js", function(err) {
+						parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
+							parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
 						});
-					});
-					ncp(__dirname + "/client/resources/", parent.buildPath + "resources", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
-						ncp(__dirname + "/client/resources/labels/", parent.buildPath + "resources/labels", function(err) {
+						ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
+							let uglified = uglifycss.processFiles(
+							[ __dirname + "/client//webform/webform.css" ],
+								{ maxLineLen: 500, expandVars: true }
+							);
+							parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);
+							if (err) {
+								console.error(err);
+								reject(err);
+							}
+						ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
 							if (err) {
 								console.error(err);
 								reject(err);
 							}
 						});
 					});
-					ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
-						parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
-							parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
-						});
-						if (err) {
-							console.error(err);
-							reject(err);
-						}
-						resolve();
-					});
-					ncp(__dirname + "/client/xquery/", parent.buildPath + "xquery", function(err) {
+				});
+				ncp(__dirname + "/client/resources/", parent.buildPath + "resources", function(err) {
+					if (err) {
+						console.error(err);
+						reject(err);
+					}
+					ncp(__dirname + "/client/resources/labels/", parent.buildPath + "resources/labels", function(err) {
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
 					});
+				});
+				ncp(__dirname + "/client/dev/", parent.buildPath + "dev", function(err) {
+					parent.getFile(__dirname + "/client/dev/package.json").then((data) => {
+						parent.createFile(parent.buildPath  + "dev/package.json", data.replace(/\$FNM\$/g, parent.baseFileName) , false);
+					});
+					if (err) {
+						console.error(err);
+						reject(err);
+					}
 					resolve();
-				}
+				});
+				ncp(__dirname + "/client/xquery/", parent.buildPath + "xquery", function(err) {
+					if (err) {
+						console.error(err);
+						reject(err);
+					}
+				});
+				resolve();
 			});
 		});
 	}
