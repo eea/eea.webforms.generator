@@ -18,7 +18,7 @@ app.provider('data', function() {
 
 	this.$get = function() {
 		return function(srv) {
-			[srv.url, srv.datase] match => return srv.data
+			[srv.url, srv.dataset] match => return srv.data
 		};
 	};
 });
