@@ -2,6 +2,8 @@
 
 //var Version="0.3";
 
+//TODO: eea.providers (?)
+
 var app = angular.module('WebFormApp', ['pascalprecht.translate']);
 app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$window', '$translate', '$compile', WebFormAppCtrl]);
 
@@ -38,7 +40,6 @@ function WebFormAppCtrl($eea, $scope) {
 }
 
 eea.services.get("eeawebformcore");
-//TODO: eea.providers
 eea.components.getAll([
 	"eeaheader", 
 	"eeamenu", 
