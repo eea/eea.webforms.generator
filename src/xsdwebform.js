@@ -238,7 +238,6 @@ export default class XSDWebForm {
 					fs.mkdirSync(parent.buildPath + "docs");
 					fs.mkdirSync(parent.buildPath + "xsl");
 					fs.mkdirSync(parent.buildPath + "schema");
-					// fs.mkdirSync(parent.buildPath + "xquery");
 					fs.mkdirSync(parent.buildPath + "log");
 					ncp(__dirname + "/client/webform/webform.js", parent.buildPath + "webform/" + parent.baseFileName + ".webform.js", function(err) {
 							parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
