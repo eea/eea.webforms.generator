@@ -8,6 +8,7 @@ app.config([ '$locationProvider', function($locationProvider) {
 }]);
 
 /*
+*Different .js file
 app.provider('data', function() {
 // Lookup Component. AutoGrouping in case more than once instances have the same attributes & Lookup Component. When adding row, get data from existing instance
 // Store returned REST/Json data to a Hash Array lookup/url+lu-data etc and check the Hash for existing data e.g. (CRC?) Data[crc32(url string) + "-" + crc32(lu-data string)] (unique?) = json data
