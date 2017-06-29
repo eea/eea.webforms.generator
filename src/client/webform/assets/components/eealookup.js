@@ -12,8 +12,8 @@ app.provider('data', function() {
 // Lookup Component. AutoGrouping in case more than once instances have the same attributes & Lookup Component. When adding row, get data from existing instance
 //  Store returned REST/Json data to a Hash Array lookup/url+lu-data etc and check the Hash for existing data e.g. (app.config?) Data[crc32(url string) + "-" + crc32(lu-data string)] (unique?) = json data
 //var DATA_STORAGE = {};
-	this.pushData = function(data) {
-
+	this.pushData = function(srv) {
+		srv.url, srv.dataset, srv.data
 	};
 
 	this.$get = function() {
