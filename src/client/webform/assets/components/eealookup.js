@@ -7,11 +7,22 @@ app.config([ '$locationProvider', function($locationProvider) {
 	});
 }]);
 
-//app.provider('data', function() {
+/*
+app.provider('data', function() {
 // Lookup Component. AutoGrouping in case more than once instances have the same attributes & Lookup Component. When adding row, get data from existing instance
 //  Store returned REST/Json data to a Hash Array lookup/url+lu-data etc and check the Hash for existing data e.g. (app.config?) Data[crc32(url string) + "-" + crc32(lu-data string)] (unique?) = json data
 //var DATA_STORAGE = {};
-//}
+	this.pushData = function(data) {
+
+	};
+
+	this.$get = function() {
+		return function(srv) {
+			
+		};
+	};
+}
+*/
 
 app.component("lookup", {
 	template: '<select ng-model="$ctrl.parentNgModel" ng-change="$ctrl.updateLookup()" name="{{$ctrl.luName}}"  id="{{$ctrl.luName}}" def="{{$ctrl.def}}" ng-options="option{{$ctrl.luValue}} as option{{$ctrl.luOption}} for option in $ctrl.data | orderBy:\'{{$ctrl.luOrder}}\'" class="slookup" required><option value=""></option></select>',
