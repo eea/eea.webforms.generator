@@ -243,23 +243,23 @@ export default class XSDWebForm {
 				fs.mkdirSync(parent.buildPath + "schema");
 				fs.mkdirSync(parent.buildPath + "log");
 				ncp(__dirname + "/client/webform/webform.js", parent.buildPath + "webform/" + parent.baseFileName + ".webform.js", function(err) {
-						parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
-							parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
-						});
+					parent.getFile(__dirname + "/client/webform/webform.js").then((data) => {
+						parent.createFile(parent.buildPath + "webform/" + parent.baseFileName + ".webform.min.js", uglify.minify(data).code, false);
+					});
+					if (err) {
+						console.error(err);
+						reject(err);
+					}
+					ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
+						let uglified = uglifycss.processFiles(
+						[ __dirname + "/client//webform/webform.css" ],
+							{ maxLineLen: 500, expandVars: true }
+						);
+						parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);
 						if (err) {
 							console.error(err);
 							reject(err);
 						}
-						ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
-							let uglified = uglifycss.processFiles(
-							[ __dirname + "/client//webform/webform.css" ],
-								{ maxLineLen: 500, expandVars: true }
-							);
-							parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);
-							if (err) {
-								console.error(err);
-								reject(err);
-							}
 						ncp(__dirname + "/client/webform/assets/", parent.buildPath + "webform/assets", function(err) {
 							if (err) {
 								console.error(err);
