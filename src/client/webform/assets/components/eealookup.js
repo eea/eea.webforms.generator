@@ -13,13 +13,13 @@ app.provider('data', function() {
 // Store returned REST/Json data to a Hash Array lookup/url+lu-data etc and check the Hash for existing data e.g. (CRC?) Data[crc32(url string) + "-" + crc32(lu-data string)] (unique?) = json data
 // url only or url+dataset(?) - Case: Cookies, remote IP address... different results for the same url? Probably only url will do. Same cookies, address etc. Querystring is included in the URL
 //var DATA_STORAGE = {};
-	this.pushData = function(srv) {
-		srv.url, srv.dataset, srv.data
+	this.pushData = function(url, data) {
+		
 	};
 
 	this.$get = function() {
-		return function(srv) {
-			[srv.url, srv.dataset] match => return srv.data else Get Data and Save in DATA_STORAGE
+		return function(url) {
+			if DATA_STORAGE[url] return value else Get & Save DATA_STORAGE[url]
 		};
 	};
 });
