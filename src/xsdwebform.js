@@ -75,8 +75,10 @@ export default class XSDWebForm {
 			//Test Server	
 			this.serverPort = 3001;
 			
+			// Build Root directory
+			this.buildRootPath =  "build"
 			//Build directory
-			this.buildPath = "build/obligation/";
+			this.buildPath = this.buildRootPath + "/obligation/";
 			
 			// Input file variable
 			var xsdFile = null;
@@ -229,8 +231,8 @@ export default class XSDWebForm {
 	prepareStructure() {
 		var parent = this;
 		return new Promise((resolve, reject) => {
-			rimraf(__dirname + "/../build", fs, function() {
-				fs.mkdirSync(__dirname + "/../build");
+			rimraf(__dirname + "/../" + parent.buildRootPath, fs, function() {
+				fs.mkdirSync(__dirname + "/../" + parent.buildRootPath);
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
 					fs.mkdirSync(parent.buildPath + "webform");
