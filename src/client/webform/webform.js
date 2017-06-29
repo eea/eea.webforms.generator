@@ -38,6 +38,7 @@ function WebFormAppCtrl($eea, $scope) {
 }
 
 eea.services.get("eeawebformcore");
+//TODO: eea.providers
 eea.components.getAll([
 	"eeaheader", 
 	"eeamenu", 
