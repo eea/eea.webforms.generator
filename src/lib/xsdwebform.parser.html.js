@@ -831,6 +831,7 @@ class XSDWebFormParserHTMLTags {
 		var XSDWFormComplexItems = sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:sequence") 
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:sequence")
 						|| sender.getItemByName(xsdItemName, xsdItem).childNamed("xs:complexType").childNamed("xs:all");
+
 		return XSDWFormComplexItems;
 	}
 
@@ -900,6 +901,7 @@ class XSDWebFormParserHTMLTags {
 			xsdElement = sender.getItemByNameRegex(item, xsdElement);
 			if (!xsdElement) return;
 		});
+
 		return xsdElement;
 	}
 
@@ -947,6 +949,7 @@ class XSDWebFormParserHTMLTags {
 			if (child.type === "element")
 				if (child.name.match(itemname)) return child;
 		}
+		
 		return undefined;
 	}
 
