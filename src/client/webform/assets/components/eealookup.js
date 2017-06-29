@@ -11,7 +11,7 @@ app.config([ '$locationProvider', function($locationProvider) {
 app.provider('data', function() {
 // Lookup Component. AutoGrouping in case more than once instances have the same attributes & Lookup Component. When adding row, get data from existing instance
 // Store returned REST/Json data to a Hash Array lookup/url+lu-data etc and check the Hash for existing data e.g. (CRC?) Data[crc32(url string) + "-" + crc32(lu-data string)] (unique?) = json data
-// url only or url+dataset(?) - Case: Cookies, remote IP address... different results for the same url?
+// url only or url+dataset(?) - Case: Cookies, remote IP address... different results for the same url? Probably only url will do. Same cookies, address etc.
 //var DATA_STORAGE = {};
 	this.pushData = function(srv) {
 		srv.url, srv.dataset, srv.data
