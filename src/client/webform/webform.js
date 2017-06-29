@@ -14,14 +14,6 @@ function WebFormAppCtrl($eea, $scope) {
 
 	$eea.init($scope);
 
-	//examples - active js rest
-	
-	// js libraries
-	//$eea.libraries.$.2.2
-	//$eea.libraries.angular.1.6
-
-	//$eea.data.destinations.json
-
 	$scope.save = function () {
 		$eea.form.save($scope);
 	};
@@ -59,6 +51,16 @@ TODO
 - Error Reporting & Page/Form Deactivating Component or in Webform Core or in *Core. Report/Log errors @server
 
 TOTEST
+
+Active js rest
+//examples - active js rest
+	
+// js libraries
+//$eea.libraries.$.2.2
+//$eea.libraries.angular.1.6
+
+//$eea.data.destinations.json
+	
 Enviromental Computing and Networking
 
  Try dynamic loading in object - chain
