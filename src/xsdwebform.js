@@ -226,7 +226,7 @@ export default class XSDWebForm {
 	}
 
 	/**
-	 * prepareFiles - Copy JS folder to build
+	 * prepareFiles
 	 */
 	prepareStructure() {
 		var parent = this;
