@@ -17,7 +17,7 @@ app.provider('data', function() {
 	};
 
 	this.$get = function() {
-		return function(srv) {
+		return function(DSsrv) {
 			
 		};
 	};
