@@ -485,6 +485,7 @@ class XSDWebFormParserTags {
 			if (child.type === "element")
 				if (child.name.match(itemname)) return child;
 		}
+		
 		return undefined;
 	}
 
