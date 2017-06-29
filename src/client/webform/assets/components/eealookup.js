@@ -21,7 +21,7 @@ app.provider('data', function() {
 			
 		};
 	};
-}
+});
 */
 
 app.component("lookup", {
