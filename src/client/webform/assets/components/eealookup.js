@@ -18,7 +18,7 @@ app.provider('data', function() {
 
 	this.$get = function() {
 		return function(srv) {
-			[srv.url, srv.dataset] match => return srv.data else Save in DATA_STORAGE
+			[srv.url, srv.dataset] match => return srv.data else Get Data and Save in DATA_STORAGE
 		};
 	};
 });
