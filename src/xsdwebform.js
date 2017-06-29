@@ -229,7 +229,8 @@ export default class XSDWebForm {
 	prepareStructure() {
 		var parent = this;
 		return new Promise((resolve, reject) => {
-			rimraf(parent.buildPath, fs, function() {
+			rimraf(__dirname + "/../build", fs, function() {
+				fs.mkdirSync(__dirname + "/../build");
 				if (!fs.existsSync(parent.buildPath)) {
 					fs.mkdirSync(parent.buildPath);
 					fs.mkdirSync(parent.buildPath + "webform");
