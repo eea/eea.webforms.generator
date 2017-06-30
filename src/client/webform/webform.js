@@ -9,6 +9,7 @@ app.controller('WebFormAppCtrl', ['$eea', '$scope', '$http', '$timeout', '$windo
 
 /**
 * WebFormAppCtrl: Main controller
+* MultiForm / MiltuiGroup / TODO: Array of input type instead of ; separators and maybe MultiPage
 */
 function WebFormAppCtrl($eea, $scope) {
 
