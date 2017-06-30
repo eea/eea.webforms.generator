@@ -18,6 +18,7 @@ function WebFormAppCtrl($eea, $scope) {
 		$eea.form.save($scope);
 	};
 	
+	//TODO: Refactor to Save(only this form)
 	$scope.submit = function (frm, test) {
 		return $eea.form.submit(frm, test, $scope);
 	};
