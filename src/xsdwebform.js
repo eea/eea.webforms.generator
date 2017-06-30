@@ -333,7 +333,7 @@ export default class XSDWebForm {
 <script>
 var groups = {${
 	this.parser.htmlTagParser.HTMLObjects.map((frm) => { 
-		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map ((grp) => {
+		return '\n' + frm.itemObject.name + ': {'  + frm.itemObject.groups.map((grp) => {
 			return '\n\t\t\t' + grp.itemObject.name + ' : [1]';
 		}) + ' \n\t\t}';
 	})

@@ -254,6 +254,7 @@ class XSDWebFormParser {
 	"save" 			: "Save",
 	"printpreview" 		: "Print Preview",
 	"close" 		: "Close",
+	"remainingfields" 	: "Remaining fields",
 	"labels"		: {
 ${textContent}
 				}

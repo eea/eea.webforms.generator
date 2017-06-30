@@ -25,7 +25,7 @@ app.component("eeaFormValidation", {
 		};
 		this.validate = function($translate, noval) {
 			$("#eeavalidation").html("");
-			var content = '<b style="font-size:16px;margin-left:10px;margin-bottom:20px;">Remaining fields:</b><br><br><ul>';				
+			var content = '<b style="font-size:16px;margin-left:10px;margin-bottom:20px;">' + $translate.instant('remainingfields') + ':</b><br><br><ul>';				
 			$("form.eeaform").each(function(){
 				$(this).find('.formitem :input').each(function(index, fitem) {
 					var itype = fitem.type;
