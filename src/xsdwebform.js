@@ -55,7 +55,7 @@ import XSDWebFormParserTest from './lib/xsdwebform.parser.test.js';
 /**
  * Class XSDWebForm
  * XSD Schema to HTML5
- * PolyForm / PolyGroup / PolymultiSubGroup (Subgroup inside Subgroup), TODO: Array of input type instead of ; separators and maybe PolyPage
+ * PolyForm / PolyGroup / PolymultiSubGroup(todo:tabbed) (Subgroup inside Subgroup), TODO: Array of input type instead of ; separators and maybe PolyPage
  */
 export default class XSDWebForm {
 
