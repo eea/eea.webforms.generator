@@ -42,6 +42,7 @@ app.service('$eea', ['$http', '$compile', function($http, $compile) {
 					// A kind of enviromental behaviour to tasks. If it can not be automated and just coexists transparently together with the other processes, then it doesn't do. Extra work and tickets every time.
 					if (!$scope[form.name].$valid) {
 						$("#" + form.name + " .ng-invalid").first().focus();
+						return;
 					}
 				});
 			},
