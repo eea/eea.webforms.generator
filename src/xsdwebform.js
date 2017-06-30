@@ -126,6 +126,7 @@ export default class XSDWebForm {
 			
 			// XSDWebFormTest  		
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
+			
 			// Create (/clean) Build directory and move files
 			this.prepareStructure().then((res) => {
 				try {
