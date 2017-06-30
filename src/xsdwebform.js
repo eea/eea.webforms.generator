@@ -56,7 +56,7 @@ import XSDWebFormParserTest from './lib/xsdwebform.parser.test.js';
  * Class XSDWebForm
  * XSD Schema to HTML5
  * PolyForm / PolyGroup (can add rows) / PolymultiSubGroup(todo:tabbed) (Subgroup inside Subgroup), TODO: Array of input type instead of ; separators (can add input field rows) and maybe PolyPage
- * Maybe realtime .xsd interpreter (if logs and generators .docs .xslt etc are disabled). Save to disk first or stream the output directly
+ * Maybe realtime .xsd interpreter (if logs, generators .docs .xslt, prepareStructure etc are disabled). Save to disk first or stream the output directly
  */
 export default class XSDWebForm {
 
