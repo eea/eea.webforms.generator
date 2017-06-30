@@ -126,7 +126,7 @@ export default class XSDWebForm {
 			
 			// XSDWebFormTest  		
 			this.tester = new XSDWebFormParserTest(this.serverPort, this.baseFileName, this.showLog, this.verbose);
-			
+
 			// Create (/clean) Build directory and move files
 			this.prepareStructure().then((res) => {
 				try {
@@ -234,7 +234,7 @@ export default class XSDWebForm {
 		var parent = this;
 		return new Promise((resolve, reject) => {
 			rimraf(__dirname + "/../" + parent.buildRootPath, fs, function() {
-				fs.mkdirSync(__dirname + "/../" + parent.buildRootPath);
+				fs.mkdirSync(parent.buildRootPath);
 				fs.mkdirSync(parent.buildPath);
 				fs.mkdirSync(parent.buildPath + "webform");
 				fs.mkdirSync(parent.buildPath + "instance");
