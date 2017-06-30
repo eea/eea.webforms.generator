@@ -37,7 +37,7 @@
 // $what(=question.definintion, expects: type answer.$is(=definition).$there(..)
 // $where(=question.location, expects: type answer.$are(=definition).$you (plural or not? $you.$is.$the.$expert) https://www.youtube.com/watch?v=QMdU4sUeGxs
 // Usage Examples:
-// - Language objected defintion - can be "understood" by machines. A.I. (?)
+// - Language objected defintion - Can be "understood" by machines. A.I. (?)
 // - Translation machine - Match resluts againsta other languages. Example: start from English, translate to all languages and check back the final translation. Is it the same?
 // - Scripting language
 
