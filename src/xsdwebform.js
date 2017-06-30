@@ -40,6 +40,7 @@
 // - Language objected defintion - Can be "understood" by machines. A.I. (?)
 // - Translation machine - Match resluts against other languages. Example: start from English, translate to all languages (from en to de to fr to ....) and check back the final translation. Is it the same?
 //    -- Real time translation,subtitles or human<=>machine communication (in every  objected defined language)
+// - Bot/Robot
 // - Scripting language
 
 'use strict';
