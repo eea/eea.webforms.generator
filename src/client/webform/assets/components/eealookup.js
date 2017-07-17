@@ -60,7 +60,7 @@ app.component("lookup", {
 				parent.data = response.data[parent.luData];
 				if (parent.autoselect) {
 					let qs = $location.search()[parent.autoselect];
-					let fdata = parent.data.filter(function (item) {
+					let fdata = parent.data.filter(function(item) {
 						if (item[parent.luValueStr] === qs) return true;
 					});
 					if (fdata.length > 0) {

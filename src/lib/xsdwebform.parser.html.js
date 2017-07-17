@@ -4,6 +4,7 @@
  * @author George Bouris <gb@eworx.gr>
  * @copyright Copyright (C) 2017 EEA, Eworx, George Bouris. All rights reserved.
  */
+ 
 'use strict';
 
 import XSDWebFormParserError from './xsdwebform.parser.error.js';
@@ -355,7 +356,7 @@ class XSDWebFormParserHTMLTags {
 			name: name,
 			tag: 'input',
 			autoclose: false,
-			xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+			xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 			hasLabel: true,
 			label: item.label, 
 			formModel: itemFormModel,
@@ -387,7 +388,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element.replace("-", ""),
 				tag: 'textarea',
 				autoclose: true,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -421,7 +422,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'input',
 				autoclose: false,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -469,7 +470,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element.replace("-", ""),
 				tag: 'input',
 				autoclose: false,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -551,7 +552,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'select',
 				autoclose: true,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				options: enumItems,
@@ -585,7 +586,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'lookup',
 				autoclose: true,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				hide: '!h__' + item.attr.element + '${{$index + 1}}',
@@ -659,7 +660,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'radio',
 				autoclose: false,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				noTag: true,
@@ -696,7 +697,7 @@ class XSDWebFormParserHTMLTags {
 				name: item.attr.element,
 				tag: 'input',
 				autoclose: false,
-				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs .html : [],
+				xsdAttrs: (item.xsdAttrs) ? item.xsdAttrs.html : [],
 				hasLabel: true,
 				label: item.label, 
 				formModel: itemFormModel,
@@ -949,7 +950,7 @@ class XSDWebFormParserHTMLTags {
 			if (child.type === "element")
 				if (child.name.match(itemname)) return child;
 		}
-		
+
 		return undefined;
 	}
 

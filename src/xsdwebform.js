@@ -261,7 +261,7 @@ export default class XSDWebForm {
 					}
 					ncp(__dirname + "/client/webform/webform.css", parent.buildPath + "webform/" + parent.baseFileName + ".webform.css", function(err) {
 						let uglified = uglifycss.processFiles(
-						[ __dirname + "/client//webform/webform.css" ],
+						[ __dirname + "/client/webform/webform.css" ],
 							{ maxLineLen: 500, expandVars: true }
 						);
 						parent.createFile(parent.buildPath + "webform/" +  parent.baseFileName +  ".webform.min.css", uglified, false);

@@ -133,11 +133,10 @@ class XSDWebFormParser {
 					else
 						formHtml.push(groups[i].itemObject.items[i2].tagToHtml(this.htmlTagParser, 3));
 
-					groupPlaceholders.forEach((item) =>{
+					groupPlaceholders.forEach((item) => {
 						if (item.pos === i2) {
 							formHtml.push("\n\t\t\t" + item.content);
 						}
-						
 					});
 				}
 
@@ -152,7 +151,6 @@ class XSDWebFormParser {
 
 			if (form.itemObject.append)
 				formHtml.push("\t\t\t" + form.itemObject.append);
-
 
 			html.splice(html.length - 1, 0, formHtml.join('\n\n'));
 		}
@@ -187,7 +185,6 @@ class XSDWebFormParser {
 		return this.doc;
 	}
 
-
 	/**
 	 * getLanguageContent - Return Text Content 
 	 */
@@ -219,7 +216,6 @@ class XSDWebFormParser {
 			else
 				return `\t\t\t\t\t\t\t\t\t"${label.label}" : \t\t${JSON.stringify(label.text.toString())}`;
 		}).join("\n") } );
-		
 		
 		let labelContentObjectsLength = filteredLabels.length - 1;
 		let LabelContentObjects =  filteredLabels.map((label, index) => {
