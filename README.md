@@ -19,3 +19,7 @@ Examine the examples in [/test](./test) and build them using this command
 where _"./test/dstypes"_ is the path and name of the webform to generate. 
 
 The result will be put in `/build`.
+
+## Further information
+
+See [/src/client/dev/readme.md](/src/client/dev/readme.md) for further information on how to use the generated webform project.
