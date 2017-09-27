@@ -1,47 +1,28 @@
-EEA Web Form Build Info
-========================
+# How to use the generated (built) webform
 
----------------------------------
-Getting Started / Setup
----------------------------------
-- cd /dev directory
-- *(once only) npm install
+## Setup
 
+Navigate to the `build\dev` directory and install the dependencies using `npm install`.
 
+## Linting
 
-*********************************
- Test Info
-**********************************
----------------------------------
-Lint test
----------------------------------
-- npm run lint 
+Do a code linting test by running `npm run lint`
 
----------------------------------
-WCAG-2 accessibility test
----------------------------------
-- *(once only) edit URL_TO_TEST variable in dev/test.js file  
-- npm test 
+## Accessibility test
 
+Do a WCAG-2 accessibility test by 
 
-*********************************
- BUILD Info
-**********************************
----------------------------------
-Repackage .js ([webFormName].webform.js) and .css ([webFormName].webform.css)  files
----------------------------------
-- npm run build 
-  look in directory dev/dist for minified versions of [webFormName].webform.js and [webFormName].webform.css
+- Edit the _URL_TO_TEST_ variable in test.js
+- Run `npm test`
 
----------------------------------
-Deploy  .js ([webFormName].webform.js) and .css ([webFormName].webform.css)  files
----------------------------------
-- npm run deploy
-  *overwrites  [webFormName].webform.min.js and [webFormName].webform.min.css
+## Build files
 
+To re-build the webform, run `npm run build` and look in the directory dev/dist for minified versions of [webFormName].webform.js and [webFormName].webform.css
+
+## Build minified files
+To re-build the webform as minified files, run `npm run deploy`, which overwrites [webFormName].webform.min.js and [webFormName].webform.min.css
+
+## Repackage all included components
 ---------------------------------
-Repackage all including Components
----------------------------------
-- npm run buildall 
-  look in directory dev/dist for minified versions of [webFormName].webform.js and [webFormName].webform.css and in dev/dist/assets for Components
+Run `npm run buildall` and look in the directory dev/dist for minified versions of [webFormName].webform.js and [webFormName].webform.css and in dev/dist/assets for components
 
