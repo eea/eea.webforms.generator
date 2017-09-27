@@ -1,1 +1,0 @@
-nodemon ./src/xsdwebform.js --exec babel-node --presets es2015,stage-2 -f ./test/dstypes
