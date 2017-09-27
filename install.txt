@@ -1,5 +1,0 @@
-npm install
-
-// In case nodemon and babel-node are not available from command line
-npm install -g nodemon
-npm install -g babel-cli
